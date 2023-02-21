@@ -9,3 +9,13 @@ systemd/
 Thunar
 example.picom.conf
 eos-update-notifier.first_init
+Code - OSS/
+autostart/
+dconf/
+gtk-3.0/
+gtk-4.0/
+nano/
+pulse/
+reflector-simple-free-params.txt
+user-dirs.dirs
+user-dirs.locale
