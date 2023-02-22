@@ -24,4 +24,4 @@ alias ...="cd ../../"
 
 PROMPT='%B%F{240}%1~%f%b%F{11} %# '
 
-source ~/.config/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
