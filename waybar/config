@@ -71,7 +71,7 @@
         "spacing": 10
     },
     "clock": {
-        "timezone": "America/Chicago",
+        "timezone": "America/Detroit",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 	"format": "{:%a, %d %b, %I:%M %p}"
     },
