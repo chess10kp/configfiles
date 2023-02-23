@@ -12,7 +12,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 #
-#
 
 alias e="exit"
 alias c="clear"
