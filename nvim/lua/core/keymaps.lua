@@ -1,13 +1,30 @@
 vim.g.mapleader = ";"
-vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
+function nmap(key, action)
+        return vim.keymap.set('n',key,action)
+end
+function imap(key, action)
+        return vim.keymap.set('i',key,action)
+end
+function vmap(key, action)
+        return vim.keymap.set('v',key,action)
+end
+function tmap(key, action)
+        return vim.keymap.set('t',key,action)
+end
 
-vim.keymap.set("n","<leader>w", vim.cmd.w)
-vim.keymap.set("n","<leader>q", vim.cmd.q)
 
 
-vim.keymap.set("n", "<leader>a", vim.cmd.ToggleTerm)
+nmap( "<leader>e", vim.cmd.Explore)
+nmap("<leader>w", vim.cmd.w)
+nmap("<leader>q", vim.cmd.q)
+nmap("<leader>s",vim.cmd.so)
+
+--terminal keymaps
+
+nmap( "<leader>a", vim.cmd.ToggleTerm)
 function _G.set_terminal_keymaps()
     local opts = {buffer = 0}
     vim.keymap.set('t', '<C-w>', [[[<Cmd>wincmd k<CR>]], opts)
 end
+
 

@@ -1,18 +1,21 @@
 local g = vim.g
 local opt = vim.opt
+local augroup = vim.api.nvim_create_augroup
                 
 g.netrw_banner = 0
 g.netrw_liststyle = 3
-g.netrw_browse_split = 1
-g.netrw_altv = 1
-g.netrw_keepdir = 0
-g.netrw_winsize =20
-local augroup = vim.api.nvim_create_augroup
+g.netrw_browse_split = 0
+g.netrw_altv = 0
+g.autochdir = on
 
 opt.guicursor = ""
 
+
 opt.number = true
 opt.relativenumber = true
+
+opt.splitbelow = true
+opt.splitright = true
 
 opt.tabstop = 8
 opt.softtabstop = 8
