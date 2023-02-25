@@ -1,38 +1,41 @@
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 0
-vim.g.netrw_browse_split = 3
-vim.g.netrw_altv = 1
-vim.g.netrw_keepdir = 0
-vim.g.netrw_winsize =75
+local g = vim.g
+local opt = vim.opt
+                
+g.netrw_banner = 0
+g.netrw_liststyle = 3
+g.netrw_browse_split = 1
+g.netrw_altv = 1
+g.netrw_keepdir = 0
+g.netrw_winsize =20
 local augroup = vim.api.nvim_create_augroup
 
-vim.opt.guicursor = ""
+opt.guicursor = ""
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.tabstop = 8
+opt.softtabstop = 8
+opt.shiftwidth = 8
+opt.expandtab = true
 
-vim.opt.smartindent = true
+opt.smartindent = true
 
-vim.opt.wrap = false
+opt.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+opt.hlsearch = false
+opt.incsearch = true
 
-vim.opt.termguicolors = true
+opt.termguicolors = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+opt.updatetime = 50
 
