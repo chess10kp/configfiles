@@ -21,6 +21,13 @@ alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
 
+function mkcir
+{
+  command mkdir $1 && cd $1
+}
+
 PROMPT='%B%F{240}%1~%f%b%F{11} %# '
+
+
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
