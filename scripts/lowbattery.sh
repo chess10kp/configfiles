@@ -1,7 +1,7 @@
 #!/bin/bash
 
 POWERSUPPLY="/sys/class/power_supply/ACAD/online" # could be different on your system!
-TOO_LOW=10 # how low is too low?
+TOO_LOW=20 # how low is too low?
 NOT_CHARGING="0"
 
 export DISPLAY=:0

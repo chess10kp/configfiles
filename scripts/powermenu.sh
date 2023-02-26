@@ -1,10 +1,10 @@
 #!/usr/bin/sh
 
 nothing='\uebc6'
-shutdown=''
-reboot=''
-suspend=''
-logout=''
+shutdown=' Shutdown'
+reboot=' Reboot'
+suspend=' Suspend'
+logout=' Logout'
 
 POWER_STATE="${nothing}\n${shutdown}\n${reboot}\n${suspend}\n${logout}"
 TIME=$(uptime|grep -o "[0-9][0-9]:[0-9][0-9]:[0-9][0-9]")
