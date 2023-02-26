@@ -3,7 +3,7 @@ require("tokyonight").setup({
   -- or leave it empty to use the default settings
   style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
-  transparent = true, -- Enable this to disable setting the background color
+  transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -13,7 +13,7 @@ require("tokyonight").setup({
     functions = {},
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = "dark", -- style for sidebars, see below
+    sidebars = "light", -- style for sidebars, see below
     floats = "dark", -- style for floating windows
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
@@ -34,3 +34,4 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 vim.cmd[[colorscheme tokyonight-night]]
+vim.cmd[[hi LineNr guibg=#000000 guifg=#f12fff]] --color for line numbers

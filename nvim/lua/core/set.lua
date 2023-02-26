@@ -1,12 +1,13 @@
 local g = vim.g
 local opt = vim.opt
 local augroup = vim.api.nvim_create_augroup
-                
+
 g.netrw_banner = 0
 g.netrw_liststyle = 3
 g.netrw_browse_split = 0
 g.netrw_altv = 0
 g.autochdir = on
+
 
 opt.guicursor = ""
 
