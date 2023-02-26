@@ -24,12 +24,7 @@ return require('packer').startup(function(use)
                 'nvim-lualine/lualine.nvim',
         }
 
-        use {
-                "startup-nvim/startup.nvim",
-                requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-                require("startup").setup({theme="startify"})
-        }
-
+        use 'mhinz/vim-startify'
         use 'norcalli/nvim-colorizer.lua'
 
 

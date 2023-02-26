@@ -4,10 +4,9 @@ type=libvirt
 uri=qemu+unix:///session
 save-on-quit=true
 
-[display edf9a4ef-9aed-4883-a6e7-152e5a41a7fc]
-last-seen-name=Win10Pro
-uuid=edf9a4ef-9aed-4883-a6e7-152e5a41a7fc
-run-in-bg=false
-access-last-time=1677395662226367
-access-ntimes=3
-access-total-time=2307
+[display a10b44bc-f148-4135-9f84-b15b862f12a2]
+last-seen-name=Win10Pro 2
+uuid=a10b44bc-f148-4135-9f84-b15b862f12a2
+run-in-bg=true
+access-last-time=1677440274379207
+access-ntimes=1

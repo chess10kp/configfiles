@@ -9,6 +9,10 @@ g.netrw_altv = 0
 g.autochdir = on
 
 
+g.startify_custom_header = ""
+
+
+
 opt.guicursor = ""
 
 

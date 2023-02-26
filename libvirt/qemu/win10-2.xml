@@ -1,29 +1,31 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit win10
+  virsh edit win10-2
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>win10</name>
-  <uuid>edf9a4ef-9aed-4883-a6e7-152e5a41a7fc</uuid>
-  <title>Win10Pro</title>
+  <name>win10-2</name>
+  <uuid>a10b44bc-f148-4135-9f84-b15b862f12a2</uuid>
+  <title>Win10Pro 2</title>
   <metadata>
     <boxes:gnome-boxes xmlns:boxes="https://wiki.gnome.org/Apps/Boxes">
-      <os-state>installed</os-state>
+      <os-state>live</os-state>
       <media>/home/nitin/Downloads/Win10Pro.iso</media>
     </boxes:gnome-boxes>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://microsoft.com/win/10"/>
     </libosinfo:libosinfo>
   </metadata>
-  <memory unit='KiB'>4299161</memory>
-  <currentMemory unit='KiB'>4299161</currentMemory>
+  <memory unit='KiB'>5767168</memory>
+  <currentMemory unit='KiB'>5767168</currentMemory>
   <vcpu placement='static'>8</vcpu>
   <os>
     <type arch='x86_64' machine='pc-q35-7.2'>hvm</type>
+    <boot dev='cdrom'/>
     <boot dev='hd'/>
+    <bootmenu enable='yes'/>
   </os>
   <features>
     <acpi/>
@@ -38,7 +40,7 @@ or other application using the libvirt API.
     <timer name='hpet' present='no'/>
   </clock>
   <on_poweroff>destroy</on_poweroff>
-  <on_reboot>restart</on_reboot>
+  <on_reboot>destroy</on_reboot>
   <on_crash>destroy</on_crash>
   <pm>
     <suspend-to-mem enabled='no'/>
@@ -48,13 +50,13 @@ or other application using the libvirt API.
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' cache='writeback'/>
-      <source file='/home/nitin/.local/share/gnome-boxes/images/win10'/>
+      <source file='/home/nitin/.local/share/gnome-boxes/images/win10-2'/>
       <target dev='sda' bus='sata'/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-      <source file='/home/nitin/Downloads/Win10Pro.iso' startupPolicy='optional'/>
+      <source file='/home/nitin/Downloads/Win10Pro.iso' startupPolicy='mandatory'/>
       <target dev='hdc' bus='sata'/>
       <readonly/>
       <address type='drive' controller='0' bus='0' target='0' unit='2'/>
@@ -66,12 +68,6 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x00' slot='0x1f' function='0x2'/>
     </controller>
     <controller type='pci' index='0' model='pcie-root'/>
-    <controller type='virtio-serial' index='0'>
-      <address type='pci' domain='0x0000' bus='0x05' slot='0x00' function='0x0'/>
-    </controller>
-    <controller type='ccid' index='0'>
-      <address type='usb' bus='0' port='1'/>
-    </controller>
     <controller type='pci' index='1' model='pcie-root-port'>
       <model name='pcie-root-port'/>
       <target chassis='1' port='0x10'/>
@@ -101,8 +97,14 @@ or other application using the libvirt API.
       <target chassis='6' port='0x14'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x4'/>
     </controller>
+    <controller type='virtio-serial' index='0'>
+      <address type='pci' domain='0x0000' bus='0x05' slot='0x00' function='0x0'/>
+    </controller>
+    <controller type='ccid' index='0'>
+      <address type='usb' bus='0' port='1'/>
+    </controller>
     <interface type='user'>
-      <mac address='52:54:00:e6:88:c0'/>
+      <mac address='52:54:00:a7:72:e4'/>
       <model type='rtl8139'/>
       <address type='pci' domain='0x0000' bus='0x02' slot='0x01' function='0x0'/>
     </interface>
