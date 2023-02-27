@@ -6,7 +6,10 @@ return require('packer').startup(function(use)
         use 'nvim-treesitter/nvim-treesitter'
 
         use 'folke/tokyonight.nvim'
+        use { "catppuccin/nvim", as = "catppuccin" }
         use 'nvim-tree/nvim-web-devicons'
+
+
 
         use {
                 'nvim-telescope/telescope.nvim', tag = '0.1.1',

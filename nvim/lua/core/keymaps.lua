@@ -11,8 +11,10 @@ nmap("<leader>s",vim.cmd.so)
 
 --terminal keymaps
 
-nmap( "<C-b>", vim.cmd.ToggleTerm)
-tmap( "<C-b>", vim.cmd.ToggleTerm)
+nmap( "<C-n>", vim.cmd.ToggleTerm)
+tmap( "<C-n>", vim.cmd.ToggleTerm)
+
+--telecope keymaps
 
  local builtin = require('telescope.builtin')
  nmap('<leader>fg',builtin.live_grep)
@@ -25,3 +27,6 @@ vim.api.nvim_set_keymap(
   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
   { noremap = true }
 )
+
+nmap(';;', ':')
+
