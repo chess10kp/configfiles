@@ -1,12 +1,13 @@
 vim.cmd [[packadd packer.nvim]]
-
+vim.cmd[[colorscheme catppuccin-mocha]]
+vim.cmd[[hi LineNr guibg=#000000 guifg=#f12fff]] --color for line numbers
 return require('packer').startup(function(use)
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
         use 'nvim-treesitter/nvim-treesitter'
 
         use 'folke/tokyonight.nvim'
-        use { "catppuccin/nvim", as = "catppuccin" }
+        use { "catppuccin/nvim"}
         use 'nvim-tree/nvim-web-devicons'
 
 
@@ -38,11 +39,9 @@ return require('packer').startup(function(use)
         }
         use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
         use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-        use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
         use 'L3MON4D3/LuaSnip' -- Snippets plugin
-
-
 end)
+
 
 
 

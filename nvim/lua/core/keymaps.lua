@@ -1,8 +1,25 @@
 vim.g.mapleader = ";"
 require("core.keymap_functions")
 
+nmap(';;', ':')
+
+vmap('v', 'V')
+nmap('V', 'v$')
+nmap('Y', 'y$')
+
+nmap('H', '0')
+nmap('L','$')
+nmap('J', '<Nop>')
+
+imap('<C-j>', '<Down>')
+imap('<C-k>', '<Up>')
+imap('<C-l>', '<Left>')
+imap('<C-h>', '<Right>')
+
 nmap("<C-p>", '"+p')
 vmap("<C-c>", '"+y')
+
+nmap("Q", "@q")
 
 nmap( "<leader>e", vim.cmd.Explore)
 nmap("<leader>w", vim.cmd.w)
@@ -13,7 +30,6 @@ nmap("<leader>s",vim.cmd.so)
 
 nmap( "<C-n>", vim.cmd.ToggleTerm)
 tmap( "<C-n>", vim.cmd.ToggleTerm)
-
 --telecope keymaps
 
  local builtin = require('telescope.builtin')
@@ -27,6 +43,4 @@ vim.api.nvim_set_keymap(
   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
   { noremap = true }
 )
-
-nmap(';;', ':')
 
