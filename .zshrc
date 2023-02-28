@@ -27,6 +27,7 @@ alias sdr="sudo pacman -R"
 alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
+alias n="nvim"
 
 function mkcir
 {

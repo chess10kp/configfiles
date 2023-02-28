@@ -103,7 +103,10 @@
     "battery": {
         "bat" : "BAT1",
         "states": {
-            "good": 95,
+            "great": 95,
+            "good": 80,
+            "medium": 65,
+            "decent": 50,
             "warning": 30,
             "critical": 15
         },
