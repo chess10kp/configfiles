@@ -1,5 +1,5 @@
 local telescope = require("telescope") --enables hidden files
-
+local fb_actions = require "telescope".extensions.file_browser.actions
  -- I want to search in hidden/dot files.
  -- I don't want to search in the `.git` directory.
 
@@ -47,7 +47,15 @@ local telescope = require("telescope") --enables hidden files
                  file_browser = {
                          hijack_netrw = true,
                                           },
+        mappings = {
+        ["i"] = {
+
+        },
+        ["n"] = {
+        },
          },
+ }
+
  })
 
 

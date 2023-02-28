@@ -4,9 +4,8 @@ type=libvirt
 uri=qemu+unix:///session
 save-on-quit=true
 
-[display a10b44bc-f148-4135-9f84-b15b862f12a2]
-last-seen-name=Win10Pro 2
-uuid=a10b44bc-f148-4135-9f84-b15b862f12a2
-run-in-bg=true
-access-last-time=1677440274379207
+[display f1fc860d-7c7e-40f9-afe6-ea03b781b20c]
+last-seen-name=Microsoft Windows 11
+uuid=f1fc860d-7c7e-40f9-afe6-ea03b781b20c
+access-last-time=1677535570293502
 access-ntimes=1
