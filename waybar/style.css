@@ -6,8 +6,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0);
-    border-bottom: 3px solid rgba(100, 114, 125, 0);
+    background-color:rgba(43, 48, 59, 0);
+    border-bottom: 10px solid rgba(100, 114, 125, 0);
     color: #bd93f9;
     transition-property: background-color;
     transition-duration: .5s;
@@ -75,9 +75,9 @@ button {
 #window,
 #workspaces {
     margin-top: 0rem;
-    background: /*#11111D */ rgba(26,26,26,.4); 
+    background: #000000 ;/*#11111D  rgba(26,26,26,.4); */
     padding: 0 1rem;
-    border-radius: .75rem;
+    border-radius: 0;/*.75rem;*/
 }
 #battery{
     padding-right: 1.75rem;

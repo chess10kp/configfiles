@@ -1,13 +1,13 @@
 {
     // "layer": "top", // Waybar at top layer
-     "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     //"height": 20, // Waybar height (to be removed for auto height)
-    // "width": 90%, // Waybar width
+    //"width": 1000, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces",  "custom/media"],
     "modules-center": ["clock",],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory",   "battery#bat2", "tray"],
+    "modules-right": ["pulseaudio", "network", "cpu", "battery", "tray"],
     // Modules configuration
      "wlr/workspaces": {
          "disable-scroll": true,
@@ -23,7 +23,7 @@
              "7": "VII",
              "8": "VIII",
              "9": "IX",
-             "10": "X",
+             "10": "🎜",
              "urgent": "",
              "focused": "",
              "default": ""
@@ -101,8 +101,9 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
+        "bat" : "BAT1",
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -127,13 +128,13 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "{icon} {format_source}",
         "format-muted": "{format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+       "format-source": "{volume}% ",
+       "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
