@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -26,8 +33,11 @@ function mkcir
   command mkdir $1 && cd $1
 }
 
-PROMPT='%B%F{240}%1~%f%b%F{11} %# '
 
 
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
