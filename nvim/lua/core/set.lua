@@ -6,7 +6,7 @@ g.netrw_banner = 0
 g.netrw_liststyle = 3
 g.netrw_browse_split = 0
 g.netrw_altv = 0
-g.autochdir = on
+g.autochdir = off
 
 
 g.startify_custom_header = ""

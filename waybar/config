@@ -78,14 +78,16 @@
     "clock": {
         "timezone": "America/Detroit",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	"format": "{:%a, %d %b, %I:%M %p}"
+	"format": "{:%I:%M %p}",
+        "format-alt": "{:%a, %d %b}"
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "eww open --toggle system-menu"
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -108,7 +110,7 @@
             "medium": 65,
             "decent": 50,
             "warning": 30,
-            "critical": 15
+            "critical": 20
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",

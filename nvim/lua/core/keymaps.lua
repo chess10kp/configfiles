@@ -13,8 +13,8 @@ nmap('J', '<Nop>')
 
 imap('<C-j>', '<Down>')
 imap('<C-k>', '<Up>')
-imap('<C-l>', '<Left>')
-imap('<C-h>', '<Right>')
+imap('<C-l>', '<Right>')
+imap('<C-h>', '<Left>')
 
 nmap("<C-p>", '"+p')
 vmap("<C-c>", '"+y')
