@@ -77,9 +77,9 @@
     },
     "clock": {
         "timezone": "America/Detroit",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 	"format": "{:%I:%M %p}",
-        "format-alt": "{:%a, %d %b}"
+        "format-alt": "{:%a, %d %b}",
+        "on-click": "eww open --toggle calendar"
     },
     "cpu": {
         "format": "{usage}% ",

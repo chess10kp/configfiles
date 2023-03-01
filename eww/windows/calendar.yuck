@@ -1,7 +1,7 @@
 (defwidget calendar-win []
   (box
     :class "calendar-win"
-    :style "font-family: ProductSans;"
+    :style "font-family: TerminessTTF Nerd Font;"
     (calendar)))
 
 (defwindow calendar
@@ -9,8 +9,8 @@
   :geometry (geometry
     :x "0%"
     :y "0%"
-  	:anchor "top right"
+  	:anchor "bottom center"
     :width "0px"
-    :style "font-family: ProductSans;"
+    :style "font-family: TerminessTTF Nerd Font;"
     :height "0px")
   (calendar-win))

@@ -8,14 +8,14 @@ import shutil
 PATH = []
 PATH.append(WM_CONFIG_FILE_PATH)
 options =  '\n'.join([ 'animations'])
-animations_options = '\n'.join(['on', 'off'])
+animations_options = ['on', 'off']
 
 
 options_choice = run(DMENU_CMD, input=options, capture_output=True,  text=True).stdout.strip()
 
 if options_choice == 'animations':
-    sub_options = run(DMENU_CMD, input=animations_options, capture_output=True, text=True).stdout.strip()
-    if sub_options == 'on':
+    sub_options = run(DMENU_CMD, input='\n'.join(animations_options), capture_output=True, text=True).stdout.strip()
+    if sub_options == animations_options[0]:
         with open(WM_CONFIG_FILE_PATH, 'r') as input_file, open(WM_CONFIG_FILE_PATH+'.bak', 'w') as output_file:
             for line in input_file:
                 if 'enabled=no' in line:
@@ -23,7 +23,7 @@ if options_choice == 'animations':
                 output_file.write(line)
             shutil.move(WM_CONFIG_FILE_PATH+'.bak', WM_CONFIG_FILE_PATH)
             
-    if sub_options == 'off':
+    if sub_options == animations_options[1]:
         with open(WM_CONFIG_FILE_PATH, 'r') as input_file, open(WM_CONFIG_FILE_PATH+'.bak', 'w') as output_file:
             for line in input_file:
                 if 'enabled=yes' in line:

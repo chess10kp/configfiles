@@ -1,7 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import subprocess
 from config import DMENU_CMD
+from config import MENU_PATH
+
+print(MENU_PATH)
 
 selected_option = None
 settings  = [
@@ -18,9 +21,7 @@ except subprocess.SubprocessError:
 
 
 if selected_option == "Resolution":
-    subprocess.run(["./resolution.py"])
+    subprocess.run([f"{MENU_PATH[0]}/resolution.py"])
 elif selected_option == "Window Manager":
-    subprocess.run(["./window_manager.py"])
-else:
-    print("Invalid option selected.")
+    subprocess.run([f"{MENU_PATH[0]}/window_manager.py"])
 
