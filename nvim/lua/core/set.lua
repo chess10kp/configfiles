@@ -22,9 +22,9 @@ opt.relativenumber = true
 opt.splitbelow = true
 opt.splitright = true
 
-opt.tabstop = 8
-opt.softtabstop = 8
-opt.shiftwidth = 8
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
 
 opt.smartindent = true
@@ -46,5 +46,4 @@ opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 
 opt.updatetime = 50
-
 

@@ -21,6 +21,9 @@ vmap("<C-c>", '"+y')
 
 nmap("Q", "@q")
 
+imap("{}","{}<Left>")
+imap("()","()<Left>")
+
 nmap( "<leader>e", vim.cmd.Explore)
 nmap("<leader>w", vim.cmd.w)
 nmap("<leader>q", vim.cmd.q)

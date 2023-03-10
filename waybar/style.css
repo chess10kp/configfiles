@@ -56,6 +56,7 @@ button {
     border-bottom: 3px solid #ffffff;
 }
 
+#submap,
 #clock,
 #battery,
 #cpu,
@@ -108,16 +109,6 @@ button {
     margin-right: .9rem;
 }
 
-#clock {
-}
-
-#battery {
-    
-}
-
-#battery.charging, #battery.plugged {
-}
-
 @keyframes blink {
     to {
         background-color: #ffffff;
@@ -131,58 +122,6 @@ button {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-label:focus {
-}
-
-#cpu {
-}
-
-#memory {
-}
-
-#disk {
-}
-
-#backlight {
-}
-
-#network {
-}
-
-#network.disconnected {
-}
-
-#pulseaudio {
-}
-
-#pulseaudio.muted {
-}
-
-#wireplumber {
-}
-
-#wireplumber.muted {
-}
-
-#custom-media {
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-}
-
-#custom-media.custom-vlc {
-}
-
-#temperature {
-}
-
-#temperature.critical {
-}
-
-#tray {
 }
 
 #tray > .passive {

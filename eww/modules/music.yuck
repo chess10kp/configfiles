@@ -1,25 +1,12 @@
-(defwidget music-module []
-  (eventbox
-    :onhover "${EWW_CMD} update music_reveal=true"
-    :onhoverlost "${EWW_CMD} update music_reveal=false"
-    (box
-      :class "module"
-      :space-evenly false
-      (box
-        :class "song-cover-art"
-        :style "background-image: url(\"${music_cover}\");")
-      (button
-        :class "module"
-        :onclick "${EWW_CMD} open --toggle music"
-        :style "font-family: ProductSans;"
-        {music.title})
-      (revealer
-        :transition "slideright"
-        :reveal music_reveal
-        :style "font-family: ProductSans;"
-        :duration "350ms"
-        (box
-          :class "icon"
-          (button :class "song-button" :onclick "playerctl previous" "")
-          (button :class "song-button" :onclick "playerctl play-pause" {music.status})
-          (button :class "song-button" :onclick "playerctl next" ""))))))
+(defwidget music [] 
+	(box :class "genwin" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+		(box :class "album_art" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
+		(box :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(label :halign "center" :class "song" :wrap "true" :limit-width 20 :text SONG)
+			(label :halign "center" :class "artist" :wrap "true" :limit-width 15 :text ARTIST)
+			(box :orientation "h" :spacing 20 :halign "center" :space-evenly "true" :vexpand "false" :hexpand "false" 
+				(button :class "btn_prev" :onclick "scripts/music_info --prev" "玲")
+				(button :class "btn_play" :onclick "scripts/music_info --toggle" STATUS)
+				(button :class "btn_next" :onclick "scripts/music_info --next" "怜"))
+			(box :class "music_bar" :halign "center" :vexpand "false" :hexpand "false" 
+				(scale :onscroll "mpc -q seek +1" :min 0 :active "true" :max 100 :value CURRENT)))))

@@ -1,64 +1,58 @@
-.song-cover-art {
-  @include rounding;
-  background-position: center;
-  background-size: cover;
-  margin: 4px 5px 4px 0;
-  min-height: 24px;
-  min-width: 24px;
+.genwin {
+	background-color: #2E3440;
+	border-radius: 16px;
+}
+album_art {
+	background-size: 240px;
+	min-height: 240px;
+	min-width: 240px;
+	margin: 20px;
+	border-radius: 14px;
 }
 
-.music-window {
-  @include window;
-  background-color: $bg;
-  border: 1px solid $border;
-  color: $fg;
+.song {
+	color: #8FBCBB;
+	font-size : 24px;
+	font-weight : bold;
+	margin : 40px 0px 0px 0px;
 }
 
-.music-cover-art {
-  background-position: center;
-  background-size: cover;
-  border-radius: 8px;
-  margin: 1em;
-  min-height: 170px;
-  min-width: 170px;
+.artist {
+	color: #EBCB8B;
+	font-size : 16px;
+	font-weight : normal;
+	margin : 0px 0px 15px 0px;
 }
 
-.music-box {
-  margin: 1rem 1rem 1rem 0;
+.btn_prev, .btn_play, .btn_next {
+	font-family: Iosevka Nerd Font;
+}
+.btn_prev {
+	color: #EBCB8B;
+	font-size : 32px;
+	font-weight : normal;
+}
+.btn_play {
+	color: #A3BE8C;
+	font-size : 48px;
+	font-weight : bold;
+}
+.btn_next {
+	color: #EBCB8B;
+	font-size : 32px;
+	font-weight : normal;
 }
 
-.music-title {
-  font-weight: bold;
-  font-size: 1.1rem;
+.music_bar scale trough highlight {
+	all: unset;
+	background-color: #B48EAD;
+	border-radius: 8px;
 }
-
-.music-artist {
-  color: $subtext1;
-  font-family: ProductSans;
-
-}
-
-.music-button label {
-  color: $subtext1;
-  font-size: 2rem;
-}
-
-.music-time {
-  color: $subtext1;
-  margin: 0 1rem;
-}
-
-.music-bar scale {
-  highlight {
-    background-image: linear-gradient(to right, $teal, $sky);
-    border-radius: 24px;
-  }
-
-  trough {
-    background-color: $bg1;
-    border-radius: 24px;
-    margin-top: 0;
-    min-height: 10px;
-    min-width: 170px;
-  }
+.music_bar scale trough {
+	all: unset;
+	background-color: #3A404C;
+	border-radius: 8px;
+	min-height: 20px;
+	min-width: 310px;
+	margin : 10px 0px 0px 0px;
 }

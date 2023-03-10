@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
         use 'wbthomason/packer.nvim'
         use 'nvim-treesitter/nvim-treesitter'
 
-        use 'folke/tokyonight.nvim'
+        --use 'folke/tokyonight.nvim'
         use { "catppuccin/nvim"}
         use 'nvim-tree/nvim-web-devicons'
 

@@ -19,7 +19,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 #
-
 alias e="exit"
 alias c="clear"
 alias sdi="yay -S"
@@ -34,7 +33,10 @@ function mkcir
   command mkdir $1 && cd $1
 }
 
-
+function yt
+{
+    command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'
+}
 
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
