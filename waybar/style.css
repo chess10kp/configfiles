@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-    background-color:rgba(43, 48, 59, 0);
+    background-color: rgba(0,0,0,0);
     border-bottom: 10px solid rgba(100, 114, 125, 0);
     color: #bd93f9;
     transition-property: background-color;
@@ -75,8 +75,8 @@ button {
 #mpd,
 #window,
 #workspaces {
-    margin-bottom: 0.5rem;
-    background: #000000 ;/*#11111D  rgba(26,26,26,.4); */
+    margin-bottom: 0.0rem;
+    background: rgba(0,0,0,2);/*#11111D  rgba(26,26,26,.4); */
     padding: 0 1rem;
     border-radius: 0.5rem;/*.75rem;*/
 }

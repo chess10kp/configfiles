@@ -1,29 +1,29 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-                          //"height": 20, // Waybar height (to be removed for auto height)
+                          "height": 20, // Waybar height (to be removed for auto height)
                           //"width": 1000, // Waybar width
         "spacing": 4, // Gaps between modules (4px)
                       // Choose the order of the modules
         "modules-left": ["wlr/workspaces",  "custom/media"],
         "modules-center": ["clock","hyprland/submap"],
-        "modules-right": ["pulseaudio", "network", "cpu", "battery", "tray"],
+        "modules-right": ["pulseaudio", "network",  "battery", "tray"],
         // Modules configuration
         "wlr/workspaces": {
             "disable-scroll": true,
             "all-outputs": true,
             "format": "{icon}",
             "format-icons": {
-                "1": "𐄇",
-                "2": "𐄈",
-                "3": "𐄉",
-                "4": "𐄊 ",
-                "5": "𐄋",
-                "6": "𐄌",
-                "7": "𐄍",
-                "8": "𐄎",
-                "9": "𐄏",
-                "10": "𐄐",
+                "1": "I",
+                "2": "II",
+                "3": "III",
+                "4": "IV ",
+                "5": "V",
+                "6": "VI",
+                "7": "VII",
+                "8": "VIII",
+                "9": "IX",
+                "10": "X",
                 "urgent": "",
                 "focused": "",
                 "default": ""
@@ -93,6 +93,7 @@
         },
         "memory": {
             "format": "{}% ",
+            "on-click": "eww open --toggle system-menu"
         },
         "temperature": {
             // "thermal-zone": 2,
@@ -123,14 +124,15 @@
             "format-alt": "{time} {icon}",
             // "format-good": "", // An empty format will hide the module
             // "format-full": "",
-            "format-icons": ["", "", "", "", ""]
+            "format-icons": ["", "", "", "", ""],
+            "on-click": "eww open --toggle system-menu"
         },
         "battery#bat2": {
             "bat": "BAT1"
         },
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
-            "format-wifi": "{essid} ({signalStrength}%) ",
+            "format-wifi": " ", // {essid}
             "format-ethernet": "Ethernet ",
             "tooltip-format": "{ifname} via {gwaddr}",
             "format-linked": "{ifname} (No IP)",
@@ -156,18 +158,6 @@
             },
             "on-click": "pavucontrol"
         },
-        "custom/media": {
-            "format": "{icon} {}",
-            "return-type": "json",
-            "max-length": 40,
-            "format-icons": {
-                "spotify": "",
-                "default": "🎜"
-            },
-            "escape": true,
-            "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-                                                                       // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-        }
 }
 
 

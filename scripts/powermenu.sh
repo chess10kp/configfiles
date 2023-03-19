@@ -6,7 +6,7 @@ reboot=' Reboot'
 suspend=' Suspend'
 logout=' Logout'
 
-POWER_STATE="${nothing}\n${shutdown}\n${reboot}\n${suspend}\n${logout}"
+POWER_STATE="${shutdown}\n${reboot}\n${logout}"
 TIME=$(uptime|grep -o "[0-9][0-9]:[0-9][0-9]:[0-9][0-9]")
 POWER_SELECTION=$(echo -e $POWER_STATE | fuzzel -d --background=11111DFF -p"Uptime: "$TIME -l4 )
 echo $POWER_SELECTION

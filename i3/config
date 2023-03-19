@@ -429,7 +429,7 @@ bar {
 		font pango: Noto Sans Regular 10
 		#status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position bottom
-#	    	i3bar_command i3bar --transparency
+	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    #tray_output primary
@@ -506,5 +506,4 @@ exec --no-startup-id xmodmap ~/.Xmodmap
 #keycode 9 = Caps_Lock NoSymbol Caps_Lock
 #keycode 66 = Escape NoSymbol Escape
 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wp/$(ls ~/Pictures/wp| shuf | head -n 1)
 exec_always --no-startup-id xset r rate 200 40
