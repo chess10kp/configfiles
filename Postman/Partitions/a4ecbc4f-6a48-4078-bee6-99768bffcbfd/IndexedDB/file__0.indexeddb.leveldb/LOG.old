@@ -1,0 +1,10 @@
+2023/03/11-13:16:42.619 35e4 Creating DB /home/nitin/.config/Postman/Partitions/a4ecbc4f-6a48-4078-bee6-99768bffcbfd/IndexedDB/file__0.indexeddb.leveldb since it was missing.
+2023/03/11-13:16:42.621 35e4 Reusing MANIFEST /home/nitin/.config/Postman/Partitions/a4ecbc4f-6a48-4078-bee6-99768bffcbfd/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2023/03/11-13:16:42.624 3580 Level-0 table #5: started
+2023/03/11-13:16:42.625 3580 Level-0 table #5: 492 bytes OK
+2023/03/11-13:16:42.626 3580 Delete type=0 #3
+2023/03/11-13:16:42.626 3580 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/03/11-13:16:42.991 3580 Level-0 table #7: started
+2023/03/11-13:16:42.992 3580 Level-0 table #7: 477 bytes OK
+2023/03/11-13:16:42.993 3580 Delete type=0 #4
+2023/03/11-13:16:42.993 3580 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

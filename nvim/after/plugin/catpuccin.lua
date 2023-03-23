@@ -35,4 +35,5 @@ require("catppuccin").setup {
                 end,
         },
 }
-
+vim.cmd('colorscheme catppuccin-mocha')
+vim.cmd[[hi LineNr guibg=#000000 guifg=#f12fff]]

@@ -104,7 +104,7 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 # Pressing left will shrink the window's width.
 # Pressing right will grow the window's width.
 # Pressing up will shrink the window's height.
-# Pressing down will grow the window's height.
+# Pressing down will grow the window's heigjjjht.
 #        bindsym j resize shrink width 10 px or 10 ppt
 #        bindsym k resize grow height 10 px or 10 ppt
 #        bindsym l resize shrink height 10 px or 10 ppt
@@ -121,8 +121,7 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 #        bindsym Escape mode "default"
 #}
 
-bindsym $mod+Return exec xfce4-terminal
-# kill focused window
+bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # exit-menu
