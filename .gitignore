@@ -27,3 +27,6 @@ libreoffice/
 zoom.conf
 zoomus.conf
 cef_user_data/
+QtProject.conf 
+configstore/ 
+qutebrowser/
