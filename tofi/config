@@ -16,7 +16,7 @@
 	font = "Sans"
 
 	# Point size of text.
-	font-size = 24
+	font-size = 13
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -38,15 +38,8 @@
 	# font-variations = "wdth 25, slnt -10" (Narrow and slanted)
 	font-variations = ""
 
-	# Perform font hinting. Only applies when a path to a font has been
-	# specified via `font`. Disabling font hinting speeds up text
-	# rendering appreciably, but will likely look poor at small font pixel
-	# sizes.
-	hint-font = true
+	hint-font = false
 
-#
-### Text theming
-#
 	# Default text color
 	#
 	# All text defaults to this color if not otherwise specified.
@@ -102,7 +95,7 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #F92672
+	selection-color = #bd93f9
 	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
@@ -132,58 +125,29 @@
 	# Corner radius of the text cursor
 	text-cursor-corner-radius = 0
 
-	# Thickness of the bar and underscore text cursors.
-	#
-	# If unspecified, defaults to a font-dependent value when
-	# text-cursor-style = underscore, or to 2 otherwise.
-	# text-cursor-thickness = 2
 
-#
-### Text layout
-#
-	# Prompt to display.
-	prompt-text = "run: "
-
-	# Extra horizontal padding between prompt and input.
-	prompt-padding = 0
-
-	# Placeholder input text.
+	prompt-text = "> "
+	prompt-padding = 1
 	placeholder-text = ""
-
-	# Maximum number of results to display.
-	# If 0, tofi will draw as many results as it can fit in the window.
 	num-results = 0
-
-	# Spacing between results in pixels. Can be negative.
 	result-spacing = 0
-
-	# List results horizontally.
 	horizontal = false
-
-	# Minimum width of input in horizontal mode.
 	min-input-width = 0
-
-#
-### Window theming
-#
-	# Width and height of the window. Can be pixels or a percentage.
-	width = 1280
-	height = 720
-
-	# Window background color
-	background-color = #1B1D1E
+	width = 100%
+	height = 20%
+	background-color = #000
 
 	# Width of the border outlines in pixels.
-	outline-width = 4
+	outline-width = 1
 
 	# Border outline color
 	outline-color = #080800
 
 	# Width of the border in pixels.
-	border-width = 12
+	border-width = 1
 
 	# Border color
-	border-color = #F92672
+	border-color = #bd93f9
 
 	# Radius of window corners in pixels.
 	corner-radius = 0
@@ -213,7 +177,7 @@
 	#
 	# Supported values: top-left, top, top-right, right, bottom-right,
 	# bottom, bottom-left, left, center.
-	anchor = center
+	anchor = top
 
 	# Set the size of the exclusive zone.
 	#
@@ -268,32 +232,10 @@
 
 	# If true, directly launch applications on selection when in drun mode.
 	# Otherwise, just print the command line to stdout.
-	drun-launch = false
+	drun-launch = true
 
-	# The terminal to run terminal programs in when in drun mode.
-	# This option has no effect if drun-launch is set to true.
-	# Defaults to the value of the TERMINAL environment variable.
-	# terminal = foot
-
-	# Delay keyboard initialisation until after the first draw to screen.
-	# This option is experimental, and will cause tofi to miss keypresses
-	# for a short time after launch. The only reason to use this option is
-	# performance on slow systems.
+	terminal = foot
 	late-keyboard-init = false
-
-	# If true, allow multiple simultaneous processes.
-	# If false, create a lock file on startup to prevent multiple instances
-	# from running simultaneously.
 	multi-instance = false
 
-	# Assume input is plain ASCII, and disable some Unicode handling
-	# functions. This is faster, but means e.g. a search for "e" will not
-	# match "é".
-	ascii-input = false
-
-#
-### Inclusion
-#
-	# Configs can be split between multiple files, and then included
-	# within each other.
-	# include = /path/to/config
+	ascii-input = true
