@@ -24,6 +24,7 @@ nmap("Q", "@q")
 imap("{}","{}<Left>")
 imap("()","()<Left>")
 imap("[]","[]<Left>")
+imap("''","''<Left>")
 
 nmap( "<leader>e", vim.cmd.Explore)
 nmap("<leader>w", vim.cmd.w)

@@ -4,9 +4,8 @@ return require('packer').startup(function(use)
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
         use 'nvim-treesitter/nvim-treesitter'
-
-        --use 'folke/tokyonight.nvim'
-        use { "catppuccin/nvim"}
+        use {'windwp/nvim-ts-autotag', config = function () ('nvim-ts-autotag').setup()
+        end}
         use 'nvim-tree/nvim-web-devicons'
 
 

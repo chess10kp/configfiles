@@ -8,7 +8,7 @@ logout=' Logout'
 
 POWER_STATE="${shutdown}\n${reboot}\n${logout}"
 TIME=$(uptime|grep -o "[0-9][0-9]:[0-9][0-9]:[0-9][0-9]")
-POWER_SELECTION=$(echo -e $POWER_STATE | fuzzel -d --background=11111DFF -p"Uptime: "$TIME -l4 )
+POWER_SELECTION=$(echo -e $POWER_STATE | tofi )
 echo $POWER_SELECTION
 if [[ "$POWER_SELECTION" = $shutdown ]];then
         poweroff

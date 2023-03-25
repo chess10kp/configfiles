@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from config import DMENU_CMD
+from config import DMENU_FONT_FLAG
 from config import WM_CONFIG_FILE_PATH
 from subprocess import run
 import shutil
@@ -11,7 +12,7 @@ options =  '\n'.join([ 'animations'])
 animations_options = ['on', 'off']
 
 
-options_choice = run(DMENU_CMD, input=options, capture_output=True,  text=True).stdout.strip()
+options_choice = run(DMENU_CMD+ DMENU_FONT_FLAG, input=options, capture_output=True,  text=True).stdout.strip()
 
 if options_choice == 'animations':
     sub_options = run(DMENU_CMD, input='\n'.join(animations_options), capture_output=True, text=True).stdout.strip()

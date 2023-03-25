@@ -259,7 +259,7 @@ show_menu() {
     fi
 
     # Open rofi menu, read chosen option
-    chosen="$(echo -e "$options" | $rofi_command "Bluetooth")"
+    chosen="$(echo -e "$options" | $rofi_command "Bluetooth ")"
 
     # Match chosen option to command
     case "$chosen" in
@@ -287,7 +287,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="fuzzel -dmenu $* -p"
+rofi_command="tofi --height 30% --prompt"
 
 case "$1" in
     --status)

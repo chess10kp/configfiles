@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "c", "lua",  "help", "python", "cpp" },
+  ensure_installed = { "c", "lua",  "help", "python", "cpp", "typescript", },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -18,3 +18,6 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+
+require('nvim-ts-autotag').setup()
