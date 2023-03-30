@@ -5,8 +5,8 @@
                           //"width": 1000, // Waybar width
         "spacing": 4, // Gaps between modules (4px)
                       // Choose the order of the modules
-        "modules-left": ["wlr/workspaces",  "custom/media"],
-        "modules-center": ["clock","hyprland/submap"],
+        "modules-left": [ "clock"],
+        "modules-center": ["wlr/workspaces","hyprland/submap"],
         "modules-right": ["pulseaudio", "network",  "battery", "tray"],
         // Modules configuration
         "wlr/workspaces": {

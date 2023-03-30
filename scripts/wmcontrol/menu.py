@@ -21,8 +21,6 @@ try:
 except subprocess.SubprocessError:
     pass #Occurs when the menu is exited
 
-
-print(MENU_PATH)
 if selected_option == "Resolution":
     subprocess.run([f"{MENU_PATH}/resolution.py"])
 elif selected_option == "Window Manager":

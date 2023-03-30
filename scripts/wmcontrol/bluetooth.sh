@@ -288,7 +288,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command=repr("tofi --font /usr/share/fonts/TTF/Terminess\ \(TTF\)\ Nerd\ Font\ Complete.ttf  --prompt")
+rofi_command="tofi  --font /usr/share/fonts/TTF/Terminess\ \(TTF\)\ Nerd\ Font\ Complete.ttf --prompt"
 
 case "$1" in
     --status)

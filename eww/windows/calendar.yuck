@@ -9,7 +9,7 @@
   :geometry (geometry
     :x "0%"
     :y "0%"
-  	:anchor "bottom center"
+  	:anchor "top left"
     :width "0px"
     :style "font-family: TerminessTTF Nerd Font;"
     :height "0px")

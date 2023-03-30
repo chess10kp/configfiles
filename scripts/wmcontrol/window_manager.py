@@ -12,7 +12,9 @@ options =  '\n'.join([ 'animations'])
 animations_options = ['on', 'off']
 
 
-options_choice = run(DMENU_CMD+ DMENU_FONT_FLAG, input=options, capture_output=True,  text=True).stdout.strip()
+print(DMENU_CMD+DMENU_FONT_FLAG)
+
+options_choice = run(DMENU_CMD , input=options, capture_output=True,  text=True).stdout.strip()
 
 if options_choice == 'animations':
     sub_options = run(DMENU_CMD, input='\n'.join(animations_options), capture_output=True, text=True).stdout.strip()

@@ -34,7 +34,7 @@ window#waybar {
 #workspaces button.current_output  
 {color: #fff;}
 #workspaces button.active {
-    color: rgb(0, 201, 169);
+    color: rgb(255, 255,255);
 }
 
 #workspaces button.urgent {
@@ -51,6 +51,8 @@ window#waybar {
     padding: 0 3px;
     margin: 0 2px;
     color: #bd93f9;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 
@@ -93,7 +95,7 @@ window#waybar {
 }
 
 #network {
-    color: #87AF87
+    color: #8FAFD7;
 }
 
 #network.disconnected {
