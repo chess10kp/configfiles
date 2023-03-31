@@ -10,6 +10,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000000
 bindkey -v
+# binds up and down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/nitin/.zshrc'
@@ -26,7 +29,7 @@ alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
 alias n="nvim"
-alias ranger="kitty -e 'ranger'"
+alias ls="exa"
 
 function mkcir
 {
@@ -41,7 +44,7 @@ function yt
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
-
+source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

@@ -6,7 +6,7 @@
 # add it.
 #
 
-dmenu="bemenu -i --bdr #bd93f9 -B 1   --nb #000 --nf #fff --hf #bd93f9 --tf #bd93f9"
+dmenu="bemenu -i --bdr #bd93f9 -B 1 --tb #24283b  --nb #24283b --nf #fff --hf #bd93f9 --tf #bd93f9"
 
 
 file="$HOME/.todo"

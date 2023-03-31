@@ -8,13 +8,13 @@
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.8);
+    background: #24283b;
     color: #bd93f9;
-    transition-property: background-color;
-    transition-duration: .5s;
+    margin-top : 3px;
 }
 
 #window {
+    margin-top: 20;
     font-weight: bold;
     font-family: "Noto Sans";
 }
@@ -31,10 +31,10 @@ window#waybar {
     color: #bd93f9;
     border-top: 4px solid transparent;
 }
-#workspaces button.current_output  
-{color: #fff;}
+
 #workspaces button.active {
-    color: rgb(255, 255,255);
+    background: #bd93f9;
+    color: #000;
 }
 
 #workspaces button.urgent {
@@ -47,7 +47,7 @@ window#waybar {
     border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #custom-keyboard-layout, #custom-weather, #tray, #mode {
+#clock, #battery, #network, #cpu, #memory,  #pulseaudio,   #tray, #mode {
     padding: 0 3px;
     margin: 0 2px;
     color: #bd93f9;
@@ -70,13 +70,30 @@ window#waybar {
 #battery.charging {
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
 }
 
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+.modules-left > widget:first-child > #clock {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #clock {
+    margin-right: 0;
+}
+.modules-left > widget:first-child > #battery {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #battery {
+    margin-right: 10;
+    margin-left: 0;
+}
 #battery.warning:not(.charging) {
     color: white;
     animation-name: blink;
