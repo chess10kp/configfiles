@@ -1,7 +1,7 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-                          //"height": 20, // Waybar height (to be removed for auto height)
+                          "height": 20, // Waybar height (to be removed for auto height)
                           "width": 1220, // Waybar width
         "spacing": 4, // Gaps between modules (4px)
                       // Choose the order of the modules
@@ -34,19 +34,10 @@
             "max-length": 10,
             "tooltip": false
         },
-        "keyboard-state": {
-            "numlock": true,
-            "capslock": true,
-            "format": "{name} {icon}",
-            "format-icons": {
-                "locked": "",
-                "unlocked": ""
-            }
-        },
         "mpd": {
             "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
             "format-disconnected": "Disconnected ",
-            "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+            "format-stopped": "{randomIcon}{repeatIcon}{singleIcon}Stopped ",
             "unknown-tag": "N/A",
             "interval": 2,
             "consume-icons": {
@@ -82,18 +73,18 @@
         },
         "clock": {
             "timezone": "America/Detroit",
-            "format": "{:%I:%M %p}",
+            "format": "{:%I:%M }",
             "format-alt": "{:%a, %d %b}",
-            "on-click": "eww open --toggle calendar"
+            "on-click": ""
         },
         "cpu": {
             "format": "{usage}% ",
             "tooltip": false,
-            "on-click": "eww open --toggle system-menu"
+            "on-click": ""
         },
         "memory": {
             "format": "{}% ",
-            "on-click": "eww open --toggle system-menu"
+            "on-click": ""
         },
         "temperature": {
             // "thermal-zone": 2,
@@ -118,21 +109,21 @@
                 "warning": 30,
                 "critical": 20
             },
-            "format": "{capacity}% {icon}",
+            "format": "{capacity} {icon}",
             "format-charging": "{capacity}% ",
             "format-plugged": "{capacity}% ",
             "format-alt": "{time} {icon}",
             // "format-good": "", // An empty format will hide the module
             // "format-full": "",
             "format-icons": ["", "", "", "", ""],
-            "on-click": "eww open --toggle system-menu"
+            "on-click": ""
         },
         "battery#bat2": {
             "bat": "BAT1"
         },
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
-            "format-wifi": " ", // {essid}
+            "format-wifi": "", // {essid}
             "format-ethernet": "Ethernet ",
             "tooltip-format": "{ifname} via {gwaddr}",
             "format-linked": "{ifname} (No IP)",
@@ -141,11 +132,10 @@
         },
         "pulseaudio": {
             "scroll-step": 1, // %, can be a float
-            "format": "{volume}% {icon} {format_source}",
-            "format-bluetooth": "{volume}% {icon} {format_source}",
+            "format": "{volume} {icon} ",
+            "format-muted": "0 󰖁 ",
+            "format-bluetooth": "{volume} {icon} {format_source}",
             "format-bluetooth-muted": "{icon} {format_source}",
-            "format-muted": "{format_source}",
-            "format-source": "{volume}% ",
             "format-source-muted": "",
             "format-icons": {
                 "headphone": "",

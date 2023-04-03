@@ -10,8 +10,8 @@ centered_cursor = "yes"
 ignore_leading_the = "yes"
 colors_enabled = "yes"
 playlist_display_mode = "classic"
-user_interface = classic
-#user_interface = alternative
+#user_interface = classic
+user_interface = alternative
 volume_color = "white"
 
 song_window_title_format = "Music"
@@ -43,7 +43,7 @@ color2 = "red"
 ## - u - underline text
 ## - r - reverse colors
 ## - a - use alternative character set
-#song_list_format = {%t}|{$8%f$9}$R{$3%l$9}
+song_list_format = {%t}|{$8%f$9}$R
 #
 #song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
 #
@@ -106,7 +106,7 @@ color2 = "red"
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} 
 #
 ## Note: Custom command that will be executed each time player state
 ## changes. The environment variable MPD_PLAYER_STATE is set to the current

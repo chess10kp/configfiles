@@ -1,6 +1,12 @@
 #!/bin/sh 
 
-dmenu="bemenu -i --bdr #bd93f9 -B 1   --nb #000 --nf #fff --hf #bd93f9 --tf #bd93f9 -l 8 "
+dmenu="tofi"
+font="--font=TerminessTTF Nerd Font"
+back=$(ls ~/Pictures/wp | "${dmenu}" "$font")
+if [ $back = ""]
+then
+    exit 0
+fi
 pkill swaybg
-/usr/bin/swaybg -i ~/Pictures/wp/$(ls ~/Pictures/wp | $dmenu)
+/usr/bin/swaybg -i ~/Pictures/wp/$back
 exit 0 

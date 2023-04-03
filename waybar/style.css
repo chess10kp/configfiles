@@ -8,15 +8,12 @@
 }
 
 window#waybar {
-    background: #24283b;
+    background: rgba(36,40,59, 0.3);
     color: #bd93f9;
-    margin-top : 3px;
 }
 
 #window {
-    margin-top: 20;
     font-weight: bold;
-    font-family: "Noto Sans";
 }
 /*
 #workspaces {
@@ -48,8 +45,8 @@ window#waybar {
 }
 
 #clock, #battery, #network, #cpu, #memory,  #pulseaudio,   #tray, #mode {
-    padding: 0 3px;
-    margin: 0 2px;
+    padding: 0 ;
+    margin: 0 ;
     color: #bd93f9;
     margin-left: 10px;
     margin-right: 10px;
@@ -60,14 +57,13 @@ window#waybar {
     font-weight: bold;
 }
 
-#battery {
-}
 
 #battery icon {
     color: red;
 }
 
 #battery.charging {
+    color: lightgreen;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -113,6 +109,8 @@ window#waybar {
 
 #network {
     color: #8FAFD7;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 #network.disconnected {
@@ -120,9 +118,11 @@ window#waybar {
 }
 
 #pulseaudio {
+    margin-right: 0;
 }
 
 #pulseaudio.muted {
+    margin-right: 0;
 }
 
 #custom-spotify {
