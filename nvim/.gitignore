@@ -1,9 +1,7 @@
-!colors/astronvim.lua
-colors/*
-docs
-ginit.vim
-lua/user
 plugin
-ftplugin
+custom
 spell
+ftplugin
+coc-settings.json
 .luarc.json
+lazy-lock.json
