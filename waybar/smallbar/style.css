@@ -1,0 +1,138 @@
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: TerminessTTF Nerd Font, Source Code Pro, Noto Sans, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0,0,0, 1.0);
+    color: #bd93f9;
+}
+
+#window {
+    font-weight: bold;
+}
+/*
+#workspaces {
+    padding: 0 5px;
+}
+*/
+
+#workspaces button {
+    padding: 0 5px;
+    font-size: 24px;
+    background: transparent;
+    color: #bd93f9;
+    border-top: 4px solid transparent;
+}
+
+#workspaces button.active {
+    background: #bd93f9;
+    color: #000;
+}
+
+#workspaces button.urgent {
+    color: rgb(175, 95, 95);
+    border-top: 4px solid rgb(175, 95, 95);
+}
+
+#mode {
+    background: #000;
+    border-bottom: 3px solid white;
+}
+
+#clock, #battery, #network, #cpu, #memory,  #pulseaudio,   #tray, #mode {
+    padding: 0 ;
+    margin: 0 ;
+    color: #bd93f9;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+#clock {
+    background: #bd93f9;
+    color: #000;
+    padding: 0 6;
+    font-weight: bold;
+}
+
+
+#battery icon {
+    color: red;
+}
+
+#battery.charging {
+    color: lightgreen;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+.modules-left > widget:first-child > #clock {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #clock {
+    margin-right: 0;
+}
+.modules-left > widget:first-child > #battery {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #battery {
+    margin-right: 10;
+    margin-left: 0;
+}
+#battery.warning:not(.charging) {
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    color: #8FAFD7
+}
+
+#memory {
+    color: #8FAFD7
+}
+
+#network {
+    color: #8FAFD7;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+    margin-right: 0;
+}
+
+#pulseaudio.muted {
+    margin-right: 0;
+}
+
+#custom-spotify {
+    background: rgba(102, 204, 153, 0.7);
+    color: #202020;
+}
+
+#tray {
+    background-color: #0A1E2B;
+}

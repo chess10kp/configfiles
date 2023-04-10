@@ -1,5 +1,5 @@
 (defwidget bar []
-  (centerbox :orientation "v" :hexpand false
+  (centerbox :orientation "h"
     (box :valign "start" :hexpand false :vexpand true :orientation "v" :space-evenly false
       (launch)
       (dashbutton)
@@ -18,7 +18,23 @@
     )
   )
 )
-
+(defwidget volume []
+  (box :orientation "v" 
+      (box :class "slider_box_vol" :orientation "v" :vexpand false :hexpand false
+        (box :space-evenly false
+          (scale :min 1 :max 101 :width 101 :class "volume_slider" :value volume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//')")
+        )
+  )
+        )
+        )
+(defwidget bright []
+  (box :orientation "v" 
+      (box :class "slider_box_bright" :orientation "v" :vexpand false :hexpand false
+        (box :space-evenly false
+            (scale :min 1 :vexpand "false" :max 101 :width 101 :class "brightness_slider" :value brightness :onchange "brightnessctl set {}%" :height 4)
+        )
+        )
+        ))
 (defpoll brightness :interval "999h" :initial 0 `brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'`)
 (defpoll volume :interval "999h" :initial 0 `pamixer --get-volume`)
 (defpoll micvolume :interval "999h" :initial 0 `pamixer --get-volume --source 1`)
@@ -53,9 +69,6 @@
     )     
   )
 )
-
-
-
 
 ;; Variables
 (defvar time false)
@@ -282,6 +295,30 @@
   :stacking "fg"
   :class "dashboard"
   (dashboard))
+
+(defwindow vol 
+:monitor 0
+:geometry (geometry
+:height "10px"
+:width "10px"
+:x "10%"
+:y "0px"
+:anchor "top right")
+:stacking "fg"
+:class "vol-slider"
+(volume))
+
+(defwindow bright 
+:monitor 0
+:geometry (geometry
+:height "10px"
+:width "50px"
+:x "19%"
+:y "0px"
+:anchor "top right")
+:stacking "fg"
+:class "vol-slider"
+(bright))
 
 (defwindow bar
   :monitor 0

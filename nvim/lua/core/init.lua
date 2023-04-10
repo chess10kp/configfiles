@@ -1,112 +1,135 @@
-local opt = vim.opt
-local g = vim.g
-local config = require("core.utils").load_config()
+local global = require("core.global")
 
--------------------------------------- globals -----------------------------------------
-g.nvchad_theme = config.ui.theme
-g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
-g.toggle_theme_icon = "   "
-g.transparency = config.ui.transparency
-
--------------------------------------- options ------------------------------------------
-opt.laststatus = 3 -- global statusline
-opt.showmode = false
-
-opt.clipboard = "unnamedplus"
-opt.cursorline = true
-
--- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
-
-opt.fillchars = { eob = " " }
-opt.ignorecase = true
-opt.smartcase = true
-opt.mouse = "a"
-
--- Numbers
-opt.number = true
-opt.numberwidth = 2
-opt.ruler = false
-
--- disable nvim intro
-opt.shortmess:append "sI"
-
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
-opt.termguicolors = true
-opt.timeoutlen = 400
-opt.undofile = true
-
--- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 250
-
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
-
-g.mapleader = " "
-
--- disable some default providers
-for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
+-- Create cache dir and data dirs
+local createdir = function()
+	local data_dir = {
+		global.cache_dir .. "backup",
+		global.cache_dir .. "session",
+		global.cache_dir .. "swap",
+		global.cache_dir .. "tags",
+		global.cache_dir .. "undo",
+	}
+	-- Only check whether cache_dir exists, this would be enough.
+	if vim.fn.isdirectory(global.cache_dir) == 0 then
+		os.execute("mkdir -p " .. global.cache_dir)
+		for _, v in pairs(data_dir) do
+			if vim.fn.isdirectory(v) == 0 then
+				os.execute("mkdir -p " .. v)
+			end
+		end
+	end
 end
 
--- add binaries installed by mason.nvim to path
-local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-vim.env.PATH = vim.env.PATH .. (is_windows and ":" or ":") .. vim.fn.stdpath "data" .. "/mason/bin"
+local disable_distribution_plugins = function()
+	-- disable menu loading
+	vim.g.did_install_default_menus = 1
+	vim.g.did_install_syntax_menu = 1
 
--------------------------------------- autocmds ------------------------------------------
-local autocmd = vim.api.nvim_create_autocmd
+	-- Uncomment this if you define your own filetypes in `after/ftplugin`
+	-- vim.g.did_load_filetypes = 1
 
--- dont list quickfix buffers
-autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.opt_local.buflisted = false
-  end,
-})
+	-- Do not load native syntax completion
+	vim.g.loaded_syntax_completion = 1
 
--- reload some chadrc options on-save
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = vim.tbl_map(
-    vim.fs.normalize,
-    vim.fn.glob(vim.fn.stdpath "config" .. "/lua/custom/**/*.lua", true, true, true)
-  ),
-  group = vim.api.nvim_create_augroup("ReloadNvChad", {}),
+	-- Do not load spell files
+	vim.g.loaded_spellfile_plugin = 1
 
-  callback = function(opts)
-    local fp = vim.fn.fnamemodify(vim.fs.normalize(vim.api.nvim_buf_get_name(opts.buf)), ":r") --[[@as string]]
-    local app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"
-    local module = string.gsub(fp, "^.*/" .. app_name .. "/lua/", ""):gsub("/", ".")
+	-- Whether to load netrw by default
+	-- vim.g.loaded_netrw = 1
+	-- vim.g.loaded_netrwFileHandlers = 1
+	-- vim.g.loaded_netrwPlugin = 1
+	-- vim.g.loaded_netrwSettings = 1
+	-- newtrw liststyle: https://medium.com/usevim/the-netrw-style-options-3ebe91d42456
+	vim.g.netrw_liststyle = 3
 
-    require("plenary.reload").reload_module "base46"
-    require("plenary.reload").reload_module(module)
-    require("plenary.reload").reload_module "custom.chadrc"
+	-- Do not load tohtml.vim
+	vim.g.loaded_2html_plugin = 1
 
-    config = require("core.utils").load_config()
+	-- Do not load zipPlugin.vim, gzip.vim and tarPlugin.vim (all these plugins are
+	-- related to checking files inside compressed files)
+	vim.g.loaded_gzip = 1
+	vim.g.loaded_tar = 1
+	vim.g.loaded_tarPlugin = 1
+	vim.g.loaded_vimball = 1
+	vim.g.loaded_vimballPlugin = 1
+	vim.g.loaded_zip = 1
+	vim.g.loaded_zipPlugin = 1
 
-    vim.g.nvchad_theme = config.ui.theme
-    vim.g.transparency = config.ui.transparency
+	-- Do not use builtin matchit.vim and matchparen.vim since the use of vim-matchup
+	vim.g.loaded_matchit = 1
+	vim.g.loaded_matchparen = 1
 
-    -- statusline
-    require("plenary.reload").reload_module("nvchad_ui.statusline." .. config.ui.statusline.theme)
-    vim.opt.statusline = "%!v:lua.require('nvchad_ui.statusline." .. config.ui.statusline.theme .. "').run()"
+	-- Disable sql omni completion.
+	vim.g.loaded_sql_completion = 1
 
-    require("base46").load_all_highlights()
-    -- vim.cmd("redraw!")
-  end,
-})
+	-- Disable remote plugins
+	-- NOTE: Disabling rplugin.vim will show error for `wilder.nvim` in :checkhealth,
+	-- NOTE:  but since it's config doesn't require python rtp, it's fine to ignore.
+	-- vim.g.loaded_remote_plugins = 1
+end
 
--------------------------------------- commands ------------------------------------------
-local new_cmd = vim.api.nvim_create_user_command
+local leader_map = function()
+	vim.g.mapleader = " "
+	vim.api.nvim_set_keymap("n", " ", "", { noremap = true })
+	vim.api.nvim_set_keymap("x", " ", "", { noremap = true })
+end
 
-new_cmd("NvChadUpdate", function()
-  require "nvchad.update"()
-end, {})
+local neovide_config = function()
+	vim.api.nvim_set_option_value("guifont", "JetBrainsMono Nerd Font:h15", {})
+	vim.g.neovide_refresh_rate = 120
+	vim.g.neovide_cursor_vfx_mode = "railgun"
+	vim.g.neovide_no_idle = true
+	vim.g.neovide_cursor_animation_length = 0.03
+	vim.g.neovide_cursor_trail_length = 0.05
+	vim.g.neovide_cursor_antialiasing = true
+	vim.g.neovide_cursor_vfx_opacity = 200.0
+	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
+	vim.g.neovide_cursor_vfx_particle_speed = 20.0
+	vim.g.neovide_cursor_vfx_particle_density = 5.0
+end
 
+local clipboard_config = function()
+	if global.is_mac then
+		vim.g.clipboard = {
+			name = "macOS-clipboard",
+			copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
+			paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
+			cache_enabled = 0,
+		}
+	elseif global.is_wsl then
+		vim.g.clipboard = {
+			name = "win32yank-wsl",
+			copy = {
+				["+"] = "win32yank.exe -i --crlf",
+				["*"] = "win32yank.exe -i --crlf",
+			},
+			paste = {
+				["+"] = "win32yank.exe -o --lf",
+				["*"] = "win32yank.exe -o --lf",
+			},
+			cache_enabled = 0,
+		}
+	end
+end
 
+local load_core = function()
+	createdir()
+	disable_distribution_plugins()
+	leader_map()
+
+	neovide_config()
+	clipboard_config()
+
+	require("core.options")
+	require("core.mapping")
+	require("keymap")
+	require("core.event")
+	require("core.pack")
+
+	local colorscheme = require("core.settings").colorscheme
+	local background = require("core.settings").background
+	vim.api.nvim_command("set background=" .. background)
+	vim.api.nvim_command("colorscheme " .. colorscheme)
+end
+
+load_core()

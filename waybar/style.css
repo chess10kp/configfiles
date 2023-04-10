@@ -1,135 +1,337 @@
-
 * {
-    border: none;
-    border-radius: 0;
-    font-family: TerminessTTF Nerd Font, Source Code Pro, Noto Sans, sans-serif;
-    font-size: 13px;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  /* font-family: Blex Mono Nerd Font; */
+  font-size: 13px;
+  font-weight: 400;
 }
 
 window#waybar {
-    background: rgba(36,40,59, 0.3);
-    color: #bd93f9;
+  background-color: #000;
+  color: #b6beca;
 }
 
 #window {
-    font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 13px;
+  transition: none;
 }
-/*
-#workspaces {
-    padding: 0 5px;
+
+#custom-notification {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-right: 14px;
+  margin-left: 10px;
+  padding: 0px 9px;
+  font-family: Blex Mono Nerd Font;
+  color: #a3b8ef;
 }
-*/
+
+#custom-logo {
+  color: #8cc1ff;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 4px;
+  font-family: Blex Mono Nerd Font;
+  padding-right: 0px;
+  border-radius: 2px;
+  font-size: 18px;
+}
 
 #workspaces button {
-    padding: 0 5px;
-    font-size: 24px;
-    background: transparent;
-    color: #bd93f9;
-    border-top: 4px solid transparent;
+  padding-top: 0px;
+  font-family: Fira Sans;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #3b4b58;
+  font-family: SFMono;
+  border-radius: 5px;
+  font-size: 20px;
 }
 
+#workspaces button.focused {
+  color: #dee1e6;
+  font-family: Fira Sans;
+  border-bottom: none;
+  font-size: 20px;
+}
 #workspaces button.active {
-    background: #bd93f9;
-    color: #000;
+  color: #dee1e6;
+  font-family: Fira Sans;
+  border-bottom: none;
+  font-size: 20px;
+}
+#workspaces button.urgent {
+  color: #f9929b;
+}
+
+#mpd {
+  border-radius: 5px;
+  padding-right: 4px;
+}
+
+#mode,
+#custom-updates,
+#cpu,
+#memory,
+#temperature,
+#custom-fans,
+#idle_inhibitor,
+#language,
+#custom-spacer {
+  padding: 0 10px;
+  font-family: Blex Mono Nerd Font;
+  margin: 2px 4px 5px 4px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 90px;
+  background-clip: padding-box;
+}
+
+#custom-power {
+  font-size: 17px;
+}
+
+#custom-updates {
+  background-color: #1e222a;
+  padding: 0 10px;
+  color: #8cc1ff;
+  margin: 2px 4px 5px 4px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 90px;
+  background-clip: padding-box;
+}
+
+#workspaces {
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 3px;
+  margin-right: 0px;
+  transition: none;
+  padding: 0px 0px 0px 10px;
+  background: transparent;
+}
+
+/* #custom-power { */
+/*   background-color: #1e222a; */
+/*   padding: 0 12px; */
+/*   margin: 2px 4px 5px 4px; */
+/*   border: 3px solid rgba(0, 0, 0, 0); */
+/*   border-radius: 0px; */
+/*   background-clip: padding-box; */
+/* } */
+
+#custom-arch {
+  background-color: #13171b;
+  color: #747a83;
+  padding: 0 10px;
+  font-size: 20px;
+  margin: 2px 0px 5px 0px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 90px;
+  background-clip: padding-box;
+}
+
+#workspaces button {
+  transition: none;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-family: Blex Mono Nerd Font;
+  color: #3b4b58;
+  font-weight: normal;
+}
+
+#workspaces button:hover {
+  color: #61afef;
+}
+
+#workspaces button.focused {
+  color: #b6beca;
+  font-weight: bold;
 }
 
 #workspaces button.urgent {
-    color: rgb(175, 95, 95);
-    border-top: 4px solid rgb(175, 95, 95);
-}
-
-#mode {
-    background: #000;
-    border-bottom: 3px solid white;
-}
-
-#clock, #battery, #network, #cpu, #memory,  #pulseaudio,   #tray, #mode {
-    padding: 0 ;
-    margin: 0 ;
-    color: #bd93f9;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-
-#clock {
-    font-weight: bold;
-}
-
-
-#battery icon {
-    color: red;
-}
-
-#battery.charging {
-    color: lightgreen;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-.modules-left > widget:first-child > #clock {
-    margin-left: 0;
-}
-
-.modules-right > widget:last-child > #clock {
-    margin-right: 0;
-}
-.modules-left > widget:first-child > #battery {
-    margin-left: 0;
-}
-
-.modules-right > widget:last-child > #battery {
-    margin-right: 10;
-    margin-left: 0;
-}
-#battery.warning:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #e06c75;
 }
 
 #cpu {
-    color: #8FAFD7
+  color: #61afef;
 }
 
 #memory {
-    color: #8FAFD7
+  color: #c678dd;
 }
 
-#network {
-    color: #8FAFD7;
-    margin-left: 0;
-    padding-left: 0;
+#temperature {
+  color: #d19a66;
 }
 
-#network.disconnected {
-    background: #f53c3c;
+#temperature.critical {
+  background-color: #e06c75;
+  color: #1e222a;
+}
+
+#custom-media {
+  background-color: #171b20;
+  color: #b6beca;
+}
+
+#custom-fans {
+  color: #98c379;
+}
+
+#idle_inhibitor {
+  color: #abb2bf;
+}
+
+#idle_inhibitor.activated {
+  background-color: #abb2bf;
+  color: #1e222a;
+}
+
+#language {
+  color: #56b6c2;
 }
 
 #pulseaudio {
-    margin-right: 0;
+  color: #a6adb9;
+  font-size: 12px;
 }
 
 #pulseaudio.muted {
-    margin-right: 0;
+  color: #e06c75;
 }
 
-#custom-spotify {
-    background: rgba(102, 204, 153, 0.7);
-    color: #202020;
+#backlight {
+  font-size: 12px;
+  color: #a6adb9;
+}
+
+#battery {
+  padding: 0 13px;
+  margin: 4px 4px 6px 4px;
+  background-clip: padding-box;
+  font-family: RecMonoLinear Nerd Font;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+#clock {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #a1a9e8;
+}
+
+#battery.charging,
+#battery.plugged {
+  font-size: 10px;
+  color: #000;
+  background: #199954;
+  padding: 0 13px;
+  margin: 4px 4px 6px 4px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
 }
 
 #tray {
-    background-color: #0A1E2B;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  margin-left: 0px;
+  padding: 0px 9px;
+}
+
+#battery.critical {
+  padding: 0 13px;
+  margin: 7px 4px 7px 4px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  background: #d9534f;
+  color: #000;
+}
+
+#battery.discharging {
+  color: #a1a9e8;
+  padding: 0 13px;
+  margin: 4px 4px 6px 4px;
+  background-clip: padding-box;
+}
+@keyframes blink {
+  to {
+    background-color: #1e222a;
+    color: #e06c75;
+  }
+}
+
+#custom-bluetooth,
+#network {
+  margin-top: 2px;
+  margin-bottom: 1px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-family: Blex Mono Nerd Font;
+  font-size: 12px;
+}
+
+#backlight,
+#pulseaudio,
+#custom-bluetooth {
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 0px;
+  margin-right: 10px;
+  padding: 0px 0px;
+}
+
+widget > * {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.modules-left > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.modules-left > widget:first-child > * {
+  margin-left: 25px;
+}
+.modules-left > widget:last-child > * {
+  margin-right: 12px;
+}
+.modules-center > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.modules-right > widget > * {
+  padding: 0 12px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.modules-right > widget:first-child > * {
+  border-radius: 5px 0 0 5px;
+}
+.modules-right > widget:last-child > * {
+  border-radius: 0 5px 5px 0;
+  margin-right: 20px;
+}
+#taskbar button.active {
+  background-color: #21262e;
+  margin-left: 4px;
+  border-radius: 4px;
+  font-family: Fira Sans;
+  margin-right: 4px;
+}
+#taskbar button {
+  background-color: #171b20;
+  font-family: Fira Sans;
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
