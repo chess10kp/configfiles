@@ -9,4 +9,5 @@ then
 fi
 pkill swaybg
 /usr/bin/swaybg -i ~/Pictures/wp/$back
+/usr/bin/eww reload
 exit 0 

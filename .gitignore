@@ -30,3 +30,6 @@ cef_user_data/
 QtProject.conf 
 configstore/ 
 qutebrowser/
+BraveSoftware/
+JetBrains/
+lazygit/

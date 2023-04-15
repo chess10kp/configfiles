@@ -1,0 +1,31 @@
+.ocular-layout-box {
+  font-family: "JetBrainsMono Nerd Font";
+  background-color: rgba(#000, 1);
+  border-radius: 20px;
+  padding: 20 20;
+  color: $base12;
+}
+
+.ocular-generic-label {
+  font-size: 18;
+}
+
+.ocular-time-radial label {
+  padding: 2em;
+  font-size: 40;
+  font-weight: bold;
+}
+
+.ocular-date-label {
+  font-size: 20;
+}
+
+.ocular-sundial-label {
+  background-color: $base09;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+  color: $base02;
+  border-radius: 0.2em;
+  font-weight: bold;
+}
+
+// vim:ft=scss

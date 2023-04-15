@@ -66,14 +66,12 @@
         "format": "{filename} {elapsedTime:%M:%S}/{totalTime:%M:%S}",
         "format-alt": "MPD",
         "format-disconnected": "",
-        "format-stopped": "{consumeIcon}{singleIcon}Stopped ",
+        "format-stopped": "{consumeIcon}Stopped ",
+        "format-paused": "Paused",
         "interval": 10,
         "port": 6601,
         "consume-icons": {
             "on": " " // Icon shows only when "consume" is on
-        },
-        "repeat-icons": {
-            "on": " "
         },
         "single-icons": {
             "on": "1 "
@@ -82,18 +80,14 @@
             "paused": "",
             "playing": "",
         },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": ""
     },
     "wlr/taskbar": {
         "format": "{icon} {app_id}",
-        "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "minimize",
         "on-click-right": "close",
     },
     "custom/notification": {
-        "tooltip": false,
         "format": "{icon}",
         "format-icons": {
             "notification": "󰂚<span foreground='red'><sup></sup></span>",
@@ -114,7 +108,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I %M}",
+        "format": " {:%I %M}",
         "format-alt": "{:%A, %B %d, %Y}"
     },
     "custom/logo": {
@@ -134,7 +128,7 @@
             "",
             ""
         ],
-        "on-click": "eww open --toggle bright"
+        "on-click": ""
     },
     "hyprland/submap": {
         "format": "{}",
@@ -195,19 +189,26 @@
     "pulseaudio": {
         "format": "{icon} ",
         "format-bluetooth-muted": "",
-        "format-muted": "<span foreground='#7ed491'></span><span foreground='#29343d'>――――――-―――</span>",
+        "format-muted": "<span foreground='#7ed491'></span><span foreground='#29343d'>―――――――――――――</span>",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
             "default": [
-                "<span foreground='#7ed491'></span><span foreground='#29343d'>――――――-―――</span>",
-                "<span foreground='#7ed491'>―</span><span foreground='#29343d'>―――――――――</span>",
-                "<span foreground='#7ed491'>――</span><span foreground='#29343d'>――――――――</span>",
-                "<span foreground='#7ed491'>―――</span><span foreground='#29343d'>―――――――</span>",
-                "<span foreground='#7ed491'>――――</span><span foreground='#29343d'>――――――</span>",
-                "<span foreground='#7ed491'>―――――</span><span foreground='#29343d'>―――――</span>",
-                "<span foreground='#7ed491'>――――――</span><span foreground='#29343d'>――――</span>",
+                "<span foreground='#7ed491'></span><span foreground='#29343d'>―――――――――――――</span>",
+                "<span foreground='#7ed491'>―</span><span foreground='#29343d'>――――――――――――</span>",
+                "<span foreground='#7ed491'>――</span><span foreground='#29343d'>―――――――――――</span>",
+                "<span foreground='#7ed491'>―――</span><span foreground='#29343d'>――――――――――</span>",
+                "<span foreground='#7ed491'>――――</span><span foreground='#29343d'>―――――――――</span>",
+                "<span foreground='#7ed491'>―――――</span><span foreground='#29343d'>――――――――</span>",
+                "<span foreground='#7ed491'>――――――</span><span foreground='#29343d'>―――――――</span>",
+                "<span foreground='#7ed491'>―――――――</span><span foreground='#29343d'>――――――</span>",
+                "<span foreground='#7ed491'>――――――――</span><span foreground='#29343d'>―――――</span>",
+                "<span foreground='#7ed491'>―――――――――</span><span foreground='#29343d'>――――</span>",
+                "<span foreground='#7ed491'>――――――――――</span><span foreground='#29343d'>―――</span>",
+                "<span foreground='#7ed491'>―――――――――――</span><span foreground='#29343d'>――</span>",
+                "<span foreground='#7ed491'>――――――――――――</span><span foreground='#29343d'>―</span>",
+                "<span foreground='#7ed491'>―――――――――――――</span><span foreground='#29343d'></span>",
             ] // 醙
         },
         "on-click": "pavucontrol"
@@ -224,8 +225,9 @@
         "on-click": "playerctl play-pause",
     },
     "custom/volume": {
+        "tooltip": false,
         "format": "墳",
-        "on-click": "eww open --toggle vol",
+        "on-click": "eww open --toggle dashboard-menu",
     },
     "custom/bluetooth": {
         "format": "",

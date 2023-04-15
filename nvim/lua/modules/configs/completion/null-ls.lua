@@ -42,7 +42,7 @@ return function()
 		automatic_installation = false,
 		automatic_setup = true,
 	})
-	require("mason-null-ls").setup_handlers()
+	--require("mason-null-ls").setup_handlers()
 
 	require("completion.formatting").configure_format_on_save()
 end

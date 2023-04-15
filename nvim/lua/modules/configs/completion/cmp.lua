@@ -1,8 +1,7 @@
 return function()
 	local icons = {
 		kind = require("modules.utils.icons").get("kind"),
-		type = require("modules.utils.icons").get("type"),
-		cmp = require("modules.utils.icons").get("cmp"),
+		type = require("modules.utils.icons").get("type"),		cmp = require("modules.utils.icons").get("cmp"),
 	}
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -20,6 +19,7 @@ return function()
 			{ "│", hl },
 		}
 	end
+
 
 	---Handling situations where LuaSnip failed to perform any jumps
 	---@param r integer @Cursor position (row) before calling LuaSnip
@@ -91,6 +91,8 @@ return function()
 					symbol_map = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp),
 				})(entry, vim_item)
 				local strings = vim.split(kind.kind, "%s", { trimempty = true })
+				kind.kind = " " .. strings[1] .. " "
+				--kind.menu = "    (" .. strings[2] .. ")"
 				return kind
 			end,
 		},
@@ -140,7 +142,7 @@ return function()
 			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
-			{ name = "copilot" },
+			--{ name = "copilot" },
 			-- { name = "codeium" },
 			-- { name = "cmp_tabnine" },
 		},

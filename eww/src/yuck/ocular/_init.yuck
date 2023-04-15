@@ -1,0 +1,11 @@
+(include "./src/yuck/ocular/_modules.yuck")
+(include "./src/yuck/ocular/_layout.yuck")
+
+(defwindow ocular :stacking "bg"
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :y 10 :x 10 :width "200px" :height "25%" :anchor "left top")
+  (ocular_layout)
+  )
+

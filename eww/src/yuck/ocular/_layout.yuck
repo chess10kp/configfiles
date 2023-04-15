@@ -1,0 +1,34 @@
+(defwidget ocular_layout []
+  (box :space-evenly false
+       :class "ocular-layout-box"
+       :halign "center"
+       :orientation "vertical"
+    (box :class "ocular-date-sundial-box"
+         :space-evenly false
+         :spacing 15
+         :halign "center"
+      (_sundialinfo :class "ocular" :halign "center")
+      (label :class "ocular-date-label"
+             :text {time.pretty}))
+    (box :space-evenly false
+         :spacing 45
+      (_radialtime
+        :hour {time.hour}
+        :min {time.min}
+        :sec {time.sec})
+      (box :space-evenly false
+           :orientation "vertical"
+           :spacing 15
+        ))
+
+    (box :hexpand true 
+      (_boltuptime :label "Uptime" 
+                   :uptime uptime)
+      )
+    (box :hexpand true 
+         :space-evenly false 
+         :class "bolt-uptime-wifi" 
+         :spacing 20
+      ))
+      )
+;; vim:ft=yuck
