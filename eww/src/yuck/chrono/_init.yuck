@@ -1,0 +1,12 @@
+(include "./src/yuck/chrono/_env.yuck")
+(include "./src/yuck/chrono/_modules.yuck")
+(include "./src/yuck/chrono/_layout.yuck")
+
+(defwindow chrono :stacking "bg"
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :width "36%" :height "60%" :anchor "right center") 
+  (chrono_layout))
+
+;; vim:ft=yuck

@@ -2,6 +2,11 @@
 (include "./src/yuck/_lib.yuck")
 
 (include "./src/yuck/ocular/_init.yuck")
+(include "./src/yuck/bolt/_init.yuck")
+(include "./src/yuck/chrono/_init.yuck")
+(include "./src/yuck/lumin/_init.yuck")
+(include "./src/yuck/horizon/_init.yuck")
+(include "./custom/eww.yuck")
 
 (defpoll brightness :interval "999h" :initial 0 `brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'`)
 (defpoll volume :interval "999h" :initial 0 `pamixer --get-volume`)
@@ -82,7 +87,7 @@
   :monitor 0
   :geometry (geometry 
   :height "100" 
-  :width "215px"
+  :width "115px"
   :x "10px"
   :y "10px"
   :anchor "top right")

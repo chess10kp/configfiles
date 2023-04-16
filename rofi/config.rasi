@@ -184,7 +184,7 @@ configuration {
 * {
   bg: #000;
   bg-alt: #000;
-  bg-selected: #bd39f9;
+  bg-selected: #bd39f999;
 
   fg: #cdd6f4;
   fg-alt: #7f849c;
