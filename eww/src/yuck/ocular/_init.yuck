@@ -9,3 +9,10 @@
   (ocular_layout)
   )
 
+(defwindow ocular_two :stacking "bg"
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore true
+  :geometry (geometry :y 200 :x 10 :width "200px" :height "25%" :anchor "right top")
+  (ocular_layout_second)
+  )

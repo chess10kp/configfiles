@@ -19,7 +19,6 @@
 (defvar profile "./assets/profile.png")
 
 (defpoll dunst :interval "1s" "[ $(dunstctl is-paused) = false ] && echo  || echo ")
-(defpoll redshift :interval "1s" "pidof redshift &>/dev/null && echo  || echo ")
 
 (defpoll volume_status :interval "1s" "[ $(pamixer --get-volume-human) = muted ] && echo 了 || echo 醴")
 (defpoll volume_level :interval "1s" "pamixer --get-volume")
@@ -28,6 +27,7 @@
 (defpoll mic_status :interval "1s" `[ $(pamixer --source 1 --get-volume-human) = muted ] && echo  || echo `)
 
 (defpoll time :interval "1s" `date +'{"hour":"%H","min":"%M","sec":"%S","pretty":"%a, %e %b","day":"%A","month":"%B","dom":"%e","year":"%Y","day_num":"%d","month_num":"%m","year_num":"%y"}'`)
-(defpoll uptime :interval "48h" "uptime --pretty | ./src/shell/uptime.awk")
+(defpoll uptime :interval "1s" "uptime --pretty | ./src/shell/uptime.awk")
+
 
 ; vim:filetype=yuck

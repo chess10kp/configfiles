@@ -12,11 +12,11 @@
            :text day 
            :class "bolt-date-day")))
 
-(defwidget _fluidbat [label icon_full icon_crit icon_norm class]
+(defwidget _fluidbat [label icon_full icon_crit icon_norm class battery]
   (overlay :class "bolt-bat-overlay"
     (progress :width 180 
               :class "bolt-bat-prog ${class}" 
-              :value {EWW_BATTERY.BAT0.capacity > 95 ? 100 : EWW_BATTERY.BAT0.capacity})
+              :value {battery > 95 ? 100 : battery})
     (box :valign "center" 
          :spacing 5 
          :space-evenly false 
@@ -30,10 +30,10 @@
                :text label 
                :class "bolt-bat-label")
         (label :halign "start" 
-               :text "${EWW_BATTERY.BAT0.capacity > 95 ? 100 : EWW_BATTERY.BAT0.capacity}%" 
+               :text "${battery > 95 ? 100 : battery}%" 
                :class "bolt-bat-status-label"))
       (label :halign "end" 
-             :text {EWW_BATTERY.BAT0.capacity > 95 ? icon_full : EWW_BATTERY.BAT0.capacity < 21 ? icon_crit : icon_norm} 
+             :text {battery > 95 ? icon_full : battery < 21 ? icon_crit : icon_norm} 
              :class "bolt-bat-icon"))))
 
 (defwidget _boltpctl [cover label title artist volume volume_icon status_cmd status_icon]

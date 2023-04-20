@@ -1,25 +1,19 @@
 (defwidget bolt_layout []
   (box :space-evenly false
        :class "bolt-layout-box"
-       :spacing 20
+       :spacing 0
        :orientation "vertical"
     (box :hexpand true 
          :space-evenly false 
          :class "bolt-date-bat-pctl" 
-         :spacing 25
+         :spacing 0
       (box :orientation "vertical" 
            :space-evenly false 
            :class "bolt-date-bat" 
-           :spacing 10
+           :spacing 0
         (_boltdate :day {time.day} 
                    :short_pretty "${time.day_num} ${time.month}, ${time.year}")
-        (_fluidbat :class {EWW_BATTERY.BAT0.capacity > 95 ? "bolt-bat-full" :
-                           EWW_BATTERY.BAT0.capacity > 50 ? "bolt-bat-norm" :
-                           EWW_BATTERY.BAT0.capacity > 20 ? "bolt-bat-warn" : "bolt-bat-crit"} 
-                   :label "Battery" 
-                   :icon_full "" 
-                   :icon_norm "" 
-                   :icon_crit ""))
+        )
       )
     ))
 

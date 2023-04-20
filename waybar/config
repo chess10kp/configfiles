@@ -9,18 +9,17 @@
         "mpd",
     ],
     "modules-center": [
-        "hyprland/submap"
+        "hyprland/submap",
+        "clock",
     ],
     "modules-right": [
         "memory",
-        "cpu",
+        "battery",
         "backlight",
         "custom/bluetooth",
         "network",
         "custom/volume",
         "pulseaudio",
-        "battery",
-        "clock",
         "tray",
     ],
     "custom/separator": {
@@ -158,9 +157,9 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{capacity}",
-        "format-charging": "{capacity}",
-        "format-plugged": "{capacity}",
+        "format": "{icon}",
+        "format-charging": "{icon}",
+        "format-plugged": "{icon}",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",

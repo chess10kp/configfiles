@@ -28,13 +28,8 @@
        :class "ocular-layout-box"
        :halign "center"
        :orientation "vertical"
-(_sundialinfo :class "ocular" :halign "center")
-      (label :class "ocular-date-label"
-             :text {time.pretty})
+      
              (box :hexpand true 
-      (_boltuptime :label "Uptime" 
-                   :uptime uptime)
-      )(box :hexpand true 
          :space-evenly false 
          :class "bolt-uptime-wifi" 
          :spacing 20

@@ -23,10 +23,6 @@
           (label :class "slider_icon" :text "墳")
           (scale :min 1 :max 101 :width 215 :class "volume_slider" :value volume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//')")
         )
-        (box :space-evenly false
-          (label :class "slider_icon" :text "")
-          (scale :min 1 :max 101 :width 215 :class "micvolume_slider" :value micvolume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//') --source 1")
-        )
       )
   )
 )
