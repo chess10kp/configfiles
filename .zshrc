@@ -57,7 +57,7 @@ export NVD_BACKEND="direct"
 
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -66,3 +66,4 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 alias fh="cat ~/.zsh_history | fzf | sh"
+alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"

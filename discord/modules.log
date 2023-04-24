@@ -1,0 +1,623 @@
+2023-04-22T03:03:54.334Z [Modules] Modules initializing
+2023-04-22T03:03:54.334Z [Modules] Distribution: remote
+2023-04-22T03:03:54.334Z [Modules] Host updates: enabled
+2023-04-22T03:03:54.334Z [Modules] Module updates: enabled
+2023-04-22T03:03:54.334Z [Modules] Module install path: /home/nitin/.config/discord/0.0.26/modules
+2023-04-22T03:03:54.334Z [Modules] Module installed file path: /home/nitin/.config/discord/0.0.26/modules/installed.json
+2023-04-22T03:03:54.334Z [Modules] Module download path: /home/nitin/.config/discord/0.0.26/modules/pending
+2023-04-22T03:03:54.663Z [Modules] Bootstrapping...
+2023-04-22T03:03:54.664Z [Modules] Installing discord_desktop_core@0 from /opt/discord/resources/bootstrap/discord_desktop_core.zip
+2023-04-22T03:03:54.666Z [Modules] Failed installing discord_desktop_core@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_desktop_core.zip'
+2023-04-22T03:03:54.666Z [Modules] Installing discord_erlpack@0 from /opt/discord/resources/bootstrap/discord_erlpack.zip
+2023-04-22T03:03:54.667Z [Modules] Failed installing discord_erlpack@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_erlpack.zip'
+2023-04-22T03:03:54.668Z [Modules] Installing discord_spellcheck@0 from /opt/discord/resources/bootstrap/discord_spellcheck.zip
+2023-04-22T03:03:54.668Z [Modules] Failed installing discord_spellcheck@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_spellcheck.zip'
+2023-04-22T03:03:54.668Z [Modules] Installing discord_utils@0 from /opt/discord/resources/bootstrap/discord_utils.zip
+2023-04-22T03:03:54.669Z [Modules] Failed installing discord_utils@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_utils.zip'
+2023-04-22T03:03:54.669Z [Modules] Installing discord_voice@0 from /opt/discord/resources/bootstrap/discord_voice.zip
+2023-04-22T03:03:54.670Z [Modules] Failed installing discord_voice@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_voice.zip'
+2023-04-22T03:03:54.670Z [Modules] Finished module installations. [success: 0] [failure: 5]
+2023-04-22T03:03:54.670Z [Modules] Checking for host updates.
+2023-04-22T03:03:54.881Z [Modules] Host is up to date.
+2023-04-22T03:03:54.881Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-04-22T03:03:54.965Z [Modules] Module update available: discord_desktop_core@1 [installed: 0]
+2023-04-22T03:03:54.966Z [Modules] Module update available: discord_erlpack@1 [installed: 0]
+2023-04-22T03:03:54.966Z [Modules] Module update available: discord_spellcheck@1 [installed: 0]
+2023-04-22T03:03:54.966Z [Modules] Module update available: discord_utils@2 [installed: 0]
+2023-04-22T03:03:54.966Z [Modules] Module update available: discord_voice@2 [installed: 0]
+2023-04-22T03:03:54.966Z [Modules] Fetching discord_desktop_core@1 from https://discord.com/api/modules/stable/discord_desktop_core/1
+2023-04-22T03:03:54.966Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip
+2023-04-22T03:03:55.216Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 1%
+2023-04-22T03:03:55.218Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 2%
+2023-04-22T03:03:55.240Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 3%
+2023-04-22T03:03:55.243Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 4%
+2023-04-22T03:03:55.246Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 5%
+2023-04-22T03:03:55.263Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 6%
+2023-04-22T03:03:55.266Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 7%
+2023-04-22T03:03:55.269Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 8%
+2023-04-22T03:03:55.273Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 9%
+2023-04-22T03:03:55.276Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 10%
+2023-04-22T03:03:55.279Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 11%
+2023-04-22T03:03:55.282Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 12%
+2023-04-22T03:03:55.286Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 13%
+2023-04-22T03:03:55.289Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 15%
+2023-04-22T03:03:55.292Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 16%
+2023-04-22T03:03:55.295Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 18%
+2023-04-22T03:03:55.299Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 20%
+2023-04-22T03:03:55.305Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 21%
+2023-04-22T03:03:55.309Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 24%
+2023-04-22T03:03:55.312Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 26%
+2023-04-22T03:03:55.315Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 28%
+2023-04-22T03:03:55.319Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 30%
+2023-04-22T03:03:55.322Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 32%
+2023-04-22T03:03:55.325Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 34%
+2023-04-22T03:03:55.328Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 37%
+2023-04-22T03:03:55.332Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 39%
+2023-04-22T03:03:55.335Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 40%
+2023-04-22T03:03:55.338Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 43%
+2023-04-22T03:03:55.341Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 46%
+2023-04-22T03:03:55.344Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 47%
+2023-04-22T03:03:55.348Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 49%
+2023-04-22T03:03:55.351Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 52%
+2023-04-22T03:03:55.354Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 54%
+2023-04-22T03:03:55.357Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 56%
+2023-04-22T03:03:55.361Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 59%
+2023-04-22T03:03:55.364Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 61%
+2023-04-22T03:03:55.367Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 63%
+2023-04-22T03:03:55.370Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 66%
+2023-04-22T03:03:55.374Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 68%
+2023-04-22T03:03:55.377Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 70%
+2023-04-22T03:03:55.380Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 73%
+2023-04-22T03:03:55.384Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 75%
+2023-04-22T03:03:55.387Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 77%
+2023-04-22T03:03:55.390Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 79%
+2023-04-22T03:03:55.393Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 82%
+2023-04-22T03:03:55.397Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 84%
+2023-04-22T03:03:55.400Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 85%
+2023-04-22T03:03:55.430Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 88%
+2023-04-22T03:03:55.434Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 91%
+2023-04-22T03:03:55.456Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 95%
+2023-04-22T03:03:55.459Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 99%
+2023-04-22T03:03:55.459Z [Modules] Streaming discord_desktop_core@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip: 100%
+2023-04-22T03:03:55.461Z [Modules] Fetching discord_erlpack@1 from https://discord.com/api/modules/stable/discord_erlpack/1
+2023-04-22T03:03:55.461Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip
+2023-04-22T03:03:55.578Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 2%
+2023-04-22T03:03:55.580Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 4%
+2023-04-22T03:03:55.583Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 7%
+2023-04-22T03:03:55.586Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 10%
+2023-04-22T03:03:55.590Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 13%
+2023-04-22T03:03:55.593Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 15%
+2023-04-22T03:03:55.596Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 18%
+2023-04-22T03:03:55.599Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 21%
+2023-04-22T03:03:55.603Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 23%
+2023-04-22T03:03:55.606Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 26%
+2023-04-22T03:03:55.609Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 28%
+2023-04-22T03:03:55.612Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 30%
+2023-04-22T03:03:55.616Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 31%
+2023-04-22T03:03:55.664Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 35%
+2023-04-22T03:03:55.667Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 39%
+2023-04-22T03:03:55.671Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 41%
+2023-04-22T03:03:55.674Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 45%
+2023-04-22T03:03:55.678Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 48%
+2023-04-22T03:03:55.680Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 52%
+2023-04-22T03:03:55.683Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 56%
+2023-04-22T03:03:55.684Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 61%
+2023-04-22T03:03:55.684Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 64%
+2023-04-22T03:03:55.685Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 76%
+2023-04-22T03:03:55.685Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 83%
+2023-04-22T03:03:55.688Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 85%
+2023-04-22T03:03:55.691Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 88%
+2023-04-22T03:03:55.694Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 91%
+2023-04-22T03:03:55.697Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 94%
+2023-04-22T03:03:55.701Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 96%
+2023-04-22T03:03:55.704Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 99%
+2023-04-22T03:03:55.706Z [Modules] Streaming discord_erlpack@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip: 100%
+2023-04-22T03:03:55.707Z [Modules] Fetching discord_spellcheck@1 from https://discord.com/api/modules/stable/discord_spellcheck/1
+2023-04-22T03:03:55.707Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip
+2023-04-22T03:03:55.826Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 1%
+2023-04-22T03:03:55.833Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 2%
+2023-04-22T03:03:55.840Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 3%
+2023-04-22T03:03:55.849Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 4%
+2023-04-22T03:03:55.859Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 5%
+2023-04-22T03:03:55.866Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 6%
+2023-04-22T03:03:55.872Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 7%
+2023-04-22T03:03:55.879Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 8%
+2023-04-22T03:03:55.889Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 9%
+2023-04-22T03:03:55.895Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 10%
+2023-04-22T03:03:55.905Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 11%
+2023-04-22T03:03:55.912Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 12%
+2023-04-22T03:03:55.921Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 13%
+2023-04-22T03:03:55.934Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 14%
+2023-04-22T03:03:55.941Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 15%
+2023-04-22T03:03:55.957Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 16%
+2023-04-22T03:03:55.966Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 17%
+2023-04-22T03:03:55.969Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 18%
+2023-04-22T03:03:56.113Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 19%
+2023-04-22T03:03:56.114Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 20%
+2023-04-22T03:03:56.120Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 21%
+2023-04-22T03:03:56.121Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 22%
+2023-04-22T03:03:56.121Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 24%
+2023-04-22T03:03:56.159Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 25%
+2023-04-22T03:03:56.166Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 26%
+2023-04-22T03:03:56.185Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 27%
+2023-04-22T03:03:56.185Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 28%
+2023-04-22T03:03:56.186Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 29%
+2023-04-22T03:03:56.186Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 30%
+2023-04-22T03:03:56.187Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 32%
+2023-04-22T03:03:56.187Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 33%
+2023-04-22T03:03:56.188Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 34%
+2023-04-22T03:03:56.188Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 35%
+2023-04-22T03:03:56.198Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 36%
+2023-04-22T03:03:56.202Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 37%
+2023-04-22T03:03:56.212Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 38%
+2023-04-22T03:03:56.221Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 39%
+2023-04-22T03:03:56.228Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 40%
+2023-04-22T03:03:56.238Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 41%
+2023-04-22T03:03:56.254Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 42%
+2023-04-22T03:03:56.300Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 43%
+2023-04-22T03:03:56.329Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 44%
+2023-04-22T03:03:56.343Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 45%
+2023-04-22T03:03:56.356Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 46%
+2023-04-22T03:03:56.369Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 47%
+2023-04-22T03:03:56.382Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 48%
+2023-04-22T03:03:56.395Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 49%
+2023-04-22T03:03:56.411Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 50%
+2023-04-22T03:03:56.424Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 51%
+2023-04-22T03:03:56.437Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 52%
+2023-04-22T03:03:56.450Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 53%
+2023-04-22T03:03:56.463Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 54%
+2023-04-22T03:03:56.480Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 55%
+2023-04-22T03:03:56.493Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 56%
+2023-04-22T03:03:56.506Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 57%
+2023-04-22T03:03:56.519Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 58%
+2023-04-22T03:03:56.532Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 59%
+2023-04-22T03:03:56.545Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 60%
+2023-04-22T03:03:56.562Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 61%
+2023-04-22T03:03:56.577Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 62%
+2023-04-22T03:03:56.587Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 63%
+2023-04-22T03:03:56.601Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 64%
+2023-04-22T03:03:56.614Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 65%
+2023-04-22T03:03:56.626Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 66%
+2023-04-22T03:03:56.640Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 67%
+2023-04-22T03:03:56.653Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 68%
+2023-04-22T03:03:56.669Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 69%
+2023-04-22T03:03:56.683Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 70%
+2023-04-22T03:03:56.696Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 71%
+2023-04-22T03:03:56.712Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 72%
+2023-04-22T03:03:56.725Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 73%
+2023-04-22T03:03:56.738Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 74%
+2023-04-22T03:03:56.750Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 75%
+2023-04-22T03:03:56.764Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 76%
+2023-04-22T03:03:56.777Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 77%
+2023-04-22T03:03:56.793Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 78%
+2023-04-22T03:03:56.803Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 79%
+2023-04-22T03:03:56.816Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 80%
+2023-04-22T03:03:56.829Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 81%
+2023-04-22T03:03:56.839Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 82%
+2023-04-22T03:03:56.855Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 83%
+2023-04-22T03:03:56.868Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 84%
+2023-04-22T03:03:56.881Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 85%
+2023-04-22T03:03:56.894Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 86%
+2023-04-22T03:03:56.907Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 87%
+2023-04-22T03:03:56.920Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 88%
+2023-04-22T03:03:56.937Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 89%
+2023-04-22T03:03:56.950Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 90%
+2023-04-22T03:03:56.963Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 91%
+2023-04-22T03:03:56.976Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 92%
+2023-04-22T03:03:56.989Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 93%
+2023-04-22T03:03:57.002Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 94%
+2023-04-22T03:03:57.015Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 95%
+2023-04-22T03:03:57.028Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 96%
+2023-04-22T03:03:57.041Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 97%
+2023-04-22T03:03:57.054Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 98%
+2023-04-22T03:03:57.067Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 99%
+2023-04-22T03:03:57.079Z [Modules] Streaming discord_spellcheck@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip: 100%
+2023-04-22T03:03:57.080Z [Modules] Fetching discord_utils@2 from https://discord.com/api/modules/stable/discord_utils/2
+2023-04-22T03:03:57.081Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip
+2023-04-22T03:03:57.215Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 1%
+2023-04-22T03:03:57.221Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 3%
+2023-04-22T03:03:57.225Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 4%
+2023-04-22T03:03:57.228Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 5%
+2023-04-22T03:03:57.231Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 6%
+2023-04-22T03:03:57.234Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 7%
+2023-04-22T03:03:57.238Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 9%
+2023-04-22T03:03:57.241Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 10%
+2023-04-22T03:03:57.244Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 11%
+2023-04-22T03:03:57.247Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 12%
+2023-04-22T03:03:57.251Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 13%
+2023-04-22T03:03:57.254Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 14%
+2023-04-22T03:03:57.257Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 15%
+2023-04-22T03:03:57.260Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 16%
+2023-04-22T03:03:57.267Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 17%
+2023-04-22T03:03:57.270Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 18%
+2023-04-22T03:03:57.273Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 20%
+2023-04-22T03:03:57.277Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 21%
+2023-04-22T03:03:57.280Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 22%
+2023-04-22T03:03:57.283Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 23%
+2023-04-22T03:03:57.287Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 24%
+2023-04-22T03:03:57.290Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 25%
+2023-04-22T03:03:57.293Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 26%
+2023-04-22T03:03:57.296Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 28%
+2023-04-22T03:03:57.300Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 29%
+2023-04-22T03:03:57.303Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 30%
+2023-04-22T03:03:57.306Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 31%
+2023-04-22T03:03:57.309Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 32%
+2023-04-22T03:03:57.313Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 33%
+2023-04-22T03:03:57.316Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 35%
+2023-04-22T03:03:57.319Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 36%
+2023-04-22T03:03:57.329Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 38%
+2023-04-22T03:03:57.336Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 40%
+2023-04-22T03:03:57.339Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 41%
+2023-04-22T03:03:57.342Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 42%
+2023-04-22T03:03:57.345Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 43%
+2023-04-22T03:03:57.349Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 44%
+2023-04-22T03:03:57.352Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 46%
+2023-04-22T03:03:57.355Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 47%
+2023-04-22T03:03:57.358Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 48%
+2023-04-22T03:03:57.362Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 49%
+2023-04-22T03:03:57.365Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 50%
+2023-04-22T03:03:57.368Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 51%
+2023-04-22T03:03:57.372Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 53%
+2023-04-22T03:03:57.375Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 54%
+2023-04-22T03:03:57.378Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 55%
+2023-04-22T03:03:57.381Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 56%
+2023-04-22T03:03:57.384Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 57%
+2023-04-22T03:03:57.388Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 58%
+2023-04-22T03:03:57.391Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 59%
+2023-04-22T03:03:57.394Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 61%
+2023-04-22T03:03:57.397Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 62%
+2023-04-22T03:03:57.401Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 63%
+2023-04-22T03:03:57.404Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 64%
+2023-04-22T03:03:57.407Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 65%
+2023-04-22T03:03:57.411Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 66%
+2023-04-22T03:03:57.414Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 67%
+2023-04-22T03:03:57.417Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 68%
+2023-04-22T03:03:57.422Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 69%
+2023-04-22T03:03:57.423Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 70%
+2023-04-22T03:03:57.427Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 71%
+2023-04-22T03:03:57.430Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 72%
+2023-04-22T03:03:57.433Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 73%
+2023-04-22T03:03:57.440Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 75%
+2023-04-22T03:03:57.443Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 76%
+2023-04-22T03:03:57.446Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 77%
+2023-04-22T03:03:57.450Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 78%
+2023-04-22T03:03:57.453Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 79%
+2023-04-22T03:03:57.456Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 80%
+2023-04-22T03:03:57.459Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 82%
+2023-04-22T03:03:57.463Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 83%
+2023-04-22T03:03:57.466Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 85%
+2023-04-22T03:03:57.472Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 87%
+2023-04-22T03:03:57.476Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 88%
+2023-04-22T03:03:57.479Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 90%
+2023-04-22T03:03:57.483Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 91%
+2023-04-22T03:03:57.486Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 92%
+2023-04-22T03:03:57.489Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 93%
+2023-04-22T03:03:57.492Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 94%
+2023-04-22T03:03:57.496Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 95%
+2023-04-22T03:03:57.499Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 97%
+2023-04-22T03:03:57.502Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 98%
+2023-04-22T03:03:57.504Z [Modules] Streaming discord_utils@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip: 100%
+2023-04-22T03:03:57.505Z [Modules] Fetching discord_voice@2 from https://discord.com/api/modules/stable/discord_voice/2
+2023-04-22T03:03:57.506Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip
+2023-04-22T03:03:57.647Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 1%
+2023-04-22T03:03:57.663Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 2%
+2023-04-22T03:03:57.680Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 3%
+2023-04-22T03:03:57.693Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 4%
+2023-04-22T03:03:57.709Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 5%
+2023-04-22T03:03:57.722Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 6%
+2023-04-22T03:03:57.738Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 7%
+2023-04-22T03:03:57.755Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 8%
+2023-04-22T03:03:57.768Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 9%
+2023-04-22T03:03:57.784Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 10%
+2023-04-22T03:03:57.800Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 11%
+2023-04-22T03:03:57.816Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 12%
+2023-04-22T03:03:57.830Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 13%
+2023-04-22T03:03:57.848Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 14%
+2023-04-22T03:03:57.863Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 15%
+2023-04-22T03:03:57.879Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 16%
+2023-04-22T03:03:57.944Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 17%
+2023-04-22T03:03:57.956Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 18%
+2023-04-22T03:03:57.969Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 19%
+2023-04-22T03:03:57.973Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 20%
+2023-04-22T03:03:57.973Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 21%
+2023-04-22T03:03:57.973Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 22%
+2023-04-22T03:03:57.986Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 23%
+2023-04-22T03:03:58.003Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 24%
+2023-04-22T03:03:58.023Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 25%
+2023-04-22T03:03:58.090Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 26%
+2023-04-22T03:03:58.103Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 27%
+2023-04-22T03:03:58.110Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 28%
+2023-04-22T03:03:58.111Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 29%
+2023-04-22T03:03:58.152Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 30%
+2023-04-22T03:03:58.153Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 31%
+2023-04-22T03:03:58.154Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 32%
+2023-04-22T03:03:58.154Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 33%
+2023-04-22T03:03:58.169Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 34%
+2023-04-22T03:03:58.186Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 35%
+2023-04-22T03:03:58.202Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 36%
+2023-04-22T03:03:58.222Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 37%
+2023-04-22T03:03:58.290Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 38%
+2023-04-22T03:03:58.305Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 39%
+2023-04-22T03:03:58.309Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 40%
+2023-04-22T03:03:58.319Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 41%
+2023-04-22T03:03:58.335Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 42%
+2023-04-22T03:03:58.336Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 43%
+2023-04-22T03:03:58.337Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 44%
+2023-04-22T03:03:58.349Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 45%
+2023-04-22T03:03:58.365Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 46%
+2023-04-22T03:03:58.377Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 47%
+2023-04-22T03:03:58.393Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 48%
+2023-04-22T03:03:58.411Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 49%
+2023-04-22T03:03:58.427Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 50%
+2023-04-22T03:03:58.444Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 51%
+2023-04-22T03:03:58.457Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 52%
+2023-04-22T03:03:58.521Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 53%
+2023-04-22T03:03:58.522Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 54%
+2023-04-22T03:03:58.523Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 55%
+2023-04-22T03:03:58.523Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 56%
+2023-04-22T03:03:58.538Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 57%
+2023-04-22T03:03:58.551Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 58%
+2023-04-22T03:03:58.567Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 59%
+2023-04-22T03:03:58.581Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 60%
+2023-04-22T03:03:58.597Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 61%
+2023-04-22T03:03:58.613Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 62%
+2023-04-22T03:03:58.630Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 63%
+2023-04-22T03:03:58.704Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 64%
+2023-04-22T03:03:58.773Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 65%
+2023-04-22T03:03:58.773Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 66%
+2023-04-22T03:03:58.774Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 67%
+2023-04-22T03:03:58.774Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 68%
+2023-04-22T03:03:58.789Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 69%
+2023-04-22T03:03:58.790Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 70%
+2023-04-22T03:03:58.790Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 71%
+2023-04-22T03:03:58.791Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 72%
+2023-04-22T03:03:58.792Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 73%
+2023-04-22T03:03:58.809Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 74%
+2023-04-22T03:03:58.877Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 75%
+2023-04-22T03:03:58.878Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 76%
+2023-04-22T03:03:58.879Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 77%
+2023-04-22T03:03:58.879Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 78%
+2023-04-22T03:03:58.888Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 79%
+2023-04-22T03:03:58.901Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 80%
+2023-04-22T03:03:58.917Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 81%
+2023-04-22T03:03:58.936Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 82%
+2023-04-22T03:03:58.953Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 83%
+2023-04-22T03:03:58.968Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 84%
+2023-04-22T03:03:58.985Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 85%
+2023-04-22T03:03:59.001Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 86%
+2023-04-22T03:03:59.010Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 87%
+2023-04-22T03:03:59.028Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 88%
+2023-04-22T03:03:59.044Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 89%
+2023-04-22T03:03:59.057Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 90%
+2023-04-22T03:03:59.073Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 91%
+2023-04-22T03:03:59.087Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 92%
+2023-04-22T03:03:59.103Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 93%
+2023-04-22T03:03:59.119Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 94%
+2023-04-22T03:03:59.136Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 95%
+2023-04-22T03:03:59.148Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 96%
+2023-04-22T03:03:59.165Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 97%
+2023-04-22T03:03:59.181Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 98%
+2023-04-22T03:03:59.194Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 99%
+2023-04-22T03:03:59.209Z [Modules] Streaming discord_voice@2 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip: 100%
+2023-04-22T03:03:59.211Z [Modules] Finished module downloads. [success: 5] [failure: 0]
+2023-04-22T03:03:59.211Z [Modules] Installing updates...
+2023-04-22T03:03:59.211Z [Modules] Installing discord_desktop_core@1 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_desktop_core-1.zip
+2023-04-22T03:03:59.268Z [Modules] Installing discord_erlpack@1 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_erlpack-1.zip
+2023-04-22T03:03:59.312Z [Modules] Installing discord_spellcheck@1 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_spellcheck-1.zip
+2023-04-22T03:03:59.745Z [Modules] Installing discord_utils@2 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_utils-2.zip
+2023-04-22T03:03:59.979Z [Modules] Installing discord_voice@2 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_voice-2.zip
+2023-04-22T03:04:00.488Z [Modules] Finished module installations. [success: 5] [failure: 0]
+2023-04-22T03:04:00.489Z [Modules] Checking for host updates.
+2023-04-22T03:04:00.570Z [Modules] Host is up to date.
+2023-04-22T03:04:00.570Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-04-22T03:04:00.573Z [Modules] No module updates available.
+2023-04-22T03:04:01.986Z [Modules] Starting to install discord_krisp...
+2023-04-22T03:04:01.987Z [Modules] Fetching discord_krisp@1 from https://discord.com/api/modules/stable/discord_krisp/1
+2023-04-22T03:04:01.987Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip
+2023-04-22T03:04:02.092Z [Modules] Starting to install discord_game_utils...
+2023-04-22T03:04:02.126Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 1%
+2023-04-22T03:04:02.143Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 2%
+2023-04-22T03:04:02.163Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 3%
+2023-04-22T03:04:02.182Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 4%
+2023-04-22T03:04:02.200Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 5%
+2023-04-22T03:04:02.221Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 6%
+2023-04-22T03:04:02.236Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 7%
+2023-04-22T03:04:02.258Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 8%
+2023-04-22T03:04:02.272Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 9%
+2023-04-22T03:04:02.286Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 10%
+2023-04-22T03:04:02.370Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 11%
+2023-04-22T03:04:02.380Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 12%
+2023-04-22T03:04:02.384Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 13%
+2023-04-22T03:04:02.386Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 14%
+2023-04-22T03:04:02.401Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 15%
+2023-04-22T03:04:02.421Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 16%
+2023-04-22T03:04:02.439Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 17%
+2023-04-22T03:04:02.453Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 18%
+2023-04-22T03:04:02.472Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 19%
+2023-04-22T03:04:02.490Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 20%
+2023-04-22T03:04:02.511Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 21%
+2023-04-22T03:04:02.532Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 22%
+2023-04-22T03:04:02.554Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 23%
+2023-04-22T03:04:02.576Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 24%
+2023-04-22T03:04:02.601Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 25%
+2023-04-22T03:04:02.620Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 26%
+2023-04-22T03:04:02.640Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 27%
+2023-04-22T03:04:02.662Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 28%
+2023-04-22T03:04:02.753Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 29%
+2023-04-22T03:04:02.754Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 30%
+2023-04-22T03:04:02.755Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 31%
+2023-04-22T03:04:02.755Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 32%
+2023-04-22T03:04:02.755Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 33%
+2023-04-22T03:04:02.764Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 34%
+2023-04-22T03:04:02.777Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 35%
+2023-04-22T03:04:02.794Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 36%
+2023-04-22T03:04:02.808Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 37%
+2023-04-22T03:04:02.820Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 38%
+2023-04-22T03:04:02.837Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 39%
+2023-04-22T03:04:02.857Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 40%
+2023-04-22T03:04:02.879Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 41%
+2023-04-22T03:04:02.891Z [Modules] Checking for host updates.
+2023-04-22T03:04:02.896Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 42%
+2023-04-22T03:04:02.919Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 43%
+2023-04-22T03:04:02.958Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 44%
+2023-04-22T03:04:02.991Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 45%
+2023-04-22T03:04:03.017Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 46%
+2023-04-22T03:04:03.050Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 47%
+2023-04-22T03:04:03.079Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 48%
+2023-04-22T03:04:03.082Z [Modules] Host is up to date.
+2023-04-22T03:04:03.083Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-04-22T03:04:03.085Z [Modules] No module updates available.
+2023-04-22T03:04:03.108Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 49%
+2023-04-22T03:04:03.111Z [Modules] Starting to install discord_rpc...
+2023-04-22T03:04:03.141Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 50%
+2023-04-22T03:04:03.169Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 51%
+2023-04-22T03:04:03.200Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 52%
+2023-04-22T03:04:03.235Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 53%
+2023-04-22T03:04:03.268Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 54%
+2023-04-22T03:04:03.294Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 55%
+2023-04-22T03:04:03.334Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 56%
+2023-04-22T03:04:03.373Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 57%
+2023-04-22T03:04:03.402Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 58%
+2023-04-22T03:04:03.438Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 59%
+2023-04-22T03:04:03.467Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 60%
+2023-04-22T03:04:03.497Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 61%
+2023-04-22T03:04:03.523Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 62%
+2023-04-22T03:04:03.555Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 63%
+2023-04-22T03:04:03.588Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 64%
+2023-04-22T03:04:03.621Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 65%
+2023-04-22T03:04:03.650Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 66%
+2023-04-22T03:04:03.686Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 67%
+2023-04-22T03:04:03.715Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 68%
+2023-04-22T03:04:03.745Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 69%
+2023-04-22T03:04:03.774Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 70%
+2023-04-22T03:04:03.803Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 71%
+2023-04-22T03:04:03.833Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 72%
+2023-04-22T03:04:03.865Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 73%
+2023-04-22T03:04:03.892Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 74%
+2023-04-22T03:04:03.928Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 75%
+2023-04-22T03:04:03.957Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 76%
+2023-04-22T03:04:03.986Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 77%
+2023-04-22T03:04:04.016Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 78%
+2023-04-22T03:04:04.045Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 79%
+2023-04-22T03:04:04.078Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 80%
+2023-04-22T03:04:04.107Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 81%
+2023-04-22T03:04:04.136Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 82%
+2023-04-22T03:04:04.166Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 83%
+2023-04-22T03:04:04.198Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 84%
+2023-04-22T03:04:04.231Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 85%
+2023-04-22T03:04:04.260Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 86%
+2023-04-22T03:04:04.286Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 87%
+2023-04-22T03:04:04.316Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 88%
+2023-04-22T03:04:04.342Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 89%
+2023-04-22T03:04:04.398Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 90%
+2023-04-22T03:04:04.428Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 91%
+2023-04-22T03:04:04.499Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 92%
+2023-04-22T03:04:04.535Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 93%
+2023-04-22T03:04:04.565Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 94%
+2023-04-22T03:04:04.594Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 95%
+2023-04-22T03:04:04.627Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 96%
+2023-04-22T03:04:04.656Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 97%
+2023-04-22T03:04:04.685Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 98%
+2023-04-22T03:04:04.712Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 99%
+2023-04-22T03:04:04.740Z [Modules] Streaming discord_krisp@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip: 100%
+2023-04-22T03:04:04.742Z [Modules] Fetching discord_game_utils@1 from https://discord.com/api/modules/stable/discord_game_utils/1
+2023-04-22T03:04:04.742Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip
+2023-04-22T03:04:04.742Z [Modules] Installing discord_krisp@1 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_krisp-1.zip
+2023-04-22T03:04:04.854Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 1%
+2023-04-22T03:04:04.860Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 3%
+2023-04-22T03:04:04.866Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 4%
+2023-04-22T03:04:04.870Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 5%
+2023-04-22T03:04:04.873Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 6%
+2023-04-22T03:04:04.876Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 7%
+2023-04-22T03:04:04.879Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 8%
+2023-04-22T03:04:04.883Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 9%
+2023-04-22T03:04:04.886Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 10%
+2023-04-22T03:04:04.889Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 11%
+2023-04-22T03:04:04.892Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 12%
+2023-04-22T03:04:04.896Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 13%
+2023-04-22T03:04:04.899Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 14%
+2023-04-22T03:04:04.902Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 15%
+2023-04-22T03:04:04.906Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 16%
+2023-04-22T03:04:04.909Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 17%
+2023-04-22T03:04:04.912Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 18%
+2023-04-22T03:04:04.915Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 19%
+2023-04-22T03:04:04.919Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 20%
+2023-04-22T03:04:04.927Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 22%
+2023-04-22T03:04:04.928Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 23%
+2023-04-22T03:04:04.934Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 24%
+2023-04-22T03:04:04.935Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 25%
+2023-04-22T03:04:04.938Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 26%
+2023-04-22T03:04:04.941Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 27%
+2023-04-22T03:04:04.945Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 28%
+2023-04-22T03:04:04.948Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 29%
+2023-04-22T03:04:04.951Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 30%
+2023-04-22T03:04:04.955Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 31%
+2023-04-22T03:04:04.958Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 32%
+2023-04-22T03:04:04.961Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 33%
+2023-04-22T03:04:04.964Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 34%
+2023-04-22T03:04:04.968Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 35%
+2023-04-22T03:04:04.974Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 36%
+2023-04-22T03:04:04.978Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 37%
+2023-04-22T03:04:04.981Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 38%
+2023-04-22T03:04:04.984Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 39%
+2023-04-22T03:04:04.987Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 40%
+2023-04-22T03:04:04.990Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 41%
+2023-04-22T03:04:04.994Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 43%
+2023-04-22T03:04:05.000Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 44%
+2023-04-22T03:04:05.004Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 45%
+2023-04-22T03:04:05.012Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 47%
+2023-04-22T03:04:05.014Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 49%
+2023-04-22T03:04:05.020Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 51%
+2023-04-22T03:04:05.023Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 52%
+2023-04-22T03:04:05.026Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 53%
+2023-04-22T03:04:05.030Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 54%
+2023-04-22T03:04:05.033Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 55%
+2023-04-22T03:04:05.036Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 56%
+2023-04-22T03:04:05.039Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 57%
+2023-04-22T03:04:05.043Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 58%
+2023-04-22T03:04:05.046Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 59%
+2023-04-22T03:04:05.049Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 61%
+2023-04-22T03:04:05.056Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 62%
+2023-04-22T03:04:05.059Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 63%
+2023-04-22T03:04:05.062Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 65%
+2023-04-22T03:04:05.069Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 66%
+2023-04-22T03:04:05.072Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 67%
+2023-04-22T03:04:05.075Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 68%
+2023-04-22T03:04:05.082Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 70%
+2023-04-22T03:04:05.088Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 72%
+2023-04-22T03:04:05.095Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 74%
+2023-04-22T03:04:05.102Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 76%
+2023-04-22T03:04:05.108Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 78%
+2023-04-22T03:04:05.114Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 80%
+2023-04-22T03:04:05.121Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 81%
+2023-04-22T03:04:05.124Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 82%
+2023-04-22T03:04:05.127Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 84%
+2023-04-22T03:04:05.133Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 85%
+2023-04-22T03:04:05.135Z [Modules] Finished module installations. [success: 1] [failure: 0]
+2023-04-22T03:04:05.137Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 86%
+2023-04-22T03:04:05.141Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 88%
+2023-04-22T03:04:05.147Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 89%
+2023-04-22T03:04:05.151Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 90%
+2023-04-22T03:04:05.154Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 92%
+2023-04-22T03:04:05.160Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 94%
+2023-04-22T03:04:05.167Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 96%
+2023-04-22T03:04:05.173Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 98%
+2023-04-22T03:04:05.179Z [Modules] Streaming discord_game_utils@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip: 100%
+2023-04-22T03:04:05.180Z [Modules] Fetching discord_rpc@1 from https://discord.com/api/modules/stable/discord_rpc/1
+2023-04-22T03:04:05.180Z [Modules] Streaming discord_rpc@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_rpc-1.zip
+2023-04-22T03:04:05.180Z [Modules] Installing discord_game_utils@1 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_game_utils-1.zip
+2023-04-22T03:04:05.244Z [Modules] Finished module installations. [success: 1] [failure: 0]
+2023-04-22T03:04:05.284Z [Modules] Streaming discord_rpc@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_rpc-1.zip: 38%
+2023-04-22T03:04:05.286Z [Modules] Streaming discord_rpc@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_rpc-1.zip: 75%
+2023-04-22T03:04:05.288Z [Modules] Streaming discord_rpc@1 to /home/nitin/.config/discord/0.0.26/modules/pending/discord_rpc-1.zip: 100%
+2023-04-22T03:04:05.289Z [Modules] Finished module downloads. [success: 3] [failure: 0]
+2023-04-22T03:04:05.290Z [Modules] Installing discord_rpc@1 from /home/nitin/.config/discord/0.0.26/modules/pending/discord_rpc-1.zip
+2023-04-22T03:04:05.302Z [Modules] Finished module installations. [success: 1] [failure: 0]
+2023-04-22T04:04:02.895Z [Modules] Checking for host updates.
+2023-04-22T04:04:03.040Z [Modules] Host is up to date.
+2023-04-22T04:04:03.040Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-04-22T04:04:03.079Z [Modules] No module updates available.
+2023-04-22T05:04:02.895Z [Modules] Checking for host updates.
+2023-04-22T05:04:03.030Z [Modules] Host is up to date.
+2023-04-22T05:04:03.030Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2023-04-22T05:04:03.063Z [Modules] No module updates available.

@@ -3,13 +3,13 @@
 dmenu="tofi"
 font="--font=TerminessTTF Nerd Font"
 back=$(ls ~/Pictures/wp | "${dmenu}" "$font")
-if [-z "$back" ]
+if [ -n "$back" ]
 then
+    killall swaybg
+    cp ~/Pictures/wp/"$back" ~/Pictures/wp/defaultwp.jpg
+    /usr/bin/swaybg -i ~/Pictures/wp/$back &
     exit 0
 else
-    killall swaybg
-    cp ~/Pictures/wp/$back ~/Pictures/wp/defaultwp.jpg
-    /usr/bin/swaybg -i ~/Pictures/wp/$back &
-    /usr/bin/eww reload
+    exit 0
 fi
 exit 0 

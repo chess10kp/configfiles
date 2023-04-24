@@ -3,8 +3,6 @@
 
 (include "./src/yuck/ocular/_init.yuck")
 (include "./src/yuck/bolt/_init.yuck")
-(include "./src/yuck/chrono/_init.yuck")
-(include "./src/yuck/lumin/_init.yuck")
 (include "./src/yuck/horizon/_init.yuck")
 (include "./custom/eww.yuck")
 
@@ -22,6 +20,10 @@
         (box :space-evenly false
           (label :class "slider_icon" :text "墳")
           (scale :min 1 :max 101 :width 215 :class "volume_slider" :value volume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//')")
+        )
+        (box :space-evenly false
+          (label :class "slider_icon" :text "")
+          (scale :min 1 :max 101 :width 215 :class "micvolume_slider" :value micvolume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//') --source 1")
         )
       )
   )

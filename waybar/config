@@ -13,7 +13,6 @@
         "clock",
     ],
     "modules-right": [
-        "memory",
         "battery",
         "backlight",
         "custom/bluetooth",
@@ -188,26 +187,13 @@
     "pulseaudio": {
         "format": "{icon} ",
         "format-bluetooth-muted": "",
-        "format-muted": "<span foreground='#7ed491'></span><span foreground='#29343d'>―――――――――――――</span>",
+        "format-muted": "",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
             "default": [
-                "<span foreground='#7ed491'></span><span foreground='#29343d'>―――――――――――――</span>",
-                "<span foreground='#7ed491'>―</span><span foreground='#29343d'>――――――――――――</span>",
-                "<span foreground='#7ed491'>――</span><span foreground='#29343d'>―――――――――――</span>",
-                "<span foreground='#7ed491'>―――</span><span foreground='#29343d'>――――――――――</span>",
-                "<span foreground='#7ed491'>――――</span><span foreground='#29343d'>―――――――――</span>",
-                "<span foreground='#7ed491'>―――――</span><span foreground='#29343d'>――――――――</span>",
-                "<span foreground='#7ed491'>――――――</span><span foreground='#29343d'>―――――――</span>",
-                "<span foreground='#7ed491'>―――――――</span><span foreground='#29343d'>――――――</span>",
-                "<span foreground='#7ed491'>――――――――</span><span foreground='#29343d'>―――――</span>",
-                "<span foreground='#7ed491'>―――――――――</span><span foreground='#29343d'>――――</span>",
-                "<span foreground='#7ed491'>――――――――――</span><span foreground='#29343d'>―――</span>",
-                "<span foreground='#7ed491'>―――――――――――</span><span foreground='#29343d'>――</span>",
-                "<span foreground='#7ed491'>――――――――――――</span><span foreground='#29343d'>―</span>",
-                "<span foreground='#7ed491'>―――――――――――――</span><span foreground='#29343d'></span>",
+                "墳",
             ] // 醙
         },
         "on-click": "pavucontrol"
@@ -225,7 +211,7 @@
     },
     "custom/volume": {
         "tooltip": false,
-        "format": "墳",
+        "format": "",
         "on-click": "eww open --toggle dashboard-menu",
     },
     "custom/bluetooth": {

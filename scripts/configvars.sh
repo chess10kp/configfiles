@@ -1,6 +1,7 @@
 !#/bin/sh
 
 rofi="tofi"
-dmenu="bemenu"
+dmenu="rofi -dmenu"
 editor="nvim"
 term="foot"
+browser="firefox"
