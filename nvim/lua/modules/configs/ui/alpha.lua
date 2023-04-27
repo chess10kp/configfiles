@@ -2,27 +2,17 @@ return function()
 	local alpha = require("alpha")
 	local dashboard = require("alpha.themes.dashboard")
 
-	dashboard.section.header.val = {
-		[[           .       .                   .       .      .     .      .]],
-		[[          .    .         .    .            .     ______             ]],
-		[[      .           .             .               ////////            ]],
-		[[                .    .   ________   .  .      /////////     .    .  ]],
-		[[           .            |.____.  /\        ./////////    .          ]],
-		[[    .                 .//      \/  |\     /////////                 ]],
-		[[       .       .    .//          \ |  \ /////////       .     .   . ]],
-		[[                    ||.    .    .| |  ///////// .     .             ]],
-		[[     .    .         ||           | |//`,/////                .      ]],
-		[[             .       \\        ./ //  /  \/   .                     ]],
-		[[  .                    \\.___./ //\` '   ,_\     .     .            ]],
-		[[          .           .     \ //////\ , /   \                 .    .]],
-		[[                       .    ///////// \|  '  |    .                 ]],
-		[[      .        .          ///////// .   \ _ /          .            ]],
-		[[                        /////////                              .    ]],
-		[[                 .   ./////////     .     .                         ]],
-		[[         .           --------   .                  ..             . ]],
-		[[  .               .        .         .                       .      ]],
-	}
-	dashboard.section.header.opts.hl = "Type"
+                                
+    dashboard.section.header.val = {
+ [[▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄  ▄▄▄▄▄▄▄ ]],
+[[█  █ █  █       █       █       █      ██       █]],
+[[█  █▄█  █  ▄▄▄▄▄█       █   ▄   █  ▄    █    ▄▄▄█]],
+[[█       █ █▄▄▄▄▄█     ▄▄█  █ █  █ █ █   █   █▄▄▄ ]],
+[[█       █▄▄▄▄▄  █    █  █  █▄█  █ █▄█   █    ▄▄▄█]],
+ [[█     █ ▄▄▄▄▄█ █    █▄▄█       █       █   █▄▄▄ ]],
+  [[█▄▄▄█ █▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄██▄▄▄▄▄▄▄█]],
+    }
+    dashboard.section.header.opts.hl = "Type"
 
 	local function button(sc, txt, leader_txt, keybind, keybind_opts)
 		local sc_after = sc:gsub("%s", ""):gsub(leader_txt, "<leader>")
@@ -58,7 +48,7 @@ return function()
 
 	local leader = " "
 	dashboard.section.buttons.val = {
-		button("space f r", " File frecency", leader, nil, {
+		button("space f r", "File frecency", leader, nil, {
 			noremap = true,
 			silent = true,
 			nowait = true,
@@ -74,7 +64,7 @@ return function()
 				require("telescope.builtin").oldfiles()
 			end,
 		}),
-		button("space f p", " Project find", leader, nil, {
+		button("space f p", "Project find", leader, nil, {
 			noremap = true,
 			silent = true,
 			nowait = true,
@@ -82,7 +72,7 @@ return function()
 				require("telescope").extensions.projects.projects({})
 			end,
 		}),
-		button("space f f", " File find", leader, nil, {
+		button("space f f", " File find", leader, nil, {
 			noremap = true,
 			silent = true,
 			nowait = true,
@@ -90,7 +80,7 @@ return function()
 				require("telescope.builtin").find_files()
 			end,
 		}),
-		button("space f w", " Word find", leader, nil, {
+		button("space f w", " Word find", leader, nil, {
 			noremap = true,
 			silent = true,
 			nowait = true,

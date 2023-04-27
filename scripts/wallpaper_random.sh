@@ -6,5 +6,4 @@ do
     /usr/bin/echo "Wall changed to $back ">> /tmp/wall.log
     /usr/bin/swaybg -i $XDG_PICTURES_DIR/wp/$back &
     sleep 180
-    killall swaybg
 done

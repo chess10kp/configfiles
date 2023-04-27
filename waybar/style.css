@@ -231,9 +231,12 @@ window#waybar {
 #battery.plugged {
   background: #000;
   color: #19ff54;
-  padding: 0 13px;
-  margin: 4px 4px 6px 4px;
-  border: 3px solid rgba(0, 0, 0, 0);
+  margin-top: 2px;
+  margin-bottom: 1px;
+  margin-left: 0px;
+  margin-right: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
   background-clip: padding-box;
 }
 
@@ -284,8 +287,8 @@ window#waybar {
 #custom-bluetooth {
   margin-top: 5px;
   margin-bottom: 4px;
-  margin-left: 0px;
-  margin-right: 10px;
+  margin-left: 2px;
+  margin-right: 5px;
   padding: 0px 0px;
 }
 

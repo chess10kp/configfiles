@@ -5,10 +5,10 @@
 (include "./src/yuck/bolt/_init.yuck")
 (include "./src/yuck/horizon/_init.yuck")
 (include "./custom/eww.yuck")
+(include "./ewwwtf/eww.yuck")
 
 (defpoll brightness :interval "999h" :initial 0 `brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'`)
 (defpoll volume :interval "999h" :initial 0 `pamixer --get-volume`)
-(defpoll micvolume :interval "999h" :initial 0 `pamixer --get-volume --source 1`)
 (defwidget dashboard [] (box :orientation "v" 
     (box :class "info_box" :orientation "v" :space-evenly false
 
@@ -20,10 +20,6 @@
         (box :space-evenly false
           (label :class "slider_icon" :text "墳")
           (scale :min 1 :max 101 :width 215 :class "volume_slider" :value volume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//')")
-        )
-        (box :space-evenly false
-          (label :class "slider_icon" :text "")
-          (scale :min 1 :max 101 :width 215 :class "micvolume_slider" :value micvolume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//') --source 1")
         )
       )
   )
@@ -79,18 +75,4 @@
   :stacking "bg"
   :class "dashboard"
   (dashboard))
-
-
-(defwindow dashboard-menu
-  :monitor 0
-  :geometry (geometry 
-  :height "100" 
-  :width "115px"
-  :x "10px"
-  :y "10px"
-  :anchor "top right")
-  :stacking "fg"
-  :class "dashboard"
-  (dashboard))
-
 

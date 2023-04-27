@@ -28,7 +28,7 @@ local core_map = {
 	["n|<A-]>"] = map_cr("vertical resize +5"):with_silent():with_desc("window: Resize +5 vertically"),
 	["n|<A-;>"] = map_cr("resize -2"):with_silent():with_desc("window: Resize -2 horizontally"),
 	["n|<A-'>"] = map_cr("resize +2"):with_silent():with_desc("window: Resize +2 horizontally"),
-	["n|<C-q>"] = map_cmd(":wq<CR>"):with_desc("editn: Save file and quit"),
+	["n|<C-q>"] = map_cmd(":q!<CR>"):with_desc("editn: Save file and quit"),
 	["n|<A-S-q>"] = map_cmd(":q!<CR>"):with_desc("editn: Force quit"),
 	["n|<leader>o"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
 	-- Insert mode

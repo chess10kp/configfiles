@@ -5,7 +5,6 @@
     "modules-left": [
         "custom/logo",
         "wlr/workspaces",
-        "custom/media",
         "mpd",
     ],
     "modules-center": [
@@ -65,6 +64,7 @@
         "format-alt": "MPD",
         "format-disconnected": "",
         "format-stopped": "{consumeIcon}Stopped ",
+        "max-length":20,
         "format-paused": "Paused",
         "interval": 10,
         "port": 6601,
@@ -85,25 +85,6 @@
         "on-click-middle": "minimize",
         "on-click-right": "close",
     },
-    "custom/notification": {
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "󰂚<span foreground='red'><sup></sup></span>",
-            "none": "󰂚",
-            "dnd-notification": "󰂚<span foreground='red'><sup></sup></span>",
-            "dnd-none": "󰂚",
-            "inhibited-notification": "󰂚<span foreground='red'><sup></sup></span>",
-            "inhibited-none": "󰂚",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-inhibited-none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": " {:%I %M}",
@@ -111,7 +92,8 @@
     },
     "custom/logo": {
         "format": "",
-        "on-click": "tofi-run"
+        "on-click": "eww open --toggle controlpanel",
+        "tooltip-format":""
     },
     "memory": {
         "format": "{used}  "
@@ -201,7 +183,7 @@
     "custom/media": {
         "format": "  ",
         "return-type": "json",
-        "max-length": 40,
+        "max-length": 1,
         "format-icons": {
             "spotify": "  ",
             "default": "  "
