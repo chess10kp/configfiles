@@ -7,12 +7,12 @@ HISTSIZE=1000
 SAVEHIST=1000000
 bindkey -v
 # binds up and down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 zstyle :compinstall filename '/home/nitin/.zshrc'
 
 autoload -Uz compinit
 compinit
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 alias e="exit"
 alias c="clear"
@@ -23,6 +23,7 @@ alias ..="cd .."
 alias ...="cd ../../"
 alias n="nvim ."
 alias ls="exa"
+alias pm="pacman"
 
 function mkcir
 {
@@ -63,3 +64,5 @@ alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 PROMPT='%F{blue}%B%1~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
+
+eval "$(zoxide init zsh)"
