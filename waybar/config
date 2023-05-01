@@ -16,7 +16,6 @@
         "backlight",
         "custom/bluetooth",
         "network",
-        "custom/volume",
         "pulseaudio",
         "tray",
     ],
@@ -67,7 +66,7 @@
         "max-length":20,
         "format-paused": "Paused",
         "interval": 10,
-        "port": 6601,
+        "port": 6600,
         "consume-icons": {
             "on": " " // Icon shows only when "consume" is on
         },
@@ -169,13 +168,13 @@
     "pulseaudio": {
         "format": "{icon} ",
         "format-bluetooth-muted": "",
-        "format-muted": "",
+        "format-muted": "",
         "format-source": "",
-        "format-source-muted": "",
+        "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
-            "default": [
-                "墳",
+            "default": ["",
+                "",
             ] // 醙
         },
         "on-click": "pavucontrol"
@@ -190,11 +189,6 @@
         },
         "escape": true,
         "on-click": "playerctl play-pause",
-    },
-    "custom/volume": {
-        "tooltip": false,
-        "format": "",
-        "on-click": "eww open --toggle dashboard-menu",
     },
     "custom/bluetooth": {
         "format": "",

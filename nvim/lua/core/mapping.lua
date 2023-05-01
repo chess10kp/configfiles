@@ -15,7 +15,6 @@ local core_map = {
 	["n|D"] = map_cmd("d$"):with_desc("editn: Delete text to EOL"),
 	["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("editn: Next search result"),
 	["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("editn: Prev search result"),
-	["n|J"] = map_cmd("mzJ`z"):with_noremap():with_desc("editn: Join next line"),
 	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
 	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_desc("window: Focus right"),
 	["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap():with_desc("window: Focus down"),
@@ -24,12 +23,7 @@ local core_map = {
 	["t|<C-l>"] = map_cmd("<Cmd>wincmd l<CR>"):with_silent():with_noremap():with_desc("window: Focus right"),
 	["t|<C-j>"] = map_cmd("<Cmd>wincmd j<CR>"):with_silent():with_noremap():with_desc("window: Focus down"),
 	["t|<C-k>"] = map_cmd("<Cmd>wincmd k<CR>"):with_silent():with_noremap():with_desc("window: Focus up"),
-	["n|<A-[>"] = map_cr("vertical resize -5"):with_silent():with_desc("window: Resize -5 vertically"),
-	["n|<A-]>"] = map_cr("vertical resize +5"):with_silent():with_desc("window: Resize +5 vertically"),
-	["n|<A-;>"] = map_cr("resize -2"):with_silent():with_desc("window: Resize -2 horizontally"),
-	["n|<A-'>"] = map_cr("resize +2"):with_silent():with_desc("window: Resize +2 horizontally"),
 	["n|<C-q>"] = map_cmd(":q!<CR>"):with_desc("editn: Save file and quit"),
-	["n|<A-S-q>"] = map_cmd(":q!<CR>"):with_desc("editn: Force quit"),
 	["n|<leader>o"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
 	-- Insert mode
 	["i|<C-u>"] = map_cmd("<C-G>u<C-U>"):with_noremap():with_desc("editi: Delete previous block"),
@@ -37,6 +31,11 @@ local core_map = {
 	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("editi: Move cursor to line start"),
 	["i|<C-s>"] = map_cmd("<Esc>:w<CR>"):with_desc("editi: Save file"),
 	["i|<C-q>"] = map_cmd("<Esc>:wq<CR>"):with_desc("editi: Save file and quit"),
+	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
+	["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"),
+	["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
+	["i|<C-h>"] = map_cmd("<Left>"):with_desc("Move cursor to the left"),
+
 	-- Command mode
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editc: Left"),
 	["c|<C-f>"] = map_cmd("<Right>"):with_noremap():with_desc("editc: Right"),
@@ -48,8 +47,8 @@ local core_map = {
 		:with_noremap()
 		:with_desc("editc: Complete path of current file"),
 	-- Visual mode
-	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_desc("editv: Move this line down"),
-	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("editv: Move this line up"),
+    ["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_desc("editv: Move this line down"),
+    ["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("editv: Move this line up"),
 	["v|<"] = map_cmd("<gv"):with_desc("editv: Decrease indent"),
 	["v|>"] = map_cmd(">gv"):with_desc("editv: Increase indent"),
 }

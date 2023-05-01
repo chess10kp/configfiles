@@ -7,8 +7,8 @@
 (include "./custom/eww.yuck")
 (include "./ewwwtf/eww.yuck")
 
-(defpoll brightness :interval "999h" :initial 0 `brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'`)
-(defpoll volume :interval "999h" :initial 0 `pamixer --get-volume`)
+(defpoll brightness :interval "1s" :initial 0 `brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'`)
+(defpoll volume :interval "1s" :initial 0 `pamixer --get-volume`)
 (defwidget dashboard [] (box :orientation "v" 
     (box :class "info_box" :orientation "v" :space-evenly false
 

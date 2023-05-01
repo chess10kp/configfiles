@@ -4,7 +4,7 @@ dmenu="rofi -dmenu"
 
 file="$HOME/.todo"
 touch "$file"
-height=$(wc -l "$file" | awk '{print $1}')
+height=$(wc -l "$file" | awk '{print $1}' )
 prompt="Add/delete a task: "
 
 cmd=$($dmenu -l "$height" -p "$prompt" "$@" --fn 'TerminessTTF Nerd Font 13' <"$file")

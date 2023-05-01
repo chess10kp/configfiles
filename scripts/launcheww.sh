@@ -1,3 +1,3 @@
 #!/bin/sh
 
-eww open-many dashboard bolt ocular
+eww open --toggle controlpanel

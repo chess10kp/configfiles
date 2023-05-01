@@ -104,10 +104,9 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+			theme = "onedark_vivid",
 			disabled_filetypes = {},
 			component_separators = "|",
-			section_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = { { "mode" } },

@@ -14,8 +14,7 @@ ui["olimorris/onedarkpro.nvim"] = {
 	lazy = false,
 }
 ui["projekt0n/github-nvim-theme"] = {
-	lazy = true,
-	name = "github-nvim-theme",
+	lazy = false,
 }
 
 ui["catppuccin/nvim"] = {
@@ -51,11 +50,6 @@ ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("ui.neodim"),
-}
-ui["karb94/neoscroll.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("ui.neoscroll"),
 }
 ui["shaunsingh/nord.nvim"] = {
 	lazy = true,

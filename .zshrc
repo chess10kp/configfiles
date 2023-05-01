@@ -24,6 +24,7 @@ alias ...="cd ../../"
 alias n="nvim ."
 alias ls="exa"
 alias pm="pacman"
+alias fj="z"
 
 function mkcir
 {
@@ -45,7 +46,7 @@ export XDG_DOCUMENTS_DIR="$HOME/Documents"
 export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
-export MPD_PORT="6601"
+export MPD_PORT="6600"
 export NVD_BACKEND="direct"
 
 
@@ -66,3 +67,6 @@ PROMPT='%F{blue}%B%1~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
 
 eval "$(zoxide init zsh)"
+
+
+echo "\n"

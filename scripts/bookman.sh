@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ./configvars.sh
+source ~/.config/scripts/configvars.sh
 file="$HOME/.bookmarks"
 touch "$file"
 height=$(wc -l "$file" | awk '{print $1}')
