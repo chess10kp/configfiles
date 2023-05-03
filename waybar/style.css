@@ -23,13 +23,11 @@ window#waybar {
 }
 
 #custom-notification {
-  font-size: 20px;
   margin-top: 5px;
   margin-bottom: 4px;
   margin-right: 14px;
   margin-left: 10px;
   padding: 0px 9px;
-  font-family: Blex Mono Nerd Font;
   color: #a3b8ef;
 }
 
@@ -38,10 +36,8 @@ window#waybar {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 4px;
-  font-family: Blex Mono Nerd Font;
   padding-right: 0px;
   border-radius: 2px;
-  font-size: 18px;
 }
 
 #workspaces button {
@@ -51,21 +47,18 @@ window#waybar {
   padding-right: 4px;
   color: #dee1e6;
   border-radius: 5px;
-  font-size: 20px;
 }
 
 #workspaces button.focused {
   color: #dee1e6;
   font-family: Fira Sans;
   border-bottom: none;
-  font-size: 20px;
   font-weight: bolder;
 }
 #workspaces button.active {
   color: #dee1e6;
   font-family: Fira Sans;
   border-bottom: none;
-  font-size: 20px;
 }
 #workspaces button.urgent {
   color: #f9929b;
@@ -93,7 +86,6 @@ window#waybar {
 }
 
 #custom-power {
-  font-size: 17px;
 }
 
 #custom-updates {
@@ -129,7 +121,6 @@ window#waybar {
   background-color: #13171b;
   color: #747a83;
   padding: 0 10px;
-  font-size: 20px;
   margin: 2px 0px 5px 0px;
   border: 3px solid rgba(0, 0, 0, 0);
   border-radius: 90px;
@@ -140,7 +131,6 @@ window#waybar {
   transition: none;
   padding-left: 6px;
   padding-right: 6px;
-  font-family: Blex Mono Nerd Font;
   color: #3b4b58;
   font-weight: 400;
 }
@@ -178,12 +168,10 @@ window#waybar {
 #custom-media {
   background-color: #171b20;
   color: #b6beca;
-  font-size: 20px;
 }
 
 #pulseaudio {
   color: #a6adb9;
-  font-size: 25px;
   margin-top: 5px;
   margin-bottom: 4px;
   margin-left: 2px;
@@ -193,7 +181,6 @@ window#waybar {
 
 #pulseaudio.muted {
   color: #e06c75;
-  font-size: 22px;
   margin-top: 5px;
   margin-bottom: 4px;
   margin-left: 2px;
@@ -202,19 +189,16 @@ window#waybar {
 }
 
 #backlight {
-  font-size: 12px;
   color: #a6adb9;
 }
 
 #battery {
   padding: 0 13px;
   margin: 4px 4px 6px 4px;
-  font-size: 20px;
 }
 
 #clock {
   margin-left: 10px;
-  font-size: 12px;
   color: #a1a9e8;
   padding: 10px 10px;
 }
@@ -271,7 +255,6 @@ window#waybar {
   margin-right: 0px;
   padding-left: 6px;
   padding-right: 6px;
-  font-size: 16px;
 }
 
 #backlight,
@@ -282,7 +265,6 @@ window#waybar {
   margin-left: 2px;
   margin-right: 5px;
   padding: 0px 0px;
-  font-size: 14px;
 }
 
 widget > * {

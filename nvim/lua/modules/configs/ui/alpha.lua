@@ -2,7 +2,6 @@ return function()
 	local alpha = require("alpha")
 	local dashboard = require("alpha.themes.dashboard")
 
-                                
     dashboard.section.header.val = {
  [[▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄  ▄▄▄▄▄▄▄ ]],
 [[█  █ █  █       █       █       █      ██       █]],
@@ -69,7 +68,7 @@ return function()
 			silent = true,
 			nowait = true,
 			callback = function()
-				require("telescope").extensions.projects.projects({})
+            require'telescope'.extensions.project.project{}
 			end,
 		}),
 		button("space f f", " File find", leader, nil, {

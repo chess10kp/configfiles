@@ -1,2 +1,5 @@
 [Default Applications]
 x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.desktop
+
+[Added Associations]
+text/x-c++src=nvim.desktop;

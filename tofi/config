@@ -16,7 +16,7 @@
 	font = "Sans"
 
 	# Point size of text.
-	font-size = 13
+	font-size = 16
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -62,20 +62,20 @@
 
 	# Prompt text theme
 	prompt-color = #bd93f9
-	prompt-background = #000000
-	prompt-background-padding = 0
+	prompt-background = #101010
+	prompt-background-padding = 4
 	prompt-background-corner-radius = 0
 
 	# Placeholder text theme
 	placeholder-color = #FFFFFFA8
-	placeholder-background = #000000
+	placeholder-background = #111111
 	placeholder-background-padding = 0
 	placeholder-background-corner-radius = 0
 
 	# Input text theme
 	 input-color = #bd93f9
-	input-background = #000000
-	input-background-padding = 0
+	input-background = #101010
+	input-background-padding = 5
 	input-background-corner-radius = 0
 
 	# Default result text theme
@@ -95,10 +95,10 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #FFF
-	selection-background = #000000
-	selection-background-padding = 0
-	selection-background-corner-radius = 0
+	selection-color = #000
+	selection-background = #bd93f9
+	selection-background-padding = 5
+	selection-background-corner-radius = 3
 
 	# Matching portion of selection text
 	selection-match-color = #00000000
@@ -126,7 +126,7 @@
 	text-cursor-corner-radius = 0
 
 
-	prompt-text = "> "
+	prompt-text = " "
 	prompt-padding = 1
 	placeholder-text = ""
 	num-results = 0
@@ -134,7 +134,7 @@
 	horizontal = false
 	min-input-width = 0
 	width = 30%
-	height = 30%
+	height = 50%
 	background-color = #000
 
 	# Width of the border outlines in pixels.
@@ -153,7 +153,7 @@
 	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 8
+	padding-top = 10
 	padding-bottom = 8
 	padding-left = 8
 	padding-right = 8

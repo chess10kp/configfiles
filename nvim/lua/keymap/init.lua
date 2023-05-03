@@ -21,6 +21,7 @@ local plug_map = {
 
 bind.nvim_load_mapping(plug_map)
 
+
 -- Plugin keymaps
 require("keymap.completion")
 require("keymap.editor")

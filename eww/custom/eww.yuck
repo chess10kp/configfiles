@@ -1,74 +1,21 @@
-(defwidget bar []
-  (box :orientation "h"
-    (music)
-    (sidestuff)))
-
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
-            :value volume
-            :onchange "amixer -D pulse sset Master {}%")
-    (metric :label ""
-            :value {EWW_RAM.used_mem_perc}
-            :onchange "")
-    (metric :label "💾"
-            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-            :onchange "")
-    ))
-
-
-(defwidget music []
-  (box :class "music"
-       :orientation "h"
-       :space-evenly false
-       :halign "center"
-    {music != "" ? "🎵${music}" : ""}))
-
-
-(defwidget metric [label value onchange]
-  (box :orientation "h"
-       :class "metric"
-       :space-evenly false
-    (box :class "label" label)
-    (scale :min 0
-           :max 101
-           :active {onchange != ""}
-           :value value
-           :onchange onchange)))
-
-
-
-(deflisten music :initial ""
-  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
-
-(defwidget _boltuptime [label uptime]
-  (box :space-evenly false 
-       :class "bolt-uptime-box" 
-       :spacing 8 
-       :halign "start"
-    (label :text "" 
-           :class "bolt-uptime-hl")
-    (box :valign "center" 
-         :orientation "vertical" 
-         :class "bolt-uptime-label-value" 
-         :space-evenly false
-      (label :halign "start" 
-             :class "bolt-uptime-label" 
-             :text label)
-      (label :limit-width 15 
-             :halign "start" 
-             :class "bolt-uptime-value" 
-             :text uptime))))
+(defwidget todo[]
+  (box 
+    :class "todo_widget"
+    :orientation "v"
+    :width 100
+    :height 200
+    :space-evenly false
+    :label "hi"
+    )
+  )
 
 (defwindow rightbar
   :monitor 0
   :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "90%"
-                      :height "10px"
-                      :anchor "top center")
-  :reserve (struts :side "top" :distance "4%")
-  (_boltuptime
-    :label "Uptime"
-    :uptime uptime))
+                      :width "40%"
+                      :height "50px"
+                      :anchor "center")
+  (todo)
+  )
