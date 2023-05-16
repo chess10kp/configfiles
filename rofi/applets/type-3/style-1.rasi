@@ -24,10 +24,10 @@ USE_ICON=YES
 window {
     transparency:                "real";
     location:                    west;
-    anchor:                      east;
+    anchor:                      west;
     fullscreen:                  false;
     width:                       120px;
-    x-offset:                    20px;
+    x-offset:                    5px;
     y-offset:                    0px;
     margin:                      0px;
     padding:                     0px;

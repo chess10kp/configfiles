@@ -1,5 +1,0 @@
-(include "./src/yuck/lumin/_modules.yuck")
-(include "./src/yuck/lumin/_layout.yuck")
-
-
-;; vim:ft=yuck

@@ -1,10 +1,15 @@
-from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
+from libqtile import bar, layout, widget, hook , extension
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+from secrets import HOME
+
+import subprocess
+
 mod = "mod1"
 terminal = guess_terminal()
+editor = "nvim"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -24,14 +29,13 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "d", lazy.spawn("rofi -show"), desc="Launch terminal"),
+    Key([mod], "d", lazy.spawn(f"{HOME}/.config/rofi/launchers/type-4/launcher.sh"), desc="Launch terminal"),
     Key([mod], "w", lazy.spawn("brave"), desc="Launch brave"),
     # Toggle between different layouts as defined below
     Key([mod], "f", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.spawn("notify-send reloaded"), desc="Reload the config"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], 'i', lazy.group['scratchpad'].dropdown_toggle('term')),
 
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
@@ -46,12 +50,29 @@ keys = [
     Key([],"XF86AudioPrev",lazy.spawn("mpc prev")),
     Key([],"XF86AudioNext",lazy.spawn("mpc next")),
 
-    KeyChord([mod], "s", [
-        Key([], "b", lazy.spawn("/home/nitin/.config/rofi/launchers/type-4/launcher.sh"))
-        ])
-]
-groups = [Group(i) for i in "123456789"]
 
+    #SCRIPTS
+    KeyChord([mod], "s", [
+        Key([], "b", lazy.spawn(f"{HOME}/.config/scripts/bookman.sh")),
+        Key([], "j", lazy.spawn(f"{HOME}/.config/scripts/todo")),
+        Key([], "m", lazy.spawn(f"{HOME}/.config/rofi/applets/bin/mpd.sh")),
+        Key([], "q", lazy.spawn(f"{HOME}/.config/rofi/powermenu/type-2/powermenu.sh")),
+        Key([], "v", lazy.spawn(f"zsh {HOME}/.config/scripts/mpv.sh")),
+        ]),
+    #EDIT CONFIG
+    KeyChord([mod], "c", [
+        Key([], "q", lazy.spawn(f"{terminal} -e '{editor} {HOME}/.config/qtile/config.py'")),
+        Key([], "p", lazy.spawn(f"{terminal} -e '{editor} {HOME}/.config/picom/picom.conf'")),
+        ]),
+]
+
+groups = [
+    ScratchPad("scratchpad", [
+        DropDown(name="term", cmd="xfce4-terminal"),
+         ]),
+    Group("a"),
+        Group(i) for i in "123456789"
+]
 for i in groups:
     keys.extend(
         [
@@ -100,7 +121,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -112,15 +133,13 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%I:%M %p"),
                 widget.QuickExit(),
             ],
-            24,
+            35,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -163,3 +182,17 @@ auto_minimize = True
 wl_input_rules = None
 
 wmname = "LG3D"
+
+
+@hook.subscribe.startup_once
+def autostart():
+    processes = [
+        ['/usr/bin/xmodmap',  '/home/nitin/.Xmodmap'],
+        ["/usr/bin/xset", "r", "rate", "250", "30"],
+        ["picom"],
+        ["nitrogen", "--restore"],
+    ]
+
+    for p in processes:
+        subprocess.Popen(p)
+

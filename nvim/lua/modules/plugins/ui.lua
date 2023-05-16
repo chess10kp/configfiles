@@ -7,7 +7,7 @@ ui["goolord/alpha-nvim"] = {
 }
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
 ui["olimorris/onedarkpro.nvim"] = {
@@ -41,11 +41,11 @@ ui["lukas-reineke/indent-blankline.nvim"] = {
 	event = "BufReadPost",
 	config = require("ui.indent-blankline"),
 }
-ui["nvim-lualine/lualine.nvim"] = {
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.lualine"),
-}
+--ui["nvim-lualine/lualine.nvim"] = {
+	--lazy = true,
+	--event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	--config = require("ui.lualine"),
+--}
 ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",

@@ -18,7 +18,7 @@ settings["format_disabled_dirs"] = {
 -- NOTE: The startup time will be slowed down when it's true.
 -- Set it to false if you don't use nvim to open big files.
 ---@type boolean
-settings["load_big_files_faster"] = true
+settings["load_big_files_faster"] = false
 
 -- Change the colors of the global palette here.
 -- Settings will complete their replacement at initialization.
@@ -30,7 +30,7 @@ settings["palette_overwrite"] = {}
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
 ---@type string
-settings["colorscheme"] = "onedark_dark"
+settings["colorscheme"] = "catppuccin"
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.

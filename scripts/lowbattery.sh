@@ -1,11 +1,9 @@
 #!/bin/bash
 
-POWERSUPPLY="/sys/class/power_supply/ACAD/online" # could be different on your system!
-TOO_LOW=30 # how low is too low?
+POWERSUPPLY="/sys/class/power_supply/ACAD/online" 
+TOO_LOW=30 
 NOT_CHARGING="0"
-
 export DISPLAY=:0
-
 BATTERY_LEVEL=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 STATUS=$(cat $POWERSUPPLY)
 

@@ -1,13 +1,13 @@
 #!/bin/sh
 
-dmenu="rofi -dmenu"
+source ~/.config/scripts/configvars.sh
 
 file="$HOME/.todo"
 touch "$file"
 height=$(wc -l "$file" | awk '{print $1}' )
 prompt="Add/delete a task: "
 
-cmd=$($dmenu -l "$height" -p "$prompt" "$@" --fn 'TerminessTTF Nerd Font 13' <"$file")
+cmd=$($rofi  <"$file")
 while [ -n "$cmd" ]; do
 	if grep -q "^$cmd\$" "$file"; then
 		grep -v "^$cmd\$" "$file" >"$file.$$"
@@ -18,7 +18,7 @@ while [ -n "$cmd" ]; do
 		height=$((height + 1))
 	fi
 
-	cmd=$($dmenu -l "$height" -p "$prompt" "$@" <"$file")
+	cmd=$($rofi <"$file")
 done
 
 exit 0

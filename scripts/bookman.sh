@@ -9,14 +9,13 @@ prompt="Bookmarks"
 bookmarks=`cat $file`
 bookmarks+=$(printf "\nadd\nremove\n") 
 
-cmd=$( printf '%s\n' "$bookmarks" | $dmenu -l "$height" -p "$prompt" "$@" --fn 'TerminessTTF Nerd Font 13' )
+cmd=$( printf '%s\n' "$bookmarks" | $rofi  )
 while [ -n "$cmd" ]; do
     if [[ $cmd == 'add' ]]; then
-        link=$( $dmenu -p "Bookmark name: " --fn 'TerminessTTF Nerd Font 13')
         link+=" "$(wl-paste)
         echo $link >> "$file"
     elif [[ $cmd == "remove" ]]; then
-        cmd=$($dmenu -l "$height" -p "$prompt" "$@" <"$file")
+        cmd=$($rofi < "$file" )
         if grep -q "^$cmd\$" "$file";  then
 		grep -v "^$cmd\$" "$file" >"$file.$$"
             mv "$file.$$" "$file" 
@@ -27,6 +26,6 @@ while [ -n "$cmd" ]; do
     fi
     bookmarks=`cat $file`
     bookmarks+=$(printf "\nadd\nremove\n") 
-    cmd=$( printf '%s\n' "$bookmarks" | $dmenu -l "$height" -p "$prompt" "$@" --fn 'TerminessTTF Nerd Font 13' )
+    cmd=$( printf '%s\n' "$bookmarks" | $rofi )
 done
 exit 0

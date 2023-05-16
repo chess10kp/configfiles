@@ -35,39 +35,18 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["n|<A-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
+	["n|<A-i>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["i|<A-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
+	["i|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["t|<A-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
+	["t|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["n|<F5>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["t|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["n|<A-d>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle float"),
-	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle float"),
-	["t|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["nt|<leader>g"] = map_callback(function()
 			_toggle_lazygit()
 		end)
@@ -96,7 +75,7 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-p>"] = map_callback(function()
+	["n|<leader>fk"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
@@ -127,7 +106,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Word in project"),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
 		:with_silent()

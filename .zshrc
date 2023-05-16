@@ -48,6 +48,7 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 export MPD_PORT="6600"
 export NVD_BACKEND="direct"
+export _JAVA_AWT_WM_NONREPARENTING=1 # wayland for clion
 
 
 
@@ -67,6 +68,5 @@ PROMPT='%F{blue}%B%1~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
 
 eval "$(zoxide init zsh)"
-
 
 echo "\n"

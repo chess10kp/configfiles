@@ -7,7 +7,7 @@
                       // Choose the order of the modules
         "modules-left": [ "clock"],
         "modules-center": ["wlr/workspaces","hyprland/submap"],
-        "modules-right": ["pulseaudio", "network", "tray","battery"],
+        "modules-right": ["pulseaudio",  "tray","battery""network",],
         // Modules configuration
         "wlr/workspaces": {
             "disable-scroll": true,

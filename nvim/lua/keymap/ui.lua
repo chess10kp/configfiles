@@ -7,7 +7,7 @@ local map_cr = bind.map_cr
 local plug_map = {
 	-- Plugin: bufferline
 	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap():with_desc("buffer: Sort by extension"),
-	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap():with_desc("buffer: Sort by direrctory"),
+	--["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap():with_desc("buffer: Sort by direrctory"),
 }
 
 bind.nvim_load_mapping(plug_map)

@@ -15,20 +15,20 @@ local plug_map = {
 	end):with_expr(),
 
 	-- Plugin: auto_session
-	["n|<leader>ss"] = map_cu("SaveSession"):with_noremap():with_silent():with_desc("session: Save"),
-	["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent():with_desc("session: Restore"),
-	["n|<leader>sd"] = map_cu("DeleteSession"):with_noremap():with_silent():with_desc("session: Delete"),
+	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent():with_desc("session: Save"),
+	["n|<leader>sr"] = map_cu("SessionRestore"):with_noremap():with_silent():with_desc("session: Restore"),
+	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent():with_desc("session: Delete"),
 
 	-- Plugin: nvim-bufdel
-	["n|<A-q>"] = map_cr("BufDel"):with_noremap():with_silent():with_desc("buffer: Close current"),
+	["n|<C-q>"] = map_cr("BufDel"):with_noremap():with_silent():with_desc("buffer: Close current"),
 
 	-- Plugin: clever-f
-	["n|;"] = map_callback(function()
-		return et("<Plug>(clever-f-repeat-forward)")
-	end):with_expr(),
-	["n|,"] = map_callback(function()
-		return et("<Plug>(clever-f-repeat-back)")
-	end):with_expr(),
+	--["n|;"] = map_callback(function()
+		--return et("<Plug>(clever-f-repeat-forward)")
+	--end):with_expr(),
+	--["n|,"] = map_callback(function()
+		--return et("<Plug>(clever-f-repeat-back)")
+	--end):with_expr(),
 
 	-- Plugin: comment.nvim
 	["n|gcc"] = map_callback(function()
@@ -74,9 +74,6 @@ local plug_map = {
 	-- Plugin: hop
 	["nv|<leader>w"] = map_cmd("<Cmd>HopWord<CR>"):with_noremap():with_desc("jump: Goto word"),
 	["nv|<leader>j"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap():with_desc("jump: Goto line"),
-	["nv|<leader>k"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap():with_desc("jump: Goto line"),
-	["nv|<leader>c"] = map_cmd("<Cmd>HopChar1<CR>"):with_noremap():with_desc("jump: Goto one char"),
-	["nv|<leader>cc"] = map_cmd("<Cmd>HopChar2<CR>"):with_noremap():with_desc("jump: Goto two chars"),
 
 	-- Plugin: treehopper
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),

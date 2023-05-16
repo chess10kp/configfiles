@@ -21,9 +21,9 @@ fi
 
 if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
 	list_col='1'
-	list_row='6'
+	list_row='5'
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='6'
+	list_col='5'
 	list_row='1'
 fi
 
@@ -35,7 +35,6 @@ if [[ "$layout" == 'NO' ]]; then
 	else
 		option_1=" Play"
 	fi
-	option_2=" Stop"
 	option_3=" Previous"
 	option_4=" Next"
 	option_5=" Repeat"
@@ -46,7 +45,6 @@ else
 	else
 		option_1=""
 	fi
-	option_2=""
 	option_3=""
 	option_4=""
 	option_5=""
@@ -87,27 +85,28 @@ rofi_cmd() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
+	echo -e "$option_1\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
 }
 
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
 		mpc -q toggle && notify-send -u low -t 1000 " `mpc current`"
-	elif [[ "$1" == '--opt2' ]]; then
-		mpc -q stop
 	elif [[ "$1" == '--opt3' ]]; then
 		mpc -q prev && notify-send -u low -t 1000 " `mpc current`"
+        main
 	elif [[ "$1" == '--opt4' ]]; then
 		mpc -q next && notify-send -u low -t 1000 " `mpc current`"
+        main
 	elif [[ "$1" == '--opt5' ]]; then
-		mpc -q repeat
+		mpc -q repeat && notify-send -u low -t 1000 "repeat `mpc current`"
 	elif [[ "$1" == '--opt6' ]]; then
 		mpc -q random
 	fi
 }
 
 # Actions
+main(){
 chosen="$(run_rofi)"
 case ${chosen} in
     $option_1)
@@ -129,3 +128,5 @@ case ${chosen} in
 		run_cmd --opt6
         ;;
 esac
+}
+main

@@ -1,8 +1,7 @@
-!#!/usr/bin/sh
-
+#!/bin/sh
 source ~/.config/scripts/configvars.sh
 
-file=$(find ~/.config -type f | sed s:"/home/nitin/.config/":: | $rofi)
+file=$(find ~/projects/ -type d | sed s:"/home/nitin/.config/":: | $rofi)
 if [ $file = ""]; then
 	exit 0
 fi
