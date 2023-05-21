@@ -130,6 +130,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Run/Continue"),
+	["n|<leader>dc"] = map_callback(function()
+			require("dap").continue()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Run/Continue"),
 	["n|<F7>"] = map_callback(function()
 			require("dap").terminate()
 			require("dapui").close()
@@ -137,6 +143,19 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Stop"),
+	["n|<leader>dt"] = map_callback(function()
+			require("dap").terminate()
+			require("dapui").close()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Stop"),
+	["n|<leader>dtb"] = map_callback(function()
+			require("dap").toggle_breakpoint()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Toggle breakpoint"),
 	["n|<F8>"] = map_callback(function()
 			require("dap").toggle_breakpoint()
 		end)
@@ -144,6 +163,12 @@ local plug_map = {
 		:with_silent()
 		:with_desc("debug: Toggle breakpoint"),
 	["n|<F9>"] = map_callback(function()
+			require("dap").step_into()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Step into"),
+	["n|<leader>di"] = map_callback(function()
 			require("dap").step_into()
 		end)
 		:with_noremap()
@@ -161,13 +186,19 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Step over"),
+	["n|<leader>ds"] = map_callback(function()
+			require("dap").step_over()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Step over"),
 	["n|<leader>db"] = map_callback(function()
 			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Set breakpoint with condition"),
-	["n|<leader>dc"] = map_callback(function()
+	["n|<leader>dtc"] = map_callback(function()
 			require("dap").run_to_cursor()
 		end)
 		:with_noremap()
@@ -179,7 +210,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Run last"),
-	["n|<leader>do"] = map_callback(function()
+	["n|<leader>dop"] = map_callback(function()
 			require("dap").repl.open()
 		end)
 		:with_noremap()

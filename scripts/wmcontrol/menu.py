@@ -1,31 +1,33 @@
 #!/usr/bin/env python3
 
-import subprocess
-from config import DMENU_CMD
-from config import DMENU_FONT_FLAG 
-from config import MENU_PATH
+from subprocess import run, check_output, SubprocessError
+from config import Dmenu, Config
+
+dmenu = Dmenu()
+config = Config()
 
 selected_option = None
+
+MENU_PATH = getattr(config, 'path')
 
 settings  = [ #List of options available on the settings menu
             "Window Manager",
             "Resolution",
-            "Bluetooth"
+            "Bluetooth",
+             "Brightness"
             ]       
-
-#Flags to pass to DMENU_CMD
 
 
 try:
-    selected_option = subprocess.check_output(DMENU_CMD, input="\n".join(settings), universal_newlines=True).strip()
-except subprocess.SubprocessError:
+    selected_option = check_output(getattr(dmenu, 'base'), input="\n".join(settings), universal_newlines=True).strip()
+except SubprocessError:
     pass #Occurs when the menu is exited
 
-if selected_option == "Resolution":
-    subprocess.run([f"{MENU_PATH}/resolution.py"])
-elif selected_option == "Window Manager":
-    subprocess.run([f"{MENU_PATH}/window_manager.py"])
-elif selected_option == "Bluetooth":
-    subprocess.run([f"{MENU_PATH}/bluetooth.sh"])
-else:
-    pass
+if selected_option == settings[0]:
+    run([f"{MENU_PATH}/window_manager.py"])
+elif selected_option == settings[1]:
+    run([f"{MENU_PATH}/resolution.py"])
+elif selected_option == settings[2]:
+    run([f"{MENU_PATH}/bluetooth.sh"])
+elif selected_option == settings[3]:
+    run([f"{MENU_PATH}/brightness.py"])

@@ -39,3 +39,5 @@ lutris/
 menus
 vivaldi/
 qtile/secrets.py
+scripts/discordwebhook.sh
+scripts/secrets.py

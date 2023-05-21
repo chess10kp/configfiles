@@ -7,106 +7,37 @@
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
 (defpoll volume :interval "1s" :initial 0 `pamixer --get-volume`)
+(defpoll todo :interval "1min" :initial "" `cat ~/.todo`)
 
-(defwidget dashboard [] (box :orientation "v" 
-    (box :class "info_box" :orientation "v" :space-evenly false
 
-      (box :class "slider_box" :orientation "v" :vexpand false :hexpand false
-        (box :space-evenly false
-            (label :class "slider_icon" :text "")
-            (scale :min 1 :max 101 :width 215 :class "brightness_slider" :value brightness :onchange "brightnessctl set {}%" :height 10)
-        )
-        (box :space-evenly false
-          (label :class "slider_icon" :text "墳")
-          (scale :min 1 :max 101 :width 215 :class "volume_slider" :value volume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//')")
-        )
-      )
-  )
-)
-)
-
-(defvar volume-level 50)
-(defvar volume-muted false)
-
-(defwidget system [] 
-  (box :class "genwin" :vexpand "false" :hexpand "false" 
-    (box :orientation "v" :spacing 0 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
-      (box :class "mem_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-        (label :class "iconmem" :text "")
-        (scale :min 0 :max 100 :value mem :active "false"))
-      (box :class "bat_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-        (label :class "iconbat" :text "")
-        (scale :min 0 :max 100 :value bat :active "false"))
-      (box :class "slider_box" :orientation "v" :vexpand false :hexpand false
-        (box :space-evenly false
-          (label :class "iconbright" :text "")
-          (scale :min 1 :max 101  :class "brightness_slider" :value brightness :onchange "brightnessctl set {}%" )
-          )
-        (box :space-evenly false
-          (label :class "iconvol" :text "墳")
-          (scale :min 1 :max 101  :class "volume_slider" :value volume :onchange "pamixer --set-volume $(echo {} | sed 's/[.].*$//')")
-          )
-        )
+(defwidget todo[] 
+  (box 
+    :orientation "v"
+    :class "notes-box"
+    :vexpand true
+    :hexpand false
+    (for item in todo 
+      (box 
+      (button :onclick "sed 's/${item}/' ~/.todo ")
+      (label :text "${item}"))
       )
     )
-  )
-(defvar bright-level 50)
-(defvar bright-muted false)
+  ) 
 
-(defwidget cal[]
-  (box 
-    :class "cal_widget"
-    :width 200 
-    :height 100
-    (calendar :day calendar_day :year calendar_year)))
-
-(defwidget user[]
-    (box
-        :orientation "v"
-        :class "user_widget"
-        :space-evenly true
-        :width 210
-        :height 82
-        :valign "center"
-        (label :text "Uptime")
-        (label :text uptime :style "font-size: 16px;")))
-(defwidget day []
-    (box
-        :class "clock_widget"
-        :orientation "h"
-        :width 210
-        :height 82
-        :valign "center"
-        :halign "center"
-        :space-evenly true
-        :spacing 10
-        (box
-            :orientation "v"
-            :hexpand false
-            (label :class "date" :text date)
-            )))
-(defwindow dashboard
+(defwindow todo
   :monitor 0
   :geometry (geometry 
   :height "100" 
   :width "215px"
-  :x "10px"
-  :y "10px"
+  :x "0px"
+  :y "0px"
   :anchor "top right")
   :stacking "bg"
-  :class "dashboard"
+  :class "todo-window"
   (box 
     :orientation "v"
     :space-evenly false 
     :class "window"
-    (box 
-      :orientation "h"
-      :space-evenly false
-      :class "window"
-    (user)
-    (day)
-      )
-    (system)
-    (cal)
+    (todo)
   )
   )

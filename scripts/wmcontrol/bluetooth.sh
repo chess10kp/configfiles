@@ -3,6 +3,7 @@
 divider="---------"
 goback="Back"
 
+source ~/.config/scripts/configvars.sh
 # Checks if bluetooth controller is powered on
 power_on() {
     if bluetoothctl show | grep -q "Powered: yes"; then
@@ -288,7 +289,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="tofi  --font /usr/share/fonts/TTF/Terminess\ \(TTF\)\ Nerd\ Font\ Complete.ttf --prompt"
+rofi_command="$dmenu$rofi_prompt"
 
 case "$1" in
     --status)

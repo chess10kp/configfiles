@@ -101,6 +101,10 @@ tool["mfussenegger/nvim-dap"] = {
 			"rcarriga/nvim-dap-ui",
 			config = require("tool.dap.dapui"),
 		},
+        {
+            --"mfssenegger/nvim-dap-python",
+            --config = require("tool.dap.nvim-dap-python"),
+        }
 	},
 }
 

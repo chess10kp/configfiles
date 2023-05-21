@@ -22,6 +22,11 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
+ui["decaycs/decay.nvim"] = {
+    lazy = false,
+    name = "decay",
+    config = require("ui.decay"),
+}
 ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),
