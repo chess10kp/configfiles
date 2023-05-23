@@ -22,14 +22,14 @@ return function()
 						id = "scopes",
 						size = 0.25, -- Can be float or integer > 1
 					},
-					{ id = "breakpoints", size = 0.25 },
-					{ id = "stacks", size = 0.25 },
-					{ id = "watches", size = 0.25 },
+					{ id = "breakpoints", size = 0.10 },
+					{ id = "stacks", size = 0.10 },
+					{ id = "watches", size = 0.55 },
 				},
 				size = 40,
 				position = "left",
 			},
-			{ elements = { "repl" }, size = 10, position = "bottom" },
+            --{ elements = { "repl" }, size = 10, position = "bottom" },
 		},
 		-- Requires Nvim version >= 0.8
 		controls = {

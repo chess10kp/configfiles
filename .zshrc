@@ -24,8 +24,9 @@ alias ...="cd ../../"
 alias n="nvim ./"
 alias ls="exa"
 alias pm="pacman"
-alias fj="z"
 alias cd="z"
+alias fh="cat ~/.zsh_history | fzf | sh"
+alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 
 function mkcir
 {
@@ -63,11 +64,8 @@ source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias fh="cat ~/.zsh_history | fzf | sh"
-alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
 
 eval "$(zoxide init zsh)"
 
-echo "\n"
