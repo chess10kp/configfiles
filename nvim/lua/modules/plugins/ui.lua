@@ -13,9 +13,6 @@ ui["akinsho/bufferline.nvim"] = {
 ui["olimorris/onedarkpro.nvim"] = {
 	lazy = false,
 }
-ui["projekt0n/github-nvim-theme"] = {
-	lazy = false,
-}
 
 ui["catppuccin/nvim"] = {
 	lazy = false,
@@ -61,7 +58,7 @@ ui["shaunsingh/nord.nvim"] = {
 	config = require("ui.nord"),
 }
 ui["rcarriga/nvim-notify"] = {
-	lazy = true,
+	lazy = false,
 	event = "VeryLazy",
 	config = require("ui.notify"),
 }

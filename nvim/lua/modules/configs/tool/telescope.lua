@@ -37,7 +37,7 @@ return function()
                 case_mode = "smart_case",
             },
             frecency = {
-                show_scores = true,
+                show_scores = false,
                 show_unindexed = true,
                 ignore_patterns = { "*.git/*", "*/tmp/*" },
             },

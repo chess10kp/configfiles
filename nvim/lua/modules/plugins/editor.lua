@@ -1,10 +1,5 @@
 local editor = {}
 
-editor["rainbowhxch/accelerated-jk.nvim"] = {
-	lazy = true,
-	event = "VeryLazy",
-	config = require("editor.accelerated-jk"),
-}
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
@@ -21,7 +16,7 @@ editor["max397574/better-escape.nvim"] = {
 	config = require("editor.better-escape"),
 }
 editor["LunarVim/bigfile.nvim"] = {
-	lazy = false,
+	lazy = true,
 	config = require("editor.bigfile"),
 	cond = require("core.settings").load_big_files_faster,
 }

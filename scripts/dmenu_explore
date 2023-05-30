@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# from andreasl's explore with dmenu script
+
+source ~/.config/scripts/configvars.sh
+
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/edm"
+mkdir -p "$config_dir"
+
+define_standard_settings() {
+    selected_path="$HOME/projects/"
+
+    choices=(
+        '<edit>'
+        '<quit>'
+        "$(ls "$selected_path")"
+    )
+}
+
+define_standard_settings
+
+while : ; do
+    dmenu_result="$(printf '%s\n' "${choices[@]}" | $rofi "$@")" || exit 1
+    if [ "$dmenu_result" == '<edit>' ]; then
+        $term -e $editor "$selected_path"
+        exit 0
+    elif [[ $dmenu_result == '/'* ]]; then
+        selected_path="$dmenu_result"
+        exit 0
+    elif [ "$dmenu_result" == '<quit>' ]; then
+        exit 0
+    else
+        selected_path="$(realpath "${selected_path}/${dmenu_result}")"
+    fi
+
+    if [ -f "$selected_path" ] || [ "$dmenu_result" = '.' ]; then
+        $term -e $editor "$selected_path"
+        exit 0
+    elif [ -d "$selected_path" ]; then
+    choices=(
+        '<edit>'
+        '<quit>'
+        "$(ls "$selected_path")"
+    )
+    else
+        selected_path="$(dirname "$selected_path")"
+    fi
+done

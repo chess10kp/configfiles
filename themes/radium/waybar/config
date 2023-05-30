@@ -1,0 +1,128 @@
+{
+    "position": "left",
+    "width" :20,
+    "modules-left": ["wlr/workspaces","hyprland/submap", "tray"],
+    "modules-right": ["battery","network","pulseaudio",  "custom/separator", "clock", "custom/logo"],
+    "clock": {
+        "format": "{:%H\n%M}",
+    },
+
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+          "default": "",
+          "urgent": "",
+          "focused": "",
+        }
+    },
+    "custom/separator": {
+	"format": "──────"
+    },
+    "custom/end": {
+    "format": "◣"
+    },
+    "memory": {
+	"format": "{}%"
+    },
+
+    "custom/logo": {
+        "format": " ",
+        "tooltip-format":""
+    },
+    "backlight": {
+        "format": "{icon} ",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "on-click": ""
+    },
+    "hyprland/submap": {
+        "format": "{}",
+        "max-length": 3,
+    },
+    "cpu": {
+        "format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+    },
+    "battery": {
+        "bat": "BAT1",
+        "states": {
+            "great": 95,
+            "good": 80,
+            "medium": 65,
+            "decent": 50,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-charging": "{capacity}",
+        "format-plugged": "{capacity}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "on-click": ""
+    },
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "󰤨 ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "睊 ",
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "pulseaudio": {
+        "format": "{icon} ",
+        "format-bluetooth-muted": " ",
+        "format-muted": " ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "default": ["",
+                "",
+            ] // 醙
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "  ",
+        "return-type": "json",
+        "max-length": 1,
+        "format-icons": {
+            "spotify": "  ",
+            "default": "  "
+        },
+        "escape": true,
+        "on-click": "playerctl play-pause",
+    },
+    "custom/bluetooth": {
+        "format": "",
+        "on-click": "blueberry",
+    }
+}
+}
+

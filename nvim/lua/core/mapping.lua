@@ -29,8 +29,8 @@ local core_map = {
 	["i|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editi: Move cursor to left"),
 	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("editi: Move cursor to line start"),
 	["i|<C-s>"] = map_cmd("<Esc>:w<CR>"):with_desc("edit: Save file"),
+    ["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"),
 	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
-	["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"),
 	["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
 	["i|<C-h>"] = map_cmd("<Left>"):with_desc("Move cursor to the left"),
 

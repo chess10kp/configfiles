@@ -10,13 +10,13 @@ return function()
 			right_trunc_marker = icons.ui.Right,
 			max_name_length = 14,
 			max_prefix_length = 13,
-			tab_size = 10,
+			tab_size = 15,
 			color_icons = true,
-			show_buffer_icons = true,
+			show_buffer_icons = false,
 			show_buffer_close_icons = false,
-            get_element_icon = function(e)
-                return require('nvim-web-devicons').get_icon(e, {default=false})
-            end,
+            --get_element_icon = function(e)
+                --return require('nvim-web-devicons').get_icon(e, {default=false})
+            --end,
 			show_close_icon = false,
 			show_tab_indicators = false,
 			enforce_regular_tabs = true,
@@ -24,9 +24,9 @@ return function()
 			always_show_bufferline = true,
 			separator_style = "thin",
 			diagnostics = "nvim_lsp",
-			diagnostics_indicator = function(count)
-				return "(" .. count .. ")"
-			end,
+			--diagnostics_indicator = function(count)
+				--return "(" .. count .. ")"
+			--end,
 			offsets = {
 				{
 					filetype = "NvimTree",
