@@ -4,8 +4,6 @@
 
 source ~/.config/scripts/configvars.sh
 
-config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/edm"
-mkdir -p "$config_dir"
 
 define_standard_settings() {
     selected_path="$HOME/projects/"

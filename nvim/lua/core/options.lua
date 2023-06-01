@@ -93,7 +93,7 @@ local function load_options()
 		virtualedit = "block",
 		visualbell = true,
 		whichwrap = "h,l,<,>,[,],~",
-		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/bower_modules/**",
 		wildignorecase = true,
 		winminwidth = 10,
 		winwidth = 30,

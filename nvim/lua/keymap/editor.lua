@@ -11,16 +11,16 @@ local plug_map = {
 	["n|<leader>sr"] = map_cu("SessionRestore"):with_noremap():with_silent():with_desc("session: Restore"),
 	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent():with_desc("session: Delete"),
 
+-- Plugin: accelerate-jk
+	["n|j"] = map_callback(function()
+		return et("<Plug>(accelerated_jk_gj)")
+	end):with_expr(),
+	["n|k"] = map_callback(function()
+		return et("<Plug>(accelerated_jk_gk)")
+	end):with_expr(),
+
 	-- Plugin: nvim-bufdel
 	["n|<C-q>"] = map_cr("BufDel"):with_noremap():with_silent():with_desc("buffer: Close current"),
-
-	-- Plugin: clever-f
-	--["n|;"] = map_callback(function()
-		--return et("<Plug>(clever-f-repeat-forward)")
-	--end):with_expr(),
-	--["n|,"] = map_callback(function()
-		--return et("<Plug>(clever-f-repeat-back)")
-	--end):with_expr(),
 
 	-- Plugin: comment.nvim
 	["n|gcc"] = map_callback(function()
@@ -71,8 +71,6 @@ local plug_map = {
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),
 
 	-- Plugin: tabout
-	["i|<A-l>"] = map_cmd("<Plug>(TaboutMulti)"):with_silent():with_noremap():with_desc("edit: Goto end of pair"),
-	["i|<A-h>"] = map_cmd("<Plug>(TaboutBackMulti)"):with_silent():with_noremap():with_desc("edit: Goto begin of pair"),
 }
 
 bind.nvim_load_mapping(plug_map)

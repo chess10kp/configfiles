@@ -1,7 +1,12 @@
 local editor = {}
 
-editor["rmagatti/auto-session"] = {
+editor["rainbowhxch/accelerated-jk.nvim"] = {
 	lazy = true,
+	event = "VeryLazy",
+	config = require("editor.accelerated-jk"),
+}
+editor["rmagatti/auto-session"] = {
+	lazy = false,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 	config = require("editor.auto-session"),
 }
@@ -56,10 +61,6 @@ editor["RRethy/vim-illuminate"] = {
 editor["luukvbaal/stabilize.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
-}
-editor["romainl/vim-cool"] = {
-	lazy = true,
-	event = { "CursorMoved", "InsertEnter" },
 }
 
 ----------------------------------------------------------------------

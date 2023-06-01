@@ -54,7 +54,7 @@ return function()
 			dap = { enabled = true, enable_ui = true },
 			dashboard = false,
 			fern = false,
-			fidget = true,
+			fidget = false,
 			gitgutter = false,
 			gitsigns = true,
 			harpoon = false,

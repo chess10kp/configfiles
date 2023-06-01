@@ -1,10 +1,5 @@
 local ui = {}
 
-ui["goolord/alpha-nvim"] = {
-	lazy = true,
-	event = "BufWinEnter",
-	config = require("ui.alpha"),
-}
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -28,11 +23,11 @@ ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),
 }
-ui["j-hui/fidget.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("ui.fidget"),
-}
+--ui["j-hui/fidget.nvim"] = {
+	--lazy = true,
+	--event = "BufReadPost",
+	--config = require("ui.fidget"),
+--}
 ui["lewis6991/gitsigns.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -52,10 +47,6 @@ ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("ui.neodim"),
-}
-ui["shaunsingh/nord.nvim"] = {
-	lazy = true,
-	config = require("ui.nord"),
 }
 ui["rcarriga/nvim-notify"] = {
 	lazy = false,
