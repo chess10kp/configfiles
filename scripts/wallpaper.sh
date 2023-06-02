@@ -7,8 +7,10 @@ if [[ "$1" == "--random" ]]; then
     ln -sf ~/Pictures/wp/$back ~/Pictures/wp/defaultwp.jpg
 elif [[ "$1" == "--select" ]]; then
     selected_backgrounds=$(ls ~/Pictures/wp/ | $rofi)
+    if [[ -n "$selected_backgrounds" ]]; then
     $walset ~/Pictures/wp/$selected_backgrounds
     ln -sf ~/Pictures/wp/$selected_backgrounds ~/Pictures/wp/defaultwp.jpg
+    fi
     exit 0
 elif [[ "$1" == "--set" ]]; then
     if [[ "$walset" == "swaybg -i" ]]; then
