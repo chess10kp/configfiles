@@ -930,8 +930,8 @@
      id="desktop"
      style="fill:#000000">
     <group
-       width="744"
-       height="673"
+       width="1228"
+       height="710"
        x="0"
        y="0"
        maximized="1"
@@ -1053,8 +1053,8 @@
   <group
      id="theme"
      defaultPreferDarkTheme="1"
-     defaultIconTheme="HighContrast"
-     defaultGtkTheme="Material-Black-Blueberry-3.38"
+     defaultIconTheme="Papirus"
+     defaultGtkTheme="GhostReprise"
      narrowSpinButton="1"
      preferDarkTheme="1"
      darkTheme="1"

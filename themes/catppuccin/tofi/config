@@ -56,7 +56,7 @@
 
 	# Prompt text theme
 	prompt-color = #f9e2af
-	prompt-background = #101010
+	prompt-background = #1e1e2e
 	prompt-background-padding = 0
 	prompt-background-corner-radius = 0
 

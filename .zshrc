@@ -27,6 +27,8 @@ alias pm="pacman"
 alias cd="z"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
+alias :q="exit"
+alias initnvim="nvim ~/.config/nvim/init.lua"
 
 function mkcir
 {

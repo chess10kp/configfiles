@@ -1,6 +1,6 @@
 return function()
-	local icons = { ui = require("modules.utils.icons").get("ui", true) }
-	local lga_actions = require("telescope-live-grep-args.actions")
+    local icons = { ui = require("modules.utils.icons").get("ui", true) }
+    local lga_actions = require("telescope-live-grep-args.actions")
     local project_actions = require("telescope._extensions.project.actions")
 
     require("telescope").setup({
@@ -77,17 +77,18 @@ return function()
         -- default for on_project_selected = find project files
         on_project_selected = function(prompt_bufnr)
             -- Do anything you want in here. For example:
-        project_actions.change_working_directory(prompt_bufnr, false)
+            project_actions.change_working_directory(prompt_bufnr, false)
         end
     }
 },
     })
 
-	require("telescope").load_extension("frecency")
-	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("live_grep_args")
-	require("telescope").load_extension("notify")
-	require("telescope").load_extension("undo")
-	require("telescope").load_extension("zoxide")
+    require("telescope").load_extension("frecency")
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("live_grep_args")
+    require("telescope").load_extension("notify")
+    require("telescope").load_extension("undo")
+    require("telescope").load_extension("zoxide")
     require'telescope'.load_extension('project')
+    require("telescope").load_extension("session-lens")
 end
