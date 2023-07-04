@@ -29,6 +29,15 @@ alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
 alias initnvim="nvim ~/.config/nvim/init.lua"
+alias inithypr="nvim ~/.config/hypr/hyprland.conf"
+alias zshrc="nvim ~/.config/.zshrc"
+alias ta="tmux attach"
+alias mkdir="mkdir -p"
+alias gcommit="git commit"
+alias gadd="git add"
+alias la="exa -al"
+alias ll="exa -l"
+alias cp="cp -v"
 
 function mkcir
 {
@@ -39,22 +48,6 @@ function yt
 {
     command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'
 }
-
-
-export EDITOR="nvim"
-export XDG_DESKTOP_DIR="$HOME/Desktop"
-export XDG_DOWNLOAD_DIR="$HOME/Downloads"
-export XDG_TEMPLATES_DIR="$HOME/Templates"
-export XDG_PUBLICSHARE_DIR="$HOME/Public"
-export XDG_DOCUMENTS_DIR="$HOME/Documents"
-export XDG_MUSIC_DIR="$HOME/Music"
-export XDG_PICTURES_DIR="$HOME/Pictures"
-export XDG_VIDEOS_DIR="$HOME/Videos"
-export MPD_PORT="6600"
-export NVD_BACKEND="direct"
-export _JAVA_AWT_WM_NONREPARENTING=1 # wayland for clion
-
-
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme

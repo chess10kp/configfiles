@@ -55,7 +55,7 @@ function M.disable_format_on_save()
 	pcall(vim.api.nvim_del_augroup_by_name, "format_on_save")
 	if format_on_save then
 		vim.notify("Disabled format-on-save", vim.log.levels.INFO, { title = "Settings modification success!" })
-	end
+    end
 end
 
 function M.configure_format_on_save()

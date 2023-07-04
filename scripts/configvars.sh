@@ -4,7 +4,7 @@ rofi="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/Terminess
 rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
 rofi_prompt=" --prompt"
-dmenu="tofi"
+dmenu="tofi --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
 editor="nvim"
 term="foot"
 browser="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"

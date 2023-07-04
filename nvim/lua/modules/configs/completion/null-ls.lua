@@ -6,28 +6,29 @@ return function()
 	-- Please set additional flags for the supported servers here
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
-		btns.formatting.black.with({
-			extra_args = { "--fast" },
-		}),
+		--python
+		btns.formatting.black,
+		btns.diagnostics.flake8,
+
+		--cpp
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
 		}),
-		btns.formatting.prettier.with({
-			filetypes = {
-				"vue",
-				"typescript",
-				"javascript",
-				"typescriptreact",
-				"javascriptreact",
-				"yaml",
-				"html",
-				"css",
-				"scss",
-				"sh",
-				"markdown",
-			},
-		}),
+		btns.diagnostics.cpplint,
+
+		--shell
+		btns.formatting.shfmt,
+		btns.diagnostics.shellcheck,
+		btns.code_actions.shellcheck,
+		btns.hover.printenv,
+
+		-- lua
+		btns.formatting.stylua,
+		btns.diagnostics.luacheck,
+
+		-- haskell
+		btns.formatting.fourmolu,
 	}
 	null_ls.setup({
 		border = "rounded",
@@ -39,7 +40,7 @@ return function()
 
 	mason_null_ls.setup({
 		ensure_installed = require("core.settings").null_ls_deps,
-		automatic_installation = false,
+		automatic_installation = true,
 		automatic_setup = true,
 	})
 	--require("mason-null-ls").setup_handlers()

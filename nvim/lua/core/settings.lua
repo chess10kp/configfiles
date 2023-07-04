@@ -7,7 +7,7 @@ settings["use_ssh"] = true
 
 -- Set it to false if there are no need to format on save.
 ---@type boolean
-settings["format_on_save"] = false
+settings["format_on_save"] = true
 
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 ---@type string[]
@@ -30,7 +30,7 @@ settings["palette_overwrite"] = {}
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
 ---@type string
-settings["colorscheme"] = "radium"
+settings["colorscheme"] = "tokyonight"
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.
@@ -41,12 +41,13 @@ settings["background"] = "dark"
 -- Set the command for handling external URLs here. The executable must be available on your $PATH.
 -- This entry is IGNORED on Windows and macOS, which have their default handlers builtin.
 ---@type string
-settings["external_browser"] = "chrome-cli open"
+settings["external_browser"] = "brave"
 
 -- Filetypes in this list will skip lsp formatting if rhs is true
 ---@type table<string, boolean>
 settings["formatter_block_list"] = {
 	lua = false, -- example
+	markdown = true,
 }
 
 -- Servers in this list will skip setting formatting capabilities if rhs is true

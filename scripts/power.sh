@@ -1,10 +1,10 @@
 #!/bin/bash
 
-shutdown='Shutdown '
-reboot='Reboot '
-lock='Lock '
-suspend='Suspend '
-logout='Logout '
+shutdown='Shutdown'
+reboot='Reboot'
+lock='Lock'
+suspend='Suspend'
+logout='Logout'
 
 source ~/.config/scripts/configvars.sh
 

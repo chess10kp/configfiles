@@ -3,11 +3,11 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/nitin/Pictures" added="2023-05-10T02:23:55.680148Z" modified="2023-05-10T02:23:55.680153Z" visited="2023-05-10T02:23:55.680149Z">
+  <bookmark href="file:///home/nitin/Pictures" added="2023-07-04T17:37:54.628440Z" modified="2023-07-04T17:37:54.628457Z" visited="2023-07-04T17:37:54.628443Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2023-05-10T02:23:55.680151Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2023-07-04T17:37:54.628450Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>

@@ -1,14 +1,14 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "InconsolataGo Bold Nerd Font",  Roboto, sans-serif;
-  font-size: 13px;
+  font-family: "Iosevka Nerd Font",  Roboto, sans-serif;
+  font-size: 11px;
   font-weight: 400;
+  color: #89b4fa;
 }
 
 window#waybar {
-  background-color: rgba(0, 0, 0, 1);
-  color: #b6beca;
+    background-color: rgba(6,8,13,0.7);
 }
 
 #window {
@@ -18,7 +18,7 @@ window#waybar {
   padding-right: 16px;
   padding-top: 0;
   padding-bottom: 0;
-  border-radius: 13px;
+  border-radius: 0px;
   transition: none;
 }
 
@@ -37,32 +37,18 @@ window#waybar {
   padding-bottom: 0px;
   padding-left: 4px;
   padding-right: 0px;
-  border-radius: 2px;
+  border-radius: 0px;
 }
 
 #workspaces button {
-  padding-top: 0px;
+  padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 4px;
   padding-right: 4px;
-  color: #dee1e6;
-  border-radius: 5px;
+  color: transparent;
+  border-radius: 0px;
 }
 
-#workspaces button.focused {
-  color: #dee1e6;
-  font-family: Fira Sans;
-  border-bottom: none;
-  font-weight: bolder;
-}
-#workspaces button.active {
-  color: #dee1e6;
-  font-family: Fira Sans;
-  border-bottom: none;
-}
-#workspaces button.urgent {
-  color: #f9929b;
-}
 
 #mpd {
   border-radius: 5px;
@@ -78,15 +64,13 @@ window#waybar {
 #idle_inhibitor,
 #language,
 #custom-spacer {
-  padding: 0 10px;
+  padding: 0 0px;
   margin: 0px 4px 0px 4px;
-  border: 3px solid rgba(0, 0, 0, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
   border-radius: 90px;
   background-clip: padding-box;
 }
 
-#custom-power {
-}
 
 #custom-updates {
   background-color: #1e222a;
@@ -102,7 +86,7 @@ window#waybar {
   margin-top: 5px;
   margin-bottom: 4px;
   margin-left: 3px;
-  margin-right: 0px;
+  margin-right: 3px;
   transition: none;
   padding: 0px 0px 0px 10px;
   background: transparent;
@@ -136,7 +120,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  background-color: #dee1e6;
+  background-color: transparent;
 }
 
 #workspaces button.focused {
@@ -156,63 +140,39 @@ window#waybar {
   color: #c678dd;
 }
 
-#temperature {
-  color: #d19a66;
-}
-
-#temperature.critical {
-  background-color: #e06c75;
-  color: #1e222a;
-}
-
 #custom-media {
   background-color: #171b20;
   color: #b6beca;
 }
 
 #pulseaudio {
-  color: #a6adb9;
-  margin-top: 5px;
-  margin-bottom: 4px;
-  margin-left: 2px;
-  margin-right: 5px;
-  padding: 0px 0px;
+  padding: 0 13px;
+  margin: 4px 6px 6px 6px;
 }
 
 #pulseaudio.muted {
-  color: #e06c75;
-  margin-top: 5px;
-  margin-bottom: 4px;
-  margin-left: 2px;
-  margin-right: 5px;
-  padding: 0px 0px;
 }
 
 #backlight {
-  color: #a6adb9;
 }
 
 #battery {
   padding: 0 13px;
   margin: 4px 4px 6px 4px;
+  border-radius: 0;
 }
 
 #clock {
-  margin-left: 10px;
-  color: #a1a9e8;
-  padding: 10px 10px;
+    margin: 0px;
+  color: #89b4fa;
+  padding: 1px 10px 1px 10px;
+  background-clip: padding-box;
+  background: transparent;
 }
 
 #battery.charging,
 #battery.plugged {
-  background: #000;
-  color: #19ff54;
-  margin-top: 2px;
-  margin-bottom: 1px;
-  margin-left: 0px;
-  margin-right: 6px;
-  padding-left: 6px;
-  padding-right: 6px;
+    color:#89b4fa;
   background-clip: padding-box;
 }
 
@@ -226,45 +186,24 @@ window#waybar {
 
 #battery.critical, #battery.low {
   padding: 0 13px;
-  margin: 7px 4px 7px 4px;
-  border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
-  background-color: #000;
-  color: #d9534f;
-  background: #000;
 }
 
 #battery.discharging {
-  color: #a1a9e8;
-  padding: 0 13px;
-  margin: 4px 4px 6px 4px;
   background-clip: padding-box;
-}
-@keyframes blink {
-  to {
-    background-color: #1e222a;
-    color: #e06c75;
-  }
-}
-
-#custom-bluetooth,
-#network {
-  margin-top: 2px;
-  margin-bottom: 1px;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 6px;
-  padding-right: 6px;
 }
 
 #backlight,
 #pulseaudio,
 #custom-bluetooth {
+  padding: 0 13px;
   margin-top: 5px;
   margin-bottom: 4px;
-  margin-left: 2px;
-  margin-right: 5px;
-  padding: 0px 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#custom-bluetooth {
 }
 
 widget > * {

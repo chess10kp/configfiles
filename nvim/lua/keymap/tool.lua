@@ -80,7 +80,7 @@ local plug_map = {
 		end)
 		:with_noremap()
 		:with_silent()
-		:with_desc("tool: Toggle command panel"),
+		:with_desc("tool: show keymaps"),
 	["n|<leader>u"] = map_callback(function()
 			require("telescope").extensions.undo.undo()
 		end)
@@ -88,7 +88,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("edit: Show undo history"),
 	["n|<leader>fp"] = map_callback(function()
-        require'telescope'.extensions.project.project{}
+			require("telescope").extensions.project.project({})
 		end)
 		:with_noremap()
 		:with_silent()

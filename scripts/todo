@@ -5,7 +5,6 @@ source ~/.config/scripts/configvars.sh
 file="$HOME/.todo"
 touch "$file"
 height=$(wc -l "$file" | awk '{print $1}' )
-prompt="Add/delete a task: "
 
 cmd=$($rofi  <"$file")
 while [ -n "$cmd" ]; do

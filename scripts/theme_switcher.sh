@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source ~/.config/scripts/configvars.sh
-
 set_apps(){ 
     ln -sf ~/.config/themes/$1/tofi/config ~/.config/tofi/config
     ln -sf ~/.config/themes/$1/foot/foot.ini ~/.config/foot/foot.ini
@@ -33,10 +32,9 @@ set_theme_specifics(){
             set_gtk "GhostReprise"
             ln -sf ~/Pictures/wp/onedark01.jpg ~/Pictures/wp/defaultwp.jpg
             sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "onedark_dark\"/' -i ~/.config/nvim/lua/core/settings.lua
-import gsettings
             ;;
         "catppuccin")
-            set_gtk "Catppuccin-Mocha-Standard-Blue-Dark"
+            set_gtk "Catppuccin-Mocha-Standard-Blue-dark"
             ln -sf ~/Pictures/wp/catppuccin05.jpg ~/Pictures/wp/defaultwp.jpg
             sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "catppuccin\"/' -i ~/.config/nvim/lua/core/settings.lua
             ;;
@@ -44,6 +42,13 @@ import gsettings
             set_gtk "GhostReprise"
             ln -sf ~/Pictures/wp/radium03.jpg ~/Pictures/wp/defaultwp.jpg
             sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "radium\"/' -i ~/.config/nvim/lua/core/settings.lua
+            ;;
+	"tokyonight")
+            set_gtk "Catppuccin-Mocha-Standard-Blue-dark"
+            ln -sf ~/Pictures/wp/tokyonight2.jpg ~/Pictures/wp/defaultwp.jpg
+            sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "tokyonight\"/' -i ~/.config/nvim/lua/core/settings.lua
+            ln -sf ~/.config/themes/tokyonight/zathurarc ~/.config/zathura/zathurarc 
+            ;;
     esac
 }
 
@@ -55,7 +60,7 @@ after_set(){
 
 
 
-colorschemes=('onedark-dark' 'catppuccin' 'radium')
+colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight')
 colorscheme_selected=$(printf "%s\n" "${colorschemes[@]}" | $rofi )
 
 if [[ -z $colorscheme_selected ]]; then

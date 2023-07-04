@@ -66,9 +66,9 @@ tool["nvim-telescope/telescope.nvim"] = {
 	cmd = "Telescope",
 	config = require("tool.telescope"),
 	dependencies = {
-        { "nvim-tree/nvim-web-devicons" },
+		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
-        {"nvim-telescope/telescope-project.nvim"},
+		{ "nvim-telescope/telescope-project.nvim" },
 		{ "debugloop/telescope-undo.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
@@ -101,10 +101,15 @@ tool["mfussenegger/nvim-dap"] = {
 			"rcarriga/nvim-dap-ui",
 			config = require("tool.dap.dapui"),
 		},
-        {
-            --"mfssenegger/nvim-dap-python",
-            --config = require("tool.dap.nvim-dap-python"),
-        }
+		--{
+		--"mfussenegger/nvim-dap-python",
+		--ft = "python",
+		--dependencies = {
+		--"mfussenegger/nvim-dap",
+		--"rcarriga/nvim-dap-ui",
+		--},
+		--config = require("tool.dap.nvim-dap-python"),
+		--},
 	},
 }
 

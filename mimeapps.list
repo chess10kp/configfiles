@@ -4,3 +4,4 @@ x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 text/x-c++src=nvim.desktop;
+image/jpeg=sxiv.desktop;

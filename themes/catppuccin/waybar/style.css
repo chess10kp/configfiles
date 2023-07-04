@@ -1,4 +1,4 @@
-@import "catpuccin/colors.css";
+@import "catppuccin/colors.css";
 
 * {
   border: none;
@@ -233,7 +233,10 @@ window#waybar {
 #pulseaudio,
 #custom-bluetooth {
   padding: 0 13px;
-  margin: 4px 4px 6px 4px;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 #custom-bluetooth {

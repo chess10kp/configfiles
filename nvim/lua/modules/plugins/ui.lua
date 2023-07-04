@@ -14,6 +14,11 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
+ui["folke/tokyonight.nvim"] = {
+	lazy = false,
+	name = "tokyonight",
+	config = require("ui.tokyonight"),
+}
 ui["decaycs/decay.nvim"] = {
     lazy = false,
     name = "decay",

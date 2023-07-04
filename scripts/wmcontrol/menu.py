@@ -19,7 +19,7 @@ settings  = [ #List of options available on the settings menu
 
 
 try:
-    selected_option = check_output(getattr(dmenu, 'base'), input="\n".join(settings), universal_newlines=True).strip()
+    selected_option = check_output(getattr(dmenu, 'base') + getattr(dmenu, 'font'), input="\n".join(settings), universal_newlines=True).strip()
 except SubprocessError:
     pass #Occurs when the menu is exited
 

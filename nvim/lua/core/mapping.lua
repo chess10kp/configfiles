@@ -8,6 +8,7 @@ local core_map = {
 	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("editn: Toggle code fold"),
 	["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
 	["n|<leader>w"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
+	["n|<leader>q"] = map_cu("BufDel"):with_noremap():with_silent():with_desc("editn: Quit file"),
 	["n|<C-S-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
 		:with_silent()
 		:with_noremap()
@@ -31,7 +32,7 @@ local core_map = {
 	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("editi: Move cursor to line start"),
 	["i|<C-s>"] = map_cmd("<Esc>:w<CR>"):with_desc("edit: Save file"),
 	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
-    ["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"),
+	--["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"),
 	["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
 	["i|<C-h>"] = map_cmd("<Left>"):with_desc("Move cursor to the left"),
 
@@ -46,13 +47,10 @@ local core_map = {
 		:with_noremap()
 		:with_desc("editc: Complete path of current file"),
 	-- Visual mode
-    ["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_desc("editv: Move this line down"),
-    ["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("editv: Move this line up"),
+	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_desc("editv: Move this line down"),
+	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("editv: Move this line up"),
 	["v|<"] = map_cmd("<gv"):with_desc("editv: Decrease indent"),
 	["v|>"] = map_cmd(">gv"):with_desc("editv: Increase indent"),
 }
 
 bind.nvim_load_mapping(core_map)
-
-
-

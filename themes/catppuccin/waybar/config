@@ -5,7 +5,6 @@
     "modules-left": [
         "custom/logo",
         "wlr/workspaces",
-        "mpd",
     ],
     "modules-center": [
         "hyprland/submap",
