@@ -9,10 +9,10 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Sans"
+	font = "Iosevka Nerd Font"
 
 	# Point size of text.
-	font-size = 12
+	font-size = 11
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -57,7 +57,7 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-	prompt-color = 000000
+	prompt-color = ffffff
 	prompt-background = 000000
 	prompt-background-padding = 0
 	prompt-background-corner-radius = 0
@@ -71,7 +71,7 @@
 	# Input text theme
 	input-color = 89b4fa
 	input-background = 00000000
-	input-background-padding = 10
+	input-background-padding = 1
 	input-background-corner-radius = 0 
     
 	# Default result text theme
@@ -80,21 +80,10 @@
 	default-result-background-padding = 10
 	default-result-background-corner-radius = 0
 
-	# Alternate (even-numbered) result text theme
-	#
-	# If unspecified, these all default to the corresponding
-	# default-result-* attribute.
-	#
-	# alternate-result-color = #FFFFFF
-	# alternate-result-background = #00000000
-	# alternate-result-background-padding = 0
-	# alternate-result-background-corner-radius = 0
-
-	# Selection text
 	selection-color = cdd6f4
 	selection-background = 31324400
-	selection-background-padding = 10
-	selection-background-corner-radius = 0
+	selection-background-padding = 0
+	selection-background-corner-radius = 1
 
 	# Matching portion of selection text
 	selection-match-color = #00000000
@@ -130,8 +119,8 @@
 	horizontal = true
 	min-input-width = 0
 	width = 100%
-	height = 30
-	background-color = 060813CC
+	height = 23
+	background-color = 060813EE
 
 	# Width of the border outlines in pixels.
 	outline-width = 0
@@ -146,10 +135,10 @@
 	border-color = #bd93f9
 
 	# Radius of window corners in pixels.
-	corner-radius = 0
+	corner-radius = 10
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 4
+	padding-top = 0
 	padding-bottom = 0
 	padding-left = 0
 	padding-right = 0

@@ -11,7 +11,7 @@ local plug_map = {
 	["n|<leader>sr"] = map_cu("SessionRestore"):with_noremap():with_silent():with_desc("session: Restore"),
 	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent():with_desc("session: Delete"),
 
--- Plugin: accelerate-jk
+	-- Plugin: accelerate-jk
 	["n|j"] = map_callback(function()
 		return et("<Plug>(accelerated_jk_gj)")
 	end):with_expr(),
@@ -19,8 +19,7 @@ local plug_map = {
 		return et("<Plug>(accelerated_jk_gk)")
 	end):with_expr(),
 
-	-- Plugin: nvim-bufdel
-	["n|<C-q>"] = map_cr("BufDel"):with_noremap():with_silent():with_desc("buffer: Close current"),
+	["n|<C-q>"] = map_cr("quit"):with_noremap():with_silent():with_desc("buffer: Close current"),
 
 	-- Plugin: comment.nvim
 	["n|gcc"] = map_callback(function()

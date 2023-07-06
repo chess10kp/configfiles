@@ -7,8 +7,9 @@ return function()
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
 		--python
-		btns.formatting.black,
-		btns.diagnostics.flake8,
+		--[[ btns.formatting.black,
+		btns.diagnostics.ruff,
+		btns.diagnostics.mypy, ]]
 
 		--cpp
 		btns.formatting.clang_format.with({
@@ -21,11 +22,14 @@ return function()
 		btns.formatting.shfmt,
 		btns.diagnostics.shellcheck,
 		btns.code_actions.shellcheck,
-		btns.hover.printenv,
+		--btns.hover.printenv,
 
 		-- lua
 		btns.formatting.stylua,
-		btns.diagnostics.luacheck,
+		btns.diagnostics.luacheck.with({
+			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+			extra_args = { "--globals 'vim' " }, --makes vim is not accessed error go away
+		}),
 
 		-- haskell
 		btns.formatting.fourmolu,
@@ -42,8 +46,8 @@ return function()
 		ensure_installed = require("core.settings").null_ls_deps,
 		automatic_installation = true,
 		automatic_setup = true,
+		handlers = {},
 	})
-	--require("mason-null-ls").setup_handlers()
 
 	require("completion.formatting").configure_format_on_save()
 end

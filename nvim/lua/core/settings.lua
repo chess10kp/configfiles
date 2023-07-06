@@ -68,7 +68,7 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	"pyright",
+	"pylsp",
 	-- "gopls",
 }
 
@@ -78,14 +78,18 @@ settings["lsp_deps"] = {
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
 settings["null_ls_deps"] = {
-	"black",
 	"clang_format",
-	"editorconfig_checker",
 	"prettier",
 	"rustfmt",
 	"shfmt",
 	"stylua",
 	"vint",
+}
+
+settings["dap_deps"] = {
+	"codelldb", -- C-Family
+	"delve", -- Go
+	"python", -- Python (debugpy)
 }
 
 return settings

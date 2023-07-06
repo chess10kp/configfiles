@@ -2,46 +2,20 @@
 {
     "position": "top",
     "height": 25, // Waybar height (to be removed for auto height)
-    "modules-left": [
-    ],
+    "modules-left": [],
     "modules-center": [
-        "hyprland/submap",
         "clock",
+        "hyprland/submap",
     ],
     "modules-right": [
         "battery",
-        "pulseaudio",
         "tray",
-        "network",
+        "network"
     ],
-    "custom/separator": {
-        "format": ""
-    },
-    "wlr/taskbar": {
-        "format": "{icon} {app_id}",
-        "on-click": "activate",
-        "on-click-middle": "minimize",
-        "on-click-right": "close",
-    },
     "clock": {
         "tooltip-format": "",
         "format": "{:%I %M}",
         "format-alt": "{:%A, %B %d}"
-    },
-    "memory": {
-        "format": "{used}  "
-    },
-    "backlight": {
-        "format": " {percent} ",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "on-click": ""
     },
     "hyprland/submap": {
         "format": "{}",
@@ -58,8 +32,8 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{capacity}%",
-        "format-charging": " {capacity}",
+        "format": "{capacity}",
+        "format-charging": "{capacity}",
         "format-plugged": "{capacity}",
         "format-alt": "{time} {icon}",
     },
@@ -75,14 +49,15 @@
         "spacing": 10
     },
     "pulseaudio": {
-        "format": " {volume} ",
+        "format": "{volume} ",
         "format-bluetooth-muted": " ",
         "format-muted": " ",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
-            "default": ["",
+            "default": [
+                "",
                 "",
             ] // 醙
         },

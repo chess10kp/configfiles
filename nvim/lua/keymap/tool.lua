@@ -87,12 +87,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Show undo history"),
-	["n|<leader>fp"] = map_callback(function()
-			require("telescope").extensions.project.project({})
+	--[[ ["n|<leader>fp"] = map_callback(function()
+        require'telescope'.extensions.project.project{}
 		end)
 		:with_noremap()
 		:with_silent()
-		:with_desc("find: Project"),
+		:with_desc("find: Project"), ]]
 	["n|<leader>fr"] = map_callback(function()
 			require("telescope").extensions.frecency.frecency()
 		end)
@@ -111,7 +111,6 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("ui: Change colorscheme for current session"),
-	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
 		:with_noremap()
 		:with_silent()
@@ -122,6 +121,10 @@ local plug_map = {
 		:with_desc("edit: Change current direrctory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
+	["n|<leader>fn"] = map_cu("Telescope file_browser path=%p:h select_buffer=true<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: open file browser"),
 
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()

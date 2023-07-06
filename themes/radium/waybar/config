@@ -1,7 +1,7 @@
 {
     "position": "left",
     "width" :20,
-    "modules-left": ["wlr/workspaces","hyprland/submap", "tray"],
+    "modules-left": ["hyprland/submap", "tray"],
     "modules-right": ["battery","network","pulseaudio",  "custom/separator", "clock", "custom/logo"],
     "clock": {
         "format": "{:%H\n%M}",

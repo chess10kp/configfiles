@@ -38,6 +38,8 @@ alias gadd="git add"
 alias la="exa -al"
 alias ll="exa -l"
 alias cp="cp -v"
+alias mv="mv -i"
+alias rm="trash"
 
 function mkcir
 {
