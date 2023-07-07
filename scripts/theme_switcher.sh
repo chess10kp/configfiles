@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=2086,2027,1090,2068,2145
+# shellcheck disable=2086,2027,1090,2068,2145,2154
 
 source ~/.config/scripts/configvars.sh
 set_apps() {
@@ -54,8 +54,10 @@ set_theme_specifics() {
 
 after_set() {
 	pkill foot
+	pkill waybar
 	sleep 1
 	hyprctl reload
+	waybar &
 }
 
 colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight')

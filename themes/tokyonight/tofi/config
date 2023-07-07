@@ -12,7 +12,7 @@
 	font = "Iosevka Nerd Font"
 
 	# Point size of text.
-	font-size = 11
+	font-size = 16
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -119,7 +119,7 @@
 	horizontal = true
 	min-input-width = 0
 	width = 100%
-	height = 23
+	height = 35
 	background-color = 060813EE
 
 	# Width of the border outlines in pixels.
@@ -135,7 +135,7 @@
 	border-color = #bd93f9
 
 	# Radius of window corners in pixels.
-	corner-radius = 10
+	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
 	padding-top = 0
@@ -149,7 +149,7 @@
 	clip-to-padding = true
 
 	# Whether to scale the window by the output's scale factor.
-	scale = true
+	scale = false
 
 #
 ### Window positioning

@@ -5,6 +5,7 @@ text/html=brave.desktop
 x-scheme-handler/http=brave.desktop
 x-scheme-handler/https=brave.desktop
 x-scheme-handler/about=brave.desktop
+application/pdf=zathura.desktop
 
 [Added Associations]
 text/x-c++src=nvim.desktop;

@@ -14,6 +14,10 @@ compinit
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+function mkcir
+{
+  command mkdir $1 && cd $1
+}
 alias e="exit"
 alias c="clear"
 alias sdi="yay -S"
@@ -21,7 +25,7 @@ alias sdr="sudo pacman -R"
 alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
-alias n="nvim ./"
+alias n="nvim"
 alias ls="exa"
 alias pm="pacman"
 alias cd="z"
@@ -40,19 +44,15 @@ alias ll="exa -l"
 alias cp="cp -v"
 alias mv="mv -i"
 alias rm="trash"
-
-function mkcir
-{
-  command mkdir $1 && cd $1
-}
-
 function yt
 {
     command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'
 }
 
+export PATH="$HOME/.local/bin:$PATH"
+
+
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
