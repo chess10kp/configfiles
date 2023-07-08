@@ -3,6 +3,8 @@
 
 source "$HOME/.config/scripts/configvars.sh"
 
+WP_DIR="$HOME/Pictures/wp/"
+
 if [[ "$1" == "--random" ]]; then
 	back=$(find "$HOME/Pictures/wp/" -type f | shuf | head -n 1)
 	# shellcheck disable=2154
@@ -28,4 +30,9 @@ elif [[ "$1" == "--set" ]]; then
 	elif [[ $(echo "$walset" | awk '{print $1}') == "swww" ]]; then
 		$walset "$HOME/Pictures/wp/defaultwp.jpg"
 	fi
+	#TODO implemement cycle feature
+elif [[ "$1" == "--cycle" ]]; then
+	cd $WP_DIR || exit
+	style=$(readlink defaultwp.jpg | xargs basename | sed 's/[0-9][0-9].*//') # gets the theme name of the wp
+	$walset $(ls | grep "^$style" | shuf | head -n 1)
 fi

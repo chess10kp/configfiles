@@ -8,20 +8,24 @@ config = Config()
 
 selected_option = None
 
-MENU_PATH = getattr(config, 'path')
+MENU_PATH = getattr(config, "path")
 
-settings  = [ #List of options available on the settings menu
-            "Window Manager",
-            "Resolution",
-            "Bluetooth",
-             "Brightness"
-            ]       
+settings = [  # List of options available on the settings menu
+    "Window Manager",
+    "Resolution",
+    "Bluetooth",
+    "Brightness",
+]
 
 
 try:
-    selected_option = check_output(getattr(dmenu, 'base') + getattr(dmenu, 'font'), input="\n".join(settings), universal_newlines=True).strip()
+    selected_option = check_output(
+        getattr(dmenu, "base") + getattr(dmenu, "font"),
+        input="\n".join(settings),
+        universal_newlines=True,
+    ).strip()
 except SubprocessError:
-    pass #Occurs when the menu is exited
+    pass  # Occurs when the menu is exited
 
 if selected_option == settings[0]:
     run([f"{MENU_PATH}/window_manager.py"])

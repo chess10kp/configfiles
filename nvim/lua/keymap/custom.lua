@@ -10,6 +10,7 @@ local plug_map = {
 	["n|)"] = map_cr("bnext"):with_noremap():with_silent():with_nowait():with_desc("next Tab"),
 	["n|("] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev Tab"),
 	["n|<leader>bd"] = map_cr("bdelete"):with_noremap():with_silent():with_nowait():with_desc("Delete current buffer"),
+	["n|<leader>bd"] = map_cr("bdelete"):with_noremap():with_silent():with_nowait():with_desc("Delete current buffer"),
 
 	--- Session search
 	["n|<leader>fs"] = map_cr("SearchSession"):with_noremap():with_nowait():with_desc("browse sessions"),

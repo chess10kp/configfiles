@@ -2,7 +2,7 @@ local ui = {}
 
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
 ui["olimorris/onedarkpro.nvim"] = {
@@ -20,18 +20,18 @@ ui["folke/tokyonight.nvim"] = {
 	config = require("ui.tokyonight"),
 }
 ui["decaycs/decay.nvim"] = {
-    lazy = false,
-    name = "decay",
-    config = require("ui.decay"),
+	lazy = false,
+	name = "decay",
+	config = require("ui.decay"),
 }
 ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),
 }
 --ui["j-hui/fidget.nvim"] = {
-	--lazy = true,
-	--event = "BufReadPost",
-	--config = require("ui.fidget"),
+--lazy = true,
+--event = "BufReadPost",
+--config = require("ui.fidget"),
 --}
 ui["lewis6991/gitsigns.nvim"] = {
 	lazy = true,
@@ -43,11 +43,11 @@ ui["lukas-reineke/indent-blankline.nvim"] = {
 	event = "BufReadPost",
 	config = require("ui.indent-blankline"),
 }
---ui["nvim-lualine/lualine.nvim"] = {
-	--lazy = true,
-	--event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	--config = require("ui.lualine"),
---}
+ui["nvim-lualine/lualine.nvim"] = {
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	config = require("ui.lualine"),
+}
 ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",

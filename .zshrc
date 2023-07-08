@@ -6,13 +6,16 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000000
 bindkey -v
-# binds up and down
 zstyle :compinstall filename '/home/nitin/.zshrc'
 
 autoload -Uz compinit
 compinit
+# binds up and down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey -s "^R" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M'
+
+setopt autocd
 
 function mkcir
 {
@@ -25,7 +28,7 @@ alias sdr="sudo pacman -R"
 alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
-alias n="nvim"
+alias n="cd ~/projects/ &&  nvim -c 'Telescope find_files'"
 alias ls="exa"
 alias pm="pacman"
 alias cd="z"
@@ -43,14 +46,16 @@ alias la="exa -al"
 alias ll="exa -l"
 alias cp="cp -v"
 alias mv="mv -i"
-alias rm="trash"
 function yt
 {
     command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'
 }
 
 export PATH="$HOME/.local/bin:$PATH"
-
+function tmux-run
+{
+    tmux attach -t  $(tmux list-sessions | fzf | sed -e 's/:.*//'  )
+}
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -65,4 +70,3 @@ PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
 
 eval "$(zoxide init zsh)"
-
