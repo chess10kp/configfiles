@@ -39,6 +39,7 @@ alias initnvim="nvim ~/.config/nvim/init.lua"
 alias inithypr="nvim ~/.config/hypr/hyprland.conf"
 alias zshrc="nvim ~/.config/.zshrc"
 alias ta="tmux attach"
+alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias gcommit="git commit"
 alias gadd="git add"
@@ -51,7 +52,8 @@ function yt
     command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'
 }
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$HOME/.local/bin:$PATH"
+
 function tmux-run
 {
     tmux attach -t  $(tmux list-sessions | fzf | sed -e 's/:.*//'  )

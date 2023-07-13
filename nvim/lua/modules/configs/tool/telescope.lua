@@ -42,6 +42,10 @@ return function()
 		pickers = {
 			keymaps = {
 				theme = "dropdown",
+				exclude = {},
+			},
+			find_files = {
+				theme = "dropdown",
 			},
 		},
 		extensions = {

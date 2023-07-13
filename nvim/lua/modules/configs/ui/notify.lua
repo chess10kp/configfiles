@@ -13,7 +13,7 @@ return function()
 		---@usage Function called when a window is closed
 		on_close = nil,
 		---@usage timeout for notifications in ms, default 5000
-		timeout = 2000,
+		timeout = 1000,
 		-- @usage User render fps value
 		fps = 30,
 		-- Render function for notifications. See notify-render()

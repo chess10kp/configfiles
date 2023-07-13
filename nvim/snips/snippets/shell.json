@@ -1,0 +1,15 @@
+{
+    "get_options": {
+        "prefix": "getopts",
+        "body": [
+            "while [[ \"$1\" =~ ^- && ! \"$1\" == \"--\" ]]; do case $1 in",
+            "-V | --version )",
+            "echo \"$version\"",
+            "exit",
+            ";;",
+            "esac; shift; done",
+            "if [[ \"$1\" == '--' ]]; then shift; fi"
+        ],
+        "description": "get options for cli"
+    }
+}

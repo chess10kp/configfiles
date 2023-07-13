@@ -58,6 +58,7 @@
   "nvim-ts-rainbow": { "branch": "master", "commit": "8312b513ce930e7669a1721befbe56f2e1853301" },
   "nvim-web-devicons": { "branch": "master", "commit": "9ab9b0b894b2388a9dbcdee5f00ce72e25d85bf9" },
   "onedarkpro.nvim": { "branch": "main", "commit": "f97db0e46ea5e55874892ac3e3cb2fc619d74c7f" },
+  "orgmode": { "branch": "master", "commit": "6f73b461b9f887968d0f69ab3aee6b4ceebe3445" },
   "paint.nvim": { "branch": "main", "commit": "6ce64212804f425073c61ab0d9c2b034f0435260" },
   "plenary.nvim": { "branch": "master", "commit": "102c02903c74b93c705406bf362049383abc87c8" },
   "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },

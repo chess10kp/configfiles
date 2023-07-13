@@ -1,7 +1,8 @@
 return function()
 	local icons = {
 		kind = require("modules.utils.icons").get("kind"),
-		type = require("modules.utils.icons").get("type"),		cmp = require("modules.utils.icons").get("cmp"),
+		type = require("modules.utils.icons").get("type"),
+		cmp = require("modules.utils.icons").get("cmp"),
 	}
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -19,7 +20,6 @@ return function()
 			{ "│", hl },
 		}
 	end
-
 
 	---Handling situations where LuaSnip failed to perform any jumps
 	---@param r integer @Cursor position (row) before calling LuaSnip

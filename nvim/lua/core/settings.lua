@@ -47,7 +47,6 @@ settings["external_browser"] = "brave"
 ---@type table<string, boolean>
 settings["formatter_block_list"] = {
 	lua = false, -- example
-	markdown = true,
 }
 
 -- Servers in this list will skip setting formatting capabilities if rhs is true

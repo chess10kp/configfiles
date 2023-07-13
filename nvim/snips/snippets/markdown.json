@@ -1,0 +1,43 @@
+{
+    "comment": {
+        "prefix": "comment",
+        "body": "[//]: # $1",
+        "description": "comment"
+    },
+    "todo": {
+        "prefix": "todo",
+        "body": [
+            "<!--",
+            "TODO: $1",
+            "-->"
+        ],
+        "description": "todo"
+    },
+    "notes": {
+        "prefix": "notes",
+        "body": [
+            "<!--",
+            "NOTE: $1",
+            "-->"
+        ],
+        "description": "notes"
+    },
+    "fix": {
+        "prefix": "fix",
+        "body": [
+            "<!--",
+            "FIX: $1",
+            "-->"
+        ],
+        "description": "fix"
+    },
+    "hack": {
+        "prefix": "hack",
+        "body": [
+            "<!--",
+            "HACK: $1",
+            "-->"
+        ],
+        "description": "hack"
+    }
+}
