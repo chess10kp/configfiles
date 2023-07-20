@@ -122,7 +122,7 @@
         "path": "./snippets/java.json"
       },
       {
-        "language": ["html", "jade", "pug", "eruby"],
+        "language": ["html", "jade", "pug", "eruby", "javascriptreact"],
         "path": "./snippets/html.json"
       },
       {

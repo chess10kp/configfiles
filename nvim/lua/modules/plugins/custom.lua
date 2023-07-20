@@ -18,18 +18,22 @@ custom["rmagatti/session-lens"] = {
 custom["lervag/vimtex"] = {
 	lazy = false,
 }
-custom["nvim-orgmode/orgmode"] = {
-	lazy = true,
+custom["nvim-neorg/neorg"] = {
+	build = ":Neorg sync-parsers",
+	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
-		require("orgmode").setup_ts_grammar()
-		require("orgmode").setup({
-			org_agenda_files = { "~/projects/notes/daily", "~/my-orgs/**/*" },
-			org_default_notes_file = "~/projects/notes/thoughts.org",
-			org_capture_templates = {
-				r = {
-					description = "Repo",
-					template = "* [[%x][%(return string.match('%x', '([^/]+)$'))]]%?",
-					target = "~/projects/notes/thoughts.org",
+		require("neorg").setup({
+			load = {
+				["core.defaults"] = {}, -- Loads default behaviour
+				["core.concealer"] = {}, -- Adds pretty icons to your documents
+				["core.dirman"] = { -- Manages Neorg workspaces
+					config = {
+						workspaces = {
+							default = "~/projects/notes/todo.org",
+							notes = "~/projects/notes/",
+							daily = "~/projects/daily/",
+						},
+					},
 				},
 			},
 		})

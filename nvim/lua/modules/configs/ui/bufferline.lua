@@ -14,9 +14,9 @@ return function()
 			color_icons = true,
 			show_buffer_icons = false,
 			show_buffer_close_icons = false,
-            --get_element_icon = function(e)
-                --return require('nvim-web-devicons').get_icon(e, {default=false})
-            --end,
+			--get_element_icon = function(e)
+			--return require('nvim-web-devicons').get_icon(e, {default=false})
+			--end,
 			show_close_icon = false,
 			show_tab_indicators = false,
 			enforce_regular_tabs = true,
@@ -25,7 +25,7 @@ return function()
 			separator_style = "thin",
 			diagnostics = "nvim_lsp",
 			--diagnostics_indicator = function(count)
-				--return "(" .. count .. ")"
+			--return "(" .. count .. ")"
 			--end,
 			offsets = {
 				{
@@ -44,49 +44,49 @@ return function()
 		},
 		-- Change bufferline's highlights here! See `:h bufferline-highlights` for detailed explanation.
 		--highlights = {
-            --fill = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>',
-            --},
-            --background = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --tab = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --tab_selected = {
-                --fg = tabline_sel_bg,
-                --bg = '<colour-value-here>'
-            --},
-            --tab_close = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --close_button = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --close_button_visible = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --close_button_selected = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --buffer_visible = {
-                --fg = '<colour-value-here>',
-                --bg = '<colour-value-here>'
-            --},
-            --buffer_selected = {
-                --fg = normal_fg,
-                --bg = '<colour-value-here>',
-                --bold = true,
-                --italic = true,
-            --},
-        --},
+		--fill = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>',
+		--},
+		--background = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--tab = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--tab_selected = {
+		--fg = tabline_sel_bg,
+		--bg = '<colour-value-here>'
+		--},
+		--tab_close = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--close_button = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--close_button_visible = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--close_button_selected = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--buffer_visible = {
+		--fg = '<colour-value-here>',
+		--bg = '<colour-value-here>'
+		--},
+		--buffer_selected = {
+		--fg = normal_fg,
+		--bg = '<colour-value-here>',
+		--bold = true,
+		--italic = true,
+		--},
+		--},
 	}
 
 	if vim.g.colors_name == "catppuccin" then

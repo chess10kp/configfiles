@@ -19,7 +19,7 @@ return function()
 		end,
 		highlights = {
 			FloatBorder = {
-				guifg = floatborder_hl,
+				guifg = "none",
 			},
 		},
 		open_mapping = false, -- [[<c-\>]],

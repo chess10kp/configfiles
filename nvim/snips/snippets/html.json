@@ -222,8 +222,8 @@
      "div": {
      "prefix": "div",
      "body": [
-         "<div>",
-         "\t$1",
+         "<div class='$1'>",
+         "\t$2",
          "</div>"
          ],
      "description": "HTML - Defines a section in a document",

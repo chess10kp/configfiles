@@ -7,3 +7,5 @@ let g:vimtex_compiler_method = 'latexmk'
 ]])
 
 vim.opt.guicursor = "n-v-c-ci:block"
+
+

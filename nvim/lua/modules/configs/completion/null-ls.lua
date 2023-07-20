@@ -28,7 +28,7 @@ return function()
 		btns.formatting.stylua,
 		btns.diagnostics.luacheck.with({
 			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-			extra_args = { "--globals 'vim' " }, --makes vim is not accessed error go away
+			extra_args = { "--globals 'vim' " },
 		}),
 
 		-- haskell

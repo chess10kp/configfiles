@@ -104,7 +104,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "onedark_vivid",
+			theme = "gruvbox",
 			disabled_filetypes = {},
 			component_separators = "|",
 		},
@@ -139,7 +139,7 @@ return function()
 					},
 				},
 			},
-			lualine_z = { "progress", "location" },
+			lualine_z = { "mode" },
 		},
 		inactive_sections = {
 			lualine_a = {},

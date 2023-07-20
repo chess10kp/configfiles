@@ -1,0 +1,24 @@
+
+{
+  "prints": {
+    "prefix": "prints",
+    "body": [
+        "print(\"$1\")"
+    ],
+    "description": "print string"
+  },
+  "printe": {
+    "prefix": "printe",
+    "body": [
+        "print($1)"
+    ],
+    "description": "print expression"
+  },
+  "printes": {
+    "prefix": "printes",
+    "body": [
+        "print($1, $2, $3)"
+    ],
+    "description": "print expressions"
+  }
+}
