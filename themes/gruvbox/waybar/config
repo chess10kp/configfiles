@@ -1,0 +1,66 @@
+{
+    "position": "top",
+    "height": 25, // Waybar height (to be removed for auto height)
+    "modules-left": [],
+    "modules-center": [
+        "clock",
+        "hyprland/submap",
+    ],
+    "modules-right": [
+        "battery",
+        "pulseaudio",
+        "tray",
+        "network"
+    ],
+    "clock": {
+        "tooltip-format": "",
+        "format": "{:%I %M}",
+        "format-alt": "{:%A, %B %d}"
+    },
+    "hyprland/submap": {
+        "format": "{}",
+        "max-length": 10,
+        "tooltip": false
+    },
+    "battery": {
+        "bat": "BAT1",
+        "states": {
+            "great": 95,
+            "good": 80,
+            "medium": 65,
+            "decent": 50,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{capacity}",
+        "format-charging": "{capacity} 󱐋",
+        "format-plugged": "{capacity} 󱐋",
+        "format-alt": "{time} {icon}",
+    },
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "󰤨 ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "睊 ",
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "pulseaudio": {
+        "format": "{volume} ",
+        "format-bluetooth-muted": " ",
+        "format-muted": " ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "default": [
+                "",
+                "",
+            ] // 醙
+        },
+        "on-click": "pavucontrol"
+    },
+}
