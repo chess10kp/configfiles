@@ -24,8 +24,11 @@ password_files=("$prefix"/**/*.gpg)
 password_files=("${password_files[@]#"$prefix"/}")
 password_files=("${password_files[@]%.gpg}")
 
-password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" --height 35 "$@")
-
+if [[ -n $WAYLAND_DISPLAY ]]; then
+    password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" --height 35 "$@")
+elif [[ -n $DISPLAY ]]; then
+    password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" -h 35 "$@")
+fi
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then

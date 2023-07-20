@@ -4,7 +4,7 @@
 # timeout 5s cat -; notify-send "timer complete"; vlc /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
 source ~/.config/scripts/configvars.sh
-alarm_time=$(printf "30\n60\n300" | $dmenu$rofi_prompt "Time ")
+alarm_time=$(printf "" | $dmenu$rofi_prompt "Time ")
 
 [[ $alarm_time == "" ]] && exit 0
 
