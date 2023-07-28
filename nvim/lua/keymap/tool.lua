@@ -75,7 +75,7 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-p>"] = map_callback(function()
+	["n|<M-p>"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
@@ -87,12 +87,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Show undo history"),
-	--[[ ["n|<leader>fp"] = map_callback(function()
+	["n|<leader>fp"] = map_callback(function()
         require'telescope'.extensions.project.project{}
 		end)
 		:with_noremap()
 		:with_silent()
-		:with_desc("find: Project"), ]]
+		:with_desc("find: Project"),
 	["n|<leader>fe"] = map_callback(function()
 			require("telescope").extensions.frecency.frecency()
 		end)
@@ -106,7 +106,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Word in project"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-	["n|<M-p>"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<C-p>"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
 		:with_silent()

@@ -47,21 +47,21 @@ editor["junegunn/vim-easy-align"] = {
 	lazy = true,
 	cmd = "EasyAlign",
 }
-editor["phaazon/hop.nvim"] = {
-	lazy = true,
-	branch = "v2",
-	event = "BufReadPost",
-	config = require("editor.hop"),
-}
+-- editor["phaazon/hop.nvim"] = {
+-- 	lazy = true,
+-- 	branch = "v2",
+-- 	event = "BufReadPost",
+-- 	config = require("editor.hop"),
+-- }
 editor["RRethy/vim-illuminate"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
-editor["luukvbaal/stabilize.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-}
+-- editor["luukvbaal/stabilize.nvim"] = {
+-- 	lazy = true,
+-- 	event = "BufReadPost",
+-- }
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --

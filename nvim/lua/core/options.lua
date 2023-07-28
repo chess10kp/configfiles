@@ -14,7 +14,7 @@ local function load_options()
 		backspace = "indent,eol,start",
 		backup = false,
 		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
-		breakat = [[\ \	;:,!?]],
+		breakat = [[\ \;:,!?]],
 		breakindentopt = "shift:2,min:20",
 		clipboard = "",
 		cmdheight = 2, -- 0, 1, 2
@@ -48,7 +48,7 @@ local function load_options()
 		laststatus = 2,
 		linebreak = true,
 		list = true,
-		listchars = "tab:» ,nbsp:+,trail:·,extends:→,precedes:←",
+		listchars = "tab:  ,nbsp:+,trail:·,extends: ,precedes: ",
 		magic = true,
 		mousescroll = "ver:3,hor:6",
 		number = true,
@@ -86,7 +86,7 @@ local function load_options()
 		ttimeout = true,
 		ttimeoutlen = 0,
 		undodir = global.cache_dir .. "undo/",
-		undofile = true,
+		undofile = false,
 		-- Please do NOT set `updatetime` to above 500, otherwise most plugins may not work correctly
 		updatetime = 200,
 		viewoptions = "folds,cursor,curdir,slash,unix",

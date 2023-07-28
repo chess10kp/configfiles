@@ -139,7 +139,6 @@ return function()
 			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
-			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
 			--{ name = "copilot" },

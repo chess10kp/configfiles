@@ -20,7 +20,6 @@ return function()
 			"help",
 			"lsgsagaoutline",
 			"neogitstatus",
-			"norg",
 			"toggleterm",
 		},
 		under_cursor = false,

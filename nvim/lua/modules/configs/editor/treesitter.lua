@@ -26,7 +26,6 @@ return vim.schedule_wrap(function()
 			"vimdoc",
 			"vue",
 			"yaml",
-			"org",
 		},
 		highlight = {
 			enable = true,

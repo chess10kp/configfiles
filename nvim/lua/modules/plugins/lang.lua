@@ -19,7 +19,7 @@ lang["Saecki/crates.nvim"] = {
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
 lang["iamcco/markdown-preview.nvim"] = {
-	lazy = false,
+	lazy = true,
 	ft = "markdown",
 	build = ":call mkdp#util#install()",
 }

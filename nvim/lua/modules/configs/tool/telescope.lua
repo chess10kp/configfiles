@@ -45,7 +45,6 @@ return function()
 				exclude = {},
 			},
 			find_files = {
-				theme = "dropdown",
 			},
 		},
 		extensions = {
@@ -84,7 +83,7 @@ return function()
 					},
 				},
 			},
-			--[[ project = {
+			project = {
 				base_dirs = {
 					{ "~/projects/" },
 				},
@@ -98,7 +97,7 @@ return function()
 					-- Do anything you want in here. For example:
 					project_actions.change_working_directory(prompt_bufnr, false)
 				end,
-			}, ]]
+			},
 			file_browser = {
 				theme = "ivy",
 				hijack_netrw = true,
