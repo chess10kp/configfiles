@@ -48,6 +48,19 @@ window#waybar {
   background-clip: padding-box;
 }
 
+#workspaces {
+  background: transparent;
+}
+#workspaces button {
+  color: #dee1e6;
+}
+
+#workspaces button.focused {
+  color: #000;
+}
+#workspaces button.active {
+  color: #000;
+}
 #backlight,
 #pulseaudio,
 #custom-bluetooth {

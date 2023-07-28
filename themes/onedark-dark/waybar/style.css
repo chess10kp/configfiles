@@ -48,6 +48,15 @@ window#waybar {
   color: #dee1e6;
   border-radius: 5px;
 }
+#workspaces {
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 3px;
+  margin-right: 0px;
+  transition: none;
+  padding: 0px 0px 0px 10px;
+  background: transparent;
+}
 
 #workspaces button.focused {
   color: #dee1e6;

@@ -1,10 +1,8 @@
 // vim: ft=json fdm=manual
 {
     "position": "top",
-    //"height": 27, // Waybar height (to be removed for auto height)
+    "height": 20, // Waybar height (to be removed for auto height)
     "modules-left": [
-        "custom/logo",
-        "wlr/workspaces",
     ],
     "modules-center": [
         "hyprland/submap",
@@ -13,7 +11,6 @@
     "modules-right": [
         "battery",
         "backlight",
-        "custom/bluetooth",
         "pulseaudio",
         "tray",
         "network",
@@ -85,7 +82,7 @@
     },
     "clock": {
         "tooltip-format": "",
-        "format": "  {:%I %M}",
+        "format": "  {:%I %M}",
         "format-alt": "{:%A, %B %d}"
     },
     "custom/logo": {

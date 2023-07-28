@@ -3,8 +3,8 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Iosevka Nerd Font",  Roboto, sans-serif;
-  font-size: 13px;
+  font-family: "Terminess Nerd Font",  Roboto, sans-serif;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -42,37 +42,6 @@ window#waybar {
   border-radius: 0px;
 }
 
-#workspaces button {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  color: transparent;
-  border-radius: 0px;
-}
-
-#workspaces button.focused {
-  background-color: @lavendar;
-  color: black;
-  font-family: Fira Sans;
-  border-bottom: none;
-  font-weight: bolder;
-}
-#workspaces button.active {
-  background-color: @blue;
-  color: black;
-  font-family: Fira Sans;
-  border-bottom: none;
-}
-#workspaces button.urgent {
-  color: #f9929b;
-}
-
-#mpd {
-  border-radius: 5px;
-  padding-right: 4px;
-}
-
 #mode,
 #custom-updates,
 #cpu,
@@ -89,83 +58,12 @@ window#waybar {
   background-clip: padding-box;
 }
 
-
-#custom-updates {
-  background-color: #1e222a;
-  padding: 0 10px;
-  color: #8cc1ff;
-  margin: 2px 4px 5px 4px;
-  border: 3px solid rgba(0, 0, 0, 0);
-  border-radius: 90px;
-  background-clip: padding-box;
-}
-
-#workspaces {
-  margin-top: 5px;
-  margin-bottom: 4px;
-  margin-left: 3px;
-  margin-right: 3px;
-  transition: none;
-  padding: 0px 0px 0px 10px;
-  background: transparent;
-}
-
-/* #custom-power { */
-/*   background-color: #1e222a; */
-/*   padding: 0 12px; */
-/*   margin: 2px 4px 5px 4px; */
-/*   border: 3px solid rgba(0, 0, 0, 0); */
-/*   border-radius: 0px; */
-/*   background-clip: padding-box; */
-/* } */
-
-#custom-arch {
-  background-color: #13171b;
-  color: #747a83;
-  padding: 0 10px;
-  margin: 2px 0px 5px 0px;
-  border: 3px solid rgba(0, 0, 0, 0);
-  border-radius: 90px;
-  background-clip: padding-box;
-}
-
-#workspaces button {
-  transition: none;
-  padding-left: 6px;
-  padding-right: 6px;
-  color: #3b4b58;
-  font-weight: 400;
-}
-
-#workspaces button:hover {
-  background-color: transparent;
-}
-
-#workspaces button.focused {
-  color: #b6beca;
-  font-weight: bold;
-}
-
-#workspaces button.urgent {
-  color: #e06c75;
-}
-
-#cpu {
-  color: #61afef;
-}
-
 #memory {
   color: #c678dd;
 }
 
-#custom-media {
-  background-color: #171b20;
-  color: #b6beca;
-}
-
 #pulseaudio {
-    background-color: @sky;
-    color: black;
+    color: @yellow;
   padding: 0 13px;
   margin: 4px 6px 6px 6px;
 }
@@ -176,8 +74,7 @@ window#waybar {
 }
 
 #backlight {
-    background: linear-gradient(@yellow, @rosewater);
-    color: black;
+    color: @blue;
 }
 
 #battery {
@@ -197,8 +94,7 @@ window#waybar {
 
 #battery.charging,
 #battery.plugged {
-    background-color: @yellow;
-    color:#000;
+    color: @yellow;
   background-clip: padding-box;
 }
 
@@ -213,20 +109,11 @@ window#waybar {
 #battery.critical, #battery.low {
   padding: 0 13px;
   background-clip: padding-box;
-  background-color: @red;
-  color: #000;
+  color: @red;
 }
 
 #battery.discharging {
-    background-color: @sapphire;
-    color: black;
   background-clip: padding-box;
-}
-@keyframes blink {
-  to {
-    background-color: #1e222a;
-    color: #e06c75;
-  }
 }
 
 #backlight,

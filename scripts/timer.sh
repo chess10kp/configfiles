@@ -1,32 +1,28 @@
 #!/bin/bash
 # shellcheck disable=1090,2034,2207,2154,2086,2216
 
-# timeout 5s cat -; notify-send "timer complete"; vlc /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
-
 source ~/.config/scripts/configvars.sh
 alarm_time=$(printf "" | $dmenu$rofi_prompt "Time ")
 
+echo $alarm_time
 [[ $alarm_time == "" ]] && exit 0
 
-if [[ $(echo $alarm_time | sed 's/[0-9]*//g' | printf %.1s "$1") == "s" ]]; then
-	notify-send "timer set for $alarm_time "
-elif [[ $(echo $alarm_time | sed 's/[0-9]*//g' | printf %.1s "$1") == "" ]]; then
-	notify-send "timer set for $alarm_time seconds"
-elif [[ $(echo $alarm_time | sed 's/[0-9]*//g' | printf %.1s "$1") == "m" ]]; then
-	notify-send "timer set for $alarm_time "
-else
-	notify-send "invalid time format" && exit 0
-fi
+case "$(echo $alarm_time | sed 's/[0-9]*//g')" in 
+    m)
+        notify-send "alarm set for $alarm_time"
+        ;;
+    s) 
+        notify-send "alarm set for $alarm_time"
+        ;;
+    *) notify-send invalid time 
+        exit 0
+        ;;
+esac
 
+echo "timer started at $(date '+%H%S')"
 timeout $alarm_time cat -
+
+
+mpv --no-video /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga &
 notify-send -t 30000 "timer complete"
-
-ACTION=$(dunstify "Timer elapsed") &
-cvlc /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga --run-time=3 &
 exit 0
-
-# case "$ACTION" in
-# "2")
-# 	exit 0
-# 	;;
-# esac

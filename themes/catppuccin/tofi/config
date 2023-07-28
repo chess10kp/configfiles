@@ -73,7 +73,7 @@
 	input-background-corner-radius = 0
 
 	# Default result text theme
-	default-result-color = #f9e2af	
+	default-result-color = #89b4fa	
 	default-result-background = #1e1e2e
 	default-result-background-padding = 0
 	default-result-background-corner-radius = 0
@@ -89,9 +89,9 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #313246
-	selection-background = #89b4fa
-	selection-background-padding = 1
+	selection-background= #31324600
+	selection-color  = #f9e2af
+	selection-background-padding = 0
 	selection-background-corner-radius = 0
 
 	# Matching portion of selection text
@@ -119,14 +119,14 @@
 	# Corner radius of the text cursor
 	text-cursor-corner-radius = 0
 	prompt-text = " "
-	prompt-padding = 1
+	prompt-padding = 0
 	placeholder-text = ""
 	num-results = 0
-	result-spacing = 15
+	result-spacing = 10
 	horizontal = true
 	min-input-width = 0
 	width = 100%
-	height = 40
+	height = 20
 	background-color = #1e1e2e
 
 	# Width of the border outlines in pixels.
@@ -145,7 +145,7 @@
 	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 4
+	padding-top = 0
 	padding-bottom = 0
 	padding-left = 0
 	padding-right = 0
@@ -156,7 +156,7 @@
 	clip-to-padding = true
 
 	# Whether to scale the window by the output's scale factor.
-	scale = true
+	scale = false
 
 #
 ### Window positioning

@@ -13,7 +13,7 @@ bookmarks+=$(printf "\nadd\nremove\n")
 cmd=$(printf '%s\n' "$bookmarks" | $rofi)
 while [ -n "$cmd" ]; do
 	if [[ $cmd == 'add' ]]; then
-		link+=" "$(wl-paste)
+        link+=" "$($paste_command)
 		echo $link >>"$file"
 		notify-send "bookmark ${link} added"
 	elif [[ $cmd == "remove" ]]; then

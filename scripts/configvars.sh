@@ -7,6 +7,10 @@ if [[ $XDG_SESSION_TYPE == "x11" ]]; then
     dmenu="dmenu -h 35"
     browser="brave"
     pdf_reader="zathura"
+    paste_command="xclip -o"
+    editor="nvim"
+    notes_editor="emacs -nw"
+    term="xfce4-terminal"
 else
 rofi="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
     --padding-left=30 --padding-right=30"
@@ -15,9 +19,11 @@ rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/Termi
 rofi_prompt=" --prompt"
 dmenu="tofi --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
 editor="nvim"
-term="kitty -1"
+term="footclient"
 browser="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
 walset="swaybg -i"
 #walset="swww img   --transition-step 200"
 pdf_reader="zathura"
+paste_command="wl-paste"
+    notes_editor="emacs -nw"
 fi

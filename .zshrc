@@ -47,6 +47,9 @@ alias la="exa -al"
 alias ll="exa -l"
 alias cp="cp -v"
 alias mv="mv -i"
+alias notes="emacs -nw ~/projects/notes/todo.org"
+alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/\"$(date '+%d%m%y').org\""
+
 function yt
 {
     command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'

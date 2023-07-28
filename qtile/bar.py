@@ -1,0 +1,1 @@
+/home/nitin/.config/themes/dark-decay/qtile/bar.py

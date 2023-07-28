@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-ayu-dark)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -42,6 +42,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/projects/notes/")
 (setq org-roam-directory "~/projects/notes/daily")
+(setq org-agenda-files (quote ("~/projects/notes/todo.org")))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -75,4 +76,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
 (setq default-tab-width 8)
+(setq x-select-enable-clipboard nil)

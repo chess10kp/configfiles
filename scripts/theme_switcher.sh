@@ -35,7 +35,7 @@ set_theme_specifics() {
 		;;
 	"catppuccin")
 		set_gtk "Catppuccin-Mocha-Standard-Blue-dark"
-		ln -sf ~/Pictures/wp/catppuccin05.jpg ~/Pictures/wp/defaultwp.jpg
+		ln -sf ~/Pictures/wp/catppuccin7.jpg ~/Pictures/wp/defaultwp.jpg
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "catppuccin\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"radium")
@@ -44,11 +44,21 @@ set_theme_specifics() {
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "radium\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"tokyonight")
-		set_gtk "Catppuccin-Mocha-Standard-Blue-dark"
+		set_gtk "TokyoNight"
 		ln -sf ~/Pictures/wp/tokyonight2.jpg ~/Pictures/wp/defaultwp.jpg
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "tokyonight\"/' -i ~/.config/nvim/lua/core/settings.lua
 		ln -sf ~/.config/themes/tokyonight/zathurarc ~/.config/zathura/zathurarc
 		;;
+    "gruvbox")
+        set_gtk "gruvbox-dark-gtk"
+        ln -sf ~/Pictures/wp/green2.jpg ~/Pictures/wp/defaultwp.jpg
+		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "gruvbox\"/' -i ~/.config/nvim/lua/core/settings.lua
+        ;;
+    "dark-decay")
+		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "dark-decay\"/' -i ~/.config/nvim/lua/core/settings.lua
+		set_gtk "TokyoNight"
+		ln -sf ~/.config/themes/tokyonight/zathurarc ~/.config/zathura/zathurarc
+        ;;
 	esac
 }
 
@@ -58,9 +68,15 @@ after_set() {
 	sleep 1
 	hyprctl reload
 	waybar &
+    disown
+    foot --server &
+    disown
+    ~/.config/scripts/wallpaper.sh --set &
+    disown
+    exit 0 
 }
 
-colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight')
+colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight' 'gruvbox' 'dark-decay')
 colorscheme_selected=$(printf "%s\n" "${colorschemes[@]}" | $rofi)
 
 if [[ -z $colorscheme_selected ]]; then
