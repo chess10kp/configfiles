@@ -1,5 +1,14 @@
 local custom = {}
 
+
+custom[ "ibhagwan/fzf-lua" ] = {
+  lazy = true,
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
+}
 custom["elkowar/yuck.vim"] = {
 	lazy = true,
 }
@@ -8,19 +17,25 @@ custom["folke/todo-comments.nvim"] = {
 	event = "BufRead",
 	config = require("custom.todo-comments"),
 }
-custom["rmagatti/session-lens"] = {
-	lazy = false,
-	config = function()
-		require("session-lens").setup({})
-	end,
-}
+-- custom["rmagatti/session-lens"] = {
+-- 	lazy = false,
+-- 	config = function()
+-- 		require("session-lens").setup({})
+-- 	end,
+-- }
 custom["lervag/vimtex"] = {
 	lazy = false,
 }
 custom["ggandor/leap.nvim"] = {
-    lazy = false,
-    config = function ()
-        require('leap').add_default_mappings()
-    end
+	lazy = false,
+	config = function()
+		require("leap").add_default_mappings()
+	end,
+}
+custom["kylechui/nvim-surround"] = {
+	event = "VeryLazy",
+	config = function()
+		require("nvim-surround").setup({})
+	end,
 }
 return custom

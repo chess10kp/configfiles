@@ -116,6 +116,6 @@ return function()
 	require("telescope").load_extension("undo")
 	require("telescope").load_extension("zoxide")
 	-- require("telescope").load_extension("project")
-	require("telescope").load_extension("session-lens")
+	-- require("telescope").load_extension("session-lens")
 	require("telescope").load_extension("file_browser")
 end

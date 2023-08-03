@@ -1,14 +1,14 @@
 #!/bin/bash
-
-POWERSUPPLY="/sys/class/power_supply/ACAD/online"
-TOO_LOW=30
-NOT_CHARGING="0"
-export DISPLAY=:0
-BATTERY_LEVEL=$(acpi -b | grep -P -o '[0-9]+(?=%)')
-STATUS=$(cat $POWERSUPPLY)
-
-if [ $BATTERY_LEVEL -le $TOO_LOW -a $STATUS = $NOT_CHARGING ]; then
-	/usr/bin/notify-send -u critical -i "$ICON" -t 3000 "Battery low" "Battery level is ${BATTERY_LEVEL}%!"
-fi
-
-exit 0
+while true
+do
+  battery_level=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+  charging="$(cat /sys/class/power_supply/ACAD/online)"
+   if [ $battery_level -ge 95 ]; then
+      notify-send "Battery Full" "Level: ${battery_level}%"
+      paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga --volume=10000
+    elif [ $battery_level -le 20 && $charging != 1 ]; then
+      notify-send --urgency=CRITICAL "Battery Low" "Level: ${battery_level}%"
+      paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga --volume=10000
+  fi
+ sleep 60
+done

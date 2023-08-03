@@ -19,10 +19,8 @@ case "$(echo $alarm_time | sed 's/[0-9]*//g')" in
         ;;
 esac
 
-echo "timer started at $(date '+%H%S')"
-timeout $alarm_time cat -
-
-
-mpv --no-video /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga &
-notify-send -t 30000 "timer complete"
+echo "timer started at $(date '+%H%M')"
+timeout $alarm_time cat - 
+mpv --no-video /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga & 
+notify-send -t 3000 "timer complete"
 exit 0

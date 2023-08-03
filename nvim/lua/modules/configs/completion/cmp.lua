@@ -134,7 +134,7 @@ return function()
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
-			{ name = "luasnip" },
+      { name = "luasnip" },
 			{ name = "path" },
 			{ name = "treesitter" },
 			{ name = "spell" },

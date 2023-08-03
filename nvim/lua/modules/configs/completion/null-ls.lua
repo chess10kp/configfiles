@@ -7,9 +7,6 @@ return function()
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
 		--python
-		--[[ btns.formatting.black,
-		btns.diagnostics.ruff,
-		btns.diagnostics.mypy, ]]
 
 		--cpp
 		btns.formatting.clang_format.with({

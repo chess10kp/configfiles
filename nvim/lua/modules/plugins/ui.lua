@@ -1,10 +1,10 @@
 local ui = {}
 
-ui["akinsho/bufferline.nvim"] = {
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.bufferline"),
-}
+-- ui["akinsho/bufferline.nvim"] = {
+-- 	lazy = true,
+-- 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+-- 	config = require("ui.bufferline"),
+-- }
 ui["olimorris/onedarkpro.nvim"] = {
 	lazy = true,
 }
@@ -18,11 +18,31 @@ ui["folke/tokyonight.nvim"] = {
 	name = "tokyonight",
 	config = require("ui.tokyonight"),
 }
+ui[ "tiagovla/tokyodark.nvim" ] = {
+  lazy = true,
+    opts = {
+      terminal_colors = true,
+      transparent_background = true, -- set background to transparent
+      gamma = 2.00, -- adjust the brightness of the theme
+    },
+    config = function(_, opts)
+        require("tokyodark").setup(opts) -- calling setup is optional
+    end,
+}
 ui["decaycs/decay.nvim"] = {
 	lazy = true,
 	name = "decay",
 	config = require("ui.decay"),
 }
+-- ui["rktjmp/lush.nvim"] = {
+-- 	lazy = false,
+-- }
+-- ui["loganswartz/selenized.nvim"] = {
+-- 	lazy = false,
+--   dependencies = {
+--     'rktjmp/lush.nvim'
+--   }
+-- }
 ui["ellisonleao/gruvbox.nvim"] = {
 	lazy = true,
 	name = "gruvbox",

@@ -104,40 +104,40 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "onedark",
+			theme = "tokyonight",
 			disabled_filetypes = {},
 			component_separators = "|",
 		},
 		sections = {
-			lualine_a = { { "mode" } },
-			lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			lualine_c = { lspsaga_symbols },
+			lualine_a = {"buffers"},
+			-- lualine_b = { { "branch" }, { "diff", source = diff_source } },
+			-- lualine_c = { lspsaga_symbols },
 			lualine_x = {
 				{ escape_status },
-				{
-					"diagnostics",
-					sources = { "nvim_diagnostic" },
-					symbols = {
-						error = icons.diagnostics.Error,
-						warn = icons.diagnostics.Warning,
-						info = icons.diagnostics.Information,
-					},
-				},
-				{ get_cwd },
+				-- {
+				-- 	"diagnostics",
+				-- 	sources = { "nvim_diagnostic" },
+				-- 	symbols = {
+				-- 		error = icons.diagnostics.Error,
+				-- 		warn = icons.diagnostics.Warning,
+				-- 		info = icons.diagnostics.Information,
+				-- 	},
+				-- },
+				-- { get_cwd },
 			},
 			lualine_y = {
-				{ "filetype", colored = true, icon_only = true },
+				-- { "filetype", colored = true, icon_only = true },
 				{ python_venv },
-				{ "encoding" },
-				{
-					"fileformat",
-					icons_enabled = true,
-					symbols = {
-						unix = "LF",
-						dos = "CRLF",
-						mac = "CR",
-					},
-				},
+				-- { "encoding" },
+				-- {
+				-- 	"fileformat",
+				-- 	icons_enabled = true,
+				-- 	symbols = {
+				-- 		unix = "LF",
+				-- 		dos = "CRLF",
+				-- 		mac = "CR",
+				-- 	},
+				-- },
 			},
 			lualine_z = { "mode" },
 		},
@@ -151,11 +151,7 @@ return function()
 		},
 		tabline = {},
 		extensions = {
-			"quickfix",
-			"nvim-tree",
 			"nvim-dap-ui",
-			"toggleterm",
-			"fugitive",
 			outline,
 			diffview,
 		},

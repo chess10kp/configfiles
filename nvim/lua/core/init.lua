@@ -70,8 +70,8 @@ end
 
 local leader_map = function()
 	vim.g.mapleader = ";"
-	vim.api.nvim_set_keymap("n", " ", "", { noremap = true })
-	vim.api.nvim_set_keymap("x", " ", "", { noremap = true })
+	vim.api.nvim_set_keymap("n", ";", "", { noremap = true })
+	vim.api.nvim_set_keymap("x", ";", "", { noremap = true })
 end
 
 local neovide_config = function()
@@ -117,7 +117,7 @@ local load_core = function()
 	disable_distribution_plugins()
 	leader_map()
 
-	--neovide_config()
+	neovide_config()
 	--clipboard_config()
 
 	require("core.options")

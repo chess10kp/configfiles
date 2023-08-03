@@ -7,5 +7,8 @@ let g:vimtex_compiler_method = 'latexmk'
 ]])
 
 vim.opt.guicursor = "n-v-c-ci:block" --makes everything block cursor
+vim.opt.showtabline = 1
 
-
+vim.g.neosolarized_termtrans = 1
+vim.g.neosolarized_vertSplitBgTrans = 1
+vim.g.neosolarized_contrast = "high"

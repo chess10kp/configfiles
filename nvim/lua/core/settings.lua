@@ -27,7 +27,7 @@ settings["load_big_files_faster"] = false
 ---@type palette
 settings["palette_overwrite"] = {}
 
-settings["colorscheme"] = "catppuccin"
+settings["colorscheme"] = "tokyonight"
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.
@@ -65,6 +65,7 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"lua_ls",
 	"pylsp",
+	"pyright",
 	-- "gopls",
 }
 

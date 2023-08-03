@@ -1,4 +1,4 @@
 #!/bin/sh
 
-notify-send video $(wl-paste)
+notify-send -t 1000 video $(wl-paste)
 mpv $(wl-paste) --force-window=immediate

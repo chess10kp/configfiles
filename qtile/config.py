@@ -244,11 +244,12 @@ subprocess.run(["notify-send", "config-reloaded"])
 @hook.subscribe.startup_once
 def autostart():
     processes = [
-        ['/usr/bin/xmodmap',  '/home/nitin/.Xmodmap'],
+        ['/usr/bin/xmodmap',  f'{HOME}/.Xmodmap'],
         ["/usr/bin/xset", "r", "rate", "250", "30"],
         ["picom"],
         ["nitrogen", "--restore"],
         ["tmux", "new", "-s", "init", "-d"],
+        ["bash",f"{HOME}/.config/scripts/lowbattery.sh"],
     ]
     for p in processes:
         subprocess.Popen(p)

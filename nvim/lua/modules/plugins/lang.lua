@@ -19,12 +19,18 @@ lang["Saecki/crates.nvim"] = {
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
 lang["iamcco/markdown-preview.nvim"] = {
-	lazy = true,
+	lazy = false,
 	ft = "markdown",
 	build = ":call mkdp#util#install()",
 }
 lang["chrisbra/csv.vim"] = {
-	lazy = true,
+	lazy = false,
 	ft = "csv",
+}
+lang["pmizio/typescript-tools.nvim"] = {
+  lazy = false,
+  dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  config = require("lang.typescript-tools")
 }
 return lang

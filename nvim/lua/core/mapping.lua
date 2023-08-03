@@ -7,8 +7,6 @@ local core_map = {
 	-- Suckless
 	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("editn: Toggle code fold"),
 	--["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
-	["n|<leader>w"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
-	["n|<leader>q"] = map_cu("BufDel"):with_noremap():with_silent():with_desc("editn: Quit file"),
 	["n|<C-S-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
 		:with_silent()
 		:with_noremap()
@@ -28,11 +26,9 @@ local core_map = {
 	["n|<leader>o"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
 	-- Insert mode
 	["i|<C-u>"] = map_cmd("<C-G>u<C-U>"):with_noremap():with_desc("editi: Delete previous block"),
-	["i|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editi: Move cursor to left"),
 	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("editi: Move cursor to line start"),
-	["i|<C-s>"] = map_cmd("<Esc>:w<CR>"):with_desc("edit: Save file"),
 	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
-	--["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"),
+	--["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"), Insert digrams instead
 	["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
 	["i|<C-h>"] = map_cmd("<Left>"):with_desc("Move cursor to the left"),
 
@@ -41,8 +37,6 @@ local core_map = {
 	["c|<C-f>"] = map_cmd("<Right>"):with_noremap():with_desc("editc: Right"),
 	["c|<C-a>"] = map_cmd("<Home>"):with_noremap():with_desc("editc: Home"),
 	["c|<C-e>"] = map_cmd("<End>"):with_noremap():with_desc("editc: End"),
-	["c|<C-d>"] = map_cmd("<Del>"):with_noremap():with_desc("editc: Delete"),
-	["c|<C-h>"] = map_cmd("<BS>"):with_noremap():with_desc("editc: Backspace"),
 	["c|<C-t>"] = map_cmd([[<C-R>=expand("%:p:h") . "/" <CR>]])
 		:with_noremap()
 		:with_desc("editc: Complete path of current file"),

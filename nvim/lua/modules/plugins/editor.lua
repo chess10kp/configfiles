@@ -5,18 +5,18 @@ editor["rainbowhxch/accelerated-jk.nvim"] = {
 	event = "VeryLazy",
 	config = require("editor.accelerated-jk"),
 }
-editor["rmagatti/auto-session"] = {
-	lazy = false,
-	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
-	config = require("editor.auto-session"),
-}
+-- editor["rmagatti/auto-session"] = {
+-- 	lazy = false,
+-- 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
+-- 	config = require("editor.auto-session"),
+-- }
 editor["m4xshen/autoclose.nvim"] = {
-	lazy = true,
+	lazy = false,
 	event = "InsertEnter",
 	config = require("editor.autoclose"),
 }
 editor["max397574/better-escape.nvim"] = {
-	lazy = true,
+	lazy = false,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.better-escape"),
 }
@@ -47,14 +47,8 @@ editor["junegunn/vim-easy-align"] = {
 	lazy = true,
 	cmd = "EasyAlign",
 }
--- editor["phaazon/hop.nvim"] = {
--- 	lazy = true,
--- 	branch = "v2",
--- 	event = "BufReadPost",
--- 	config = require("editor.hop"),
--- }
-editor["RRethy/vim-illuminate"] = {
-	lazy = true,
+editor["RRethy/vim-illuminate"] = { --illuminates corresponding brackers
+	lazy = false,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }

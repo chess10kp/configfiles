@@ -7,6 +7,7 @@ return vim.schedule_wrap(function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"bash",
+      "cmake",
 			"c",
 			"cpp",
 			"css",
@@ -14,6 +15,7 @@ return vim.schedule_wrap(function()
 			"gomod",
 			"html",
 			"javascript",
+      "typescript",
 			"json",
 			"latex",
 			"lua",
@@ -23,6 +25,7 @@ return vim.schedule_wrap(function()
 			"python",
 			"rust",
 			"typescript",
+      "vim",
 			"vimdoc",
 			"vue",
 			"yaml",
@@ -39,42 +42,8 @@ return vim.schedule_wrap(function()
 			end,
 			additional_vim_regex_highlighting = { "c", "cpp", "org" },
 		},
-		textobjects = {
-			select = {
-				enable = true,
-				keymaps = {
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
-				},
-			},
-			move = {
-				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
-				goto_next_start = {
-					["]["] = "@function.outer",
-					["]m"] = "@class.outer",
-				},
-				goto_next_end = {
-					["]]"] = "@function.outer",
-					["]M"] = "@class.outer",
-				},
-				goto_previous_start = {
-					["[["] = "@function.outer",
-					["[m"] = "@class.outer",
-				},
-				goto_previous_end = {
-					["[]"] = "@function.outer",
-					["[M"] = "@class.outer",
-				},
-			},
-		},
-		rainbow = {
-			enable = true,
-			extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-			max_file_lines = 2000, -- Do not enable for files with more than 2000 lines, int
-		},
+    incremental_selection = {enable =true},
+    indent = {enable = true} ,
 		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
 	})
