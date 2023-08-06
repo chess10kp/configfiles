@@ -1,11 +1,12 @@
 [Default Applications]
 x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.desktop
 x-scheme-handler/postman=Postman.desktop
-text/html=brave.desktop
-x-scheme-handler/http=brave.desktop
-x-scheme-handler/https=brave.desktop
-x-scheme-handler/about=brave.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
 application/pdf=zathura.desktop
+application/x-pdf=zathura.desktop
 
 [Added Associations]
 text/x-c++src=nvim.desktop;
