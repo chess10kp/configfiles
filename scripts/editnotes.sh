@@ -13,5 +13,5 @@ if [ "$file" == "" ]; then
 	exit 
 fi
 
-echo $notes_editor
-$term -e "$notes_editor $1/$file"
+echo "$term"
+$term -e $notes_editor $file
