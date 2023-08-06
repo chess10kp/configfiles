@@ -98,7 +98,8 @@ return function()
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
-			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), 
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -132,13 +133,13 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
+      { name = "luasnip" },
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
-      { name = "luasnip" },
 			{ name = "path" },
 			{ name = "treesitter" },
 			{ name = "spell" },
-			{ name = "tmux" },
+			-- { name = "tmux" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
 			--{ name = "copilot" },

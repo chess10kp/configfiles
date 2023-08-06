@@ -1,13 +1,12 @@
 local custom = {}
 
-
-custom[ "ibhagwan/fzf-lua" ] = {
-  lazy = true,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({})
-    end
+custom["ibhagwan/fzf-lua"] = {
+	lazy = true,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		-- calling `setup` is optional for customization
+		require("fzf-lua").setup({})
+	end,
 }
 custom["elkowar/yuck.vim"] = {
 	lazy = true,
@@ -37,5 +36,11 @@ custom["kylechui/nvim-surround"] = {
 	config = function()
 		require("nvim-surround").setup({})
 	end,
+}
+custom["windwp/nvim-autopairs"] = {
+	lazy = false,
+	event = "InsertEnter",
+	opts = {}, -- this is equalent to setup({}) function
+	config = require("editor.nvim-autopairs")
 }
 return custom

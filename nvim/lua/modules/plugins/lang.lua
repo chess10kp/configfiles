@@ -28,7 +28,7 @@ lang["chrisbra/csv.vim"] = {
 	ft = "csv",
 }
 lang["pmizio/typescript-tools.nvim"] = {
-  lazy = false,
+  lazy = true,
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
   config = require("lang.typescript-tools")
