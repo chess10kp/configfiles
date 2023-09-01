@@ -28,7 +28,6 @@ alias sdr="sudo pacman -R"
 alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
-alias n="cd ~/projects/ &&  nvim -c 'Telescope find_files'"
 alias pm="pacman"
 alias cd="z"
 alias fh="cat ~/.zsh_history | fzf | sh"
@@ -56,6 +55,7 @@ function yt
 }
 
 export PATH="$HOME/.config/emacs/bin:$HOME/.local/bin:$PATH"
+export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # poetry fails to open kdewallet
 
 function tmux-run
 {
@@ -74,4 +74,7 @@ source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
 
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
 eval "$(zoxide init zsh)"

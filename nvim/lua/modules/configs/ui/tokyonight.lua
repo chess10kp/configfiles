@@ -12,7 +12,7 @@ return function()
 			functions = {},
 			variables = {},
 			-- Background styles. Can be "dark", "transparent" or "normal"
-			sidebars = "transparent", -- style for sidebars, see below
+			sidebars = "dark", -- style for sidebars, see below
 			floats = "dark", -- style for floating windows
 		},
 		sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`

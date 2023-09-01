@@ -104,15 +104,17 @@ tool["mfussenegger/nvim-dap"] = {
 			{ "jay-babu/mason-nvim-dap.nvim" },
 		},
 		{
-			"mfussenegger/nvim-dap-python",
+		},
+	},
+}
+tool["mfussenegger/nvim-dap-python"] = {
+  lazy = true,
 			ft = "python",
 			dependencies = {
 				"mfussenegger/nvim-dap",
 				"rcarriga/nvim-dap-ui",
 			},
 			config = require("tool.dap.nvim-dap-python"),
-		},
-	},
 }
 
 return tool

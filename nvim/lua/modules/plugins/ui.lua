@@ -49,11 +49,11 @@ ui["ellisonleao/gruvbox.nvim"] = {
 	config = require("ui.gruvbox"),
 }
 
-ui["lewis6991/gitsigns.nvim"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("ui.gitsigns"),
-}
+-- ui["lewis6991/gitsigns.nvim"] = {
+-- 	lazy = true,
+-- 	event = { "CursorHold", "CursorHoldI" },
+-- 	config = require("ui.gitsigns"),
+-- }
 -- ui["lukas-reineke/indent-blankline.nvim"] = {
 -- lazy = true,
 -- event = "BufReadPost",

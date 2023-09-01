@@ -1903,5 +1903,21 @@
     "prefix": "tpf",
     "body": ["typeof ${1:first}"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  }
+  },
+     "div": {
+     "prefix": "div",
+     "body": [
+         "<div class='$1'>",
+         "\t$2",
+         "</div>"
+         ],
+     "description": "HTML - Defines a section in a document",
+     "scope": "javascript, typescript , javascriptreact, typescriptreact "
+     },
+     "p": {
+     "prefix": "p",
+     "body": "<p>$1</p>$2",
+     "description": "HTML - Defines a paragraph",
+     "scope": "text.html"
+     },
 }

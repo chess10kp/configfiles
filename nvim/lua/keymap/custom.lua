@@ -1,18 +1,24 @@
 local bind = require("keymap.bind")
+
 local map_cr = bind.map_cr
 ---@diagnostic disable-next-line: unused-local
 local map_cmd = bind.map_cmd
 local map_cu = bind.map_cu
 
+local vim_path = require("core.global").vim_path
+
 local plug_map = {
 	["n|<leader>ss"] = map_cr("mks!"),
-	["n|<leader>cd"] = map_cr("cd %:h | lua print('directory changed')")
+	["n|<leader>cd"] = map_cr("lcd %:h | lua print('directory changed')")
 		:with_noremap()
 		:with_silent()
 		:with_nowait()
 		:with_desc("change working directory"),
 	["n|<M-j>"] = map_cr("bnext"):with_noremap():with_silent():with_nowait():with_desc("next buffer"),
 	["n|<M-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
+	["n|<M-S-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
+	["n|<M-S-j>"] = map_cr("tabnext"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
+	["n|<M-S-k>"] = map_cr("tabNext"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 
 	["n|<leader>w"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
 	["n|<leader>q"] = map_cu("BufDel"):with_noremap():with_silent():with_desc("editn: Quit file"),
@@ -20,6 +26,10 @@ local plug_map = {
 	-- ["n|<leader>fs"] = map_cr("SearchSession"):with_noremap():with_nowait():with_desc("browse sessions"),
 
 	["n|<leader>nn"] = map_cr("source %"):with_noremap():with_nowait():with_desc("source current file"),
+	["n|<leader>sc"] = map_cr(string.format("source %s/init.lua",vim_path))
+		:with_noremap()
+		:with_nowait()
+		:with_desc("source neovim config"),
 	["n|<leader>no"] = map_cr("noh"):with_noremap():with_nowait():with_desc("nothing"),
 
 	--Formatting

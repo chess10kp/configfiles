@@ -110,10 +110,10 @@ return function()
 		},
 		sections = {
 			lualine_a = {"buffers"},
-			-- lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			-- lualine_c = { lspsaga_symbols },
+			lualine_b = {--[[  { "branch" }, { "diff", source = diff_source }  ]]},
+			lualine_c = { lspsaga_symbols },
 			lualine_x = {
-				{ escape_status },
+				-- { escape_status },
 				-- {
 				-- 	"diagnostics",
 				-- 	sources = { "nvim_diagnostic" },
@@ -127,7 +127,7 @@ return function()
 			},
 			lualine_y = {
 				-- { "filetype", colored = true, icon_only = true },
-				{ python_venv },
+				-- { python_venv },
 				-- { "encoding" },
 				-- {
 				-- 	"fileformat",
@@ -139,17 +139,19 @@ return function()
 				-- 	},
 				-- },
 			},
-			lualine_z = { "mode" },
+			lualine_z = { "lspsaga_symbols" },
 		},
 		inactive_sections = {
-			lualine_a = {},
+			lualine_a = { },
 			lualine_b = {},
-			lualine_c = { "filename" },
-			lualine_x = { "location" },
+			-- lualine_c = { "filename" },
+			-- lualine_x = { "location" },
 			lualine_y = {},
 			lualine_z = {},
 		},
-		tabline = {},
+		tabline = {
+      
+    },
 		extensions = {
 			"nvim-dap-ui",
 			outline,

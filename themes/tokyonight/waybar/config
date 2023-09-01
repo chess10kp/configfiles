@@ -8,10 +8,10 @@
         "hyprland/submap",
     ],
     "modules-right": [
-        "battery",
         "pulseaudio",
         "tray",
-        "network"
+        "network",
+    "battery"
     ],
     "clock": {
         "tooltip-format": "",
@@ -23,6 +23,21 @@
         "max-length": 10,
         "tooltip": false
     },
+"wlr/workspaces": {
+			"active-only": false,
+			"all-outputs": true,
+			"disable-scroll": false,
+			"on-scroll-up": "hyprctl dispatch workspace e-1",
+			"on-scroll-down": "hyprctl dispatch workspace e+1",
+			"format": "{icon}",
+			"on-click": "activate",
+			"format-icons": {
+				"urgent": "",
+				"active": "",
+				"default": "",
+				},
+			"sort-by-number": true,
+		},
     "battery": {
         "bat": "BAT1",
         "states": {

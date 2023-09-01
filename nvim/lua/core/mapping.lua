@@ -6,8 +6,7 @@ local map_cmd = bind.map_cmd
 local core_map = {
 	-- Suckless
 	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("editn: Toggle code fold"),
-	--["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
-	["n|<C-S-s>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
+	["n|<C-S-S>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
 		:with_silent()
 		:with_noremap()
 		:with_desc("editn: Save file using sudo"),

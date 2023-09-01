@@ -75,7 +75,7 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-S-p>"] = map_callback(function()
+	["n|<C-S-P>"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
@@ -121,7 +121,7 @@ local plug_map = {
 		:with_desc("edit: Change current direrctory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
-	["n|<leader>fn"] = map_cu("Telescope file_browser path=%p:h select_buffer=true")
+	["n|<leader>fn"] = map_cu("Telescope file_browser ")
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: open file browser"),

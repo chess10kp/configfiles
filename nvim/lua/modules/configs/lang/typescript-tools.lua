@@ -1,7 +1,9 @@
 return function ()
 require("typescript-tools").setup {
   -- on_attach = function() ... end,
-  -- handlers = { ... },
+  handlers = {
+      ["textDocument/formatting"] = ""
+    },
   settings = {
     -- spawn additional tsserver instance to calculate diagnostics on it
     separate_diagnostic_server = false,
@@ -24,7 +26,10 @@ require("typescript-tools").setup {
     tsserver_max_memory = "auto",
     -- described below
     tsserver_format_options = {},
-    tsserver_file_preferences = {},
+    tsserver_file_preferences = {
+          includeCompletionsForModuleExports = true,
+          includeCompletionsForImportStatements = true, 
+      },
     -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
     complete_function_calls = false,
   },

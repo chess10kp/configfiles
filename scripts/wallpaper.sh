@@ -27,7 +27,6 @@ elif [[ "$1" == "--select" ]]; then
 elif [[ "$1" == "--set" ]]; then
 	$walset "$WP_DIR/defaultwp.jpg"
 
-	#TODO: implemement cycle feature
 elif [[ "$1" == "--cycle" ]]; then
 	cd $WP_DIR || exit
 	style=$(readlink defaultwp.jpg | xargs basename | sed 's/[0-9]\+.*//') # gets the theme name of the wp

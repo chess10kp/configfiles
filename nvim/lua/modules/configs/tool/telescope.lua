@@ -99,11 +99,13 @@ return function()
 				end,
 			},
 			file_browser = {
-				theme = "ivy",
+				theme = "dropdown",
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {},
-					["n"] = {},
+					["n"] = { 
+            ["<bs>"] = function() end
+          },
 				},
 			},
 		},

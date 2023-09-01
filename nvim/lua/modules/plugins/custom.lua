@@ -43,4 +43,11 @@ custom["windwp/nvim-autopairs"] = {
 	opts = {}, -- this is equalent to setup({}) function
 	config = require("editor.nvim-autopairs")
 }
+custom["folke/neodev.nvim"] = {
+  lazy = true,
+  opts = {
+
+  },
+  config = require('lang.neodev')
+}
 return custom

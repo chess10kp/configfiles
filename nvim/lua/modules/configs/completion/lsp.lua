@@ -47,7 +47,7 @@ return function()
 				hint_enable = true,
 				hi_parameter = "Search",
 				handler_opts = {
-					border = "rounded",
+					border = "double",
 				},
 			})
 		end,
@@ -63,12 +63,16 @@ return function()
 			nvim_lsp[lsp_name].setup(opts)
 			return
 		elseif type(custom_handler) == "function" then
+      if lsp_name ~= "lua_ls" then --setup lua_ls in 'lang.neodev'
+        
 			--- Case where language server requires its own setup
 			--- Make sure to call require("lspconfig")[lsp_name].setup() in the function
-			--- See `clangd.lua` for example.
 			custom_handler(opts)
+      end
 		elseif type(custom_handler) == "table" then
+      if lsp_name ~= "lua_ls" then --setup lua_ls in 'lang.neodev'
 			nvim_lsp[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
+      end
 		else
 			vim.notify(
 				string.format(

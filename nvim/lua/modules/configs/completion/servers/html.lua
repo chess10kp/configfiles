@@ -3,7 +3,7 @@ return {
 	cmd = { "html-languageserver", "--stdio" },
 	filetypes = { "html" },
 	init_options = {
-		configurationSection = { "html", "css", "javascript" },
+		configurationSection = { "html", "css", "javascript", "javascriptreact", "typescript" },
 		embeddedLanguages = { css = true, javascript = true },
 	},
 	settings = {},

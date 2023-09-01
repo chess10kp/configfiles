@@ -52,6 +52,7 @@ local function load_options()
 		magic = true,
 		mousescroll = "ver:3,hor:6",
 		number = true,
+    numberwidth = 1,
 		previewheight = 12,
 		pumheight = 15,
 		redrawtime = 1500,
@@ -86,7 +87,7 @@ local function load_options()
 		ttimeout = true,
 		ttimeoutlen = 0,
 		undodir = global.cache_dir .. "undo/",
-		undofile = false,
+		undofile = true,
 		-- Please do NOT set `updatetime` to above 500, otherwise most plugins may not work correctly
 		updatetime = 200,
 		viewoptions = "folds,cursor,curdir,slash,unix",

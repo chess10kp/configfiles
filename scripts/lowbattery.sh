@@ -11,3 +11,4 @@ do
   fi
  sleep 60
 done
+exit

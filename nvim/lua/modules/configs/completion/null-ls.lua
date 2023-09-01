@@ -13,12 +13,27 @@ return function()
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
 		}),
-		btns.diagnostics.cpplint,
+    btns.diagnostics.cpplint,
+		btns.formatting.prettier.with({
+			filetypes = {
+				"vue",
+				"typescript",
+				"javascript",
+				"typescriptreact",
+				"javascriptreact",
+				"yaml",
+				"html",
+				"css",
+				"scss",
+				"sh",
+				"markdown",
+			},
+		}),
 
 		--shell
-		btns.formatting.shfmt,
-		btns.diagnostics.shellcheck,
-		btns.code_actions.shellcheck,
+		-- btns.formatting.shfmt,
+		-- btns.diagnostics.shellcheck,
+		-- btns.code_actions.shellcheck,
 		--btns.hover.printenv,
 
 		-- lua

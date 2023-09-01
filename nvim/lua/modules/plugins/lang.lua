@@ -29,8 +29,17 @@ lang["chrisbra/csv.vim"] = {
 }
 lang["pmizio/typescript-tools.nvim"] = {
   lazy = true,
+  ft = {"javascript", "typescript", "typescriptreact", "javascriptreact"},
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
   config = require("lang.typescript-tools")
 }
+lang["mrcjkb/haskell-tools.nvim"] = {
+  lazy = true,
+  ft = {"haskell"},
+  dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  config = require("lang.haskell-tools"),
+  branch = '1.1.0'
+  }
 return lang
+

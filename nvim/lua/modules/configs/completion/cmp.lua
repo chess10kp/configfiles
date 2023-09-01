@@ -58,12 +58,12 @@ return function()
 	cmp.setup({
 		window = {
 			completion = {
-				border = border("Normal"),
+				-- border = border("Normal"),
 				max_width = 80,
 				max_height = 20,
 			},
 			documentation = {
-				border = border("CmpDocBorder"),
+				-- border = border("CmpDocBorder"),
 			},
 		},
 		sorting = {
