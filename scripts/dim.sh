@@ -4,7 +4,7 @@ curr=$(brightnessctl g)
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 	case $1 in
 	-V | --version)
-		echo "1.0"
+		echo "dim.sh version 1.0"
 		exit
 		;;
 	-s | --string)

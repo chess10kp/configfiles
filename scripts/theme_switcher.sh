@@ -2,11 +2,22 @@
 # shellcheck disable=2086,2027,1090,2068,2145,2154
 
 source ~/.config/scripts/configvars.sh
+
+set_config ()
+{
+  if [[ -f $1 ]]; then
+    ln -sf $1 $2
+  fi
+}
+
 set_apps() {
-	ln -sf ~/.config/themes/$1/tofi/config ~/.config/tofi/config
-	ln -sf ~/.config/themes/$1/foot/foot.ini ~/.config/foot/foot.ini
-	ln -sf ~/.config/themes/$1/waybar/style.css ~/.config/waybar/style.css
-	ln -sf ~/.config/themes/$1/waybar/config ~/.config/waybar/config
+	set_config ~/.config/themes/$1/tofi/config ~/.config/tofi/config
+  set_config ~/.config/themes/$1/mozilla/userChrome.css ~/.mozilla/firefox/lbn8htod.default-release/chrome/userChrome.css
+	set_config ~/.config/themes/$1/foot/foot.ini ~/.config/foot/foot.ini
+	set_config ~/.config/themes/$1/waybar/style.css ~/.config/waybar/style.css
+	set_config ~/.config/themes/$1/waybar/config ~/.config/waybar/config
+	set_config ~/.config/themes/$1/zathura/zathurarc ~/.config/zathura/zathurarc
+  set_config ~/.config/themes/$1/hypr/myColors.conf ~/.config/hypr/myColors.conf
 }
 
 set_gtk() {
@@ -30,38 +41,33 @@ set_theme_specifics() {
 	case "$1" in
 	"onedark-dark")
 		set_gtk "GhostReprise"
-		ln -sf ~/Pictures/wp/onedark01.jpg ~/Pictures/wp/defaultwp.jpg
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "onedark_dark\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"catppuccin")
 		set_gtk "Catppuccin-Mocha-Standard-Blue-dark"
-		ln -sf ~/Pictures/wp/catppuccin7.jpg ~/Pictures/wp/defaultwp.jpg
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "catppuccin\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"radium")
 		set_gtk "GhostReprise"
-		ln -sf ~/Pictures/wp/radium03.jpg ~/Pictures/wp/defaultwp.jpg
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "radium\"/' -i ~/.config/nvim/lua/core/settings.lua
+		;;
+	"ayu-dark")
+		set_gtk "GhostReprise"
+		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "ayu\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"tokyonight")
 		set_gtk "TokyoNight"
-		ln -sf ~/Pictures/wp/tokyonight2.jpg ~/Pictures/wp/defaultwp.jpg
-		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "tokyonight\"/' -i ~/.config/nvim/lua/core/settings.lua
-		ln -sf ~/.config/themes/tokyonight/zathurarc ~/.config/zathura/zathurarc
 		;;
     "gruvbox")
-        set_gtk "gruvbox-dark-gtk"
-        ln -sf ~/Pictures/wp/green2.jpg ~/Pictures/wp/defaultwp.jpg
+    set_gtk "gruvbox-dark-gtk"
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "gruvbox\"/' -i ~/.config/nvim/lua/core/settings.lua
         ;;
     "dark-decay")
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "dark-decay\"/' -i ~/.config/nvim/lua/core/settings.lua
 		set_gtk "TokyoNight"
-		ln -sf ~/.config/themes/tokyonight/zathurarc ~/.config/zathura/zathurarc
         ;;
 	esac
 }
-
 after_set() {
 	pkill foot
 	pkill waybar
@@ -76,7 +82,7 @@ after_set() {
     exit 0 
 }
 
-colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight' 'gruvbox' 'dark-decay')
+colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight' 'gruvbox' 'dark-decay' 'ayu-dark')
 colorscheme_selected=$(printf "%s\n" "${colorschemes[@]}" | $rofi)
 
 if [[ -z $colorscheme_selected ]]; then

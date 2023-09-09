@@ -7,10 +7,10 @@ touch "$file"
 height=$(wc -l "$file" | awk '{print $1}')
 prompt="Bookmarks"
 #sed 's/.*http/.*/' $file
-bookmarks=$(cat $file)
+bookmarks=$(cat "$file")
 bookmarks+=$(printf "\nadd\nremove\n")
 
-cmd=$(printf '%s\n' "$bookmarks" | $rofi)
+cmd=$(printf '%s\n' "$bookmarks" | $rofi_prompt "bookmarks ")
 while [ -n "$cmd" ]; do
 	if [[ $cmd == 'add' ]]; then
         link+=" "$($paste_command)

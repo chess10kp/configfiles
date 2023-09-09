@@ -93,7 +93,7 @@ kscreenlockerrc
 kxkbrc
 ktimezone*
 ksmserverrc
-
+scripts/__pycache__/
 obsidian/
 Postman/
 sublime-text/

@@ -16,7 +16,8 @@ rofi="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr
     --padding-left=30 --padding-right=30"
 rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
-rofi_prompt=" --prompt"
+rofi_prompt="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
+    --padding-left=30 --padding-right=30 --prompt"
 dmenu="tofi --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
 editor="nvim"
 term="footclient"
