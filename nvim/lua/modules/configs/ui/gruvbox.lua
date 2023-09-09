@@ -25,5 +25,4 @@ require("gruvbox").setup({
         dark0 = "#1d2021",
     }
 })
-vim.cmd("colorscheme gruvbox")
 end

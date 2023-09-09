@@ -8,6 +8,7 @@ local map_cu = bind.map_cu
 local vim_path = require("core.global").vim_path
 
 local plug_map = {
+  -- general keymaps
 	["n|<leader>ss"] = map_cr("mks!"),
 	["n|<leader>cd"] = map_cr("lcd %:h | lua print('directory changed')")
 		:with_noremap()
@@ -18,13 +19,11 @@ local plug_map = {
 	["n|<M-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 	["n|<M-S-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 	["n|<M-S-j>"] = map_cr("tabnext"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
-	["n|<M-S-k>"] = map_cr("tabNext"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 
 	["n|<leader>w"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
-	["n|<leader>q"] = map_cu("BufDel"):with_noremap():with_silent():with_desc("editn: Quit file"),
-	--- Session search
-	-- ["n|<leader>fs"] = map_cr("SearchSession"):with_noremap():with_nowait():with_desc("browse sessions"),
-
+	["n|<leader>q"] = map_cu(":q"):with_noremap():with_silent():with_desc("editn: Quit window"),
+  ["n|<leader>bd"] = map_cu("BufDel"):with_noremap():with_silent(),
+  ["n|<C-n>"] = map_cu("NvimTreeToggle"):with_noremap():with_silent():with_desc("Open nvim-tree"),
 	["n|<leader>nn"] = map_cr("source %"):with_noremap():with_nowait():with_desc("source current file"),
 	["n|<leader>sc"] = map_cr(string.format("source %s/init.lua",vim_path))
 		:with_noremap()

@@ -27,7 +27,7 @@ settings["load_big_files_faster"] = false
 ---@type palette
 settings["palette_overwrite"] = {}
 
-settings["colorscheme"] = "tokyonight"
+settings["colorscheme"] = "ayu"
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.
@@ -38,7 +38,7 @@ settings["background"] = "dark"
 -- Set the command for handling external URLs here. The executable must be available on your $PATH.
 -- This entry is IGNORED on Windows and macOS, which have their default handlers builtin.
 ---@type string
-settings["external_browser"] = "brave"
+settings["external_browser"] = "firefox"
 
 -- Filetypes in this list will skip lsp formatting if rhs is true
 ---@type table<string, boolean>
@@ -49,8 +49,8 @@ settings["formatter_block_list"] = {
 -- Servers in this list will skip setting formatting capabilities if rhs is true
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
-	lua_ls = true,
-	tsserver = true,
+	lua_ls = false,
+	tsserver = false,
 	clangd = true,
 }
 
@@ -65,7 +65,8 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"lua_ls",
 	"pylsp",
-	"pyright",
+  "jedi_language_server",
+  "hls"
 	-- "gopls",
 }
 
@@ -81,6 +82,8 @@ settings["null_ls_deps"] = {
 	"shfmt",
 	"stylua",
 	"vint",
+  "black",
+  "cpplint"
 }
 
 settings["dap_deps"] = {

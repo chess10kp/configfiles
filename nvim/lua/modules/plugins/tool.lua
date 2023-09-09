@@ -85,6 +85,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 ----------------------------------------------------------------------
 tool["mfussenegger/nvim-dap"] = {
 	lazy = true,
+  event = "VeryLazy",
 	cmd = {
 		"DapSetLogLevel",
 		"DapShowLog",
@@ -101,7 +102,8 @@ tool["mfussenegger/nvim-dap"] = {
 		{
 			"rcarriga/nvim-dap-ui",
 			config = require("tool.dap.dapui"),
-			{ "jay-babu/mason-nvim-dap.nvim" },
+			{ "jay-babu/mason-nvim-dap.nvim",
+      },
 		},
 		{
 		},

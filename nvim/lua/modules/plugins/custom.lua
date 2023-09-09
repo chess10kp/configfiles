@@ -41,13 +41,11 @@ custom["windwp/nvim-autopairs"] = {
 	lazy = false,
 	event = "InsertEnter",
 	opts = {}, -- this is equalent to setup({}) function
-	config = require("editor.nvim-autopairs")
+	config = require("editor.nvim-autopairs"),
 }
 custom["folke/neodev.nvim"] = {
-  lazy = true,
-  opts = {
-
-  },
-  config = require('lang.neodev')
+	lazy = true,
+	ft = "lua",
+	config = require("lang.neodev"),
 }
 return custom

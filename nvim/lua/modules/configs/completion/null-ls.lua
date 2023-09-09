@@ -14,6 +14,7 @@ return function()
 			extra_args = require("completion.formatters.clang_format"),
 		}),
     btns.diagnostics.cpplint,
+    btns.formatting.htmlbeautifier,
 		btns.formatting.prettier.with({
 			filetypes = {
 				"vue",
@@ -22,7 +23,6 @@ return function()
 				"typescriptreact",
 				"javascriptreact",
 				"yaml",
-				"html",
 				"css",
 				"scss",
 				"sh",

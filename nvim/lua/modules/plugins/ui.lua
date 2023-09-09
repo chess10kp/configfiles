@@ -18,16 +18,21 @@ ui["folke/tokyonight.nvim"] = {
 	name = "tokyonight",
 	config = require("ui.tokyonight"),
 }
-ui[ "tiagovla/tokyodark.nvim" ] = {
-  lazy = true,
-    opts = {
-      terminal_colors = true,
-      transparent_background = true, -- set background to transparent
-      gamma = 2.00, -- adjust the brightness of the theme
-    },
-    config = function(_, opts)
-        require("tokyodark").setup(opts) -- calling setup is optional
-    end,
+ui["Shatur/neovim-ayu"] = {
+	lazy = true,
+	name = "ayu",
+	config = require("ui.ayu"),
+}
+ui["tiagovla/tokyodark.nvim"] = {
+	lazy = true,
+	opts = {
+		terminal_colors = true,
+		transparent_background = true, -- set background to transparent
+		gamma = 2.00, -- adjust the brightness of the theme
+	},
+	config = function(_, opts)
+		require("tokyodark").setup(opts) -- calling setup is optional
+	end,
 }
 ui["decaycs/decay.nvim"] = {
 	lazy = true,
@@ -59,10 +64,15 @@ ui["ellisonleao/gruvbox.nvim"] = {
 -- event = "BufReadPost",
 -- config = require("ui.indent-blankline"),
 -- }
-ui["nvim-lualine/lualine.nvim"] = {
-	lazy = true,
+-- ui["nvim-lualine/lualine.nvim"] = {
+-- 	lazy = true,
+-- 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+-- 	config = require("ui.lualine"),
+-- }
+ui["rebelot/heirline.nvim"] = {
+	lazy = false,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.lualine"),
+	config = require("ui.heirline"),
 }
 -- ui["zbirenbaum/neodim"] = {
 -- lazy = true,
@@ -89,5 +99,8 @@ ui["folke/paint.nvim"] = { --NOTE: highlight comments
 -- 	event = "CursorMoved",
 -- 	config = require("ui.specs"),
 -- }
-
+ui["karb94/neoscroll.nvim"] = {
+	lazy = false,
+	config = require("ui.neoscroll"),
+}
 return ui

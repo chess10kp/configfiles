@@ -227,7 +227,7 @@
          "</div>"
          ],
      "description": "HTML - Defines a section in a document",
-     "scope": "text.html"
+    "scope": "text.html, typescript,typescriptreact,javascript,javascriptreact"
      },
      "dl": {
      "prefix": "dl",
@@ -477,7 +477,7 @@
          "</main>"
      ],
      "description": "HTML - Defines an image map",
-     "scope": "text.html"
+     "scope": "text.html, typescript,typescriptreact,javascript,javascriptreact"
      },
      "map": {
      "prefix": "map",

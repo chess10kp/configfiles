@@ -32,15 +32,35 @@ window#waybar {
 
 #workspaces {
 	background: #0c0e0f;
-  padding: 0;
-  margin: 0;
+	margin: 5px 5px;
+    padding: 8px 5px;
+	border-radius: 16px;
+    border: solid 0px #cdd6f4;
     font-weight: normal;
     font-style: normal;
 }
 #workspaces button {
-  padding: 0;
-  margin: 0;
-  font-size: 3px;
+    padding: 0px 5px;
+    margin: 0px 3px;
+    border-radius: 16px;
+    color: #2f354a;
+    background-color: #2f354a;
+    transition: all 0.3s ease-in-out;
+}
+#workspaces button.active {
+    color: #cdd6f4;
+    background-color: #cdd6f4;
+    border-radius: 16px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+#workspaces button:hover {
+	background-color: #cdd6f4;
+	color: #cdd6f4;
+	border-radius: 16px;
+  min-width: 50px;
+  background-size: 400% 400%;
 }
 
 #battery {

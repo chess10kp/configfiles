@@ -13,7 +13,7 @@
   },
   "typescriptReactClassComponent": {
     "key": "typescriptReactClassComponent",
-    "prefix": "tsrccccc",
+    "prefix": "tsrcc",
     "description": "Creates a React component class with ES7 module system and TypeScript interfaces",
     "body": [
       "import React, { Component } from 'react'",
@@ -1904,20 +1904,5 @@
     "body": ["typeof ${1:first}"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-     "div": {
-     "prefix": "div",
-     "body": [
-         "<div class='$1'>",
-         "\t$2",
-         "</div>"
-         ],
-     "description": "HTML - Defines a section in a document",
-      "scope": "typescript,typescriptreact,javascript,javascriptreact"
-     },
-     "p": {
-     "prefix": "ptag",
-     "body": "<p>$1</p>$2",
-     "description": "HTML - Defines a paragraph",
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-     },
+
 }

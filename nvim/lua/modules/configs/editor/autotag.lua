@@ -3,6 +3,7 @@ return function()
 		filetypes = {
 			"html",
 			"javascript",
+      "typescript",
 			"javascriptreact",
 			"typescriptreact",
 			"vue",

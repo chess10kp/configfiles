@@ -104,7 +104,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "tokyonight",
+			theme = "ayu",
 			disabled_filetypes = {},
 			component_separators = "|",
 		},
