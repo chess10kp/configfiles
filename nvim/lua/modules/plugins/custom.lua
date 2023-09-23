@@ -38,14 +38,19 @@ custom["kylechui/nvim-surround"] = {
 	end,
 }
 custom["windwp/nvim-autopairs"] = {
-	lazy = false,
+	lazy = true,
 	event = "InsertEnter",
-	opts = {}, -- this is equalent to setup({}) function
+	opts = {}, 
 	config = require("editor.nvim-autopairs"),
 }
 custom["folke/neodev.nvim"] = {
 	lazy = true,
 	ft = "lua",
 	config = require("lang.neodev"),
+}
+
+custom[ "francoiscabrol/ranger.vim" ] = {
+lazy = true ,
+cmd = "RangerCurrentFile", 
 }
 return custom

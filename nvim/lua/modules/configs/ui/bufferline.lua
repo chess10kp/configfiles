@@ -8,10 +8,11 @@ return function()
 			buffer_close_icon = icons.ui.Close,
 			left_trunc_marker = icons.ui.Left,
 			right_trunc_marker = icons.ui.Right,
-			max_name_length = 14,
+			max_name_length = 20,
 			max_prefix_length = 13,
 			tab_size = 15,
 			color_icons = true,
+<<<<<<< HEAD
 			show_buffer_icons = false,
 			show_buffer_close_icons = false,
 			--get_element_icon = function(e)
@@ -19,6 +20,12 @@ return function()
 			--end,
 			show_close_icon = false,
 			show_tab_indicators = false,
+=======
+			show_buffer_icons = true,
+			show_buffer_close_icons = true,
+			show_close_icon = true,
+			show_tab_indicators = true,
+>>>>>>> refs/remotes/origin/main
 			enforce_regular_tabs = true,
 			persist_buffer_sort = true,
 			always_show_bufferline = true,
@@ -32,13 +39,13 @@ return function()
 					filetype = "NvimTree",
 					text = "File Explorer",
 					text_align = "center",
-					padding = 1,
+					padding = 0,
 				},
 				{
 					filetype = "lspsagaoutline",
 					text = "Lspsaga Outline",
 					text_align = "center",
-					padding = 1,
+					padding = 0,
 				},
 			},
 		},
@@ -89,7 +96,7 @@ return function()
 		--},
 	}
 
-	if vim.g.colors_name == "catppuccin" then
+	if vim.g.colors_name:find("catppuccin") then
 		local cp = require("modules.utils").get_palette() -- Get the palette.
 
 		local catppuccin_hl_overwrite = {

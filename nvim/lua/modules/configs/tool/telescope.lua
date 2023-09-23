@@ -2,9 +2,18 @@ return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
 	local lga_actions = require("telescope-live-grep-args.actions")
 	local project_actions = require("telescope._extensions.project.actions")
+  local fb_actions = require('telescope').extensions.file_browser.actions
 
 	require("telescope").setup({
 		defaults = {
+			vimgrep_arguments = {
+				"rg",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+			},
 			initial_mode = "insert",
 			prompt_prefix = " " .. icons.ui.Telescope .. " ",
 			selection_caret = icons.ui.ChevronRight,
@@ -28,10 +37,22 @@ return function()
 				"%.mp4",
 				"%.zip",
 			},
+			selection_strategy = "reset",
+			sorting_strategy = "ascending",
+			color_devicons = true,
+			file_ignore_patterns = { ".git/", ".cache", "build/", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
 			layout_config = {
 				horizontal = {
-					preview_width = 0.5,
+					prompt_position = "top",
+					preview_width = 0.55,
+					results_width = 0.8,
 				},
+				vertical = {
+					mirror = false,
+				},
+				width = 0.85,
+				height = 0.92,
+				preview_cutoff = 120,
 			},
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
@@ -46,6 +67,7 @@ return function()
 			},
 			find_files = {
 			},
+			buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
 		extensions = {
 			fzf = {
@@ -102,8 +124,11 @@ return function()
 				theme = "dropdown",
 				hijack_netrw = true,
 				mappings = {
-					["i"] = {},
-					["n"] = { 
+					["i"] = {
+            -- ["<Tab>" ] = fb_actions.select_default(),
+          },
+					["n"] = {
+            
             ["<bs>"] = function() end
           },
 				},
@@ -114,10 +139,12 @@ return function()
 	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
-	require("telescope").load_extension("notify")
+	-- require("telescope").load_extension("notify")
 	require("telescope").load_extension("undo")
-	require("telescope").load_extension("zoxide")
+	-- require("telescope").load_extension("zoxide")
 	-- require("telescope").load_extension("project")
 	-- require("telescope").load_extension("session-lens")
 	require("telescope").load_extension("file_browser")
+	require("telescope").load_extension("zoxide")
+	require("telescope").load_extension("persisted")
 end

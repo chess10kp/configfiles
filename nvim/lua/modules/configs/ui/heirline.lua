@@ -78,14 +78,13 @@ return function()
 	local function getCWD()
 		local WorkDir = {
 			provider = function()
-				local icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. " "
 				local cwd = vim.fn.getcwd(0)
 				cwd = vim.fn.fnamemodify(cwd, ":~")
 				if not conditions.width_percent_below(#cwd, 0.25) then
 					cwd = vim.fn.pathshorten(cwd)
 				end
 				local trail = cwd:sub(-1) == "/" and "" or "/"
-				return icon .. cwd .. trail
+				return cwd .. trail
 			end,
 			hl = { fg = "blue", bold = true },
 		}
@@ -140,17 +139,18 @@ return function()
 				-- options, see :h filename-modifers
 				local filename = vim.fn.fnamemodify(self.filename, ":.")
 				if filename == "" then
-					return "[No Name]"
+					return "No File Open"
 				end
 				-- now, if the filename would occupy more than 1/4th of the available
 				-- space, we trim the file path to its initials
 				-- See Flexible Components section below for dynamic truncation
-				if not conditions.width_percent_below(#filename, 0.25) then
+				if not conditions.width_percent_below(#filename, 0.50) then
 					filename = vim.fn.pathshorten(filename)
 				end
 				return filename
 			end,
-			hl = { fg = utils.get_highlight("Directory").fg },
+			hl = { fg = "green", bg= "None" },
+      {update = "BufEnter"},
 		}
 
 		local FileFlags = {
@@ -167,6 +167,8 @@ return function()
 				end,
 				provider = "",
 				hl = { fg = "orange" },
+
+      {update = "BufEnter"},
 			},
 		}
 
@@ -190,6 +192,7 @@ return function()
 			utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
 			FileFlags,
 			-- FileIcon,
+      {update = "BufEnter"},
 			{ provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 		)
 		return FileNameBlock
@@ -230,7 +233,7 @@ return function()
 		getDiagnostics(),
 		Space,
     Align,
-		getSearches(),
+		-- getSearches(),
     Align
 	}
 

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/pylsp.lua
+>>>>>>> refs/remotes/origin/main
 return {
 	cmd = { "pylsp" },
 	filetypes = { "python" },
@@ -6,7 +10,11 @@ return {
 			plugins = {
 				-- Lint
 				ruff = {
+<<<<<<< HEAD
 					enabled = false,
+=======
+					enabled = true,
+>>>>>>> refs/remotes/origin/main
 					select = {
 						-- enable pycodestyle
 						"E",

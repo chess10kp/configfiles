@@ -12,6 +12,29 @@ function autocmd.nvim_create_augroups(definitions)
 	end
 end
 
+-- -- auto close NvimTree
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
+-- 	pattern = "NvimTree_*",
+-- 	callback = function()
+-- 		local layout = vim.api.nvim_call_function("winlayout", {})
+-- 		if
+-- 			layout[1] == "leaf"
+-- 			and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree"
+-- 			and layout[3] == nil
+-- 		then
+-- 			vim.api.nvim_command([[confirm quit]])
+-- 		end
+-- 	end,
+-- })
+local mapping = require("keymap.completion")
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(event)
+		mapping.lsp(event.buf)
+	end,
+})
+
 -- auto close NvimTree
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
@@ -48,16 +71,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<CMD>close<CR>", { silent = true })
-	end,
-})
-
--- Fix fold issue of files opened by telescope
-vim.api.nvim_create_autocmd("BufRead", {
-	callback = function()
-		vim.api.nvim_create_autocmd("BufWinEnter", {
-			once = true,
-			command = "normal! zx",
-		})
 	end,
 })
 
@@ -105,11 +118,11 @@ function autocmd.load_autocmds()
 				"*",
 				[[if &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal nocursorline | endif]],
 			},
-			-- Force write shada on leaving nvim
+			-- Attempt to write shada when leaving nvim
 			{
 				"VimLeave",
 				"*",
-				[[if has('nvim') | wshada! | else | wviminfo! | endif]],
+				[[if has('nvim') | wshada | else | wviminfo! | endif]],
 			},
 			-- Check if file changed when its window is focus, more eager than 'autoread'
 			{ "FocusGained", "* checktime" },

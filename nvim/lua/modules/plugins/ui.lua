@@ -10,8 +10,10 @@ ui["olimorris/onedarkpro.nvim"] = {
 }
 ui["catppuccin/nvim"] = {
 	lazy = true,
-	name = "catppuccin",
-	config = require("ui.catppuccin"),
+}
+ui["ishan9299/nvim-solarized-lua"] = {
+  lazy = true, 
+  name = "solarized", 
 }
 ui["folke/tokyonight.nvim"] = {
 	lazy = true,
@@ -22,6 +24,9 @@ ui["Shatur/neovim-ayu"] = {
 	lazy = true,
 	name = "ayu",
 	config = require("ui.ayu"),
+}
+ui[ "ray-x/starry.nvim" ] = {
+  lazy = true, 
 }
 ui["tiagovla/tokyodark.nvim"] = {
 	lazy = true,

@@ -8,7 +8,8 @@ local map_cu = bind.map_cu
 local vim_path = require("core.global").vim_path
 
 local plug_map = {
-  -- general keymaps
+	-- general keymaps
+  ["n|<C-n>"] = map_cu("Lexplore<CR><CR>"):with_noremap():with_nowait():with_silent():with_desc("Toggle file tree"),
 	["n|<leader>ss"] = map_cr("mks!"),
 	["n|<leader>cd"] = map_cr("lcd %:h | lua print('directory changed')")
 		:with_noremap()
@@ -22,10 +23,9 @@ local plug_map = {
 
 	["n|<leader>w"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
 	["n|<leader>q"] = map_cu(":q"):with_noremap():with_silent():with_desc("editn: Quit window"),
-  ["n|<leader>bd"] = map_cu("BufDel"):with_noremap():with_silent(),
-  ["n|<C-n>"] = map_cu("NvimTreeToggle"):with_noremap():with_silent():with_desc("Open nvim-tree"),
+	["n|<leader>bd"] = map_cu("BufDel"):with_noremap():with_silent(),
 	["n|<leader>nn"] = map_cr("source %"):with_noremap():with_nowait():with_desc("source current file"),
-	["n|<leader>sc"] = map_cr(string.format("source %s/init.lua",vim_path))
+	["n|<leader>sc"] = map_cr(string.format("source %s/init.lua", vim_path))
 		:with_noremap()
 		:with_nowait()
 		:with_desc("source neovim config"),
@@ -38,6 +38,9 @@ local plug_map = {
 		:with_desc("format the current file"),
 
 	--convienience mappings
+  ["n|<leader>ht"] = map_cr("HardTimeToggle"):with_desc("Toggle hard time"):with_noremap():with_nowait(),
+  ["n|<leader>cl"] = map_cmd(":colorscheme "):with_noremap():with_nowait(),
+
 	["n|ciw"] = map_cmd('"_ciw'):with_noremap():with_desc("delete inside word"),
 	["n|caw"] = map_cmd('"_caw'):with_noremap():with_desc("delete around word"),
 	["n|ci("] = map_cmd('"_ci('):with_noremap():with_desc("delete inside parenthesis"),
@@ -48,5 +51,17 @@ local plug_map = {
 	["n|ca{"] = map_cmd('"_ca{'):with_noremap():with_desc("delete around braces"),
 	["n|ci}"] = map_cmd('"_ci}'):with_noremap():with_desc("delete inside braces"),
 	["n|ca}"] = map_cmd('"_ca}'):with_noremap():with_desc("delete around braces"),
+	["n|<leader><leader>"] = map_cmd('"'):with_noremap():with_silent(),
+	["n|H"] = map_cmd("^"):with_noremap():with_silent(),
+	["n|L"] = map_cmd("$"):with_noremap():with_silent(),
+
+  --command mappings 
+  ["n|<leader>lx" ] = map_cmd(":LspStop "):with_nowait():with_noremap():with_desc("lsp: Stop"),
+  ["n|<leader>ls" ] = map_cmd(":LspStart "):with_nowait():with_noremap():with_desc("lsp: Start"),
+  ["n|<leader>ms"] = map_cu("Mason"):with_noremap():with_nowait():with_desc("lsp: Toggle Mason")
 }
+
 bind.nvim_load_mapping(plug_map)
+
+
+

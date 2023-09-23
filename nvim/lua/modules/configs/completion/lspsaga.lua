@@ -79,7 +79,6 @@ return function()
 			keys = {
 				exec_action = "r",
 				quit = "q",
-				go_action = "g",
 				expand_or_jump = "<CR>",
 				quit_in_show = { "q", "<ESC>" },
 			},
@@ -109,7 +108,7 @@ return function()
 			},
 		},
 		symbol_in_winbar = {
-			enable = false,
+			enable = true,
 			separator = " " .. icons.ui.Separator,
 			hide_keyword = true,
 			show_file = false,
@@ -121,6 +120,8 @@ return function()
 		},
 		ui = {
 			border = "solid", -- Can be single, double, rounded, solid, shadow.
+			title = false,
+			border = "single", -- Can be single, double, rounded, solid, shadow.
 			winblend = 0,
 			actionfix = icons.ui.Spell,
 			expand = icons.ui.ArrowClosed,

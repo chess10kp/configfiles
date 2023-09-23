@@ -680,13 +680,6 @@
     "description": "Closes out the corresponding console.group().",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "consoleLog": {
-    "key": "consoleLog",
-    "prefix": "clg",
-    "body": ["console.log(${1:first})"],
-    "description": "Displays a message in the console",
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
   "consoleTrace": {
     "key": "consoleTrace",
     "prefix": "ctr",
@@ -1920,4 +1913,7 @@
      "description": "HTML - Defines a paragraph",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
      },
+}
+{
+
 }

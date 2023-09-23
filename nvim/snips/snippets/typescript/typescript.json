@@ -1904,5 +1904,4 @@
     "body": ["typeof ${1:first}"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-
 }

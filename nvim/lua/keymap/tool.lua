@@ -11,18 +11,13 @@ local plug_map = {
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent():with_desc("git: Pull"),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
-	-- Plugin: nvim-tree
-	-- ["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
-	-- ["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
-	-- ["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
-
 	-- Plugin: sniprun
 	["v|<leader>r"] = map_cr("SnipRun"):with_noremap():with_silent():with_desc("tool: Run code by range"),
 	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent():with_desc("tool: Run code by file"),
 
 	-- Plugin: toggleterm
-	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
-	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
+	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
+	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
@@ -35,7 +30,9 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["n|<A-i>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
+	["n|<M-i>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]),
+	["t|<C-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
+	["n|<A-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
@@ -47,7 +44,26 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["nt|<leader>g"] = map_callback(function()
+	["t|<A-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
+	["n|<F5>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
+		:with_noremap()
+		:with_silent()
+		:with_desc("terminal: Toggle vertical"),
+	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("terminal: Toggle vertical"),
+	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
+	["n|<A-d>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
+		:with_noremap()
+		:with_silent()
+		:with_desc("terminal: Toggle float"),
+	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
+		:with_noremap()
+		:with_silent()
+		:with_desc("terminal: Toggle float"),
+	["t|<A-d>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["n|<leader>g"] = map_callback(function()
 			_toggle_lazygit()
 		end)
 		:with_noremap()
@@ -87,6 +103,9 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Show undo history"),
+  ["n|<leader>fl"] = 
+    map_cu("Telescope lsp_references")
+    ,
 	["n|<leader>fp"] = map_callback(function()
         require'telescope'.extensions.project.project{}
 		end)
@@ -125,6 +144,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: open file browser"),
+	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
 
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()

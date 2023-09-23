@@ -4,22 +4,33 @@ tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
 }
--- Please don't remove which-key.nvim otherwise you need to set timeoutlen=300 at `lua/core/options.lua`
+tool["mbbill/undotree"] = {
+	lazy = false,
+}
 tool["folke/which-key.nvim"] = {
 	lazy = true,
 	event = "VeryLazy",
 	config = require("tool.which-key"),
 }
-tool["nvim-tree/nvim-tree.lua"] = {
+tool["takac/vim-hardtime"] = {
+	lazy = false,
+	-- cmd = "HardTimeToggle",
+}
+-- tool["nvim-tree/nvim-tree.lua"] = {
+-- 	lazy = true,
+-- 	cmd = {
+-- 		"NvimTreeToggle",
+-- 		"NvimTreeOpen",
+-- 		"NvimTreeFindFile",
+-- 		"NvimTreeFindFileToggle",
+-- 		"NvimTreeRefresh",
+-- 	},
+-- 	config = require("tool.nvim-tree"),
+-- }
+tool["simrat39/symbols-outline.nvim"] = {
 	lazy = true,
-	cmd = {
-		"NvimTreeToggle",
-		"NvimTreeOpen",
-		"NvimTreeFindFile",
-		"NvimTreeFindFileToggle",
-		"NvimTreeRefresh",
-	},
-	config = require("tool.nvim-tree"),
+	cmd = "SymbolsOutline",
+	config = require("tool.outline"),
 }
 tool["ibhagwan/smartyank.nvim"] = {
 	lazy = true,
@@ -51,6 +62,11 @@ tool["folke/trouble.nvim"] = {
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
 	config = require("tool.trouble"),
 }
+tool["folke/which-key.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("tool.which-key"),
+}
 tool["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
@@ -71,9 +87,12 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-telescope/telescope-project.nvim" },
 		{ "debugloop/telescope-undo.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
-			{ "kkharji/sqlite.lua" },
-		} },
+		{
+			"nvim-telescope/telescope-frecency.nvim",
+			dependencies = {
+				{ "kkharji/sqlite.lua" },
+			},
+		},
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
@@ -83,40 +102,68 @@ tool["nvim-telescope/telescope.nvim"] = {
 ----------------------------------------------------------------------
 --                           DAP Plugins                            --
 ----------------------------------------------------------------------
-tool["mfussenegger/nvim-dap"] = {
-	lazy = true,
-  event = "VeryLazy",
-	cmd = {
-		"DapSetLogLevel",
-		"DapShowLog",
-		"DapContinue",
-		"DapToggleBreakpoint",
-		"DapToggleRepl",
-		"DapStepOver",
-		"DapStepInto",
-		"DapStepOut",
-		"DapTerminate",
-	},
-	config = require("tool.dap"),
-	dependencies = {
-		{
-			"rcarriga/nvim-dap-ui",
-			config = require("tool.dap.dapui"),
-			{ "jay-babu/mason-nvim-dap.nvim",
-      },
-		},
-		{
-		},
-	},
-}
-tool["mfussenegger/nvim-dap-python"] = {
-  lazy = true,
-			ft = "python",
-			dependencies = {
-				"mfussenegger/nvim-dap",
-				"rcarriga/nvim-dap-ui",
-			},
-			config = require("tool.dap.nvim-dap-python"),
-}
+-- tool["mfussenegger/nvim-dap"] = {
+-- 	lazy = true,
+--   event = "VeryLazy",
+-- 	cmd = {
+-- 		"DapSetLogLevel",
+-- 		"DapShowLog",
+-- 		"DapContinue",
+-- 		"DapToggleBreakpoint",
+-- 		"DapToggleRepl",
+-- 		"DapStepOver",
+-- 		"DapStepInto",
+-- 		"DapStepOut",
+-- 		"DapTerminate",
+-- 	},
+-- 	config = require("tool.dap"),
+-- 	dependencies = {
+-- 		{
+-- 			"rcarriga/nvim-dap-ui",
+-- 			config = require("tool.dap.dapui"),
+--       },
+-- 		},
+-- 		{
+-- 		},
+-- 	},
+-- }
+-- tool["theHamsta/nvim-dap-virtual-text"] = {
+-- lazy = true,
+-- ft = "python",
+-- dependencies = {
+--   "mfussenegger/nvim-dap",
+--   "mfussenegger/nvim-dap-ui"
+-- }
+-- }
+-- tool["mfussenegger/nvim-dap-python"] = {
+--   lazy = true,
+-- 			ft = "python",
+-- 			dependencies = {
+-- 				"mfussenegger/nvim-dap",
+-- 			},
+-- 			config = require("tool.dap.nvim-dap-python"),
+-- }
+-- tool["mfussenegger/nvim-dap"] = {
+-- 	lazy = true,
+-- 	cmd = {
+-- 		"DapSetLogLevel",
+-- 		"DapShowLog",
+-- 		"DapContinue",
+-- 		"DapToggleBreakpoint",
+-- 		"DapToggleRepl",
+-- 		"DapStepOver",
+-- 		"DapStepInto",
+-- 		"DapStepOut",
+-- 		"DapTerminate",
+-- 	},
+-- 	config = require("tool.dap"),
+-- 	dependencies = {
+-- 		{
+-- 			"rcarriga/nvim-dap-ui",
+-- 			config = require("tool.dap.dapui"),
+-- 		},
+-- 		{ "jay-babu/mason-nvim-dap.nvim" },
+-- 	},
+-- }
 
 return tool

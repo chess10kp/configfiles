@@ -1,8 +1,12 @@
 return function ()
+  local api = require('typescript-tools.api')
 require("typescript-tools").setup {
   -- on_attach = function() ... end,
   handlers = {
-      ["textDocument/formatting"] = ""
+      ["textDocument/formatting"] = "",
+      ["textDocument/publishDiagnostics"] = api.filter_diagnostics(
+      { 6133 }
+    ),
     },
   settings = {
     -- spawn additional tsserver instance to calculate diagnostics on it

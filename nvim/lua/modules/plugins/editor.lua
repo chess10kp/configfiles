@@ -10,6 +10,20 @@ editor["rainbowhxch/accelerated-jk.nvim"] = {
 -- 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 -- 	config = require("editor.auto-session"),
 -- }
+editor["olimorris/persisted.nvim"] = {
+	lazy = true,
+	cmd = {
+		"SessionToggle",
+		"SessionStart",
+		"SessionStop",
+		"SessionSave",
+		"SessionLoad",
+		"SessionLoadLast",
+		"SessionLoadFromFile",
+		"SessionDelete",
+	},
+	config = require("editor.persisted"),
+}
 editor["m4xshen/autoclose.nvim"] = {
 	lazy = false,
 	event = "InsertEnter",
@@ -56,7 +70,15 @@ editor["RRethy/vim-illuminate"] = { --illuminates corresponding brackers
 -- 	lazy = true,
 -- 	event = "BufReadPost",
 -- }
-
+editor["romainl/vim-cool"] = {
+	lazy = true,
+	event = { "CursorMoved", "InsertEnter" },
+}
+editor["lambdalisue/suda.vim"] = {
+	lazy = true,
+	cmd = { "SudaRead", "SudaWrite" },
+	config = require("editor.suda"),
+}
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
@@ -75,6 +97,10 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup" },
+		{
+			"nvim-treesitter/nvim-treesitter-context",
+			config = require("editor.ts-context"),
+		},
 		{
 			"windwp/nvim-ts-autotag",
 			config = require("editor.autotag"),

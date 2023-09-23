@@ -13,6 +13,10 @@ return function()
 		hijack_cursor = true,
 		hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
+<<<<<<< HEAD
+=======
+		open_on_tab = false,
+>>>>>>> refs/remotes/origin/main
 		respect_buf_cwd = false,
 		sort_by = "name",
 		sync_root_with_cwd = true,
@@ -25,7 +29,6 @@ return function()
 			number = false,
 			relativenumber = false,
 			signcolumn = "yes",
-			hide_root_folder = false,
 			float = {
 				enable = false,
 				open_win_config = {
@@ -41,7 +44,7 @@ return function()
 		renderer = {
 			add_trailing = false,
 			group_empty = true,
-			highlight_git = false,
+			highlight_git = true,
 			full_name = false,
 			highlight_opened_files = "none",
 			special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "CMakeLists.txt" },
@@ -58,33 +61,33 @@ return function()
 			root_folder_label = ":.:s?.*?/..?",
 			icons = {
 				webdev_colors = true,
-				git_placement = "before",
+				git_placement = "after",
 				show = {
 					file = true,
 					folder = true,
-					folder_arrow = false,
+					folder_arrow = true,
 					git = true,
 				},
 				padding = " ",
-				symlink_arrow = "  ",
+				symlink_arrow = " 󰁔 ",
 				glyphs = {
 					default = icons.documents.Default, --
 					symlink = icons.documents.Symlink, --
 					bookmark = icons.ui.Bookmark,
 					git = {
 						unstaged = icons.git.Mod_alt,
-						staged = icons.git.Add, --
+						staged = icons.git.Add, --󰄬
 						unmerged = icons.git.Unmerged,
-						renamed = icons.git.Rename, --
-						untracked = icons.git.Untracked, -- "ﲉ"
+						renamed = icons.git.Rename, --󰁔
+						untracked = icons.git.Untracked, -- "󰞋"
 						deleted = icons.git.Remove, --
 						ignored = icons.git.Ignore, --◌
 					},
 					folder = {
-						-- arrow_open = "",
-						-- arrow_closed = "",
-						arrow_open = "",
-						arrow_closed = "",
+						arrow_open = icons.ui.ArrowOpen,
+						arrow_closed = icons.ui.ArrowClosed,
+						-- arrow_open = "",
+						-- arrow_closed = "",
 						default = icons.ui.Folder,
 						open = icons.ui.FolderOpen,
 						empty = icons.ui.EmptyFolder,
@@ -148,7 +151,7 @@ return function()
 		},
 		git = {
 			enable = true,
-			ignore = true,
+			ignore = false,
 			show_on_dirs = true,
 			timeout = 400,
 		},
