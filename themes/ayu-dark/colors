@@ -1,4 +1,20 @@
 accent = '#E6B450'
+#ff3333
+#b8cc52
+#e6c446
+#36a3d9
+#f07078
+#95e5cb
+#ffffff
+
+#323232
+#ff6565
+#e9fe83
+#fff778
+#68d4ff
+#ffa3aa
+#c7fffc
+#ffffff
 bg = '#0A0E14'
 fg = '#B3B1AD'
 ui = '#4D5566'

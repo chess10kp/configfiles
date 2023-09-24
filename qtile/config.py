@@ -13,7 +13,7 @@ import subprocess
 mod = "mod4"
 super = "mod4"
 terminal = guess_terminal()
-terminal = "xfce4-terminal"
+terminal = "st"
 file_browser = "kitty -1 -e 'ranger'"
 editor = "nvim"
 
@@ -223,24 +223,13 @@ groups.append(
                                  width = 0.6,
                             on_focus_lost_hide = True,
                             warp_pointer = False),
-                        DropDown("daily",
-                            ["kitty" ],
-                            opacity = 1,
-                                 x = 0.2,
-                            y = 0.1,
-                            height = 0.8,
-                                 width = 0.6,
-                            on_focus_lost_hide = True,
-                            warp_pointer = False),
                         ]))
 
 
 keys.extend([
     Key([mod , "shift"], "i", lazy.group['scratchpad'].dropdown_toggle('term')),
-    Key([mod , "shift"], "m", lazy.group['scratchpad'].dropdown_toggle('daily')),
     ])
 
-subprocess.run(["notify-send", "config-reloaded"])
 @hook.subscribe.startup_once
 def autostart():
     processes = [
@@ -250,6 +239,7 @@ def autostart():
         ["nitrogen", "--restore"],
         ["tmux", "new", "-s", "init", "-d"],
         ["bash",f"{HOME}/.config/scripts/lowbattery.sh"],
+        ["dunst"],
     ]
     for p in processes:
         subprocess.Popen(p)

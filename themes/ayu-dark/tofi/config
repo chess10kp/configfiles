@@ -57,9 +57,9 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-	prompt-color = ffffff
-	prompt-background = 000000
-	prompt-background-padding = 0
+	prompt-color = 0a0e14
+	prompt-background = f07078
+	prompt-background-padding = 5
 	prompt-background-corner-radius = 0
 
 	# Placeholder text theme
@@ -69,9 +69,9 @@
 	placeholder-background-corner-radius = 0
 
 	# Input text theme
-	input-color = 89b4fa
-	input-background = 00000000
-	input-background-padding = 1
+	input-color = 0a0e14
+	input-background = 36a3d9
+	input-background-padding = 5
 	input-background-corner-radius = 0 
     
 	# Default result text theme
@@ -80,9 +80,9 @@
 	default-result-background-padding = 10
 	default-result-background-corner-radius = 0
 
-	selection-color = cdd6f4
-	selection-background = 31324400
-	selection-background-padding = 0
+	selection-color = 0a0e14
+	selection-background = e6b450
+	selection-background-padding = 5
 	selection-background-corner-radius = 1
 
 	# Matching portion of selection text
@@ -120,7 +120,7 @@
 	min-input-width = 0
 	width = 100%
 	height = 25
-	background-color = 060813EE
+	background-color = 0a0e14
 
 	# Width of the border outlines in pixels.
 	outline-width = 0
@@ -199,7 +199,6 @@
 	# history-file = /path/to/histfile
 
 	# Use fuzzy matching for searches.
-matching-algorithm=fuzzy
 
 	# If true, require a match to allow a selection to be made. If false,
 	# making a selection with no matches will print input to stdout.

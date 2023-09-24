@@ -29,7 +29,7 @@ alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
 alias pm="pacman"
-alias cd="z"
+#alias cd="z"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
@@ -41,7 +41,7 @@ alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias gcommit="git commit"
 alias gadd="git add"
-alias ls="exa --icons"
+alias ls="exa "
 alias la="exa -al --icons"
 alias ll="exa -l --icons"
 alias cp="cp -v"
@@ -65,6 +65,7 @@ function tmux-run
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
+# source ~/.config/zsh/alien-minimal/alien-minimal.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -74,7 +75,7 @@ source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➤ )%f '
 RPROMPT='$GITSTATUS_PROMPT'
 
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
+# [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+# source /usr/share/nvm/bash_completion
+# source /usr/share/nvm/install-nvm-exec
 eval "$(zoxide init zsh)"

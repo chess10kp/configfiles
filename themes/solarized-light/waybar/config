@@ -2,7 +2,7 @@
 {
     "position": "top",
     "height": 15, // Waybar height (to be removed for auto height)
-    "modules-left": ["hyprland/workspaces", "hyprland/submap",],
+    "modules-left": ["hyprland/submap",],
     "modules-center": [
         "clock",
     ],
