@@ -28,4 +28,18 @@ return {}, {
 			}
 		)
 	),
+	s(
+		"prrrt",
+		fmt(
+			[[
+      prrrrt  is the sound of fart
+      ]],
+			{
+			},
+			-- more snips here
+			{
+				delimiters = "<>",
+			}
+		)
+	),
 }

@@ -34,15 +34,10 @@ return function()
 
 	local cmp = require("cmp")
 	cmp.setup({
+    enabled = true, 
 		preselect = cmp.PreselectMode.Item,
 		window = {
 			completion = {
-				-- border = border("Normal"),
-				max_width = 80,
-				max_height = 20,
-			},
-			documentation = {
-				-- border = border("CmpDocBorder"),
 				border = border("PmenuBorder"),
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
@@ -55,8 +50,8 @@ return function()
 		sorting = {
 			priority_weight = 2,
 			comparators = {
-				--require("copilot_cmp.comparators").prioritize,
-				--require("copilot_cmp.comparators").score,
+				require("copilot_cmp.comparators").prioritize,
+				require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				compare.offset, -- Items closer to cursor will have lower priority
 				compare.exact,
@@ -75,6 +70,36 @@ return function()
 		formatting = {
 			fields = { "abbr", "kind", "menu" },
 			format = function(entry, vim_item)
+				local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
+				-- load lspkind icons
+				vim_item.kind =
+					string.format(" %s  %s", lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
+
+				vim_item.menu = setmetatable({
+					cmp_tabnine = "[TN]",
+					copilot = "[CPLT]",
+					buffer = "[BUF]",
+					orgmode = "[ORG]",
+					nvim_lsp = "[LSP]",
+					nvim_lua = "[LUA]",
+					path = "[PATH]",
+					tmux = "[TMUX]",
+					treesitter = "[TS]",
+					luasnip = "[SNIP]",
+					spell = "[SPELL]",
+				}, {
+					__index = function()
+						return "[BTN]" -- builtin/unknown source names
+					end,
+				})[entry.source.name]
+
+				local label = vim_item.abbr
+				local truncated_label = vim.fn.strcharpart(label, 0, 80)
+				if truncated_label ~= label then
+					vim_item.abbr = truncated_label .. "..."
+				end
+
+				return vim_item
 			end,
 		},
 		matching = {
@@ -82,12 +107,14 @@ return function()
 		},
 		performance = {
 			async_budget = 1,
-			max_view_entries = 120,
+			max_view_entries = 30,
+  debounce = 100,
+      throttle = 0,
+
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
-			["<C-Space>"] = cmp.mapping.complete(),
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -119,17 +146,17 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
-			{ name = "luasnip" },
-			{ name = "nvim_lsp" },
 			{ name = "nvim_lsp", max_item_count = 350 },
 			{ name = "nvim_lua" },
+			{ name = "luasnip" },
 			{ name = "path" },
 			{ name = "treesitter" },
 			{ name = "spell" },
-			-- { name = "tmux" },
+			{ name = "tmux" },
+			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
-			--{ name = "copilot" },
+			{ name = "copilot" },
 			-- { name = "codeium" },
 			-- { name = "cmp_tabnine" },
 		},

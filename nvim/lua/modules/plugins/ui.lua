@@ -106,6 +106,7 @@ ui["folke/paint.nvim"] = { --NOTE: highlight comments
 -- }
 ui["karb94/neoscroll.nvim"] = {
 	lazy = false,
+  enabled = true, 
 	config = require("ui.neoscroll"),
 }
 return ui

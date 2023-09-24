@@ -12,7 +12,6 @@ return function()
 			max_prefix_length = 13,
 			tab_size = 15,
 			color_icons = true,
-<<<<<<< HEAD
 			show_buffer_icons = false,
 			show_buffer_close_icons = false,
 			--get_element_icon = function(e)
@@ -20,12 +19,6 @@ return function()
 			--end,
 			show_close_icon = false,
 			show_tab_indicators = false,
-=======
-			show_buffer_icons = true,
-			show_buffer_close_icons = true,
-			show_close_icon = true,
-			show_tab_indicators = true,
->>>>>>> refs/remotes/origin/main
 			enforce_regular_tabs = true,
 			persist_buffer_sort = true,
 			always_show_bufferline = true,

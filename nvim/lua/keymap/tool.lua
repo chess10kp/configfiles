@@ -126,6 +126,7 @@ local plug_map = {
 		:with_desc("find: Word in project"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
 	["n|<M-p>"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
+  ["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("Find help"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
 		:with_silent()

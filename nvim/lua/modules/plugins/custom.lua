@@ -40,7 +40,7 @@ custom["kylechui/nvim-surround"] = {
 custom["windwp/nvim-autopairs"] = {
 	lazy = true,
 	event = "InsertEnter",
-	opts = {}, 
+	opts = {},
 	config = require("editor.nvim-autopairs"),
 }
 custom["folke/neodev.nvim"] = {
@@ -49,8 +49,10 @@ custom["folke/neodev.nvim"] = {
 	config = require("lang.neodev"),
 }
 
-custom[ "francoiscabrol/ranger.vim" ] = {
-lazy = true ,
-cmd = "RangerCurrentFile", 
+custom["glacambre/firenvim"] = {
+	lazy = not vim.g.started_by_firenvim,
+	build = function()
+		vim.fn["firenvim#install"](0)
+	end,
 }
 return custom

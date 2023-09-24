@@ -13,22 +13,64 @@ local t = ls.t --> text node
 local fmt = require("luasnip.extras.fmt").fmt
 -- local rep = require("luasnip.extras").rep
 
-
 return {}, {
-	s(
-		"clg",
-		fmt(
-			[[
+  s(
+    "clg",
+    fmt(
+      [[
       console.log(<>)
       ]],
-			{
-				i(1, "el"),
-			},
-      -- more snips here
-			{
-				delimiters = "<>",
-			}
-		)
-	),
-
+      {
+        i(1, "el"),
+      },
+      {
+        delimiters = "<>",
+      }
+    )
+  ),
+  s(
+    "divtag",
+    fmt(
+      [[
+      <div class="{}">{}<div>
+      ]],
+      {
+        i(1, "classname"),
+        i(2, ""),
+      },
+      {
+        delimiters = "{}",
+      }
+    )
+  ),
+s(
+    "itag",
+    fmt(
+      [[
+      <i class="{}">{}<i>
+      ]],
+      {
+        i(1, "classname"),
+        i(2, ""),
+      },
+      {
+        delimiters = "{}",
+      }
+    )
+  ),
+s(
+    "h1",
+    fmt(
+      [[
+      <h1 class="{}">{}<h1>
+      ]],
+      {
+        i(1, "classname"),
+        i(2, ""),
+      },
+      {
+        delimiters = "{}",
+      }
+    )
+  )
 }
