@@ -57,8 +57,8 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-	prompt-color = 0a0e14
-	prompt-background = f07078
+	prompt-color = f07078
+	prompt-background = f0707800
 	prompt-background-padding = 5
 	prompt-background-corner-radius = 0
 
@@ -69,8 +69,8 @@
 	placeholder-background-corner-radius = 0
 
 	# Input text theme
-	input-color = 0a0e14
-	input-background = 36a3d9
+	input-color = 36a3d9
+	input-background = 0a0e14
 	input-background-padding = 5
 	input-background-corner-radius = 0 
     
@@ -80,8 +80,8 @@
 	default-result-background-padding = 10
 	default-result-background-corner-radius = 0
 
-	selection-color = 0a0e14
-	selection-background = e6b450
+	selection-color = e6b450
+	selection-background = 0a0e14
 	selection-background-padding = 5
 	selection-background-corner-radius = 1
 
@@ -111,7 +111,7 @@
 	text-cursor-corner-radius = 0
 
 
-	prompt-text = ""
+	prompt-text = "> "
 	prompt-padding = 0
 	placeholder-text = ""
 	num-results = 0
