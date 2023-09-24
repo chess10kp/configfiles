@@ -12,11 +12,11 @@ if [[ $XDG_SESSION_TYPE == "x11" ]]; then
     notes_editor="emacs -nw"
     term="xfce4-terminal"
 else
-rofi="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
+rofi="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/TerminessNerdFont-Regular.ttf \
     --padding-left=30 --padding-right=30"
-rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
+rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/TerminessNerdFont-Regular.ttf\
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
-rofi_prompt="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf\
+rofi_prompt="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/TerminessNerdFont-Regular.ttf \
     --padding-left=30 --padding-right=30 --prompt"
 dmenu="tofi --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
 editor="nvim"
