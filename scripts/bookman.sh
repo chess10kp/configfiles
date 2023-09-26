@@ -24,10 +24,10 @@ while [ -n "$cmd" ]; do
 		fi
 		notify-send "bookmark ${link} removed"
 	elif grep -q "^$cmd\$" "$file"; then
-		"$browser" "$(echo "$cmd" | sed 's/.*http/http/'") &
+		$browser $(echo "$cmd" | sed 's/.*http/http/') &
 		exit 0
 	fi
-	bookmarks=$(cat "$file")
+	bookmarks=$(cat $file)
 	bookmarks+=$(printf "\nadd\nremove\n")
 	cmd=$(printf '%s\n' "$bookmarks" | $rofi)
 done
