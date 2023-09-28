@@ -11,7 +11,7 @@ local plug_map = {
 	-- general keymaps
   ["n|<C-n>"] = map_cu("Lexplore<CR><CR>"):with_noremap():with_nowait():with_silent():with_desc("Toggle file tree"),
 	["n|<leader>ss"] = map_cr("mks!"),
-	["n|<leader>cd"] = map_cr("lcd %:h | lua print('directory changed')")
+	["n|<leader>lcd"] = map_cr("lcd %:h | lua print('directory changed')")
 		:with_noremap()
 		:with_silent()
 		:with_nowait()

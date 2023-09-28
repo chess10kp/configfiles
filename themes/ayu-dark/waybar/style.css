@@ -43,16 +43,11 @@ window#waybar {
 }
 
 #workspaces button {
-	padding: 0 2px;
+	padding: 0 0px;
 	margin: 0px 0px;
-	background: transparent;
-	color: #ff8700;
-	/*
-	color: #00afd7;
-	color: #ffffff;
-	border: 1px solid #00afd7;
-	*/
-	border: 1px solid #1b1d1e;
+	background: black;
+	color: black;
+	border: 0px solid #1b1d1e;
 	font-weight: bold;
 }
 #workspaces button:hover {

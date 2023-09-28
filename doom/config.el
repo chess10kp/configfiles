@@ -81,6 +81,6 @@
 (setq default-tab-width 8)
 (setq x-select-enable-clipboard nil)
 (setq doom-leader-key ";"
-      doom-localleader-key  ";" )
+      doom-localleader-key  " " )
 
 (add-hook 'haskell-mode-hook #'hident-mode)
