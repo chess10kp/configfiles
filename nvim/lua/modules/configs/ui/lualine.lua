@@ -257,14 +257,14 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-<<<<<<< HEAD
 			theme = "ayu",
 			disabled_filetypes = {},
 			component_separators = "|",
 		},
 		sections = {
-			lualine_a = {"buffers"},
-			lualine_b = {--[[  { "branch" }, { "diff", source = diff_source }  ]]},
+			lualine_a = { "buffers" },
+			lualine_b = { --[[  { "branch" }, { "diff", source = diff_source }  ]]
+			},
 			lualine_c = { lspsaga_symbols },
 			lualine_x = {
 				-- { escape_status },
@@ -294,7 +294,6 @@ return function()
 				-- },
 			},
 			lualine_z = { "lspsaga_symbols" },
-=======
 			theme = custom_theme(),
 			disabled_filetypes = { statusline = { "alpha" } },
 			component_separators = "",
@@ -374,30 +373,24 @@ return function()
 				components.python_venv,
 				components.cwd,
 			},
-			lualine_z = { components.file_location },
->>>>>>> refs/remotes/origin/main
+			lualine_z = {},
 		},
 		inactive_sections = {
-			lualine_a = { },
+			lualine_a = {},
 			lualine_b = {},
 			-- lualine_c = { "filename" },
 			-- lualine_x = { "location" },
 			lualine_y = {},
 			lualine_z = {},
 		},
-		tabline = {
-      
-    },
+		tabline = {},
 		extensions = {
 			"nvim-dap-ui",
 			outline,
 			diffview,
 		},
 	})
-<<<<<<< HEAD
 
 	-- Properly set background color for lspsaga
 	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, colors.mantle)
-=======
->>>>>>> refs/remotes/origin/main
 end

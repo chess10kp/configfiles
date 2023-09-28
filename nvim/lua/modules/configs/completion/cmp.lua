@@ -34,7 +34,7 @@ return function()
 
 	local cmp = require("cmp")
 	cmp.setup({
-		enabled = true,
+    enabled = true, 
 		preselect = cmp.PreselectMode.Item,
 		window = {
 			completion = {
@@ -108,8 +108,9 @@ return function()
 		performance = {
 			async_budget = 1,
 			max_view_entries = 30,
-			debounce = 100,
-			throttle = 0,
+  debounce = 100,
+      throttle = 0,
+
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({

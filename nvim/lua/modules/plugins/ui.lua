@@ -69,16 +69,16 @@ ui["ellisonleao/gruvbox.nvim"] = {
 -- event = "BufReadPost",
 -- config = require("ui.indent-blankline"),
 -- }
--- ui["nvim-lualine/lualine.nvim"] = {
--- 	lazy = true,
--- 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
--- 	config = require("ui.lualine"),
--- }
-ui["rebelot/heirline.nvim"] = {
-  lazy = false,
-  event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  config = require("ui.heirline"),
+ui["nvim-lualine/lualine.nvim"] = {
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	config = require("ui.lualine"),
 }
+-- ui["rebelot/heirline.nvim"] = {
+--   lazy = false,
+--   event = { "BufReadPost", "BufAdd", "BufNewFile" },
+--   config = require("ui.heirline"),
+-- }
 -- ui["zbirenbaum/neodim"] = {
 -- lazy = true,
 -- event = "LspAttach",
