@@ -43,7 +43,7 @@ settings["load_big_files_faster"] = false
 ---@type palette
 settings["palette_overwrite"] = {}
 
-settings["colorscheme"] = "ayu"
+settings["colorscheme"] = "onedark_dark"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean

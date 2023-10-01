@@ -8,6 +8,10 @@ local ui = {}
 ui["olimorris/onedarkpro.nvim"] = {
   lazy = true,
 }
+ui["nyoom-engineering/oxocarbon.nvim"] = {
+  lazy = true,
+  name = "oxocarbon"
+}
 ui["catppuccin/nvim"] = {
   lazy = true,
 }

@@ -34,11 +34,12 @@ return function()
 
 	local cmp = require("cmp")
 	cmp.setup({
-    enabled = true, 
+		enabled = true,
 		preselect = cmp.PreselectMode.Item,
+
 		window = {
 			completion = {
-				border = border("PmenuBorder"),
+				border = "", --[[  border("PmenuBorder"), ]]
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
 			},
@@ -50,8 +51,8 @@ return function()
 		sorting = {
 			priority_weight = 2,
 			comparators = {
-				require("copilot_cmp.comparators").prioritize,
-				require("copilot_cmp.comparators").score,
+				-- require("copilot_cmp.comparators").prioritize,
+				-- require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				compare.offset, -- Items closer to cursor will have lower priority
 				compare.exact,
@@ -59,8 +60,6 @@ return function()
 				compare.lsp_scores,
 				compare.sort_text,
 				compare.score,
-				compare.recently_used,
-				-- compare.locality, -- Items closer to cursor will have higher priority, conflicts with `offset`
 				require("cmp-under-comparator").under,
 				compare.kind,
 				compare.length,
@@ -104,21 +103,25 @@ return function()
 		},
 		matching = {
 			disallow_partial_fuzzy_matching = false,
+			disallow_fullfuzzy_matching = false,
+			disallow_fuzzy_matching = false,
+			disallow_prefix_unmatching = false,
+			disallow_partial_matching = true,
 		},
 		performance = {
+			fetching_timeout = 100,
 			async_budget = 1,
 			max_view_entries = 30,
-  debounce = 100,
-      throttle = 0,
-
+			debounce = 100,
+			throttle = 0,
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
-			["<C-d>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
+			["<C-S-d>"] = cmp.mapping.scroll_docs(-4),
+			["<C-S-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-w>"] = cmp.mapping.close(),
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
@@ -146,9 +149,9 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
+      { name = "luasnip" },
 			{ name = "nvim_lsp", max_item_count = 350 },
 			{ name = "nvim_lua" },
-			{ name = "luasnip" },
 			{ name = "path" },
 			{ name = "treesitter" },
 			{ name = "spell" },

@@ -262,44 +262,6 @@ return function()
 			component_separators = "|",
 		},
 		sections = {
-			lualine_a = { "buffers" },
-			lualine_b = { --[[  { "branch" }, { "diff", source = diff_source }  ]]
-			},
-			lualine_c = { lspsaga_symbols },
-			lualine_x = {
-				-- { escape_status },
-				-- {
-				-- 	"diagnostics",
-				-- 	sources = { "nvim_diagnostic" },
-				-- 	symbols = {
-				-- 		error = icons.diagnostics.Error,
-				-- 		warn = icons.diagnostics.Warning,
-				-- 		info = icons.diagnostics.Information,
-				-- 	},
-				-- },
-				-- { get_cwd },
-			},
-			lualine_y = {
-				-- { "filetype", colored = true, icon_only = true },
-				-- { python_venv },
-				-- { "encoding" },
-				-- {
-				-- 	"fileformat",
-				-- 	icons_enabled = true,
-				-- 	symbols = {
-				-- 		unix = "LF",
-				-- 		dos = "CRLF",
-				-- 		mac = "CR",
-				-- 	},
-				-- },
-			},
-			lualine_z = { "lspsaga_symbols" },
-			theme = custom_theme(),
-			disabled_filetypes = { statusline = { "alpha" } },
-			component_separators = "",
-			section_separators = { left = "", right = "" },
-		},
-		sections = {
 			lualine_a = { "mode" },
 			lualine_b = {
 				{
@@ -316,6 +278,10 @@ return function()
 				}),
 			},
 			lualine_c = {
+				{
+					"filename",
+					color = utils.gen_hl("subtext0", true, true, nil, "bold"),
+				},
 				{
 					"branch",
 					icon = icons.git_nosep.Branch,
@@ -351,21 +317,21 @@ return function()
 				components.lsp,
 			},
 			lualine_x = {
-				{
-					"encoding",
-					fmt = string.upper,
-					padding = { left = 1 },
-					cond = conditionals.has_enough_room,
-				},
-				{
-					"fileformat",
-					symbols = {
-						unix = "LF",
-						dos = "CRLF",
-						mac = "CR", -- Legacy macOS
-					},
-					padding = { left = 1 },
-				},
+				-- {
+				-- 	"encoding",
+				-- 	fmt = string.upper,
+				-- 	padding = { left = 1 },
+				-- 	cond = conditionals.has_enough_room,
+				-- },
+				-- {
+				-- 	"fileformat",
+				-- 	symbols = {
+				-- 		unix = "LF",
+				-- 		dos = "CRLF",
+				-- 		mac = "CR", -- Legacy macOS
+				-- 	},
+				-- 	padding = { left = 1 },
+				-- },
 				components.tabwidth,
 			},
 			lualine_y = {
@@ -378,7 +344,7 @@ return function()
 		inactive_sections = {
 			lualine_a = {},
 			lualine_b = {},
-			-- lualine_c = { "filename" },
+			lualine_c = { "filename" },
 			-- lualine_x = { "location" },
 			lualine_y = {},
 			lualine_z = {},

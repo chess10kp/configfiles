@@ -107,6 +107,8 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 		{
 			"NvChad/nvim-colorizer.lua",
+      lazy = true, 
+      cmd = "ColorizerToggle",
 			config = require("editor.colorizer"),
 		},
 		{

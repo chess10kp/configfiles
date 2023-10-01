@@ -70,6 +70,7 @@ completion["hrsh7th/nvim-cmp"] = {
 	},
 }
 completion["zbirenbaum/copilot.lua"] = {
+  enabled = false,
 	lazy = true,
 	cmd = "Copilot",
 	event = "InsertEnter",

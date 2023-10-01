@@ -2,7 +2,8 @@
   border: none;
   min-height: 0px;
   border-radius: 0;
-  font-family: "Terminess Nerd Font", Roboto, sans-serif;
+  font-family: "Terminess Nerd Font ", Roboto, sans-serif;
+  font-weight: bold;
   font-size: 8px;
   color: #89b4fa;
 }

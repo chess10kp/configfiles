@@ -3,7 +3,6 @@ local map_cr = bind.map_cr
 local map_cu = bind.map_cu
 local map_cmd = bind.map_cmd
 local map_callback = bind.map_callback
-require("keymap.helpers")
 
 local plug_map = {
 	-- Plugin: vim-fugitive
@@ -91,9 +90,9 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-S-P>"] = map_callback(function()
-			_command_panel()
-		end)
+	["n|<C-S-P>"] = map_callback( function() 
+    require("telescope.builtin").keymaps() 
+  end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("tool: show keymaps"),

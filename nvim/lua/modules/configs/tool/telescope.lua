@@ -3,6 +3,7 @@ return function()
 	local lga_actions = require("telescope-live-grep-args.actions")
 	local project_actions = require("telescope._extensions.project.actions")
   local fb_actions = require('telescope').extensions.file_browser.actions
+  local actions = require('telescope.actions')
 
 	require("telescope").setup({
 		defaults = {
@@ -125,11 +126,10 @@ return function()
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {
-            -- ["<Tab>" ] = fb_actions.select_default(),
+            ["<Tab>" ] = actions.select_default, 
           },
 					["n"] = {
-            
-            ["<bs>"] = function() end
+            ["<BS>"] = function() end
           },
 				},
 			},
