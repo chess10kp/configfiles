@@ -1,7 +1,7 @@
 // vim: ft=json fdm=manual
 {
     "position": "top",
-    //"height": 27, // Waybar height (to be removed for auto height)
+    "height": 15, // Waybar height (to be removed for auto height)
     "modules-left": [
         "custom/logo",
         "wlr/workspaces",

@@ -41,13 +41,13 @@ settings["load_big_files_faster"] = false
 -- Parameters will be automatically completed as you type.
 -- Example: { sky = "#04A5E5" }
 ---@type palette
-settings["palette_overwrite"] = {}
+settings["palette_overwrite"] = {mantle = "#11111B"}
 
-settings["colorscheme"] = "onedark_dark"
+settings["colorscheme"] = "catppuccin-mocha"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean
-settings["transparent_background"] = false
+settings["transparent_background"] = true
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.

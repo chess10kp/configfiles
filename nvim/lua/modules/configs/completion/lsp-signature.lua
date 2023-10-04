@@ -4,7 +4,7 @@ return function()
 		-- TODO: Remove the following line when nvim-cmp#1613 gets resolved
 		check_completion_visible = false,
 		floating_window = true,
-		floating_window_above_cur_line = true,
+		floating_window_above_cur_line = false,
 		hi_parameter = "Search",
 		hint_enable = true,
 		transparency = nil, -- disabled by default, allow floating win transparent value 1~100

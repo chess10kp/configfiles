@@ -22,14 +22,23 @@ case "$1" in
     battery="$(cat /sys/class/power_supply/BAT1/capacity)"
     charging="$(cat /sys/class/power_supply/ACAD/online)"
     if [[ "$charging" == 1 ]]; then
-      notify-send -t 2000 --urgency=CRITICAL "Battery Charging" "Level: $battery%"
+      notify-send -t 2000 -i ~/.config/scripts/images/battery-bolt-alt-svgrepo-com.svg  "Level: $battery%"
     else
-      notify-send -t 2000 --urgency=CRITICAL "Battery Unplugged" "Level: $battery%"
+      if [[ "$battery" -gt 90 ]]; then 
+        notify-send -t 2000 -i ~/.config/scripts/images/battery-full.svg "Level: $battery%"
+      elif [[ "$battery" -gt 60 ]]; then
+        notify-send -t 2000  -i ~/.config/scripts/imagees/battery-mid.svg  "Level: $battery%"
+      elif [[ "$battery" -gt 30 ]]; then 
+        notify-send -t 2000 -i ~/.config/scripts/images/battery-low.svg "Level: $battery%"
+      else 
+        notify-send -t 2000 -i ~/.config/scripts/images/battery-slash-svgrepo-com.svg "Level: $battery%"
+      fi
+
     fi
   ;;
   time)
     time="$(date '+%H:%M:%S')"
-    notify-send -t 2000 --urgency=CRITICAL "Time" "$time"
+    notify-send -t 2000 -i ~/.config/scripts/images/clock.svg "$time"
   ;;
   *) echo default
   ;;

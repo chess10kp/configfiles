@@ -62,8 +62,8 @@ editor["junegunn/vim-easy-align"] = {
 	cmd = "EasyAlign",
 }
 editor["RRethy/vim-illuminate"] = { --illuminates corresponding brackers
-	lazy = false,
-	event = { "CursorHold", "CursorHoldI" },
+	lazy = true,
+	event = {"InsertEnter",  "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
 -- editor["luukvbaal/stabilize.nvim"] = {

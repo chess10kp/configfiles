@@ -4,6 +4,10 @@ return function()
 
 	require("catppuccin").setup({
 		flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
+		no_bold = false,
+		no_underline = false,
+		no_italic = false,
+		custom_highlights = {},
 		background = { light = "latte", dark = "mocha" },
 		dim_inactive = {
 			enabled = false,
@@ -32,6 +36,14 @@ return function()
 		},
 		integrations = {
 			treesitter = true,
+			barbecue = false,
+			dropbar = false,
+			flash = false,
+			headlines = false,
+			rainbow_delimiters = false,
+			sandwich = false,
+			octo = false,
+			ts_rainbow2 = false,
 			native_lsp = {
 				enabled = true,
 				virtual_text = {
@@ -70,13 +82,13 @@ return function()
 			markdown = true,
 			mason = true,
 			mini = false,
-			navic = { enabled = true },
+			navic = false,
 			neogit = false,
 			neotest = false,
-			neotree = { enabled = false, show_root = true, transparent_panel = false },
+			neotree = false,
 			noice = false,
 			notify = true,
-			nvimtree = true,
+			nvimtree = false,
 			overseer = false,
 			pounce = false,
 			semantic_tokens = true,
@@ -89,10 +101,11 @@ return function()
 			vimwiki = false,
 			which_key = true,
 		},
-		color_overrides = {},
+		color_overrides = { },
 		highlight_overrides = {
 			---@param cp palette
 			all = function(cp)
+      cp.mantle = "#11111b"
 				return {
 					-- For base configs
 					NormalFloat = { fg = cp.text, bg = transparent_background and cp.none or cp.mantle },

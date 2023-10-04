@@ -5,6 +5,10 @@ local ui = {}
 -- 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 -- 	config = require("ui.bufferline"),
 -- }
+
+ui["Everblush/everblush.vim"] = {
+  lazy = true,
+}
 ui["olimorris/onedarkpro.nvim"] = {
   lazy = true,
 }
@@ -14,6 +18,7 @@ ui["nyoom-engineering/oxocarbon.nvim"] = {
 }
 ui["catppuccin/nvim"] = {
   lazy = true,
+  name = "catppuccin",
 }
 ui["ishan9299/nvim-solarized-lua"] = {
   lazy = true,

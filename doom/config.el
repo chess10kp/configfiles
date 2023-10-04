@@ -79,8 +79,6 @@
 ;; they are implemented.
 
 (setq default-tab-width 8)
-(setq x-select-enable-clipboard nil)
-(setq doom-leader-key ";"
-      doom-localleader-key  ";" )
+(setq select-enable-clipboard nil)
 
 (add-hook 'haskell-mode-hook #'hident-mode)

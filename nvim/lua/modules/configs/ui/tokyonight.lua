@@ -1,5 +1,6 @@
 return function()
 	require("tokyonight").setup({
+    on_colors = function() end,
 		style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 		light_style = "day", -- The theme is used when the background is set to light
 		transparent = true, -- Enable this to disable setting the background color
@@ -23,6 +24,7 @@ return function()
 
 		on_highlights = function(hl, c)
 			local prompt = "#2d3149"
+      local bg = "#11111b"
 			hl.TelescopeNormal = {
 				bg = "none",
 				fg = c.fg_dark,

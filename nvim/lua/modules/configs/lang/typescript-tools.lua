@@ -35,7 +35,7 @@ require("typescript-tools").setup {
           includeCompletionsForImportStatements = true, 
       },
     -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
-    complete_function_calls = false,
+    complete_function_calls = true,
   },
 }
 

@@ -1,7 +1,7 @@
 // vim: ft=json fdm=manual
 {
     "position": "top",
-    "height": 20, // Waybar height (to be removed for auto height)
+    "height": 15, // Waybar height (to be removed for auto height)
     "modules-left": [
     ],
     "modules-center": [

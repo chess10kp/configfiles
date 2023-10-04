@@ -14,19 +14,7 @@ tool["folke/which-key.nvim"] = {
 }
 tool["takac/vim-hardtime"] = {
 	lazy = false,
-	-- cmd = "HardTimeToggle",
 }
--- tool["nvim-tree/nvim-tree.lua"] = {
--- 	lazy = true,
--- 	cmd = {
--- 		"NvimTreeToggle",
--- 		"NvimTreeOpen",
--- 		"NvimTreeFindFile",
--- 		"NvimTreeFindFileToggle",
--- 		"NvimTreeRefresh",
--- 	},
--- 	config = require("tool.nvim-tree"),
--- }
 tool["simrat39/symbols-outline.nvim"] = {
 	lazy = true,
 	cmd = "SymbolsOutline",
@@ -102,68 +90,35 @@ tool["nvim-telescope/telescope.nvim"] = {
 ----------------------------------------------------------------------
 --                           DAP Plugins                            --
 ----------------------------------------------------------------------
--- tool["mfussenegger/nvim-dap"] = {
--- 	lazy = true,
---   event = "VeryLazy",
--- 	cmd = {
--- 		"DapSetLogLevel",
--- 		"DapShowLog",
--- 		"DapContinue",
--- 		"DapToggleBreakpoint",
--- 		"DapToggleRepl",
--- 		"DapStepOver",
--- 		"DapStepInto",
--- 		"DapStepOut",
--- 		"DapTerminate",
--- 	},
--- 	config = require("tool.dap"),
--- 	dependencies = {
--- 		{
--- 			"rcarriga/nvim-dap-ui",
--- 			config = require("tool.dap.dapui"),
---       },
--- 		},
--- 		{
--- 		},
--- 	},
--- }
--- tool["theHamsta/nvim-dap-virtual-text"] = {
--- lazy = true,
--- ft = "python",
--- dependencies = {
---   "mfussenegger/nvim-dap",
---   "mfussenegger/nvim-dap-ui"
--- }
--- }
--- tool["mfussenegger/nvim-dap-python"] = {
---   lazy = true,
--- 			ft = "python",
--- 			dependencies = {
--- 				"mfussenegger/nvim-dap",
--- 			},
--- 			config = require("tool.dap.nvim-dap-python"),
--- }
--- tool["mfussenegger/nvim-dap"] = {
--- 	lazy = true,
--- 	cmd = {
--- 		"DapSetLogLevel",
--- 		"DapShowLog",
--- 		"DapContinue",
--- 		"DapToggleBreakpoint",
--- 		"DapToggleRepl",
--- 		"DapStepOver",
--- 		"DapStepInto",
--- 		"DapStepOut",
--- 		"DapTerminate",
--- 	},
--- 	config = require("tool.dap"),
--- 	dependencies = {
--- 		{
--- 			"rcarriga/nvim-dap-ui",
--- 			config = require("tool.dap.dapui"),
--- 		},
--- 		{ "jay-babu/mason-nvim-dap.nvim" },
--- 	},
--- }
+tool["mfussenegger/nvim-dap"] = {
+	lazy = true,
+}
+tool["mfussenegger/nvim-dap-python"] = {
+	lazy = true,
+	ft = "python",
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"mfussenegger/nvim-dap-ui",
+	},
+	config = function(_, opts)
+		local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+		require("dap-python").setup(path)
+	end,
+}
+tool["mfussenegger/nvim-dap-ui"] = {
+	lazy = true,
+	dependencies = {
+		"mfussenegger/nvim-dap",
+	},
+	config = require("tool.dap"),
+}
+tool["theHamsta/nvim-dap-virtual-text"] = {
+	lazy = true,
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"mfussenegger/nvim-dap-ui",
+	},
+  config = require("tool.dap.virtualtext")
+}
 
 return tool

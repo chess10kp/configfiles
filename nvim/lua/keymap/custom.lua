@@ -9,7 +9,7 @@ local vim_path = require("core.global").vim_path
 
 local plug_map = {
 	-- general keymaps
-  ["n|<C-n>"] = map_cu("Lexplore!<CR><CR>"):with_noremap():with_nowait():with_silent():with_desc("Toggle file tree"),
+  ["n|<C-n>"] = map_cu("Lexplore<CR><CR>"):with_noremap():with_nowait():with_silent():with_desc("Toggle file tree"),
 	["n|<leader>ss"] = map_cr("mks!"),
 	["n|<leader>lcd"] = map_cr("lcd %:h | lua print('directory changed')")
 		:with_noremap()
@@ -20,7 +20,6 @@ local plug_map = {
 	["n|<M-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 	["n|<M-S-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 	["n|<M-S-j>"] = map_cr("tabnext"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
-  ["n|;;"] = map_cmd(":"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>w"] = map_cu("write"):with_noremap():with_silent():with_desc("editn: Save file"),
 	["n|<leader>q"] = map_cu(":q"):with_noremap():with_silent():with_desc("editn: Quit window"),
 	["n|<leader>bd"] = map_cu("BufDel"):with_noremap():with_silent(),
@@ -41,6 +40,7 @@ local plug_map = {
   ["n|<leader>ht"] = map_cr("HardTimeToggle"):with_desc("Toggle hard time"):with_noremap():with_nowait(),
   ["n|<leader>cl"] = map_cmd(":colorscheme "):with_noremap():with_nowait(),
 
+
 	["n|ciw"] = map_cmd('"_ciw'):with_noremap():with_desc("delete inside word"),
 	["n|caw"] = map_cmd('"_caw'):with_noremap():with_desc("delete around word"),
 	["n|ci("] = map_cmd('"_ci('):with_noremap():with_desc("delete inside parenthesis"),
@@ -51,9 +51,12 @@ local plug_map = {
 	["n|ca{"] = map_cmd('"_ca{'):with_noremap():with_desc("delete around braces"),
 	["n|ci}"] = map_cmd('"_ci}'):with_noremap():with_desc("delete inside braces"),
 	["n|ca}"] = map_cmd('"_ca}'):with_noremap():with_desc("delete around braces"),
-	["n|<leader><leader>"] = map_cmd('"'):with_noremap():with_silent(),
+
+	["n|<leader><leader>"] = map_cmd(':'):with_noremap():with_silent(),
 	["n|H"] = map_cmd("^"):with_noremap():with_silent(),
 	["n|L"] = map_cmd("$"):with_noremap():with_silent(),
+
+  ["c|jk"] = map_cmd("<ESC><CR>"):with_noremap():with_nowait(),
 
   --command mappings 
   ["n|<leader>lx" ] = map_cmd(":LspStop "):with_nowait():with_noremap():with_desc("lsp: Stop"),

@@ -47,14 +47,13 @@ return {
     )
   ),
 s(
-    "h1",
+    "prnt",
     fmt(
       [[
-      <h1 class="{}">{}<h1>
+      print({})
       ]],
       {
-        i(1, "classname"),
-        i(2, ""),
+        i(1, "expression"),
       },
       {
         delimiters = "{}",

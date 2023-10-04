@@ -3,7 +3,7 @@
   min-height: 0px;
   border-radius: 0;
   font-family: "Terminess Nerd Font ", Roboto, sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 8px;
   color: #89b4fa;
 }
@@ -36,6 +36,11 @@ window#waybar {
   background: #e6b450;
 }
 
+#memory {
+  background: #ffa3aa;
+  color: black;
+  border-radius: 0;
+}
 
 #workspaces {
 	padding-top: 0px;

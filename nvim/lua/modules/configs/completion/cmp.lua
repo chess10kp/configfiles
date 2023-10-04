@@ -109,6 +109,7 @@ return function()
 			disallow_partial_matching = true,
 		},
 		performance = {
+      confirm_resolve_timeout = 100,
 			fetching_timeout = 100,
 			async_budget = 1,
 			max_view_entries = 30,

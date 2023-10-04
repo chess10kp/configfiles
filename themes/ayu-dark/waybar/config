@@ -7,6 +7,7 @@
         "clock",
     ],
     "modules-right": [
+    "memory",
         "pulseaudio",
         "tray",
         "network",
@@ -77,5 +78,9 @@
             ] // 醙
         },
         "on-click": "pavucontrol"
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{used}",
     },
 }
