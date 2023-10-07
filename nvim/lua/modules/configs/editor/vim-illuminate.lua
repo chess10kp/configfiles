@@ -22,6 +22,6 @@ return function()
 			"neogitstatus",
 			"toggleterm",
 		},
-		under_cursor = false,
+		under_cursor = true,
 	})
 end

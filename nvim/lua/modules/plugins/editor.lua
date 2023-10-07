@@ -11,6 +11,7 @@ editor["rainbowhxch/accelerated-jk.nvim"] = {
 -- 	config = require("editor.auto-session"),
 -- }
 editor["olimorris/persisted.nvim"] = {
+  enabled = false,
 	lazy = true,
 	cmd = {
 		"SessionToggle",

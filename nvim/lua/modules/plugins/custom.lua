@@ -1,6 +1,7 @@
 local custom = {}
 
 custom["ibhagwan/fzf-lua"] = {
+  enabled = false,
 	lazy = true,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
@@ -23,7 +24,8 @@ custom["folke/todo-comments.nvim"] = {
 -- 	end,
 -- }
 custom["lervag/vimtex"] = {
-	lazy = false,
+	lazy = true,
+  ft = "tex"
 }
 custom["ggandor/leap.nvim"] = {
 	lazy = false,

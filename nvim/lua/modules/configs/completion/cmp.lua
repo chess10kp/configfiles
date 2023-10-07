@@ -44,6 +44,7 @@ return function()
 				scrollbar = false,
 			},
 			documentation = {
+        max_height = 4,
 				border = border("CmpDocBorder"),
 				winhighlight = "Normal:CmpDoc",
 			},
@@ -124,15 +125,6 @@ return function()
 			["<C-S-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-S-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-w>"] = cmp.mapping.close(),
-			["<Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item()
-				elseif require("luasnip").expand_or_locally_jumpable() then
-					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"))
-				else
-					fallback()
-				end
-			end, { "i", "s" }),
 			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
@@ -157,7 +149,6 @@ return function()
 			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
-			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
 			{ name = "copilot" },

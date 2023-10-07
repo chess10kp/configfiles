@@ -40,6 +40,7 @@ alias ta="tmux attach"
 alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias gcommit="git commit"
+alias neofetch='neofetch --ascii "$(figlet sigma balls | lolcat)"'
 alias gadd="git add"
 alias ls="exa "
 alias la="exa -al --icons"

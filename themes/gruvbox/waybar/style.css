@@ -1,14 +1,14 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Iosevka Nerd Font", Roboto, sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 10px;
   font-weight: 400;
   color: #ebdbb2;
 }
 
 window#waybar {
-  background-color: #1d2021;;
+  background-color: #0e1419;;
   margin: 0;
   /* #1d2021; */
 }

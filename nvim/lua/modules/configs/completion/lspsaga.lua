@@ -65,7 +65,7 @@ return function()
 			sign = true,
 			enable_in_insert = true,
 			sign_priority = 20,
-			virtual_text = false,
+			virtual_text = true,
 		},
 		diagnostic = {
 			text_hl_follow = true,

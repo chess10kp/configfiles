@@ -1,3 +1,4 @@
+
 return function ()
 require("gruvbox").setup({
   undercurl = true,
@@ -18,11 +19,12 @@ require("gruvbox").setup({
   contrast = "", -- can be "hard", "soft" or empty string
   overrides = {
       BufferLineFill = {bg = "#282828"},
+    SignColumn = {bg = "#0e1419"},
   },
   dim_inactive = false,
   transparent_mode = false,
  palette_overrides = {
-        dark0 = "#1d2021",
+        dark0 = "#0e1419",
     }
 })
 end

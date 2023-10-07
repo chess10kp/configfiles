@@ -9,7 +9,7 @@ tool["mbbill/undotree"] = {
 }
 tool["folke/which-key.nvim"] = {
 	lazy = true,
-	event = "VeryLazy",
+	event = "InsertEnter",
 	config = require("tool.which-key"),
 }
 tool["takac/vim-hardtime"] = {

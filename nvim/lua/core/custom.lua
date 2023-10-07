@@ -24,6 +24,16 @@ vim.g.hardtime_allow_different_key = 1
 -- 		vim.opt.number = false
 -- 	end,
 -- })
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  callback = function()
+    vim.opt.cmdheight = 1
+  end
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  callback = function()
+  vim.opt.cmdheight = 0
+  end
+})
 
 vim.api.nvim_create_user_command("LuaSnipEdit", function()
     vim.cmd[[e ~/.config/nvim/lualoader/all.lua]]

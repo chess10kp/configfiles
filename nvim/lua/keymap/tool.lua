@@ -17,7 +17,7 @@ local plug_map = {
 	-- Plugin: toggleterm
 	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
-	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
+	["n|<C-\\>"] = map_cr([[execute ttcount . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
@@ -25,11 +25,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["t|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle horizontal"),
-	["n|<M-i>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]),
+	["n|<M-i>"] = map_cmd([[<Cmd>ToggleTerm<CR>]]),
 	["t|<C-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
 	["n|<A-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
 		:with_noremap()

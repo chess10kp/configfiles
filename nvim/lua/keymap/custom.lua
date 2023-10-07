@@ -37,6 +37,10 @@ local plug_map = {
 		:with_desc("format the current file"),
 
 	--convienience mappings
+  ["o|aq"] = map_cmd('a"'):with_noremap():with_nowait(),
+  ["o|iq"] = map_cmd('i"'):with_noremap():with_nowait(),
+  ["o|aQ"] = map_cmd("a'"):with_noremap():with_nowait(),
+  ["o|iQ"] = map_cmd("i'"):with_noremap():with_nowait(),
   ["n|<leader>ht"] = map_cr("HardTimeToggle"):with_desc("Toggle hard time"):with_noremap():with_nowait(),
   ["n|<leader>cl"] = map_cmd(":colorscheme "):with_noremap():with_nowait(),
 
@@ -56,15 +60,12 @@ local plug_map = {
 	["n|H"] = map_cmd("^"):with_noremap():with_silent(),
 	["n|L"] = map_cmd("$"):with_noremap():with_silent(),
 
-  ["c|jk"] = map_cmd("<ESC><CR>"):with_noremap():with_nowait(),
 
-  --command mappings 
-  ["n|<leader>lx" ] = map_cmd(":LspStop "):with_nowait():with_noremap():with_desc("lsp: Stop"),
+  --Plugin command mappings 
+  -- LSP
+  ["n|<leader>lx" ] = map_cmd(":lspstop "):with_nowait():with_noremap():with_desc("lsp: stop"),
   ["n|<leader>ls" ] = map_cmd(":LspStart "):with_nowait():with_noremap():with_desc("lsp: Start"),
   ["n|<leader>ms"] = map_cu("Mason"):with_noremap():with_nowait():with_desc("lsp: Toggle Mason")
 }
 
 bind.nvim_load_mapping(plug_map)
-
-
-

@@ -257,7 +257,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "ayu",
+			theme = require("core.settings").colorscheme,
 			disabled_filetypes = {},
 			component_separators = "|",
 		},

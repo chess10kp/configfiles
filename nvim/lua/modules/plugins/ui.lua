@@ -6,6 +6,10 @@ local ui = {}
 -- 	config = require("ui.bufferline"),
 -- }
 
+ui["Mofiqul/vscode.nvim"]  = {
+  lazy = true,
+  name = "vscode",
+}
 ui["Everblush/everblush.vim"] = {
   lazy = true,
 }
@@ -56,43 +60,38 @@ ui["decaycs/decay.nvim"] = {
 -- ui["rktjmp/lush.nvim"] = {
 -- 	lazy = false,
 -- }
--- ui["loganswartz/selenized.nvim"] = {
--- 	lazy = false,
---   dependencies = {
---     'rktjmp/lush.nvim'
---   }
--- }
 ui["ellisonleao/gruvbox.nvim"] = {
   lazy = true,
+  event = "BufReadPost",
   name = "gruvbox",
   config = require("ui.gruvbox"),
 }
 
--- ui["lewis6991/gitsigns.nvim"] = {
--- 	lazy = true,
--- 	event = { "CursorHold", "CursorHoldI" },
--- 	config = require("ui.gitsigns"),
--- }
+ui["lewis6991/gitsigns.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("ui.gitsigns"),
+}
 -- ui["lukas-reineke/indent-blankline.nvim"] = {
 -- lazy = true,
 -- event = "BufReadPost",
 -- config = require("ui.indent-blankline"),
 -- }
-ui["nvim-lualine/lualine.nvim"] = {
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.lualine"),
+-- ui["nvim-lualine/lualine.nvim"] = {
+-- 	lazy = true,
+-- 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+-- 	config = require("ui.lualine"),
+-- }
+ui["rebelot/heirline.nvim"] = {
+  lazy = true,
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
+  config = require("ui.heirline"),
 }
--- ui["rebelot/heirline.nvim"] = {
---   lazy = false,
---   event = { "BufReadPost", "BufAdd", "BufNewFile" },
---   config = require("ui.heirline"),
--- }
--- ui["zbirenbaum/neodim"] = {
--- lazy = true,
--- event = "LspAttach",
--- config = require("ui.neodim"),
--- }
+ui["zbirenbaum/neodim"] = {
+lazy = true,
+event = "LspAttach",
+config = require("ui.neodim"),
+}
 ui["rcarriga/nvim-notify"] = {
   lazy = false,
   event = "VeryLazy",

@@ -146,5 +146,5 @@ return function()
 	-- require("telescope").load_extension("session-lens")
 	require("telescope").load_extension("file_browser")
 	require("telescope").load_extension("zoxide")
-	require("telescope").load_extension("persisted")
+	-- require("telescope").load_extension("persisted")
 end
