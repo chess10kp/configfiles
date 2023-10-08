@@ -25,7 +25,7 @@ password_files=("${password_files[@]#"$prefix"/}")
 password_files=("${password_files[@]%.gpg}")
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
-    password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" --height 35 "$@")
+    password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" --font=/usr/share/fonts/TTF/TerminessNerdFont-Regular.ttf "$@")
 elif [[ -n $DISPLAY ]]; then
     password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" -h 35 "$@")
 fi

@@ -22,10 +22,10 @@ keys = [
         # Switch between windows
         Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
         Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-        Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
         Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
         # Key([mod], "space", lazy.layout.next(),
-        #       desc="Move window focus to other window"),
+    #       desc="Move window focus to other window"),
         Key([mod, "control"], "h", lazy.layout.grow_left(),
             desc="Grow window to the left"),
         Key([mod, "control"], "l", lazy.layout.grow_right(),

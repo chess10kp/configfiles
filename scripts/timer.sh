@@ -2,9 +2,8 @@
 # shellcheck disable=1090,2034,2207,2154,2086,2216
 
 source ~/.config/scripts/configvars.sh
-alarm_time=$(printf "" | $dmenu$rofi_prompt "Time ")
+alarm_time=$(printf "" | $dmenu_prompt "Time ")
 
-echo $alarm_time
 [[ $alarm_time == "" ]] && exit 0
 
 case "$(echo $alarm_time | sed 's/[0-9]*//g')" in 

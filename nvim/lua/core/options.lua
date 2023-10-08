@@ -133,6 +133,12 @@ g.netrw_banner = 0
 g.netrw_browse_split = 4
 g.netrw_altv = 1
 
+--Plugin: hard time
+vim.g.hardtime_default_on = 1
+vim.g.hardtime_ignore_quickfix = 1
+vim.g.hardtime_allow_different_key = 1
+
+--Plugin: vimtex
 vim.cmd([[let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex']])
 
 local function isempty(s)
