@@ -23,6 +23,59 @@ return function()
 			git_change = utils.get_highlight("diffChanged").fg,
 		}
 	end
+
+	local Git = {
+		condition = conditions.is_git_repo,
+
+		init = function(self)
+			self.status_dict = vim.b.gitsigns_status_dict
+			self.has_changes = self.status_dict.added ~= 0
+				or self.status_dict.removed ~= 0
+				or self.status_dict.changed ~= 0
+		end,
+
+		hl = { fg = "orange" },
+
+		{ -- git branch name
+			provider = function(self)
+				return " " .. self.status_dict.head
+			end,
+			hl = { bold = true },
+		},
+		-- You could handle delimiters, icons and counts similar to Diagnostics
+		{
+			condition = function(self)
+				return self.has_changes
+			end,
+			provider = "(",
+		},
+		{
+			provider = function(self)
+				local count = self.status_dict.added or 0
+				return count > 0 and ("+" .. count)
+			end,
+			hl = { fg = "git_add" },
+		},
+		{
+			provider = function(self)
+				local count = self.status_dict.removed or 0
+				return count > 0 and ("-" .. count)
+			end,
+		},
+		{
+			provider = function(self)
+				local count = self.status_dict.changed or 0
+				return count > 0 and ("~" .. count)
+			end,
+			hl = { fg = "git_change" },
+		},
+		{
+			condition = function(self)
+				return self.has_changes
+			end,
+			provider = ")",
+		},
+	}
 	local function getDiagnostics()
 		local Diagnostics = {
 			condition = conditions.has_diagnostics,
@@ -149,8 +202,8 @@ return function()
 				end
 				return filename
 			end,
-			hl = { fg = "green", bg= "None" },
-      {update = "BufEnter"},
+			hl = { fg = "green", bg = "None" },
+			{ update = "BufEnter" },
 		}
 
 		local FileFlags = {
@@ -168,7 +221,7 @@ return function()
 				provider = "",
 				hl = { fg = "orange" },
 
-      {update = "BufEnter"},
+				{ update = "BufEnter" },
 			},
 		}
 
@@ -192,7 +245,7 @@ return function()
 			utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
 			FileFlags,
 			-- FileIcon,
-      {update = "BufEnter"},
+			{ update = "BufEnter" },
 			{ provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 		)
 		return FileNameBlock
@@ -225,22 +278,25 @@ return function()
 		end,
 		getCWD(),
 		Align,
+		hl = { bg = "None" },
 	}
 	local DefaultStatusline = {
-		getCWD(),
 		getFileInfo(),
-		Space,
 		getDiagnostics(),
+		Align,
+		Git,
 		Space,
-    Align,
-		-- getSearches(),
-    Align
+		getCWD(),
+		Space,
+		getSearches(),
+		hl = { bg = "None" },
 	}
 
 	local StatusLine = {
 		fallthrough = false,
 		SpecialStatusline,
 		DefaultStatusline,
+		hl = { bg = "None" },
 	}
 
 	local function setup_colors()
@@ -265,8 +321,73 @@ return function()
 		}
 	end
 
-	-- require("heirline").load_colors(setup_colors)
-	-- or pass it to config.opts.colors
+	local TablineBufnr = {
+		provider = function(self)
+			return tostring(self.bufnr) .. ". "
+		end,
+		hl = { bg = "None" },
+	}
+
+	-- we redefine the filename component, as we probably only want the tail and not the relative path
+	local TablineFileName = {
+		provider = function(self)
+			-- self.filename will be defined later, just keep looking at the example!
+			local filename = self.filename
+			filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
+			filename = " " .. filename .. " "
+			return filename
+		end,
+		hl = function(self)
+			return { bold = self.is_active or self.is_visible, italic = true, bg = "None" }
+		end,
+	}
+
+	-- this looks exactly like the FileFlags component that we saw in
+	-- #crash-course-part-ii-filename-and-friends, but we are indexing the bufnr explicitly
+	-- also, we are adding a nice icon for terminal buffers.
+	local TablineFileFlags = {
+		{
+			condition = function(self)
+				return vim.api.nvim_buf_get_option(self.bufnr, "modified")
+			end,
+			provider = "[+]",
+			hl = { fg = "green", bg = "None" },
+		},
+		{
+			condition = function(self)
+				return not vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
+					or vim.api.nvim_buf_get_option(self.bufnr, "readonly")
+			end,
+			provider = function(self)
+				if vim.api.nvim_buf_get_option(self.bufnr, "buftype") == "terminal" then
+					return "  "
+				else
+					return ""
+				end
+			end,
+			hl = { fg = "orange", bg = "None" },
+		},
+	}
+
+	-- Here the filename block finally comes together
+	local TablineFileNameBlock = {
+		init = function(self)
+			self.filename = vim.api.nvim_buf_get_name(self.bufnr)
+		end,
+		hl = function(self)
+			if self.is_active then
+				return "TabLineSel"
+			else
+				return "TabLine"
+			end
+		end,
+		TablineFileName,
+		TablineFileFlags,
+	}
+
+	-- and here we go
+	local BufferLine = utils.make_buflist(TablineFileNameBlock)
+	local Tabline = { BufferLine, hl = { bg = "None" } }
 
 	vim.api.nvim_create_augroup("Heirline", { clear = true })
 	vim.api.nvim_create_autocmd("ColorScheme", {
@@ -278,6 +399,7 @@ return function()
 
 	require("heirline").setup({
 		statusline = StatusLine,
+		tabline = Tabline,
 		opts = {
 			colors = setup_colors(),
 		},

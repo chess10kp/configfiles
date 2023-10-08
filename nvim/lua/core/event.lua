@@ -27,6 +27,18 @@ end
 -- 		end
 -- 	end,
 -- })
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  callback = function()
+    vim.opt.cmdheight = 1
+  end
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  callback = function()
+  vim.opt.cmdheight = 0
+  end
+})
+
 local mapping = require("keymap.completion")
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -34,6 +46,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		mapping.lsp(event.buf)
 	end,
 })
+
+-- AUTOCMDS
+-- vim.api.nvim_create_autocmd("WinEnter", {
+-- 	callback = function()
+-- 		-- local bufnr = vim.fn.bufnr("%")
+-- 		local bufname = vim.api.nvim_buf_get_name(0)
+-- 			if bufname ~= "OUTLINE" then
+-- 				vim.opt.relativenumber = true
+-- 				vim.opt.number = true
+-- 		end
+-- 	end,
+-- })
+-- vim.api.nvim_create_autocmd("WinLeave, BufCreate", {
+-- 	callback = function()
+-- 		vim.opt.relativenumber = false
+-- 		vim.opt.number = false
+-- 	end,
+-- })
 
 -- auto close NvimTree
 vim.api.nvim_create_autocmd("BufEnter", {

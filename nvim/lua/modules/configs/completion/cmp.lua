@@ -149,7 +149,7 @@ return function()
 			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
-			{ name = "buffer" },
+			{ name = "buffer", max_item_count = 3 },
 			{ name = "latex_symbols" },
 			{ name = "copilot" },
 			-- { name = "codeium" },

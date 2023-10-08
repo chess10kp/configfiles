@@ -19,6 +19,7 @@ require("gruvbox").setup({
   contrast = "", -- can be "hard", "soft" or empty string
   overrides = {
       BufferLineFill = {bg = "#282828"},
+      CursorLine = {bg = "None"},
     SignColumn = {bg = "#0e1419"},
   },
   dim_inactive = false,

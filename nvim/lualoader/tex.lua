@@ -13,44 +13,69 @@ local fmt = require("luasnip.extras.fmt").fmt
 -- local rep = require("luasnip.extras").rep
 
 return {
-	s("solutiontemplate",
-	fmt([[
-\documentclass{article} 
+	s(
+		"tabletemplate",
+		fmt(
+			[[
+\begin{table}[h!]
+  \begin{center}
+    \caption{Your first table.}
+    \label{tab:table1}
+    \begin{tabular}{<>|<>|<>} 
+      \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+      $\alpha$ & $\beta$ & $\gamma$ \\
+      \hline
+      1 & 1110.1 & a\\
+      2 & 10.1 & b\\
+      3 & 23.113231 & c\\
+    \end{tabular}
+  \end{center}
+\end{table}
+  ]],
+			{ i(1, "l/c/r"),  i(2, "l/c/r"),  i(3, "l/c/r")  },
+			{ delimiters = "<>" }
+		)
+	),
+	s(
+		"solutiontemplate",
+		fmt(
+			[[
+\documentclass{article}
 
-\usepackage{geometry} 
-\usepackage{amsmath}  
-\usepackage{graphicx}  
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
 
 \newcommand{\question}[2][]{\begin{flushleft}
         \textbf{Question #1}: \textit{#2}
 
 \end{flushleft}}
-\newcommand{\sol}{\textbf{Solution}:} 
+\newcommand{\sol}{\textbf{Solution}:}
 \newcommand{\maketitletwo}[2][]{\begin{center}
-        
+
 \end{center}}
 \begin{document}
     \maketitletwo[5]  % Optional argument is assignment number
     %Keep a blank space between maketitletwo and \question[1]
-    
-    \question[1]{Here is my first question} 
-    
+
+    \question[1]{Here is my first question}
+
     YOUR SOLUTION HERE
-    
+
     \begin{align*}
     \int_0^2 x^2 &= \left. \frac{x^3}{3} \right|_0^2 \\
                  &= \frac{2^3}{3}-\frac{0^3}{3}\\
                  &= \frac{8}{3}
     \end{align*}
 \end{document}
-  ]], 
-    {
- 
-    }, 
-      {
-        delimiters = "<>"
-      })
-  )}, {
+  ]],
+			{},
+			{
+				delimiters = "<>",
+			}
+		)
+	),
+}, {
 	s(
 		"begindoc",
 		fmt(
@@ -77,10 +102,10 @@ return {
 		)
 	),
 	s(
-		"inlineq",
+		"ieq",
 		fmt(
 			[[
-    $$ <> $$
+    $ <> $
       ]],
 			{
 				i(1, "equation"),
@@ -91,10 +116,10 @@ return {
 		)
 	),
 	s(
-		"lineq",
+		"beq", -- block equation
 		fmt(
 			[[
-      $ <> $
+      $$ <> $$
       ]],
 			{
 				i(1, "equation"),
@@ -104,4 +129,12 @@ return {
 			}
 		)
 	),
+    s(
+      "ifrac", 
+      fmt([[
+      \frac{<>}{<>}
+      ]], {
+          i(1, ""), i(2, ""),
+        }, {delimiters = "<>"})
+    )
 }
