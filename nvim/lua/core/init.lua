@@ -145,7 +145,7 @@ end
 
 local load_core = function()
 	createdir()
-	disable_distribution_plugins()
+	-- disable_distribution_plugins()
 	leader_map()
 
 	neovide_config()

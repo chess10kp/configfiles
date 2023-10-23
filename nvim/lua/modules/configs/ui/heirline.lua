@@ -385,7 +385,6 @@ return function()
 		TablineFileFlags,
 	}
 
-	-- and here we go
 	local BufferLine = utils.make_buflist(TablineFileNameBlock)
 	local Tabline = { BufferLine, hl = { bg = "None" } }
 

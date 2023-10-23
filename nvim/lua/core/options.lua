@@ -10,6 +10,7 @@ local g = vim.g
 -- o.winblend = 10,
 
 o.guicursor = "n-v-c-ci:block" --makes everything block cursor
+o.hlsearch = false
 o.autoindent = true
 o.laststatus = 3
 o.autoread = true
@@ -31,7 +32,7 @@ o.completeopt = "menuone,noselect"
 o.concealcursor = "niv"
 o.conceallevel = 0
 o.cursorcolumn = false
-o.cursorline = 0
+o.cursorline = false
 o.diffopt = "filler,iwhite,internal,algorithm:patience"
 o.display = "lastline"
 o.encoding = "utf-8"
@@ -57,7 +58,7 @@ o.list = true
 o.listchars = "tab:  ,nbsp:+,trail: ,extends: ,precedes: "
 o.magic = true
 o.mousescroll = "ver:3,hor:6"
-o.mouse = ""
+o.mouse = "n"
 o.number = true
 o.numberwidth = 1
 o.previewheight = 12
@@ -134,7 +135,7 @@ g.netrw_browse_split = 4
 g.netrw_altv = 1
 
 --Plugin: hard time
-vim.g.hardtime_default_on = 1
+vim.g.hardtime_default_on = 0
 vim.g.hardtime_ignore_quickfix = 1
 vim.g.hardtime_allow_different_key = 1
 

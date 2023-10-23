@@ -55,11 +55,9 @@ window#waybar {
   color: #dee1e6;
 }
 
-#workspaces button.focused {
-  color: #000;
-}
-#workspaces button.active {
-  color: #000;
+#workspaces button.visible, workspaces button.active, workspaces button.visible, workspaces button.special{
+  background: #0e1419;
+  color: #facf89;;
 }
 #backlight,
 #pulseaudio,

@@ -5,5 +5,4 @@ if [[ "$1" == "--bar" ]]; then
 	while pgrep -x waybar >/dev/null; do sleep 1; done
 	waybar &
   sleep 1
-  killall -SIGUSR1 waybar
 fi

@@ -28,9 +28,3 @@ require("keymap.lang")
 require("keymap.tool")
 require("keymap.ui")
 require("keymap.custom")
-
-local keymap = vim.keymap.set
-local default_opts = {   noremap = true , silent = true}
-keymap("i", ")", "()<Left>", default_opts )
-keymap("i", "(", ")", default_opts )
-

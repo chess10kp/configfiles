@@ -7,6 +7,7 @@ return vim.schedule_wrap(function()
 	require("nvim-treesitter.configs").setup({
     sync_install = false,
 		ensure_installed = {
+      "org",
 			"bash",
 			"cmake",
 			"c",

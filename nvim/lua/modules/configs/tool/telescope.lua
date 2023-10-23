@@ -20,8 +20,7 @@ return function()
 			selection_caret = icons.ui.ChevronRight,
 			scroll_strategy = "limit",
 			results_title = false,
-			layout_strategy = "horizontal",
-			path_display = { "absolute" },
+      border = false, 
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -41,7 +40,6 @@ return function()
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
 			color_devicons = true,
-			file_ignore_patterns = { ".git/", ".cache", "build/", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
@@ -67,6 +65,14 @@ return function()
 				exclude = {},
 			},
 			find_files = {
+        theme = "dropdown", 
+        layout_strategy = "horizontal", 
+        border = false, 
+        layout_config = {
+          preview_width = 0 , 
+          anchor = "N",
+        prompt_position = "bottom", 
+        },
 			},
 			buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
@@ -106,23 +112,15 @@ return function()
 					},
 				},
 			},
-			project = {
-				base_dirs = {
-					{ "~/projects/" },
-				},
-				hidden_files = true, -- default: false
-				theme = "dropdown",
-				order_by = "asc",
-				search_by = "title",
-				sync_with_nvim_tree = true, -- default false
-				-- default for on_project_selected = find project files
-				on_project_selected = function(prompt_bufnr)
-					-- Do anything you want in here. For example:
-					project_actions.change_working_directory(prompt_bufnr, false)
-				end,
-			},
 			file_browser = {
 				theme = "dropdown",
+        layout_strategy = "horizontal", 
+        border = false, 
+        layout_config = {
+          preview_width = 0 , 
+          anchor = "N",
+        prompt_position = "bottom", 
+        },
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {

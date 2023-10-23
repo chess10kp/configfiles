@@ -25,13 +25,9 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["n|<M-i>"] = map_cmd([[<Cmd>ToggleTerm<CR>]]),
+	["n|<M-i>"] = map_cmd([[<Cmd>ToggleTerm direction=vertical<CR>]]),
 	["t|<C-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
-	["n|<A-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["i|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
+	["i|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
@@ -39,16 +35,10 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["t|<A-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
-	["n|<F5>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
+	["t|<A-\\>"] = map_cmd("<Cmd>ToggleTerm direction='vertical' size=30<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
 	["n|<A-d>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
 		:with_noremap()
 		:with_silent()
@@ -86,9 +76,9 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-S-P>"] = map_callback( function() 
-    require("telescope.builtin").keymaps() 
-  end)
+	["n|<C-S-P>"] = map_callback(function()
+			require("telescope.builtin").keymaps()
+		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("tool: show keymaps"),
@@ -98,11 +88,9 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Show undo history"),
-  ["n|<leader>fl"] = 
-    map_cu("Telescope lsp_references")
-    ,
+	["n|<leader>fl"] = map_cu("Telescope lsp_references"),
 	["n|<leader>fp"] = map_callback(function()
-        require'telescope'.extensions.project.project{}
+			require("telescope").extensions.project.project({})
 		end)
 		:with_noremap()
 		:with_silent()
@@ -121,7 +109,7 @@ local plug_map = {
 		:with_desc("find: Word in project"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
 	["n|<M-p>"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
-  ["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("Find help"),
+	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("Find help"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
 		:with_silent()
@@ -134,13 +122,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Change current direrctory by zoxide"),
-	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
+	["n|<leader>fb"] = map_cu("Telescope buffers theme=dropdown"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 	["n|<leader>fn"] = map_cu("Telescope file_browser ")
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: open file browser"),
-	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
 
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()

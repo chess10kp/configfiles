@@ -13,10 +13,7 @@ return function()
 		hijack_cursor = true,
 		hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
-<<<<<<< HEAD
-=======
 		open_on_tab = false,
->>>>>>> refs/remotes/origin/main
 		respect_buf_cwd = false,
 		sort_by = "name",
 		sync_root_with_cwd = true,

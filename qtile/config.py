@@ -13,7 +13,7 @@ import subprocess
 mod = "mod4"
 super = "mod4"
 terminal = guess_terminal()
-terminal = "st"
+terminal = "kitty"
 file_browser = "kitty -1 -e 'ranger'"
 editor = "nvim"
 
@@ -38,7 +38,7 @@ keys = [
         Key([super, "control"], "j", lazy.layout.shuffle_down()),
         Key([super, "control"], "k", lazy.layout.shuffle_up()),
         Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-        Key([mod], "d", 
+        Key([mod], "p", 
             lazy.spawn(
                 "dmenu_run -h 35 "
                 ), desc="Run launcher"),

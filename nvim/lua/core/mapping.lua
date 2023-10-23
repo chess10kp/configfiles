@@ -31,7 +31,7 @@ local core_map = {
 	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
 	--["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"), Insert digrams instead
 	["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
-	["i|<C-h>"] = map_cmd("<Left>"):with_desc("Move cursor to the left"),
+	["i|<C-h>"] = map_cmd("<ESC><Left>i"):with_desc("Move cursor to the left"),
 
 	-- Command mode
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editc: Left"),

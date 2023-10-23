@@ -55,12 +55,7 @@ return {
 
 \end{center}}
 \begin{document}
-    \maketitletwo[5]  % Optional argument is assignment number
-    %Keep a blank space between maketitletwo and \question[1]
-
     \question[1]{Here is my first question}
-
-    YOUR SOLUTION HERE
 
     \begin{align*}
     \int_0^2 x^2 &= \left. \frac{x^3}{3} \right|_0^2 \\
@@ -136,5 +131,26 @@ return {
       ]], {
           i(1, ""), i(2, ""),
         }, {delimiters = "<>"})
+    ),
+    s(
+      "newques",
+      fmt([[ 
+    \question[<>]{<>}
+    \vspace{-.5cm}
+    \begin{align*}
+      x &= <> \\
+      y &= <>
+    \end{align*}
+      ]],{
+          i(1, "") , i(2, "question"), i(3, ""), i(4, "")
+        }, {delimiters = "<>"})
+    ),
+    s(
+      "isq" , 
+      fmt([[
+      \sqrt{<>}
+      ]], 
+      { i(1, "") }, 
+        {delimiters = "<>"})
     )
 }

@@ -97,7 +97,10 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		{ "mrjones2014/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
-		{ "andymass/vim-matchup" },
+		{ "andymass/vim-matchup" ,
+      enabled = false, 
+      ft = {"python", "html"},
+    },
 		{
 			"nvim-treesitter/nvim-treesitter-context",
 			config = require("editor.ts-context"),
