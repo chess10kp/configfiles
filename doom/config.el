@@ -84,5 +84,5 @@
 
 (add-hook 'haskell-mode-hook #'hident-mode)
 
-(setq doom-leader-key ","
+(setq doom-leader-key ";"
       doom-localleader-key "\\")

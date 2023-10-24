@@ -6,3 +6,4 @@ vim.api.nvim_create_user_command("DapRestart", function ()
   vim.cmd[[DapTerminate]]
   vim.cmd[[DapContinue]]
 end, {})
+

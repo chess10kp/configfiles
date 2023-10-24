@@ -43,7 +43,7 @@ settings["load_big_files_faster"] = false
 ---@type palette
 settings["palette_overwrite"] = {mantle = "#11111B"}
 
-settings["colorscheme"] = "gruvbox"
+settings["colorscheme"] = "tokyonight"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean

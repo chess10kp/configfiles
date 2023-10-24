@@ -5,11 +5,12 @@ editor["rainbowhxch/accelerated-jk.nvim"] = {
 	event = "VeryLazy",
 	config = require("editor.accelerated-jk"),
 }
--- editor["rmagatti/auto-session"] = {
--- 	lazy = false,
--- 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
--- 	config = require("editor.auto-session"),
--- }
+editor["rmagatti/auto-session"] = {
+  enabled = false,
+	lazy = false,
+	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
+	config = require("editor.auto-session"),
+}
 editor["olimorris/persisted.nvim"] = {
   enabled = false,
 	lazy = true,
@@ -67,10 +68,11 @@ editor["RRethy/vim-illuminate"] = { --illuminates corresponding brackers
 	event = {"InsertEnter",  "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
--- editor["luukvbaal/stabilize.nvim"] = {
--- 	lazy = true,
--- 	event = "BufReadPost",
--- }
+editor["luukvbaal/stabilize.nvim"] = {
+  enabled = false,
+	lazy = true,
+	event = "BufReadPost",
+}
 editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },

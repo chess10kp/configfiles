@@ -1,10 +1,11 @@
 local ui = {}
 
--- ui["akinsho/bufferline.nvim"] = {
--- 	lazy = true,
--- 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
--- 	config = require("ui.bufferline"),
--- }
+ui["akinsho/bufferline.nvim"] = {
+  enabled = false,
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	config = require("ui.bufferline"),
+}
 
 ui["Mofiqul/vscode.nvim"]  = {
   lazy = true,
@@ -57,9 +58,10 @@ ui["decaycs/decay.nvim"] = {
   name = "decay",
   config = require("ui.decay"),
 }
--- ui["rktjmp/lush.nvim"] = {
--- 	lazy = false,
--- }
+ui["rktjmp/lush.nvim"] = {
+	lazy = false,
+  enabled = false,
+}
 ui["ellisonleao/gruvbox.nvim"] = {
   lazy = true,
   event = "BufReadPost",
@@ -118,7 +120,7 @@ ui["edluffy/specs.nvim"] = {
 }
 ui["karb94/neoscroll.nvim"] = {
   lazy = false,
-  enabled = false,
+  enabled = true,
   config = require("ui.neoscroll"),
 }
 return ui

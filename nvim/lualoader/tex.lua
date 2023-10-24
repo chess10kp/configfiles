@@ -55,13 +55,6 @@ return {
 
 \end{center}}
 \begin{document}
-    \question[1]{Here is my first question}
-
-    \begin{align*}
-    \int_0^2 x^2 &= \left. \frac{x^3}{3} \right|_0^2 \\
-                 &= \frac{2^3}{3}-\frac{0^3}{3}\\
-                 &= \frac{8}{3}
-    \end{align*}
 \end{document}
   ]],
 			{},

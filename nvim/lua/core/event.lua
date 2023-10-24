@@ -12,7 +12,7 @@ function autocmd.nvim_create_augroups(definitions)
 	end
 end
 
--- -- auto close NvimTree
+
 -- vim.api.nvim_create_autocmd("BufEnter", {
 -- 	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
 -- 	pattern = "NvimTree_*",
@@ -27,6 +27,14 @@ end
 -- 		end
 -- 	end,
 -- })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "Telescope*",
+  callback = function ()
+    require('cmp').setup.buffer { enabled = false }
+  end
+})
+
 
 vim.api.nvim_create_autocmd("RecordingEnter", {
   callback = function()

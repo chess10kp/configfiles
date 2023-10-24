@@ -1,5 +1,4 @@
 return function()
-  require("autosnips.init")
 	local snippet_path = vim.fn.stdpath("config") .. "/snips/"
 	if not vim.tbl_contains(vim.opt.rtp:get(), snippet_path) then
 		vim.opt.rtp:append(snippet_path)
@@ -31,5 +30,9 @@ return function()
 local ls = require("luasnip")
 vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump( 1) end, {silent = true})
 vim.keymap.set({"i", "s"}, "<C-K>", function() ls.jump(-1) end, {silent = true})
+
+ls.filetype_extend("typescriptreact", {"javascriptreact", "javascript", "typescript"})
+ls.filetype_extend("typescript", {"javascriptreact", "javascript", "typescriptreact"})
+ls.filetype_extend("javascriptreact", {"javascript", "typescript", "typescriptreact"})
   
 end

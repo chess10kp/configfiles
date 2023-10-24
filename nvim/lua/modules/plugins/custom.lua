@@ -17,12 +17,13 @@ custom["folke/todo-comments.nvim"] = {
 	event = "BufRead",
 	config = require("custom.todo-comments"),
 }
--- custom["rmagatti/session-lens"] = {
--- 	lazy = false,
--- 	config = function()
--- 		require("session-lens").setup({})
--- 	end,
--- }
+custom["rmagatti/session-lens"] = {
+	lazy = false,
+  enabled = false,
+	config = function()
+		require("session-lens").setup({})
+	end,
+}
 custom["lervag/vimtex"] = {
 	lazy = true,
   ft = "tex"
