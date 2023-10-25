@@ -2,7 +2,10 @@
 
 source ~/.config/scripts/configvars.sh
 
-cmd=$( tail -n 5 ~/.zsh_history | $rofi_prompt "command> ") 
+hist=$(tail -n 5 ~/.zsh_history)
+echo "$hist"
+hist+=$(printf "\npkill waybar && waybar\npkill foot && foot --server")
+cmd=$( echo "$hist" | $rofi_prompt "command> ") 
 if [[ -z $cmd ]]; then
  exit 
 fi
