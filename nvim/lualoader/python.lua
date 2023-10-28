@@ -59,5 +59,20 @@ s(
         delimiters = "{}",
       }
     )
-  )
+  ),
+    s(
+      "def ", 
+      fmt(
+        [[
+        def <>: 
+          <>
+        ]],
+        {
+          i(1, "function"), i(2, "pass") 
+        },
+        {
+          delimiters = "<>",
+        }
+      )
+    )
 }

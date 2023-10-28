@@ -145,5 +145,17 @@ return {
       ]], 
       { i(1, "") }, 
         {delimiters = "<>"})
+    ),
+    s(
+      "pwfn", 
+      fmt([[ 
+    \begin{cases}
+        1 & \text{if } x \in \mathbb{Q}\\
+        0 & \text{if } x \in \mathbb{R}\setminus\mathbb{Q}
+    \end{cases}
+    ]], 
+        {}, 
+        {delimiters = "<>"} 
+      )
     )
 }
