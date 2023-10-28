@@ -1,0 +1,106 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #ebdbb2;
+}
+
+window#waybar {
+  background-color: #0e1419;;
+  margin: 0;
+  /* #1d2021; */
+}
+
+#window {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0px;
+  transition: none;
+}
+
+#clock {
+  margin: 0px;
+  padding: 0px;
+  background: transparent;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #facf89;
+}
+#battery.critical,
+#battery.low {
+  color: #ff5400;
+}
+
+#tray {
+  margin-right: 6px;
+  margin-left: 0px;
+}
+
+#battery.discharging {
+  background-clip: padding-box;
+}
+
+#workspaces {
+  background: transparent;
+}
+#workspaces button {
+  color: #dee1e6;
+}
+
+#workspaces button.visible, workspaces button.active, workspaces button.visible, workspaces button.special{
+  background: #0e1419;
+  color: #facf89;;
+}
+#backlight,
+#pulseaudio,
+#custom-bluetooth {
+  padding: 0px 13px;
+  margin: 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+widget > * {
+    margin: 0px;
+    padding: 0px;
+}
+.modules-left > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+.modules-left > widget:first-child > * {
+    margin: 0px;
+    padding: 0px;
+  margin-left: 25px;
+}
+.modules-left > widget:last-child > * {
+    margin: 0px;
+    padding: 0px;
+  margin-right: 12px;
+}
+.modules-center > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.modules-right > widget > * {
+  padding: 0 12px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.modules-right > widget:first-child > * {
+  border-radius: 5px 0 0 5px;
+}
+.modules-right > widget:last-child > * {
+  border-radius: 0 5px 5px 0;
+  margin-right: 20px;
+}

@@ -1,3 +1,9 @@
+# Default config for tofi
+#
+# Copy this file to ~/.config/tofi/config and get customising!
+#
+# A complete reference of available options can be found in `man 5 tofi`.
+
 #
 ### Fonts
 #
@@ -10,7 +16,7 @@
 	font = "Sans"
 
 	# Point size of text.
-	font-size = 16
+	font-size = 14
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -55,25 +61,71 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-background-color = #0e1419/
-text-color = #ebdbb2
+	prompt-color = #f9e2af
+	prompt-background = #101010
+	prompt-background-padding = 0
+	prompt-background-corner-radius = 0
 
-prompt-background = #eebab100
-prompt-background-padding = 4, 10
-prompt-background-corner-radius = 12
+	# Placeholder text theme
+	placeholder-color = #FFFFFFA8
+	placeholder-background = #111111
+	placeholder-background-padding = 0
+	placeholder-background-corner-radius = 0
 
-input-color = #fabd2f
-input-background = #f4cf4200
-input-background-padding = 4, 10
-input-background-corner-radius = 0
+	# Input text theme
+	 input-color = #f38ba8
+     input-background = #1e1e2e
+	input-background-padding = 0
+	input-background-corner-radius = 0
+
+	# Default result text theme
+	default-result-color = #f9e2af	
+	default-result-background = #1e1e2e
+	default-result-background-padding = 0
+	default-result-background-corner-radius = 0
+
+	# Alternate (even-numbered) result text theme
+	#
+	# If unspecified, these all default to the corresponding
+	# default-result-* attribute.
+	#
+	# alternate-result-color = #FFFFFF
+	# alternate-result-background = #00000000
+	# alternate-result-background-padding = 0
+	# alternate-result-background-corner-radius = 0
+
+	# Selection text
+	selection-color = #313244
+	selection-background = #89b4fa
+	selection-background-padding = 1
+	selection-background-corner-radius = 0
+
+	# Matching portion of selection text
+	selection-match-color = #00000000
 
 
-selection-color = #d79921
-selection-background = #fbf1c700
-selection-background-padding = 4, 10
-selection-background-corner-radius = 0
-selection-match-color = #fff
+#
+### Text cursor theme
+#
+	# Style of the optional text cursor.
+	#
+	# Supported values: bar, block, underscore
+	text-cursor-style = bar
+
+	# Color of the text cursor
+	#
+	# If unspecified, defaults to the same as input-color
+	# text-cursor-color = #FFFFFF
+
+	# Color of text behind the text cursor when text-cursor-style = block
+	#
+	# If unspecified, defaults to the same as background-color
+	# text-cursor-background = #000000
+
+	# Corner radius of the text cursor
 	text-cursor-corner-radius = 0
+
+
 	prompt-text = " "
 	prompt-padding = 1
 	placeholder-text = ""
@@ -82,7 +134,8 @@ selection-match-color = #fff
 	horizontal = true
 	min-input-width = 0
 	width = 100%
-	height = 35
+	height = 40
+	background-color = #1e1e2e
 
 	# Width of the border outlines in pixels.
 	outline-width = 0
@@ -111,7 +164,7 @@ selection-match-color = #fff
 	clip-to-padding = true
 
 	# Whether to scale the window by the output's scale factor.
-	scale = false
+	scale = true
 
 #
 ### Window positioning
