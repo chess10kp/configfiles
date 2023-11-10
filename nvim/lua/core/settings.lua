@@ -43,7 +43,7 @@ settings["load_big_files_faster"] = false
 ---@type palette
 settings["palette_overwrite"] = {mantle = "#11111B"}
 
-settings["colorscheme"] = "gruvbox"
+settings["colorscheme"] = "ayu-dark"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean
@@ -86,7 +86,7 @@ settings["lsp_deps"] = {
 	"lua_ls",
 	"pylsp",
   "jedi_language_server",
-  "hls"
+  -- "hls"
 	-- "gopls",
 }
 
