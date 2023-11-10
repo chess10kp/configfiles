@@ -65,7 +65,7 @@ function tmux-run
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
+# source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 # source ~/.config/zsh/alien-minimal/alien-minimal.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -74,9 +74,9 @@ source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➜  )%f '
-RPROMPT='$GITSTATUS_PROMPT'
+# RPROMPT='$GITSTATUS_PROMPT'
 
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
