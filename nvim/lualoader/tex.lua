@@ -157,5 +157,9 @@ return {
         {}, 
         {delimiters = "<>"} 
       )
-    )
+    ),
+    s("inft", 
+      fmt([[ 
+      \infty
+      ]], {} ) ),
 }

@@ -1,3 +1,6 @@
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec Hyprland
+fi
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
@@ -33,16 +36,14 @@ alias pm="pacman"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
-alias initnvim="nvim ~/.config/nvim/init.lua"
-alias inithypr="nvim ~/.config/hypr/hyprland.conf"
-alias zshrc="nvim ~/.config/.zshrc"
+alias initnvim="nvim ~/.config/nvim/init.lua" alias inithypr="nvim ~/.config/hypr/hyprland.conf" alias zshrc="nvim ~/.config/.zshrc"
 alias ta="tmux attach"
 alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias gcommit="git commit"
-alias neofetch='neofetch --ascii "$(figlet sigma balls)"| lolcat'
+# alias neofetch='neofetch --ascii "$(figlet sigma balls)"| lolcat'
 alias gadd="git add"
-# alias ls="exa "
+alias ls="exa "
 # alias la="exa -al --icons"
 # alias ll="exa -l --icons"
 alias cp="cp -v"
@@ -75,6 +76,8 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➜  )%f '
 # RPROMPT='$GITSTATUS_PROMPT'
+alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
+
 
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion

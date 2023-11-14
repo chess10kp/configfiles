@@ -7,12 +7,15 @@ return function()
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
 
+    -- python 
+    btns.diagnostics.mypy ,
+
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
 		}),
     btns.diagnostics.cpplint,
-    btns.formatting.htmlbeautifier,
+    -- btns.formatting.htmlbeautifier,
 		btns.formatting.prettier.with({
 			filetypes = {
 				"vue",
@@ -25,6 +28,7 @@ return function()
 				"scss",
 				"sh",
 				"markdown",
+        "html",
 			},
 		}),
 
