@@ -125,11 +125,11 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%a</b><b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = center
+    alignment = left
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -174,7 +174,7 @@
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 5
 
     ### Misc/Advanced ###
 
