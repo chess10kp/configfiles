@@ -3,9 +3,10 @@
 
 function notify_vol
 {
-  status=$(awk -F"[][]" '/Left:/ {print $4}' <(amixer sget Master))
+  # status=$(awk -F"[][]" '/Left:/ {print $4}' <(amixer sget Master))
   # volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/%//g' )
   volume=$(pamixer --get-volume)
+  echo "$volume"
 
   if  [[ $volume -eq 1 ]]; then
     dunstify "0"   -t 800 -r 91190 -i ~/.config/scripts/images/unmuted.svg
@@ -28,9 +29,9 @@ function notify_mute
 
 case "$1" in
   volume|vol) 
-  status=$(awk -F"[][]" '/Left:/ {print $4}' <(amixer sget Master))
-  volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
-  if [[ $status == "on" ]]; then
+    status=$(pamixer --get-mute)
+  # volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
+  if [[ $status == "false" ]]; then
     if [[ -e ~/.config/scripts/images/unmuted.svg ]]; then
       notify_vol
     else

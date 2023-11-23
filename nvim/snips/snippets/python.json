@@ -1,0 +1,11 @@
+
+{
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while $1:",
+      "\t$2",
+    ],
+    "description": "leetcode class Solution template"
+  }
+}

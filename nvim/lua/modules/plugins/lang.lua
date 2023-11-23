@@ -40,6 +40,7 @@ lang["pmizio/typescript-tools.nvim"] = {
   config = require("lang.typescript-tools")
 }
 lang["mrcjkb/haskell-tools.nvim"] = {
+  enabled = false,
   lazy = true,
   ft = {"haskell"},
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },

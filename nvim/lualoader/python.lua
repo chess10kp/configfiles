@@ -26,8 +26,7 @@ return {
       {
         delimiters = "<>",
       })
-
-  )
+  ),
 }, {
   s(
     "ifelse",

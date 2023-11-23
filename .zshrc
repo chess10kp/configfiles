@@ -49,7 +49,7 @@ alias ls="exa "
 alias cp="cp -v"
 alias mv="mv -i"
 alias notes="emacs -nw ~/projects/notes/todo.org"
-alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/\"$(date '+%d%m%y').org\""
+alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/daily/\"$(date '+%d%m%y').org\""
 
 function yt
 {

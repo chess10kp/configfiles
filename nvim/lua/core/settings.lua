@@ -85,7 +85,7 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"lua_ls",
 	"pylsp",
-  "jedi_language_server",
+  -- "jedi_language_server",
   -- "hls"
 	-- "gopls",
 }

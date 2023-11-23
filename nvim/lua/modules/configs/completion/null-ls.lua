@@ -45,8 +45,8 @@ return function()
 			extra_args = { "--globals 'vim' " },
 		}),
 
-		-- haskell
-		btns.formatting.fourmolu,
+		-- -- haskell
+		-- btns.formatting.fourmolu,
 	}
 	null_ls.setup({
 		border = "rounded",
