@@ -47,7 +47,7 @@
 (setq display-line-numbers-type 'relative)
 (setq org-startup-folded t)
 
-;; Whenever you reconfigure a package, make sure to wrap your config in an
+;; Whenever figure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
 ;;   (after! PACKAGE

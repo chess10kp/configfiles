@@ -1,1 +1,1 @@
-/home/nitin/.config/themes/dark-decay/qtile/bar.py
+/home/sigma/.config/themes/gruvbox/qtile/bar.py

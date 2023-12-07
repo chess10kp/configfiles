@@ -1,1 +1,1 @@
-/home/nitin/.config/themes/dark-decay/qtile/colors.py
+/home/sigma/.config/themes/gruvbox/qtile/colors.py

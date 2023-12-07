@@ -24,7 +24,7 @@ return function()
 	local rep = require("luasnip.extras").rep
 
 	require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/lualoader/" } })
-	require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snips/" })
+	require("luasnip.loaders.from_vscode").lazy_load()
 	-- require("luasnip.loaders.from_snipmate").lazy_load()
 
 local ls = require("luasnip")

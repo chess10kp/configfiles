@@ -47,7 +47,7 @@ return {
 \usepackage{graphicx}
 
 \newcommand{\question}[2][]{\begin{flushleft}
-        \textbf{Question #1}: \textit{#2}
+        \textbf{#1}: \textit{#2}
 
 \end{flushleft}}
 \newcommand{\sol}{\textbf{Solution}:}
@@ -131,11 +131,9 @@ return {
     \question[<>]{<>}
     \vspace{-.5cm}
     \begin{align*}
-      x &= <> \\
-      y &= <>
     \end{align*}
       ]],{
-          i(1, "") , i(2, "question"), i(3, ""), i(4, "")
+          i(1, "") , i(2, "question") 
         }, {delimiters = "<>"})
     ),
     s(

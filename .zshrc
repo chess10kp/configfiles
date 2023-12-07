@@ -57,6 +57,7 @@ function yt
 }
 
 export PATH="$HOME/.config/emacs/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # poetry fails to open kdewallet
 
 function tmux-run

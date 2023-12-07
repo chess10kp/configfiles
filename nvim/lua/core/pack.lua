@@ -79,7 +79,7 @@ function Lazy:load_lazy()
 			size = { width = 0.88, height = 0.8 },
 			wrap = true, -- wrap the lines in the ui
 			-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-			border = "rounded",
+			border = "single",
 			icons = {
 				cmd = icons.misc.Code,
 				config = icons.ui.Gear,

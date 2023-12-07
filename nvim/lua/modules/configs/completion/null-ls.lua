@@ -49,7 +49,7 @@ return function()
 		-- btns.formatting.fourmolu,
 	}
 	null_ls.setup({
-		border = "rounded",
+		border = "single",
 		debug = false,
 		log_level = "warn",
 		update_in_insert = false,
