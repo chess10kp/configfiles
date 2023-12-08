@@ -9,7 +9,7 @@ local g = vim.g
 -- o.viewdir = global.cache_dir .. "view/",
 -- o.winblend = 10,
 
-o.guicursor = "n-v-c-ci:block" --makes everything block cursor
+o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" --makes everything block cursor
 o.hlsearch = false
 o.autoindent = true
 o.laststatus = 3

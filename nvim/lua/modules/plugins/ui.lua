@@ -34,13 +34,18 @@ ui["folke/tokyonight.nvim"] = {
   name = "tokyonight",
   config = require("ui.tokyonight"),
 }
+ui ["Skullamortis/forest.nvim" ] = { 
+  lazy = true,
+  name = "forest", 
+  priority = 1000,
+}
 ui["Shatur/neovim-ayu"] = {
   lazy = true,
   name = "ayu",
   config = require("ui.ayu"),
 }
 ui["ray-x/starry.nvim"] = {
-  lazy = true,
+  lazy = false,
 }
 ui["tiagovla/tokyodark.nvim"] = {
   lazy = true,
