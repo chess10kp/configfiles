@@ -257,10 +257,14 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = require("core.settings").colorscheme,
 			disabled_filetypes = {},
 			component_separators = "|",
 		},
+    refresh = {
+      statusline = 1000,
+      tabline = 1000 ,
+      winbar = 1000
+    },
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = {
@@ -317,21 +321,6 @@ return function()
 				components.lsp,
 			},
 			lualine_x = {
-				-- {
-				-- 	"encoding",
-				-- 	fmt = string.upper,
-				-- 	padding = { left = 1 },
-				-- 	cond = conditionals.has_enough_room,
-				-- },
-				-- {
-				-- 	"fileformat",
-				-- 	symbols = {
-				-- 		unix = "LF",
-				-- 		dos = "CRLF",
-				-- 		mac = "CR", -- Legacy macOS
-				-- 	},
-				-- 	padding = { left = 1 },
-				-- },
 				components.tabwidth,
 			},
 			lualine_y = {

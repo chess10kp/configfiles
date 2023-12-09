@@ -8,7 +8,6 @@ return function()
 	local sources = {
 
     -- python 
-    btns.diagnostics.mypy ,
 
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },

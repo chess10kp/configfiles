@@ -47,6 +47,10 @@ ui["Shatur/neovim-ayu"] = {
 ui["ray-x/starry.nvim"] = {
   lazy = false,
 }
+  ui["xiyaowong/transparent.nvim"] = {
+  lazy = true,
+  cmd = "TransparentEnable", 
+}
 ui["tiagovla/tokyodark.nvim"] = {
   lazy = true,
   opts = {
@@ -85,13 +89,13 @@ event = "BufReadPost",
 config = require("ui.indent-blankline"),
 }
 ui["nvim-lualine/lualine.nvim"] = {
-  enabled = false, 
+  enabled = true, 
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
 ui["rebelot/heirline.nvim"] = {
-  enabled = true ,
+  enabled = false ,
   lazy = true,
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("ui.heirline"),
@@ -125,7 +129,7 @@ ui["edluffy/specs.nvim"] = {
 }
 ui["karb94/neoscroll.nvim"] = {
   lazy = false,
-  enabled = true,
+  enabled =true,
   config = require("ui.neoscroll"),
 }
 return ui
