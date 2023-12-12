@@ -6,3 +6,4 @@ elseif vim.g.started_by_firenvim then
 elseif vim.g.vscode then
 	require("vscode")
 end
+

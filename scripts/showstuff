@@ -6,7 +6,6 @@ function notify_vol
   # status=$(awk -F"[][]" '/Left:/ {print $4}' <(amixer sget Master))
   # volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/%//g' )
   volume=$(pamixer --get-volume)
-  echo "$volume"
 
   if  [[ $volume -eq 1 ]]; then
     dunstify "0"   -t 800 -r 91190 -i ~/.config/scripts/images/unmuted.svg
@@ -15,6 +14,7 @@ function notify_vol
   bar=$(seq -s "󰝤" $(($volume / 5)) | sed 's/[0-9]//g' )
   bar+=$(seq -s " " $(($volume / 5)) | sed 's/[0-9]//')
   dunstify "$volume" $bar -a "Volume: " -t 800 -r 91190 -i ~/.config/scripts/images/unmuted.svg
+  echo "$volume"
 }
 
 function notify_mute

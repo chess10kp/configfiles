@@ -8,7 +8,6 @@ fi
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000000
-bindkey -v
 zstyle :compinstall filename '/home/nitin/.zshrc'
 
 autoload -Uz compinit
@@ -16,7 +15,9 @@ compinit
 # binds up and down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey -s "^R" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M'
+bindkey -v
+bindkey -s "^T" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M'
+bindkey '^R' history-incremental-search-backward
 
 setopt autocd
 
@@ -50,6 +51,7 @@ alias cp="cp -v"
 alias mv="mv -i"
 alias notes="emacs -nw ~/projects/notes/todo.org"
 alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/daily/\"$(date '+%d%m%y').org\""
+alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 function yt
 {
@@ -77,7 +79,6 @@ source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.z
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➜  )%f '
 # RPROMPT='$GITSTATUS_PROMPT'
-alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"

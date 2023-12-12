@@ -142,10 +142,10 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
+      { name = "path" },
       { name = "luasnip" },
 			{ name = "nvim_lsp", max_item_count = 350 },
 			{ name = "nvim_lua" },
-			{ name = "path" },
 			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
