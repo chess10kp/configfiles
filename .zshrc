@@ -44,6 +44,7 @@ alias mkdir="mkdir -p"
 alias gcommit="git commit"
 # alias neofetch='neofetch --ascii "$(figlet sigma balls)"| lolcat'
 alias gadd="git add"
+alias gst="git status"
 alias ls="exa "
 # alias la="exa -al --icons"
 # alias ll="exa -l --icons"
@@ -84,4 +85,4 @@ PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.➜  )%f '
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"

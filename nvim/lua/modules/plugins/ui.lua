@@ -6,6 +6,11 @@ ui["akinsho/bufferline.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
+ui["folke/zen-mode.nvim"] = {
+  enabled = true, 
+  lazy = true, 
+  cmd = "ZenMode",
+}
 
 ui["Mofiqul/vscode.nvim"]  = {
   lazy = true,

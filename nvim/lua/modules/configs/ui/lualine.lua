@@ -338,7 +338,9 @@ return function()
 			lualine_y = {},
 			lualine_z = {},
 		},
-		tabline = {},
+		tabline = {
+      lualine_a = {"buffers"}
+    },
 		extensions = {
 			"nvim-dap-ui",
 			outline,

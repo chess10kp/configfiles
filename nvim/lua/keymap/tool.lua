@@ -76,7 +76,7 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-S-P>"] = map_callback(function()
+	["n|<leader>fk"] = map_callback(function()
 			require("telescope.builtin").keymaps()
 		end)
 		:with_noremap()
@@ -89,12 +89,6 @@ local plug_map = {
 		:with_silent()
 		:with_desc("edit: Show undo history"),
 	["n|<leader>fl"] = map_cu("Telescope lsp_references"),
-	["n|<leader>fp"] = map_callback(function()
-			require("telescope").extensions.project.project({})
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("find: Project"),
 	["n|<leader>fe"] = map_callback(function()
 			require("telescope").extensions.frecency.frecency()
 		end)
@@ -108,7 +102,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Word in project"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-	["n|<M-p>"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<leader>ff"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("Find help"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
@@ -122,7 +116,10 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Change current direrctory by zoxide"),
-	["n|<leader>fb"] = map_cu("Telescope buffers theme=dropdown"):with_noremap():with_silent():with_desc("find: Buffer opened"),
+	["n|<leader>fb"] = map_cu("Telescope buffers theme=dropdown")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 	["n|<leader>fn"] = map_cu("Telescope file_browser ")
 		:with_noremap()

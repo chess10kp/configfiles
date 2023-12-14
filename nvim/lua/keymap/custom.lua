@@ -31,7 +31,7 @@ local plug_map = {
 	["n|<leader>no"] = map_cr("noh"):with_noremap():with_nowait():with_desc("nothing"),
 
 	--Formatting
-	["n|<leader>ff"] = map_cr("lua vim.lsp.buf.format()")
+	["n|<leader>fm"] = map_cr("lua vim.lsp.buf.format()")
 		:with_noremap()
 		:with_nowait()
 		:with_desc("format the current file"),

@@ -39,6 +39,9 @@ return {
 				pyls_isort = { enabled = false },
 				autopep8 = { enabled = false },
 				yapf = { enabled = false },
+
+        -- lsp server_configuration
+        -- jedi_hover = {enabled = false},
 			},
 		},
 	},
