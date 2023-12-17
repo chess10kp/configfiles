@@ -9,9 +9,9 @@ completion["neovim/nvim-lspconfig"] = {
 		{ "williamboman/mason-lspconfig.nvim" },
 		{
 			"ray-x/lsp_signature.nvim",
-      enabled = true,
-      lazy = true, 
-      ft = {"lua"},
+			enabled = true,
+			lazy = true,
+			-- ft = {"lua"},
 			config = require("completion.lsp-signature"),
 		},
 	},
@@ -56,15 +56,15 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "hrsh7th/cmp-buffer" },
 		{
 			"kdheepak/cmp-latex-symbols",
-      enabled = false,
+			enabled = false,
 			lazy = true,
 			ft = "latex",
 		},
 		{ "ray-x/cmp-treesitter" },
-		{ "tzachar/cmp-tabnine", enabled = false,  build = "./install.sh", config = require("completion.tabnine") },
+		{ "tzachar/cmp-tabnine", enabled = false, build = "./install.sh", config = require("completion.tabnine") },
 		{
 			"jcdickinson/codeium.nvim",
-      enabled = false,
+			enabled = false,
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 				"MunifTanjim/nui.nvim",
@@ -74,7 +74,7 @@ completion["hrsh7th/nvim-cmp"] = {
 	},
 }
 completion["zbirenbaum/copilot.lua"] = {
-  enabled = false,
+	enabled = false,
 	lazy = true,
 	cmd = "Copilot",
 	event = "InsertEnter",
@@ -85,18 +85,5 @@ completion["zbirenbaum/copilot.lua"] = {
 			config = require("completion.copilot-cmp"),
 		},
 	},
-}
-completion["zbirenbaum/copilot.lua"] = {
-enabled = false,
-lazy = true,
-cmd = "Copilot",
-event = "InsertEnter",
-config = require("completion.copilot"),
-dependencies = {
-{
-"zbirenbaum/copilot-cmp",
-config = require("completion.copilot-cmp"),
-},
-},
 }
 return completion

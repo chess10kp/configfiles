@@ -54,7 +54,7 @@ ui["ray-x/starry.nvim"] = {
 }
   ui["xiyaowong/transparent.nvim"] = {
   lazy = true,
-  cmd = "TransparentEnable", 
+  cmd = "TransparentToggle", 
 }
 ui["tiagovla/tokyodark.nvim"] = {
   lazy = true,
@@ -136,5 +136,10 @@ ui["karb94/neoscroll.nvim"] = {
   lazy = false,
   enabled =true,
   config = require("ui.neoscroll"),
+}
+ui["goolord/alpha-nvim"] = {
+  lazy = false, 
+  enabled = true,
+  config = require("ui.alpha")
 }
 return ui

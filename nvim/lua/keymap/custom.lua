@@ -65,7 +65,8 @@ local plug_map = {
   -- LSP
   ["n|<leader>lx" ] = map_cmd(":LspStop "):with_nowait():with_noremap():with_desc("lsp: stop"),
   ["n|<leader>ls" ] = map_cmd(":LspStart "):with_nowait():with_noremap():with_desc("lsp: Start"),
-  ["n|<leader>ms"] = map_cu("Mason"):with_noremap():with_nowait():with_desc("lsp: Toggle Mason")
+  ["n|<leader>ms"] = map_cu("Mason"):with_noremap():with_nowait():with_desc("lsp: Toggle Mason"),
+  ["n|<M-t>"] = map_cu("TransparentToggle"):with_noremap():with_nowait():with_desc("Toggle transparency")
 }
 
 bind.nvim_load_mapping(plug_map)

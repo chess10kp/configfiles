@@ -324,7 +324,6 @@ return function()
 				components.tabwidth,
 			},
 			lualine_y = {
-				components.separator,
 				components.python_venv,
 				components.cwd,
 			},

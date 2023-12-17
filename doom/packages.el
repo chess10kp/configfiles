@@ -52,3 +52,6 @@
 (setq
 org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
  )
+
+(unpin! org-roam)
+(package! org-roam-ui)

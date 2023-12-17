@@ -101,13 +101,17 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Word in project"),
+  ["n|<leader>fc"] = map_callback(function ()
+      require("telescope.builtin").find_files({ cwd ="~/.config/nvim/" })
+  end)
+    :with_noremap():with_silent():with_desc("search neovim config"),
+  ["n|<leader>fn"] = map_callback(function ()
+      require("telescope.builtin").find_files({ cwd = "~/projects/notes/"})
+  end)
+    :with_noremap():with_silent():with_desc("search notes"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
 	["n|<leader>ff"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("Find help"),
-	["n|<leader>fc"] = map_cu("Telescope colorscheme")
-		:with_noremap()
-		:with_silent()
-		:with_desc("ui: Change colorscheme for current session"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
 		:with_noremap()
 		:with_silent()
@@ -121,7 +125,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
-	["n|<leader>fn"] = map_cu("Telescope file_browser ")
+	["n|<leader>fi"] = map_cu("Telescope file_browser ")
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: open file browser"),

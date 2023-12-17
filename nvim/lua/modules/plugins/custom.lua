@@ -58,39 +58,5 @@ custom["glacambre/firenvim"] = {
 		vim.fn["firenvim#install"](0)
 	end,
 }
-custom["nvim-orgmode/orgmode"] = {
-  dependencies = { 'nvim-treesitter/nvim-treesitter', lazy = true },
-  lazy = true , 
-  ft = "org", 
-  config = function()
-    require('orgmode').setup_ts_grammar()
-    require('orgmode').setup({
-      org_agenda_files = '~/projects/school//',
-      org_default_notes_file = '~/projects/school//'
-    })
-  end
-}
-custom[ "akinsho/org-bullets.nvim"] = {
-lazy = true , 
-  ft = "org", 
-dependencies = {"nvim-orgmode/orgmode"}, 
-  config  = function()
-  require('org-bullets').setup {
-    concealcursor = false, -- If false then when the cursor is on a line underlying characters are visible
-    symbols = {
-      -- list symbol
-      list = "•",
-      -- headlines can be a list
-      headlines = { "◉", "○", "✸", "✿" },
-      -- or a function that receives the defaults and returns a list
-      checkboxes = {
-        half = { "", "OrgTSCheckboxHalfChecked" },
-        done = { "✓", "OrgDone" },
-        todo = { "˟", "OrgTODO" },
-      },
-    }
-  }
-  end
-}
 
 return custom
