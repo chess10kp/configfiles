@@ -2,14 +2,14 @@
   border: none;
   min-height: 0px;
   border-radius: 0;
-  font-family: "Terminess Nerd Font ", Roboto, sans-serif;
+  font-family: "Iosevka Nerd Font", Roboto, sans-serif;
   font-weight: bolder;
   font-size: 10px;
   color: #89b4fa;
 }
 
 window#waybar {
-  background-color: rgba(6, 8, 13, 1);
+  background-color: #0a0e14
 }
 
 #window {
@@ -30,10 +30,8 @@ window#waybar {
 
 #clock {
   margin: 0px;
-  color: black;
+  color: #fff;
   padding: 1px 10px 1px 10px;
-  background-clip: padding-box;
-  background: #e6b450;
 }
 
 #memory {
@@ -104,23 +102,21 @@ window#waybar {
 #backlight,
 #pulseaudio,
 #custom-bluetooth {
-  padding: 0 13px;
+  padding: 0 5px;
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 #network {
   background-clip: border-box;
-  color: #ffb454;
+  color: #fff;
 }
 
 #pulseaudio {
   background-clip: border-box;
-  border-radius: 0;
-  background-color: #39bae6;
-  color: black;
+  color: #fff;
 }
 
 widget > * {
@@ -154,16 +150,18 @@ widget > * {
   margin-right: 20px;
 }
 #taskbar button.active {
-  background-color: #21262e;
   margin-left: 4px;
   border-radius: 4px;
   font-family: Fira Sans;
   margin-right: 4px;
 }
 #taskbar button {
-  background-color: #171b20;
   font-family: Fira Sans;
   border-radius: 4px;
   margin-left: 4px;
   margin-right: 4px;
+}
+
+#custom-logo {
+  font-size : 20px;
 }

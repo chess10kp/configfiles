@@ -43,7 +43,7 @@ settings["load_big_files_faster"] = false
 ---@type palette
 settings["palette_overwrite"] = {mantle = "#11111B"}
 
-settings["colorscheme"] = "ayu-dark"
+settings["colorscheme"] = "ayu"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean
@@ -103,6 +103,7 @@ settings["null_ls_deps"] = {
 	"vint",
   "black",
   "cpplint",
+  "pep8",
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.

@@ -41,7 +41,7 @@ return {
 				yapf = { enabled = false },
 
         -- lsp server_configuration
-        -- jedi_hover = {enabled = false},
+        jedi_hover = {enabled = false},
 			},
 		},
 	},

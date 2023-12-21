@@ -8,7 +8,6 @@ return function()
 	local sources = {
 
     -- python 
-
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),

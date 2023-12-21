@@ -50,7 +50,7 @@
 ;(unpin! t)
 
 (setq
-org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
+org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸")
  )
 
 (unpin! org-roam)

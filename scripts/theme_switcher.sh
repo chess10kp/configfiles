@@ -51,7 +51,7 @@ set_theme_specifics() {
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "radium\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"ayu-dark")
-		set_gtk "GhostReprise"
+		set_gtk "Aritim-Dark"
 		sed -e 's/^settings\["colorscheme"\] =.*/settings\["colorscheme"\] = "ayu\"/' -i ~/.config/nvim/lua/core/settings.lua
 		;;
 	"tokyonight")
@@ -71,17 +71,14 @@ after_set() {
 	pkill foot
 	pkill waybar
 	sleep 1
-	hyprctl reload
 	waybar &
-	disown
 	foot --server &
-	disown
 	~/.config/scripts/wallpaper.sh --set &
-	disown
+	hyprctl reload
 	exit 0
 }
 
-colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight' 'gruvbox' 'dark-decay' 'ayu-dark' 'solarized-light')
+colorschemes=('onedark-dark' 'catppuccin' 'radium' 'tokyonight' 'gruvbox' 'dark-decay' 'ayu-dark' 'solarized-light', 'windows')
 colorscheme_selected=$(printf "%s\n" "${colorschemes[@]}" | $rofi)
 
 if [[ -z $colorscheme_selected ]]; then

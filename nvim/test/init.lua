@@ -1,3 +1,6 @@
-vim.ui.input({prompt = "Search file"}, function (input)
-  input= input
-end)
+function search_by_string()
+  local input  = vim.fn.input("find by string: ")
+  print(input)
+end
+
+search_by_string()

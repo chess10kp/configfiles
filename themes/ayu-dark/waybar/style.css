@@ -2,14 +2,13 @@
   border: none;
   min-height: 0px;
   border-radius: 0;
-  font-family: "Terminess Nerd Font ", Roboto, sans-serif;
-  font-weight: bolder;
-  font-size: 10px;
+  font-family: "Iosevka Nerd Font ", Roboto, sans-serif;
+  font-size: 8px;
   color: #89b4fa;
 }
 
 window#waybar {
-  background-color: #0a0e14
+  background-color: rgba(6, 8, 13, 1);
 }
 
 #window {

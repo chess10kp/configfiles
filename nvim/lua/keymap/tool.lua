@@ -17,16 +17,19 @@ local plug_map = {
 	-- Plugin: toggleterm
 	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
-	["n|<C-\\>"] = map_cr([[execute ttcount . "ToggleTerm direction=horizontal"]])
+	["n|<A-h>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
-		:with_desc("terminal: Toggle horizontal"),
-	["i|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>")
+		:with_desc("terminal: Toggle float"),
+	["i|<A-h>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
-		:with_desc("terminal: Toggle horizontal"),
-	["n|<M-i>"] = map_cmd([[<Cmd>ToggleTerm direction=vertical<CR>]]),
-	["t|<C-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
+		:with_desc("terminal: Toggle float"),
+	["t|<A-h>"] = map_cr([[<Esc><Cmd>ToggleTerm<Esc>]])
+		:with_noremap()
+		:with_silent()
+		:with_desc("terminal: Toggle float"),
+	["n|<A-i>"] = map_cmd([[<Cmd>ToggleTerm direction=vertical<CR>]]),
 	["i|<A-i>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
 		:with_noremap()
 		:with_silent()
@@ -101,17 +104,15 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Word in project"),
-  ["n|<leader>fc"] = map_callback(function ()
-      require("telescope.builtin").find_files({ cwd ="~/.config/nvim/" })
-  end)
-    :with_noremap():with_silent():with_desc("search neovim config"),
-  ["n|<leader>fn"] = map_callback(function ()
-      require("telescope.builtin").find_files({ cwd = "~/projects/notes/"})
-  end)
-    :with_noremap():with_silent():with_desc("search notes"),
+	["n|<leader>fc"] = map_callback(function()
+			require("telescope.builtin").find_files({ cwd = "~/.config/nvim/" })
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: File in config"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
 	["n|<leader>ff"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
-	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("Find help"),
+	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("find: Help"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
 		:with_noremap()
 		:with_silent()

@@ -1,7 +1,7 @@
 local custom = {}
 
 custom["ibhagwan/fzf-lua"] = {
-  enabled = false,
+	enabled = false,
 	lazy = true,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
@@ -19,14 +19,14 @@ custom["folke/todo-comments.nvim"] = {
 }
 custom["rmagatti/session-lens"] = {
 	lazy = false,
-  enabled = false,
+	enabled = false,
 	config = function()
 		require("session-lens").setup({})
 	end,
 }
 custom["lervag/vimtex"] = {
 	lazy = true,
-  ft = "tex"
+	ft = "tex",
 }
 custom["ggandor/leap.nvim"] = {
 	lazy = false,
@@ -58,5 +58,21 @@ custom["glacambre/firenvim"] = {
 		vim.fn["firenvim#install"](0)
 	end,
 }
+custom["kawre/leetcode.nvim"] = {
+	lazy = false,
+	build = ":TSUpdate html",
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+		"nvim-lua/plenary.nvim", -- required by telescope
+		"MunifTanjim/nui.nvim",
 
+		-- optional
+		"nvim-treesitter/nvim-treesitter",
+		"rcarriga/nvim-notify",
+		"nvim-tree/nvim-web-devicons",
+	},
+	opts = {
+		lang = "python",
+	},
+}
 return custom

@@ -1,103 +1,141 @@
 {
-    "position": "top",
-    "height": 15, // Waybar height (to be removed for auto height)
-    "modules-left": ["hyprland/workspaces", "hyprland/submap",],
-    "modules-center": [
-      "clock",
-    ],
-    "modules-right": [
-    "memory",
-        "pulseaudio",
-        "tray",
-        "network",
-    "battery"
-    ],
-    "clock": {
-        "tooltip-format": "",
-        "format": "{:%I %M}",
-        "format-alt": "{:%A, %B %d}"
+  "position": "bottom",
+  "height": 40, // Waybar height (to be removed for auto height)
+  "modules-left": [
+  ],
+  "modules-center": [
+    "custom/logo","wlr/taskbar",
+  ],
+  "modules-right": [
+    "group/tray-group",
+    "network",
+    "battery",
+    "pulseaudio",
+    "clock",
+  ],
+  "clock": {
+    "tooltip-format": "",
+    "format": "{:%I %M}",
+    "format-alt": "{:%A, %B %d}"
+  },
+  "hyprland/submap": {
+    "format": "{}",
+    "max-length": 10,
+    "tooltip": false
+  },
+  "wlr/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": "",
     },
-    "hyprland/submap": {
-        "format": "{}",
-        "max-length": 10,
-        "tooltip": false
+    "sort-by-number": true,
+  },
+  "battery": {
+    "bat": "BAT1",
+    "states": {
+      "great": 95,
+      "good": 80,
+      "medium": 65,
+      "decent": 50,
+      "warning": 30,
+      "critical": 20
     },
-"wlr/workspaces": {
-			"active-only": false,
-			"all-outputs": true,
-			"disable-scroll": false,
-			"on-scroll-up": "hyprctl dispatch workspace e-1",
-			"on-scroll-down": "hyprctl dispatch workspace e+1",
-			"format": "{icon}",
-			"on-click": "activate",
-			"format-icons": {
-				"urgent": "",
-				"active": "",
-				"default": "",
-				},
-			"sort-by-number": true,
-		},
-    "battery": {
-        "bat": "BAT1",
-        "states": {
-            "great": 95,
-            "good": 80,
-            "medium": 65,
-            "decent": 50,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{capacity}",
-        "format-charging": "{capacity} 󱐋",
-        "format-plugged": "{capacity}",
-        "format-alt": "{time} {icon}",
+    "format": "{capacity}",
+    "format-charging": "{capacity} 󱐋",
+    "format-plugged": "{capacity}",
+    "format-alt": "{time} {icon}",
+  },
+  "network": {
+    "interface": "wlp0s20f3",
+    "format-wifi": "󰤨 ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+    "format-linked": "{ifname} (No IP)  ",
+    "format-disconnected": "睊 Disconnected",
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+  "pulseaudio": {
+    "format": "{icon} ",
+    "format-bluetooth-muted": " ",
+    "format-muted": " ",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "default": [
+        "",
+        "",
+      ] // 醙
     },
-    "network": {
-        "interface": "wlp0s20f3",
-        "format-wifi": "󰤨 ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "睊 Disconnected",
-    },
-    "tray": {
-        "icon-size": 15,
-        "spacing": 10
-    },
-    "pulseaudio": {
-        "format": "{volume} ",
-        "format-bluetooth-muted": " ",
-        "format-muted": " ",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": " ",
-            "default": [
-                "",
-                "",
-            ] // 醙
-        },
-        "on-click": "pavucontrol"
-    },
-    "memory": {
-        "interval": 30,
-        "format": "{used}",
-    },
-"wlr/taskbar": {
+    "on-click": "pavucontrol"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{used}",
+  },
+  "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 14,
-    "icon-theme": "Numix-Circle",
+    "icon-theme": "windows10-icon",
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
     "ignore-list": [
-       "Alacritty"
+      "Alacritty"
     ],
     "app_ids-mapping": {
       "firefoxdeveloperedition": "firefox-developer-edition"
     },
     "rewrite": {
-        "Firefox Web Browser": "Firefox",
-        "Foot Server": "Terminal"
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
     }
-}
+  },
+  "custom/logo": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "tofi-drun"
+  },
+  "custom/arrow": {
+    "format": "",
+    "tooltip": false,
+  },
+  "group/tray-group": {
+    "orientation": "vertical",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/arrow",
+      "tray",
+    ]
+  },
+  "group/info-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/arrow",
+      "memory",
+      "cpu",
+    ]
+    }
+
+  }
+
 }
