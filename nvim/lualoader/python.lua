@@ -18,7 +18,7 @@ return {
   s("if", 
     fmt([[
     if <> : 
-      <>
+        <>
     ]], 
       {
         i(1, "statement"), i(2, "pass"),
@@ -33,9 +33,9 @@ return {
     fmt(
       [[
       if <> : 
-        <>
+          <>
       elif <>:
-        <>
+          <>
      ]],
       {
         i(1, "statement"),i(2, "pass"),i(3, "statement"), i("4", "pass")
@@ -63,11 +63,11 @@ s(
       "def ", 
       fmt(
         [[
-        def <>(): 
-          <>
+        def <>(<>): 
+            <>
         ]],
         {
-          i(1, "function"), i(2, "pass") 
+          i(1, "function"), i(2, ""), i(3, "pass")
         },
         {
           delimiters = "<>",

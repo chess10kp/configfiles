@@ -6,11 +6,11 @@
       "clock",
     ],
     "modules-right": [
-    "memory",
-        "pulseaudio",
-        "tray",
+        "group/pulseaudio-group",
+        "group/backlight-group",
+        "group/info-group",
         "network",
-    "battery"
+      "battery",
     ],
     "clock": {
         "tooltip-format": "",
@@ -64,7 +64,7 @@
         "spacing": 10
     },
     "pulseaudio": {
-        "format": "{volume} ",
+        "format": "{icon} ",
         "format-bluetooth-muted": " ",
         "format-muted": " ",
         "format-source": "",
@@ -77,6 +77,11 @@
             ] // 醙
         },
         "on-click": "pavucontrol"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "memory": {
         "interval": 30,
@@ -99,5 +104,51 @@
         "Firefox Web Browser": "Firefox",
         "Foot Server": "Terminal"
     }
-}
+},
+"pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+},
+"backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+},
+  "group/pulseaudio-group": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "pulseaudio",
+      "pulseaudio/slider",
+    ]
+  },
+  "group/backlight-group": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-power",
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "backlight",
+      "backlight/slider",
+    ]
+  },
+"group/group-info": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+        "network", 
+        "tray",
+    ]
+},
 }

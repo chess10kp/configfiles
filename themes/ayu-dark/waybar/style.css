@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-  background-color: rgba(6, 8, 13, 1);
+  background-color: #000;
 }
 
 #window {
@@ -32,7 +32,7 @@ window#waybar {
   color: black;
   padding: 1px 10px 1px 10px;
   background-clip: padding-box;
-  background: #e6b450;
+  color: #e6b450;
 }
 
 #memory {
@@ -117,9 +117,16 @@ window#waybar {
 
 #pulseaudio {
   background-clip: border-box;
-  border-radius: 0;
+  border-radius: 0px;
   background-color: #39bae6;
   color: black;
+}
+
+#backlight {
+  background-clip: border-box;
+  border-radius: 0px;
+  background-color: #e88939;
+  color: #000;
 }
 
 widget > * {
@@ -152,17 +159,58 @@ widget > * {
   border-radius: 0 5px 5px 0;
   margin-right: 20px;
 }
-#taskbar button.active {
-  background-color: #21262e;
-  margin-left: 4px;
-  border-radius: 4px;
-  font-family: Fira Sans;
-  margin-right: 4px;
+
+#pulseaudio-slider, #backlight-slider { 
+  margin: 0px;
+  padding: 0px;
 }
-#taskbar button {
-  background-color: #171b20;
-  font-family: Fira Sans;
-  border-radius: 4px;
-  margin-left: 4px;
-  margin-right: 4px;
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 50px;
+    border-radius: 20px;
+    background-color: #0a0e14;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: #39bae6;
+}
+
+#backlight-slider slider {
+    margin: 0px;
+    padding: 0px;
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 20px;
+}
+#backlight-slider trough {
+    min-height: 10px;
+    min-width: 50px;
+    border-radius: 20px;
+    background-color: #0a0e14;
+}
+#backlight-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: #e88939;
+}
+#not-power {
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
 }

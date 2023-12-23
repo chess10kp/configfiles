@@ -34,5 +34,6 @@ vim.keymap.set({"i", "s"}, "<C-K>", function() ls.jump(-1) end, {silent = true})
 ls.filetype_extend("typescriptreact", {"javascriptreact", "javascript", "typescript"})
 ls.filetype_extend("typescript", {"javascriptreact", "javascript", "typescriptreact"})
 ls.filetype_extend("javascriptreact", {"javascript", "typescript", "typescriptreact"})
+ls.filetype_extend("javascript", {"javascript", "typescript", "typescriptreact"})
   
 end

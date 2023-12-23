@@ -55,3 +55,6 @@ org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸")
 
 (unpin! org-roam)
 (package! org-roam-ui)
+
+(require 'evil-snipe)
+(evil-snipe-mode +1)
