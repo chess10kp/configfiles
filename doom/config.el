@@ -108,3 +108,5 @@
 ;; Customize timestamp format
 (after! org
   (setq org-time-stamp-custom-formats '( "%H:%M>")))
+
+(setq org-log-done 'time)

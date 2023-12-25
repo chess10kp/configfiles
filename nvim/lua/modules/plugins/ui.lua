@@ -20,7 +20,7 @@ ui["Everblush/everblush.vim"] = {
   lazy = true,
 }
 ui["olimorris/onedarkpro.nvim"] = {
-  lazy = false,
+  lazy = true,
 }
 ui["nyoom-engineering/oxocarbon.nvim"] = {
   lazy = true,

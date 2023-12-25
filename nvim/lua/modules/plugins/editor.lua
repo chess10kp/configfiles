@@ -42,7 +42,7 @@ editor["LunarVim/bigfile.nvim"] = {
 	cond = require("core.settings").load_big_files_faster,
 }
 editor["ojroques/nvim-bufdel"] = {
-	lazy = false,
+	lazy = true,
 	event = "BufReadPost",
 }
 editor["rhysd/clever-f.vim"] = {

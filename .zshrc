@@ -53,7 +53,6 @@ alias mv="mv -i"
 alias notes="emacs -nw ~/projects/notes/todo.org"
 alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/daily/\"$(date '+%d%m%y').org\""
 alias timenow="date '+%d%m%y'"
-alias code-insiders="code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 function yt
 {
