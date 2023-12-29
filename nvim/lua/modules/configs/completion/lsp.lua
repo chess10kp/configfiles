@@ -51,7 +51,7 @@ return function()
 			require("lsp_signature").on_attach({
 				bind = true,
 				use_lspsaga = true,
-				floating_window = true,
+				floating_window = false,
 				fix_pos = true,
 				hint_enable = true,
 				hi_parameter = "Search",

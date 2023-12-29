@@ -8,23 +8,25 @@ function notify_vol
   volume=$(pamixer --get-volume)
 
   if  [[ $volume -eq 1 ]]; then
-    dunstify "0"   -t 800 -r 91190 -i ~/.config/scripts/images/unmuted.svg
+    dunstify "0"   -t 800 -r 91190 
     return
   fi
-  bar=$(seq -s "󰝤" $(($volume / 5)) | sed 's/[0-9]//g' )
-  bar+=$(seq -s " " $(($volume / 5)) | sed 's/[0-9]//')
-  dunstify "$volume" $bar -a "Volume: " -t 800 -r 91190 -i ~/.config/scripts/images/unmuted.svg
+  notify-send "$volume" -a "Volume: " -h int:value:$volume -t 800 -r 91190 
   echo "$volume"
 }
 
 function notify_mute
 {
-    mute=`pamixer $srce --get-mute | cat`
-    if [ "$mute" == "true" ] ; then
-        dunstify "t2" -a "muted" "$nsink" -i ${icodir}/muted-${dvce}.svg -r 91190 -t 800
-    else
-        dunstify "t2" -a "unmuted" "$nsink" -i ${icodir}/unmuted-${dvce}.svg -r 91190 -t 800
-    fi
+    volume=$(pamixer --get-volume)
+    notify-send "$volume" -a "Muted " -h int:value:$volume -t 800 -r 91190 
+}
+
+function notify_brightness 
+{
+  curr=$(brightnessctl g);
+  max=$(brightnessctl m);
+  brightness=$(( $curr*100/$max ));
+  notify-send "$brightness" -a "Brightness: " -h int:value:$brightness -t 800 -r 91190 
 }
 
 case "$1" in
@@ -32,19 +34,13 @@ case "$1" in
     status=$(pamixer --get-mute)
   # volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
   if [[ $status == "false" ]]; then
-    if [[ -e ~/.config/scripts/images/unmuted.svg ]]; then
       notify_vol
-    else
-      notify-send -t 500 "muted $volume"
-      exit 0
-    fi
   else
-    if [[ -e ~/.config/scripts/images/muted.svg ]]; then
-      notify-send -t 500 -i ~/.config/scripts/images/muted.svg " $volume"
-    else
-      notify-send -t 500 " $volume"
-    fi
+      notify_mute
   fi
+  ;;
+  bright|brightness)
+    notify_brightness
   ;;
   bat|battery) 
     battery="$(cat /sys/class/power_supply/BAT0/capacity)"

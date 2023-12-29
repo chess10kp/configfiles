@@ -7,7 +7,6 @@ return function()
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
 
-    -- python 
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
@@ -17,10 +16,6 @@ return function()
 		btns.formatting.prettier.with({
 			filetypes = {
 				"vue",
-				"typescript",
-				"javascript",
-				"typescriptreact",
-				"javascriptreact",
 				"yaml",
 				"css",
 				"scss",
@@ -29,15 +24,6 @@ return function()
         "html",
 			},
 		}),
-
-		--shell
-		-- btns.formatting.shfmt,
-		-- btns.diagnostics.shellcheck,
-		-- btns.code_actions.shellcheck,
-		--btns.hover.printenv,
-
-		-- lua
-		btns.formatting.stylua,
 		btns.diagnostics.luacheck.with({
 			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 			extra_args = { "--globals 'vim' " },

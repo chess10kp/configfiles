@@ -12,7 +12,7 @@
 	font = "Iosevka Nerd Font"
 
 	# Point size of text.
-	font-size = 12
+	font-size = 20
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS

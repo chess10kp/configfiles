@@ -82,7 +82,9 @@ tool["nvim-telescope/telescope.nvim"] = {
 			},
 		},
 		{ "jvgrootveld/telescope-zoxide" },
-		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		{ "nvim-telescope/telescope-live-grep-args.nvim", 
+      lazy = true,
+    },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 	},
 }

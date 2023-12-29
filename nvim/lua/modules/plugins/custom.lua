@@ -1,17 +1,5 @@
 local custom = {}
 
-custom["ibhagwan/fzf-lua"] = {
-	enabled = false,
-	lazy = true,
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function()
-		-- calling `setup` is optional for customization
-		require("fzf-lua").setup({})
-	end,
-}
-custom["elkowar/yuck.vim"] = {
-	lazy = true,
-}
 custom["folke/todo-comments.nvim"] = {
 	lazy = true,
 	event = "BufRead",
@@ -50,13 +38,6 @@ custom["folke/neodev.nvim"] = {
 	lazy = true,
 	ft = "lua",
 	config = require("lang.neodev"),
-}
-
-custom["glacambre/firenvim"] = {
-	lazy = not vim.g.started_by_firenvim,
-	build = function()
-		vim.fn["firenvim#install"](0)
-	end,
 }
 custom["kawre/leetcode.nvim"] = {
 	lazy = false,
