@@ -5,7 +5,7 @@ source ~/.config/scripts/configvars.sh
 
 set_config() {
 	if [[ -f $1 ]]; then
-		ln -sf $1 $2
+		ln -f $1 $2
 	fi
 }
 
