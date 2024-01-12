@@ -4,7 +4,6 @@
   border-radius: 0;
   font-family: "Iosevka Nerd Font ", Roboto, sans-serif;
   font-size: 8px;
-  color: #89b4fa;
 }
 
 window#waybar {
@@ -23,16 +22,17 @@ window#waybar {
 }
 
 #submap {
-  margin: 0px;
-  padding: 0px;
+  padding: 5px;
+  background-color: #89b4fa;
+  color: black;
 }
 
 #clock {
+  font-family: "Iosevka Nerd Font Medium";
   margin: 0px;
-  color: black;
+  color: #e6b450;
   padding: 1px 10px 1px 10px;
   background-clip: padding-box;
-  color: #e6b450;
 }
 
 #memory {
@@ -45,25 +45,19 @@ window#waybar {
 	padding-top: 0px;
   padding-bottom: 0px;
 	margin: 0px 0px;
+  color: #e6b450;
 }
 
 #workspaces button {
+  color: #e6b450;
 	padding: 0 0px;
 	margin: 0px 0px;
-	background: black;
-	color: black;
-	border: 0px solid #1b1d1e;
 	font-weight: bold;
 }
 #workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
 }
 
 #workspaces button.focused {
-	background: #e88939;
-	background: #00afd7;
-	color: #1b1d1e;
 }
 
 #workspaces button.urgent {
@@ -75,14 +69,14 @@ window#waybar {
 }
 #battery.charging,
 #battery.plugged {
-  background-color: #facf89;
-  color: black;
+  color: #facf89;
+  /* color: black; */
   background-clip: padding-box;
 }
 #battery.critical,
-#battery.low {
-  background-color: #ff5400;
-  color: black;
+#battery.warning {
+  color: #ff5400;
+  /* color: black; */
   background-clip: padding-box;
 }
 
@@ -96,8 +90,8 @@ window#waybar {
 
 #battery.discharging {
   background-clip: padding-box;
-  background: #9ece6a;
-  color: black;
+  color: #9ece6a;
+  /* color: black; */
 }
 
 #backlight,
@@ -118,15 +112,15 @@ window#waybar {
 #pulseaudio {
   background-clip: border-box;
   border-radius: 0px;
-  background-color: #39bae6;
-  color: black;
+  color: #39bae6;
+  /* color: black; */
 }
 
 #backlight {
   background-clip: border-box;
   border-radius: 0px;
-  background-color: #e88939;
-  color: #000;
+  color: #e6b450;
+  /* color: #000; */
 }
 
 widget > * {

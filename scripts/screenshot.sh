@@ -6,18 +6,18 @@ source "$HOME/.config/scripts/configvars.sh"
 time=$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$time
 
-new_name=$(echo "" | $dmenu$rofi_prompt "name")
+new_name=$(echo "" | $dmenu_prompt "name")
 
 # from andreasl's explore with dmenu script
 
-selected_path="$HOME/projects/"
+selected_path="$HOME/projects/notes/images/"
 choices=(
-	'<save>'
-	'..'
+	"<save>"
+	".."
 	"$(ls "$selected_path")"
 )
 while :; do
-	dmenu_result="$(printf '%s\n' "${choices[@]}" | $rofi "$@")" || exit 1
+	dmenu_result="$(printf '%s\n' "${choices[@]}" | $rofi_prompt "$selected_path"  "$@")" || exit 1
 	if [ "$dmenu_result" == '<save>' ]; then
 		path="$selected_path"
 		break
@@ -39,4 +39,4 @@ while :; do
 done
 
 mv $(xdg-user-dir PICTURES)/Screenshots/$time "$path/$new_name.png"
-notify-send -t 4000 -i "$path/$new_name.png" "Screenshot $name"
+notify-send -t 4000 -i "$path/$new_name.png" -a "Screenshot $name"

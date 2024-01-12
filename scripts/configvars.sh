@@ -18,8 +18,8 @@ rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/Iosev
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
 rofi_prompt="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/IosevkaNerdFontMono-Bold.ttf \
     --padding-left=30 --padding-right=30 --prompt"
-dmenu="tofi --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
-dmenu_prompt="tofi --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf --prompt"
+dmenu="tofi --height=2% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
+dmenu_prompt="tofi --height=5% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf --prompt"
 editor="nvim"
 term="footclient"
 browser="firefox"

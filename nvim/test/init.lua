@@ -1,6 +1,6 @@
 function search_by_string()
   local input  = vim.fn.input("find by string: ")
-  print(input)
+  require("telescope.builtin").grep_string({ search = input })
 end
 
 search_by_string()

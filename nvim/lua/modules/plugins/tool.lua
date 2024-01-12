@@ -20,7 +20,7 @@ tool["simrat39/symbols-outline.nvim"] = {
 	cmd = "SymbolsOutline",
 	config = require("tool.outline"),
 }
-tool["ibhagwan/smartyank.nvim"] = {
+tool["ibhagwan/smartyank.nvim"] = { -- highlight yanks and yank to clip
 	lazy = true,
 	event = "BufReadPost",
 	config = require("tool.smartyank"),

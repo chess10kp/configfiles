@@ -1,8 +1,4 @@
 return function()
-	local nvim_lsp = require("lspconfig")
-	local mason = require("mason")
-	local mason_lspconfig = require("mason-lspconfig")
-
 	require("lspconfig.ui.windows").default_options.border = "single"
 	local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
 	local diagnostics_level = require("core.settings").diagnostics_level

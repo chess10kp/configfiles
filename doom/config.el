@@ -110,3 +110,4 @@
   (setq org-time-stamp-custom-formats '( "%H:%M>")))
 
 (setq org-log-done 'time)
+(set-default 'preview-scale-function 1.0)

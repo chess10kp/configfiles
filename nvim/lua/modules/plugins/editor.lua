@@ -5,27 +5,6 @@ editor["rainbowhxch/accelerated-jk.nvim"] = {
 	event = "VeryLazy",
 	config = require("editor.accelerated-jk"),
 }
-editor["rmagatti/auto-session"] = {
-  enabled = false,
-	lazy = false,
-	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
-	config = require("editor.auto-session"),
-}
-editor["olimorris/persisted.nvim"] = {
-  enabled = false,
-	lazy = true,
-	cmd = {
-		"SessionToggle",
-		"SessionStart",
-		"SessionStop",
-		"SessionSave",
-		"SessionLoad",
-		"SessionLoadLast",
-		"SessionLoadFromFile",
-		"SessionDelete",
-	},
-	config = require("editor.persisted"),
-}
 editor["m4xshen/autoclose.nvim"] = {
 	lazy = false,
 	event = "InsertEnter",

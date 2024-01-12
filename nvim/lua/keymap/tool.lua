@@ -98,6 +98,9 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: File by frecency"),
+  ["n|<leader>fs"] = map_callback(function ()
+    require("telescope.builtin").grep_string({search = vim.fn.input("find string: ")})
+  end),
 	["n|<leader>fw"] = map_callback(function()
 			require("telescope").extensions.live_grep_args.live_grep_args()
 		end)
@@ -125,7 +128,6 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Buffer opened"),
-	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 	["n|<leader>fi"] = map_cu("Telescope file_browser ")
 		:with_noremap()
 		:with_silent()

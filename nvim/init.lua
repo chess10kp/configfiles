@@ -1,9 +1,6 @@
-if not vim.g.started_by_firenvim and not vim.g.vscode then 
-  require("core")
-elseif vim.g.started_by_firenvim then
-	require("core")
-	vim.cmd("colorscheme onedark")
+if not vim.g.vscode then
+    require("core")
 elseif vim.g.vscode then
-	require("vscode")
+    require("vscode")
 end
 

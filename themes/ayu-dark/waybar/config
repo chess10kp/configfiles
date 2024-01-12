@@ -1,16 +1,16 @@
 {
     "position": "top",
     "height": 15, // Waybar height (to be removed for auto height)
-    "modules-left": ["hyprland/workspaces", "hyprland/submap",],
+    "modules-left": [ "hyprland/workspaces", "hyprland/submap",],
     "modules-center": [
-      "clock",
     ],
     "modules-right": [
+        "battery",
         "group/pulseaudio-group",
         "group/backlight-group",
         "group/info-group",
         "network",
-      "battery",
+        "clock",
     ],
     "clock": {
         "tooltip-format": "",
@@ -43,19 +43,24 @@
         "sort-by-number": true,
     },
     "battery": {
-        "bat": "BAT1",
+        "bat": "BAT0",
         "states": {
-            "great": 95,
-            "good": 80,
-            "medium": 65,
-            "decent": 50,
+            "great": 85,
+            "good": 70,
+            "medium": 50,
             "warning": 30,
             "critical": 20
         },
-        "format": "{capacity}",
-        "format-charging": "{capacity} 󱐋",
-        "format-plugged": "{capacity}",
+        "format": "{icon}",
+        "format-charging": "󱐋{capacity}",
+        "format-plugged": "󱐋{capacity}",
         "format-alt": "{time} {icon}",
+        "format-icons": {
+         "critical" : "",
+         "warning" : "",
+         "medium" : "",
+         "great" :  ""
+        }
     },
     "network": {
         "interface": "wlp0s20f3",

@@ -16,23 +16,12 @@ ui["Mofiqul/vscode.nvim"] = {
 	lazy = true,
 	name = "vscode",
 }
-ui["Everblush/everblush.vim"] = {
-	lazy = true,
-}
 ui["olimorris/onedarkpro.nvim"] = {
 	lazy = true,
-}
-ui["nyoom-engineering/oxocarbon.nvim"] = {
-	lazy = true,
-	name = "oxocarbon",
 }
 ui["catppuccin/nvim"] = {
 	lazy = true,
 	name = "catppuccin",
-}
-ui["ishan9299/nvim-solarized-lua"] = {
-	lazy = true,
-	name = "solarized",
 }
 ui["folke/tokyonight.nvim"] = {
 	lazy = true,
@@ -51,12 +40,7 @@ ui["Shatur/neovim-ayu"] = {
 }
 ui["xiyaowong/transparent.nvim"] = {
 	lazy = true,
-	cmd = "TransparentToggle",
-}
-ui["decaycs/decay.nvim"] = {
-	lazy = true,
-	name = "decay",
-	config = require("ui.decay"),
+	cmd = "TransparentEnable",
 }
 ui["ellisonleao/gruvbox.nvim"] = {
 	lazy = true,
