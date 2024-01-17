@@ -75,8 +75,14 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-		{ "mrjones2014/nvim-ts-rainbow" },
-		{ "JoosepAlviste/nvim-ts-context-commentstring" },
+		{ "mrjones2014/nvim-ts-rainbow", 
+    enabed = false, 
+    lazy = true },
+		{ "JoosepAlviste/nvim-ts-context-commentstring" ,
+    enabled = true, 
+    lazy = true,
+    ft = "typescript, javascript",
+    },
 		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup" ,
       enabled = false, 
@@ -88,6 +94,8 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 		{
 			"windwp/nvim-ts-autotag",
+      lazy = true, 
+      ft = {"typescript, javascript", "html"},
 			config = require("editor.autotag"),
 		},
 		{
@@ -98,6 +106,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 		{
 			"abecodes/tabout.nvim",
+      lazy = true,
 			config = require("editor.tabout"),
 		},
 	},

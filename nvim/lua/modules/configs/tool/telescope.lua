@@ -1,8 +1,5 @@
 return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
-	local lga_actions = require("telescope-live-grep-args.actions")
-	local project_actions = require("telescope._extensions.project.actions")
-  local fb_actions = require('telescope').extensions.file_browser.actions
   local actions = require('telescope.actions')
 
 	require("telescope").setup({
@@ -91,12 +88,6 @@ return function()
 			live_grep_args = {
 				auto_quoting = true, -- enable/disable auto-quoting
 				-- define mappings, e.g.
-				mappings = { -- extend mappings
-					i = {
-						["<C-k>"] = lga_actions.quote_prompt(),
-						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-					},
-				},
 			},
 			undo = {
 				side_by_side = true,

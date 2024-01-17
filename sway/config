@@ -175,7 +175,7 @@ default_border pixel 2
     bindsym $mod+Control+n exec  $term --title music -e ncmpcpp 
 
 
-    bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') && kill
+    bindsym Print exec "filename=$(date +'screenshot_%Y_%m-%d-%H%M%S.png' ); slurp | grim -g - ~/Pictures/Screenshots/$filename ; xdg-open ~/Pictures/Screenshots/$filename"
     bindsym XF86AudioLowerVolume exec "pactl set-sink-volume  @DEFAULT_SINK@ -5%; ~/.config/scripts/showstuff vol"
     bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume  @DEFAULT_SINK@ +5%; ~/.config/scripts/showstuff vol"
     bindsym XF86AudioPlay exec mpc toggle
@@ -185,6 +185,8 @@ default_border pixel 2
     bindsym XF86MonBrightnessUp exec "brightnessctl set +05%; ~/.config/scripts/showstuff brightness"
     bindsym XF86MonBrightnessDown exec "brightnessctl set 05%-; ~/.config/scripts/showstuff brightness"
 
+    bindsym $mod+Shift+t exec ~/.config/scripts/showstuff time
+    bindsym $mod+Shift+b exec ~/.config/scripts/showstuff bat
 #
 # Scratchpad:
 #
@@ -204,6 +206,7 @@ default_border pixel 2
 # window rules 
 for_window [title="music"] floating enable
 for_window [title="music"] move scratchpad
+for_window [floating] default border pixel 4
 
 #
 # Resizing containers:
@@ -235,7 +238,8 @@ mode "script" {
     bindsym v exec ~/.config/scripts/mpv.sh; mode "default"
     bindsym q exec ~/.config/scripts/power.sh; mode "default"
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
-    bindsym e exec ~/.config/scripts/dmenu_term.sh &; mode "default"
+    bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
+    bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     bindsym c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -284,7 +288,8 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-
+    height 20
+    mode dock
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%X'; do sleep 1; done

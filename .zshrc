@@ -62,8 +62,14 @@ function yt
 
 export PATH="$HOME/.config/emacs/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
 export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # poetry fails to open kdewallet
 export EDITOR="nvim"
+export GOROOT=/usr/local/go
+export PATH="$GOROOT/bin:$PATH"
+export GOPATH="$HOME/golib"
+export PATH="$GOPATH/bin:$PATH"
+export GOPATH="$HOME/projects/go/:$GOPATH"
 
 function tmux-run
 {
@@ -72,6 +78,8 @@ function tmux-run
 
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
+
 # source ~/.config/zsh/gitstatus/gitstatus.prompt.zsh
 # source ~/.config/zsh/alien-minimal/alien-minimal.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

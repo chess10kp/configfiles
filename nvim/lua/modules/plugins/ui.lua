@@ -104,8 +104,8 @@ ui["karb94/neoscroll.nvim"] = {
 	config = require("ui.neoscroll"),
 }
 ui["goolord/alpha-nvim"] = {
+  enabled = false,
 	lazy = false,
-	enabled = true,
 	config = require("ui.alpha"),
 }
 return ui
