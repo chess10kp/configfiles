@@ -17,7 +17,7 @@ return function()
 			selection_caret = icons.ui.ChevronRight,
 			scroll_strategy = "limit",
 			results_title = false,
-      border = false, 
+      border = true, 
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -41,7 +41,7 @@ return function()
 				horizontal = {
 					prompt_position = "top",
 					preview_width = 0.55,
-					results_width = 0.8,
+					results_width =0.8,
 				},
 				vertical = {
 					mirror = false,
@@ -50,11 +50,11 @@ return function()
 				height = 0.92,
 				preview_cutoff = 120,
 			},
-			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-			file_sorter = require("telescope.sorters").get_fuzzy_file,
-			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+			-- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+			-- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+			-- qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+			-- file_sorter = require("telescope.sorters").get_fuzzy_file,
+			-- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		},
 		pickers = {
 			keymaps = {
@@ -64,14 +64,22 @@ return function()
 			find_files = {
         theme = "dropdown", 
         layout_strategy = "horizontal", 
-        border = false, 
+        border = true, 
         layout_config = {
           preview_width = 0 , 
-          anchor = "N",
-        prompt_position = "bottom", 
+        prompt_position = "top", 
         },
 			},
-			buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+			buffers = {
+        theme = "dropdown", 
+        layout_strategy = "horizontal", 
+        border = true, 
+        layout_config = {
+          preview_width = 0 , 
+        prompt_position = "top", 
+        },
+			},
+			-- buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
 		extensions = {
 			fzf = {
@@ -106,11 +114,10 @@ return function()
 			file_browser = {
 				theme = "dropdown",
         layout_strategy = "horizontal", 
-        border = false, 
+        border = true, 
         layout_config = {
           preview_width = 0 , 
-          anchor = "N",
-        prompt_position = "bottom", 
+        prompt_position = "top", 
         },
 				hijack_netrw = true,
 				mappings = {
@@ -125,7 +132,7 @@ return function()
 		},
 	})
 
-	require("telescope").load_extension("frecency")
+	-- require("telescope").load_extension("frecency")
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
 	-- require("telescope").load_extension("notify")

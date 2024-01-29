@@ -114,7 +114,8 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: File in config"),
 	["n|<leader>fr"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-	["n|<leader>ff"] = map_cu("Telescope find_files "):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("find: Help"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
 		:with_noremap()
@@ -124,7 +125,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("edit: Change current direrctory by zoxide"),
-	["n|<leader>fb"] = map_cu("Telescope buffers theme=dropdown")
+	["n|<leader>fb"] = map_cu("Telescope buffers")
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Buffer opened"),

@@ -9,29 +9,15 @@ ui["akinsho/bufferline.nvim"] = {
 ui["folke/zen-mode.nvim"] = {
 	enabled = true,
 	lazy = true,
-	cmd = "ZenMode",
 }
 
-ui["Mofiqul/vscode.nvim"] = {
-	lazy = true,
-	name = "vscode",
-}
 ui["olimorris/onedarkpro.nvim"] = {
 	lazy = true,
-}
-ui["catppuccin/nvim"] = {
-	lazy = true,
-	name = "catppuccin",
 }
 ui["folke/tokyonight.nvim"] = {
 	lazy = true,
 	name = "tokyonight",
 	config = require("ui.tokyonight"),
-}
-ui["Skullamortis/forest.nvim"] = {
-	lazy = true,
-	name = "forest",
-	priority = 1000,
 }
 ui["Shatur/neovim-ayu"] = {
 	lazy = true,
@@ -55,29 +41,25 @@ ui["lewis6991/gitsigns.nvim"] = {
 	config = require("ui.gitsigns"),
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
+  enabled = false,
 	lazy = true,
 	event = "BufReadPost",
 	config = require("ui.indent-blankline"),
 }
+ui["rebelot/heirline.nvim"] = {
+  enabled = true,
+  lazy = true,
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
+  config = require("ui.heirline"),
+}
 ui["nvim-lualine/lualine.nvim"] = {
-	enabled = true,
+	enabled = false,
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
-ui["rebelot/heirline.nvim"] = {
-	enabled = false,
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.heirline"),
-}
-ui["zbirenbaum/neodim"] = {
-	enabled = false,
-	lazy = true,
-	event = "LspAttach",
-	config = require("ui.neodim"),
-}
 ui["rcarriga/nvim-notify"] = {
+  enabled = false, 
 	lazy = false,
 	event = "VeryLazy",
 	config = require("ui.notify"),
@@ -87,25 +69,9 @@ ui["folke/paint.nvim"] = { --NOTE: highlight comments
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.paint"),
 }
-ui["dstein64/nvim-scrollview"] = {
-	enabled = false,
-	lazy = true,
-	event = "BufReadPost",
-	config = require("ui.scrollview"),
-}
-ui["edluffy/specs.nvim"] = {
-	lazy = true,
-	event = "CursorMoved",
-	config = require("ui.specs"),
-}
 ui["karb94/neoscroll.nvim"] = {
 	lazy = false,
 	enabled = true,
 	config = require("ui.neoscroll"),
-}
-ui["goolord/alpha-nvim"] = {
-  enabled = false,
-	lazy = false,
-	config = require("ui.alpha"),
 }
 return ui

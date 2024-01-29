@@ -17,6 +17,8 @@ local plug_map = {
 		:with_nowait()
 		:with_desc("change working directory"),
 	["n|<M-j>"] = map_cr("bnext"):with_noremap():with_silent():with_nowait():with_desc("next buffer"),
+	["n|<Tab>"] = map_cr("bnext"):with_noremap():with_silent():with_nowait():with_desc("next buffer"),
+	["n|<S-Tab>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("next buffer"),
 	["n|<M-k>"] = map_cr("bprevious"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 	["n|<M-S-k>"] = map_cr("tabprev"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
 	["n|<M-S-j>"] = map_cr("tabnext"):with_noremap():with_silent():with_nowait():with_desc("prev buffer"),
@@ -57,8 +59,6 @@ local plug_map = {
 	["n|ca}"] = map_cmd('"_ca}'):with_noremap():with_desc("delete around braces"),
 
 	["n|<leader><leader>"] = map_cmd(':'):with_noremap():with_silent(),
-	["n|H"] = map_cmd("^"):with_noremap():with_silent(),
-	["n|L"] = map_cmd("$"):with_noremap():with_silent(),
 
 
   --Plugin command mappings 

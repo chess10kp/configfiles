@@ -9,8 +9,6 @@ end, {})
 
 vim.api.nvim_create_user_command("Zen", function()
 	if vim.o.laststatus == 3 then
-		vim.o.number = false
-		vim.o.relativenumber = false
 		vim.o.laststatus = 0
 		vim.cmd("ZenMode")
 	elseif vim.o.laststatus == 0 then

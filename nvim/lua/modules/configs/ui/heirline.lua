@@ -25,7 +25,6 @@ return function()
 		condition = conditions.is_git_repo,
 
 		init = function(self)
-			self.status_dict = vim.b.gitsigns_status_dict
 			self.has_changes = self.status_dict.added ~= 0
 				or self.status_dict.removed ~= 0
 				or self.status_dict.changed ~= 0
@@ -165,6 +164,7 @@ return function()
 			init = function(self)
 				self.filename = vim.api.nvim_buf_get_name(0)
 			end,
+			{ update = "BufEnter" },
 		}
 		-- We can now define some children separately and add them later
 
@@ -322,10 +322,8 @@ return function()
 		hl = { bg = "None" },
 	}
 
-	-- we redefine the filename component, as we probably only want the tail and not the relative path
 	local TablineFileName = {
 		provider = function(self)
-			-- self.filename will be defined later, just keep looking at the example!
 			local filename = self.filename
 			filename = filename == "" and "[No Name]" or vim.fn.fnamemodify(filename, ":t")
 			filename = " " .. filename .. " "
@@ -335,10 +333,6 @@ return function()
 			return { bold = self.is_active or self.is_visible, italic = true, bg = "None" }
 		end,
 	}
-
-	-- this looks exactly like the FileFlags component that we saw in
-	-- #crash-course-part-ii-filename-and-friends, but we are indexing the bufnr explicitly
-	-- also, we are adding a nice icon for terminal buffers.
 	local TablineFileFlags = {
 		{
 			condition = function(self)
@@ -362,8 +356,6 @@ return function()
 			hl = { fg = "orange", bg = "None" },
 		},
 	}
-
-	-- Here the filename block finally comes together
 	local TablineFileNameBlock = {
 		init = function(self)
 			self.filename = vim.api.nvim_buf_get_name(self.bufnr)

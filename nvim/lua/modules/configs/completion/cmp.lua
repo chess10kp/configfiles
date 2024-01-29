@@ -52,8 +52,8 @@ return function()
 		sorting = {
 			priority_weight = 2,
 			comparators = {
-				-- require("copilot_cmp.comparators").prioritize,
-				-- require("copilot_cmp.comparators").score,
+				require("copilot_cmp.comparators").prioritize,
+				require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				compare.offset, -- Items closer to cursor will have lower priority
 				compare.exact,
@@ -124,7 +124,7 @@ return function()
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-S-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-S-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-w>"] = cmp.mapping.close(),
+			["<C-S-w>"] = cmp.mapping.close(),
 			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()

@@ -3,4 +3,3 @@ if not vim.g.vscode then
 elseif vim.g.vscode then
     require("vscode")
 end
-

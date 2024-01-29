@@ -25,6 +25,7 @@ function mkcir
 {
   command mkdir $1 && cd $1
 }
+alias code="code-insiders"
 alias e="exit"
 alias c="clear"
 alias sdi="yay -S"
