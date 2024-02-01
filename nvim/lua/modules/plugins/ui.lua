@@ -24,18 +24,17 @@ ui["Shatur/neovim-ayu"] = {
 	name = "ayu",
 	config = require("ui.ayu"),
 }
-ui["xiyaowong/transparent.nvim"] = {
-	lazy = true,
-	cmd = "TransparentEnable",
+ui["marko-cerovac/material.nvim"] = {
+  lazy = true, 
 }
 ui["ellisonleao/gruvbox.nvim"] = {
 	lazy = true,
-	event = "BufReadPost",
 	name = "gruvbox",
 	config = require("ui.gruvbox"),
 }
 
 ui["lewis6991/gitsigns.nvim"] = {
+    enabled = false,
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.gitsigns"),
@@ -52,12 +51,6 @@ ui["rebelot/heirline.nvim"] = {
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("ui.heirline"),
 }
-ui["nvim-lualine/lualine.nvim"] = {
-	enabled = false,
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.lualine"),
-}
 ui["rcarriga/nvim-notify"] = {
   enabled = false, 
 	lazy = false,
@@ -73,5 +66,16 @@ ui["karb94/neoscroll.nvim"] = {
 	lazy = false,
 	enabled = true,
 	config = require("ui.neoscroll"),
+}
+
+ui["xiyaowong/transparent.nvim"] = {
+	lazy = true,
+	cmd = "TransparentEnable",
+}
+ui["nvim-lualine/lualine.nvim"] = {
+	enabled = false,
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	config = require("ui.lualine"),
 }
 return ui

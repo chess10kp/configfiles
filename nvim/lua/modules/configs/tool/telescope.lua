@@ -1,6 +1,5 @@
 return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
-  local actions = require('telescope.actions')
 
 	require("telescope").setup({
 		defaults = {
@@ -17,7 +16,7 @@ return function()
 			selection_caret = icons.ui.ChevronRight,
 			scroll_strategy = "limit",
 			results_title = false,
-      border = true, 
+			border = true,
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -41,7 +40,7 @@ return function()
 				horizontal = {
 					prompt_position = "top",
 					preview_width = 0.55,
-					results_width =0.8,
+					results_width = 0.8,
 				},
 				vertical = {
 					mirror = false,
@@ -62,22 +61,23 @@ return function()
 				exclude = {},
 			},
 			find_files = {
-        theme = "dropdown", 
-        layout_strategy = "horizontal", 
-        border = true, 
-        layout_config = {
-          preview_width = 0 , 
-        prompt_position = "top", 
-        },
+				theme = "dropdown",
+				layout_strategy = "horizontal",
+        anchor = "bottom",
+				border = true,
+				layout_config = {
+					preview_width = 0,
+					prompt_position = "top",
+				},
 			},
 			buffers = {
-        theme = "dropdown", 
-        layout_strategy = "horizontal", 
-        border = true, 
-        layout_config = {
-          preview_width = 0 , 
-        prompt_position = "top", 
-        },
+				theme = "dropdown",
+				layout_strategy = "horizontal",
+				border = true,
+				layout_config = {
+					preview_width = 0,
+					prompt_position = "top",
+				},
 			},
 			-- buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
@@ -113,20 +113,20 @@ return function()
 			},
 			file_browser = {
 				theme = "dropdown",
-        layout_strategy = "horizontal", 
-        border = true, 
-        layout_config = {
-          preview_width = 0 , 
-        prompt_position = "top", 
-        },
+				layout_strategy = "horizontal",
+				border = true,
+				layout_config = {
+					preview_width = 0,
+					prompt_position = "top",
+				},
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {
-            ["<Tab>" ] = actions.select_default, 
-          },
+						["<Tab>"] = require("telescope.actions").select_default,
+					},
 					["n"] = {
-            ["<BS>"] = function() end
-          },
+						["<BS>"] = function() end,
+					},
 				},
 			},
 		},
@@ -134,13 +134,12 @@ return function()
 
 	-- require("telescope").load_extension("frecency")
 	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("live_grep_args")
+	-- require("telescope").load_extension("live_grep_args")
 	-- require("telescope").load_extension("notify")
 	-- require("telescope").load_extension("undo")
 	-- require("telescope").load_extension("zoxide")
 	-- require("telescope").load_extension("project")
 	-- require("telescope").load_extension("session-lens")
-	require("telescope").load_extension("file_browser")
-	-- require("telescope").load_extension("zoxide")
+	-- require("telescope").load_extension("file_browser")
 	-- require("telescope").load_extension("persisted")
 end

@@ -67,12 +67,11 @@ tool["gelguy/wilder.nvim"] = {
 ----------------------------------------------------------------------
 tool["nvim-telescope/telescope.nvim"] = {
 	lazy = true,
+  enabled = true,
 	config = require("tool.telescope"),
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope-project.nvim", 
-    enabled = false },
 		{ "debugloop/telescope-undo.nvim", 
     lazy = true, 
     },
@@ -85,6 +84,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 			},
 		},
 		{ "jvgrootveld/telescope-zoxide", 
+      enabled = false,
       lazy = true, 
       cmd = "Telescope zoxide",
     },
