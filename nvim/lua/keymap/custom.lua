@@ -9,7 +9,7 @@ local vim_path = require("core.global").vim_path
 
 local plug_map = {
 	-- general keymaps
-  ["n|<C-n>"] = map_cu("Lexplore<CR><CR>"):with_noremap():with_nowait():with_silent():with_desc("Toggle file tree"),
+  ["n|<C-n>"] = map_cu("Lexplore!<CR><CR>"):with_noremap():with_nowait():with_silent():with_desc("Toggle file tree"),
 	["n|<leader>ss"] = map_cr("mks!"),
 	["n|<leader>lcd"] = map_cr("lcd %:h | lua print('directory changed')<CR>")
 		:with_noremap()

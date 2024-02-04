@@ -6,13 +6,13 @@ bold_font auto
 italic_font auto
 bold_italic_font auto 
 confirm_os_window_close 0
-font_size 16
+font_size 20
 padding 0 0
 enable_audio_bell no
 
 
 
 # BEGIN_KITTY_THEME
-# Hipster Green
+# One Dark
 include current-theme.conf
 # END_KITTY_THEME

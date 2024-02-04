@@ -283,8 +283,6 @@ return function()
 		Align,
 		-- Git,
 		Space,
-		getCWD(),
-		Space,
 		getSearches(),
 		hl = { bg = "None" },
 	}
@@ -293,6 +291,7 @@ return function()
 		fallthrough = false,
 		SpecialStatusline,
 		DefaultStatusline,
+    update = "BufEnter",
 		hl = { bg = "None" },
 	}
 
@@ -330,7 +329,7 @@ return function()
 			return filename
 		end,
 		hl = function(self)
-			return { bold = self.is_active or self.is_visible, italic = true, bg = "None" }
+			return { bold = self.is_active or self.is_visible, italic = true, }
 		end,
 	}
 	local TablineFileFlags = {
@@ -371,7 +370,7 @@ return function()
 		TablineFileFlags,
 	}
 
-	local BufferLine = utils.make_buflist(TablineFileNameBlock)
+	local BufferLine = { utils.make_buflist(TablineFileNameBlock) , Align, getCWD()}
 	local Tabline = { BufferLine, hl = { bg = "None" } }
 
 	vim.api.nvim_create_augroup("Heirline", { clear = true })

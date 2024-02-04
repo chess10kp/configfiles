@@ -1,16 +1,5 @@
 local ui = {}
 
-ui["akinsho/bufferline.nvim"] = {
-	enabled = false,
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.bufferline"),
-}
-ui["folke/zen-mode.nvim"] = {
-	enabled = true,
-	lazy = true,
-}
-
 ui["olimorris/onedarkpro.nvim"] = {
 	lazy = true,
 }
@@ -32,9 +21,8 @@ ui["ellisonleao/gruvbox.nvim"] = {
 	name = "gruvbox",
 	config = require("ui.gruvbox"),
 }
-
 ui["lewis6991/gitsigns.nvim"] = {
-    enabled = false,
+  enabled = false,
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.gitsigns"),
@@ -46,7 +34,7 @@ ui["lukas-reineke/indent-blankline.nvim"] = {
 	config = require("ui.indent-blankline"),
 }
 ui["rebelot/heirline.nvim"] = {
-  enabled = true,
+  enabled = false,
   lazy = true,
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = require("ui.heirline"),
@@ -71,11 +59,5 @@ ui["karb94/neoscroll.nvim"] = {
 ui["xiyaowong/transparent.nvim"] = {
 	lazy = true,
 	cmd = "TransparentEnable",
-}
-ui["nvim-lualine/lualine.nvim"] = {
-	enabled = false,
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("ui.lualine"),
 }
 return ui
