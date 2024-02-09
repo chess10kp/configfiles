@@ -62,9 +62,6 @@ local disable_distribution_plugins = function()
 	-- Disable sql omni completion.
 	vim.g.loaded_sql_completion = 1
 
-	-- Disable EditorConfig support
-	vim.g.editorconfig = 1
-
 	-- Disable remote plugins
 	-- NOTE: Disabling rplugin.vim will show error for `wilder.nvim` in :checkhealth,
 	-- NOTE: but since it's config doesn't require python rtp, it's fine to ignore.
@@ -148,19 +145,20 @@ local load_core = function()
 	-- disable_distribution_plugins()
 	leader_map()
 
-	neovide_config()
+	-- neovide_config()
 	clipboard_config()
 	shell_config()
 
 	require("core.options")
 	require("core.mapping")
-    require("core.custom")
+  require("core.custom")
 	require("keymap")
 	require("core.event")
 	require("core.pack")
 
-	local colorscheme = require("core.settings").colorscheme
-	local background = require("core.settings").background
+  local settings = require('core.settings')
+	local colorscheme = settings.colorscheme
+	local background = settings.background
 	vim.api.nvim_command("set background=" .. background)
 	vim.api.nvim_command("colorscheme " .. colorscheme)
 end

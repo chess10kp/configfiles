@@ -1,26 +1,8 @@
 local custom = {}
 
-custom["folke/todo-comments.nvim"] = {
-	lazy = true,
-	event = "BufRead",
-	config = require("custom.todo-comments"),
-}
-custom["rmagatti/session-lens"] = {
-	lazy = false,
-	enabled = false,
-	config = function()
-		require("session-lens").setup({})
-	end,
-}
 custom["lervag/vimtex"] = {
 	lazy = true,
 	ft = "tex",
-}
-custom["ggandor/leap.nvim"] = {
-	lazy = false,
-	config = function()
-		require("leap").add_default_mappings()
-	end,
 }
 custom["kylechui/nvim-surround"] = {
 	event = "VeryLazy",
@@ -56,4 +38,9 @@ custom["kawre/leetcode.nvim"] = {
 		lang = "python",
 	},
 }
+custom["dstein64/vim-startuptime"] = {
+  lazy = true,
+  cmd = "StartupTime",
+}
+
 return custom

@@ -38,28 +38,10 @@ editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
 }
-editor["junegunn/vim-easy-align"] = {
-	lazy = true,
-	cmd = "EasyAlign",
-}
 editor["RRethy/vim-illuminate"] = { --illuminates corresponding brackers
 	lazy = true,
 	event = {"InsertEnter",  "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
-}
-editor["luukvbaal/stabilize.nvim"] = {
-  enabled = false,
-	lazy = true,
-	event = "BufReadPost",
-}
-editor["romainl/vim-cool"] = {
-	lazy = true,
-	event = { "CursorMoved", "InsertEnter" },
-}
-editor["lambdalisue/suda.vim"] = {
-	lazy = true,
-	cmd = { "SudaRead", "SudaWrite" },
-	config = require("editor.suda"),
 }
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --

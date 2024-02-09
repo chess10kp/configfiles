@@ -28,7 +28,7 @@ lang["iamcco/markdown-preview.nvim"] = {
   build = ":call mkdp#util#install()",
 }
 lang["chrisbra/csv.vim"] = {
-  enabled = false,
+  enabled = true,
   lazy = true,
   ft = "csv",
 }
@@ -40,7 +40,7 @@ lang["pmizio/typescript-tools.nvim"] = {
   config = require("lang.typescript-tools"),
 }
 lang["mrcjkb/haskell-tools.nvim"] = {
-  enabled = false,
+  enabled = true,
   lazy = true,
   ft = { "haskell" },
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },

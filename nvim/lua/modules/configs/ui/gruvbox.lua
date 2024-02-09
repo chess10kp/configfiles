@@ -20,11 +20,13 @@ require("gruvbox").setup({
   overrides = {
       BufferLineFill = {bg = "#282828"},
       CursorLine = {bg = "None"},
-    SignColumn = {bg = "#0e1419"},
+      SignColumn = {bg = "#0e1419"},
+      TabLineFill = {bg = "#0e1419"},
+      TabLineSel = {bg = "#0e1419"},
   },
   dim_inactive = false,
   transparent_mode = false,
- palette_overrides = {
+    palette_overrides = {
         dark0 = "#0e1419",
     }
 })

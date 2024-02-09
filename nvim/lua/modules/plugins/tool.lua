@@ -59,18 +59,19 @@ tool["gelguy/wilder.nvim"] = {
 ----------------------------------------------------------------------
 tool["nvim-telescope/telescope.nvim"] = {
 	lazy = true,
-  enabled = true,
 	config = require("tool.telescope"),
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "debugloop/telescope-undo.nvim", 
+    enabled = false,
     lazy = true, 
     },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{
 			"nvim-telescope/telescope-frecency.nvim",
       lazy = true, 
+      enabled = false,
 			dependencies = {
 				{ "kkharji/sqlite.lua" },
 			},

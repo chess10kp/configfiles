@@ -110,6 +110,10 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Buffer opened"),
+	["n|<C-x><C-f"] = map_cu("Telescope file_browser ")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: open file browser"),
 	["n|<leader>fi"] = map_cu("Telescope file_browser ")
 		:with_noremap()
 		:with_silent()

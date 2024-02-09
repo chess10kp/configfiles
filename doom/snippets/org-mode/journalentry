@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: journalentry
+# key: journalentry
+# --
+1. $1
+2. $2
+3. $3
+
+***** Goals for tomorrow
+1. $4
+2. $5
+3. $6

@@ -1,5 +1,6 @@
 return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
+  local telescope_actions = require("telescope.actions")
 
 	require("telescope").setup({
 		defaults = {
@@ -97,20 +98,20 @@ return function()
 				auto_quoting = true, -- enable/disable auto-quoting
 				-- define mappings, e.g.
 			},
-			undo = {
-				side_by_side = true,
-				mappings = { -- this whole table is the default
-					i = {
-						-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-						-- you want to use the following actions. This means installing as a dependency of
-						-- telescope in it's `requirements` and loading this extension from there instead of
-						-- having the separate plugin definition as outlined above. See issue #6.
-						["<cr>"] = require("telescope-undo.actions").yank_additions,
-						["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-						["<C-cr>"] = require("telescope-undo.actions").restore,
-					},
-				},
-			},
+			-- undo = {
+			-- 	side_by_side = true,
+			-- 	mappings = { -- this whole table is the default
+			-- 		i = {
+			-- 			-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
+			-- 			-- you want to use the following actions. This means installing as a dependency of
+			-- 			-- telescope in it's `requirements` and loading this extension from there instead of
+			-- 			-- having the separate plugin definition as outlined above. See issue #6.
+			-- 			["<cr>"] = require("telescope-undo.actions").yank_additions,
+			-- 			["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
+			-- 			["<C-cr>"] = require("telescope-undo.actions").restore,
+			-- 		},
+			-- 	},
+			-- },
 			file_browser = {
 				theme = "dropdown",
 				layout_strategy = "horizontal",
@@ -122,7 +123,7 @@ return function()
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {
-						["<Tab>"] = require("telescope.actions").select_default,
+						["<Tab>"] = telescope_actions.select_default,
 					},
 					["n"] = {
 						["<BS>"] = function() end,

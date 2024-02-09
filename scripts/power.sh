@@ -5,6 +5,7 @@ reboot='reboot'
 lock='lock'
 suspend='suspend'
 logout='logout'
+kill="kill"
 
 source ~/.config/scripts/configvars.sh
 

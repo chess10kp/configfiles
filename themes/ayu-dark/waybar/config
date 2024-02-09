@@ -1,13 +1,10 @@
 {
-    "position": "top",
+    "position": "bottom",
     "height": 15, // Waybar height (to be removed for auto height)
     "modules-left": [ "hyprland/workspaces", "hyprland/submap",],
     "modules-center": [
     ],
     "modules-right": [
-        "battery",
-        "group/pulseaudio-group",
-        "group/backlight-group",
         "group/info-group",
         "network",
         "clock",
@@ -31,14 +28,15 @@
         "format": "{icon}",
         "on-click": "activate",
           "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "urgent": "",
-            "active": "",
-            "default": ""
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
           },
         "sort-by-number": true,
     },

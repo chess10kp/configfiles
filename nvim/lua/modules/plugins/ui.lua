@@ -19,6 +19,7 @@ ui["marko-cerovac/material.nvim"] = {
 ui["ellisonleao/gruvbox.nvim"] = {
 	lazy = true,
 	name = "gruvbox",
+  event = {"BufReadPost"},
 	config = require("ui.gruvbox"),
 }
 ui["lewis6991/gitsigns.nvim"] = {
@@ -45,19 +46,9 @@ ui["rcarriga/nvim-notify"] = {
 	event = "VeryLazy",
 	config = require("ui.notify"),
 }
-ui["folke/paint.nvim"] = { --NOTE: highlight comments
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("ui.paint"),
-}
 ui["karb94/neoscroll.nvim"] = {
 	lazy = false,
 	enabled = true,
 	config = require("ui.neoscroll"),
-}
-
-ui["xiyaowong/transparent.nvim"] = {
-	lazy = true,
-	cmd = "TransparentEnable",
 }
 return ui

@@ -1,7 +1,4 @@
-vim.cmd([[
-syntax enable
-highlight WinSeperator guibg=None 
-]])
+vim.o.syntax = 'on'
 
 require('core.command')
 require('modules.configs.ui.statusline')
