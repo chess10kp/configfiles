@@ -18,13 +18,14 @@ bindkey '^[[B' history-substring-search-down
 bindkey -v
 bindkey -s "^T" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M'
 bindkey '^R' history-incremental-search-backward
-
-setopt autocd
+bindkey -s "^X" 'cd ~/projects; cd ~/projects/$(find ./ -type d | rg -v ".git" | fzf)^M' 
+bindkey -s "^Y" 'nvim $(find ./  -type f -maxdepth 3 | rg -v ".git" | fzf)^M' 
 
 function mkcir
 {
   command mkdir $1 && cd $1
 }
+
 alias code="code-insiders"
 alias e="exit"
 alias c="clear"
@@ -34,7 +35,6 @@ alias sdu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../../"
 alias pm="pacman"
-#alias cd="z"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
@@ -44,17 +44,15 @@ alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias gcommit="git commit"
 alias gpush="git push"
-# alias neofetch='neofetch --ascii "$(figlet sigma balls)"| lolcat'
 alias gadd="git add"
 alias gst="git status"
 alias ls="exa "
-# alias la="exa -al --icons"
-# alias ll="exa -l --icons"
 alias cp="cp -v"
 alias mv="mv -i"
 alias notes="emacs -nw ~/projects/notes/todo.org"
 alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/daily/\"$(date '+%d%m%y').org\""
 alias timenow="date '+%d%m%y'"
+alias cdfz="find ./ -type d  | fzf | xargs cd" 
 
 function yt
 {
@@ -71,6 +69,7 @@ export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
 export PATH="$GOPATH/bin:$PATH"
 export GOPATH="$HOME/projects/go/:$GOPATH"
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 function tmux-run
 {

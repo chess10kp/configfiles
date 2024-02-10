@@ -21,7 +21,7 @@ set $editor nvim
 # on the original workspace that the command was run on.
 set $menu tofi-drun  | xargs swaymsg exec --
 ### Output configuration
-default_border pixel 2 
+default_border pixel 1
 focus_follows_mouse no
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
@@ -217,7 +217,7 @@ focus_follows_mouse no
 for_window [title="music"] floating enable
 for_window [title="music"] move scratchpad
 for_window [title="scratchpad"] move scratchpad
-for_window [floating] default border pixel 4
+for_window [floating] default border pixel 2
 
 #
 # Resizing containers:
