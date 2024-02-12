@@ -29,7 +29,7 @@ function mkcir
 alias code="code-insiders"
 alias e="exit"
 alias c="clear"
-alias sdi="yay -S"
+alias sdi="paru -S"
 alias sdr="sudo pacman -R"
 alias sdu="sudo pacman -Syu"
 alias ..="cd .."
