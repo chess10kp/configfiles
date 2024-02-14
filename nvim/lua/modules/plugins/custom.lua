@@ -22,7 +22,7 @@ custom["folke/neodev.nvim"] = {
 	config = require("lang.neodev"),
 }
 custom["kawre/leetcode.nvim"] = {
-	lazy = false,
+	lazy = true,
 	build = ":TSUpdate html",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",

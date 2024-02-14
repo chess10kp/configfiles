@@ -102,7 +102,6 @@ settings["null_ls_deps"] = {
 	"stylua",
 	"vint",
   "black",
-  "cpplint",
   "pep8",
 }
 

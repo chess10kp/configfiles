@@ -42,6 +42,9 @@ editor["sindrets/diffview.nvim"] = {
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
 
+editor["folke/trouble.nvim"] = { 
+lazy = true, 
+}
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
 	build = function()
@@ -71,11 +74,11 @@ editor["nvim-treesitter/nvim-treesitter"] = {
       lazy = true,
 			config = require("editor.tabout"),
 		},
+    {
+        "Nvchad/nvim-colorizer.lua" , 
+        lazy = true, 
+      }
 	},
-}
-editor["NvChad/nvim-colorizer.lua"] =  { 
-  lazy = true, 
-  config = require("editor.colorizer"),
 }
 
 return editor

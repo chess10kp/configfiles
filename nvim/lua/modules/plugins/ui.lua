@@ -43,9 +43,9 @@ ui["rcarriga/nvim-notify"] = {
 	event = "VeryLazy",
 	config = require("ui.notify"),
 }
---ui["karb94/neoscroll.nvim"] = {
-	--lazy = false,
-	--enabled = true,
-	--config = require("ui.neoscroll"),
---}
+ui["karb94/neoscroll.nvim"] = {
+	lazy = false,
+	enabled = true,
+	config = require("ui.neoscroll"),
+}
 return ui

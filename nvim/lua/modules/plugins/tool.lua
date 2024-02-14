@@ -50,7 +50,7 @@ tool["gelguy/wilder.nvim"] = {
 --                        Telescope Plugins                         --
 ----------------------------------------------------------------------
 tool["nvim-telescope/telescope.nvim"] = {
-	lazy = true,
+	lazy = false,
 	config = require("tool.telescope"),
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
@@ -68,16 +68,9 @@ tool["nvim-telescope/telescope.nvim"] = {
 				{ "kkharji/sqlite.lua" },
 			},
 		},
-		{ "jvgrootveld/telescope-zoxide", 
-      enabled = false,
-      lazy = true, 
-      cmd = "Telescope zoxide",
+		{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true,
     },
-		{ "nvim-telescope/telescope-live-grep-args.nvim", 
-      lazy = true,
-    },
-		{ "nvim-telescope/telescope-file-browser.nvim" , 
-    lazy = true, },
+		{ "nvim-telescope/telescope-file-browser.nvim" , lazy = true, },
 	},
 }
 
