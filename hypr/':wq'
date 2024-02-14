@@ -337,5 +337,4 @@ exec-once= ~/.config/scripts/lowbattery.sh
 exec-once=tmux new -s init -d 
 exec-once=wl-paste --watch cliphist store
 exec-once=emacs --daemon
-# exec-once=nwg-dock-hyprland -i 30 -r
 exec=notify-send -a "" "config reloaded"

@@ -30,7 +30,7 @@ elif [[ "$1" == "--file" ]]; then
 
 elif [[ "$1" == "--select" ]]; then
 	# shellcheck disable=2012,2086,2154
-	selected_backgrounds=$(ls $WP_DIR/ | $rofi)
+	selected_backgrounds=$(ls $WP_DIR/ | $rofi_prompt "Wall: ")
 	if [[ "$walset" == "swaybg -i" ]]; then
 		if [[ -n "$selected_backgrounds" ]]; then
 			ln -sf "$WP_DIR/$selected_backgrounds" "$HOME/Pictures/wp/defaultwp.jpg"

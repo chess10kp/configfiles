@@ -12,14 +12,13 @@ if [[ $XDG_SESSION_TYPE == "x11" ]]; then
     notes_editor="emacs -nw"
     term="xfce4-terminal"
 else
-rofi="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/IosevkaNerdFontMono-Bold.ttf \
-    --padding-left=30 --padding-right=30"
-rofiwide="tofi --horizontal=false --height 50% --font=/usr/share/fonts/TTF/IosevkaNerdFontMono-Bold.ttf\
+rofi="tofi --horizontal=false --height 40% --width=60% --anchor=center \
+    --padding-left=30 --padding-right=30 "
+rofiwide="tofi --horizontal=false --height 50% \
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
-rofi_prompt="tofi --horizontal=false --height 40% --width 100% --anchor=top --font=/usr/share/fonts/TTF/IosevkaNerdFontMono-Bold.ttf \
-    --padding-left=30 --padding-right=30 --prompt"
-dmenu="tofi --height=2% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf"
-dmenu_prompt="tofi --height=5% --font=/usr/share/fonts/TTF/TerminessNerdFont-Bold.ttf --prompt"
+rofi_prompt="$rofi --prompt"
+dmenu="tofi --height=2%"
+dmenu_prompt="tofi --height=5% --prompt "
 editor="nvim"
 term="footclient"
 browser="firefox"
@@ -27,5 +26,5 @@ walset="swaybg -i"
 #walset="swww img   --transition-step 200"
 pdf_reader="zathura"
 paste_command="wl-paste"
-    notes_editor="emacs -nw"
+notes_editor="emacs -nw"
 fi

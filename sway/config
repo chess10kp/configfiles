@@ -83,7 +83,7 @@ focus_follows_mouse no
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+Shift+p exec $menu
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -128,10 +128,10 @@ focus_follows_mouse no
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
-    bindsym $mod+d workspace "web"
-    bindsym $mod+e workspace "emacs"
-    bindsym $mod+c workspace "code"
-    bindsym $mod+n workspace "neovim" 
+    bindsym $mod+w workspace "w"
+    bindsym $mod+e workspace "e"
+    bindsym $mod+c workspace "c"
+    bindsym $mod+n workspace "n" 
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
@@ -178,7 +178,7 @@ focus_follows_mouse no
 
 
     bindsym $mod+m exec emacsclient -c ~/projects/notes/todo.org
-    bindsym $mod+w exec firefox
+    # bindsym $mod+w exec firefox
     bindsym $mod+Control+l   exec   swaylock -c "000000"
     bindsym $mod+Control+b exec bluetoothctl connect B0:38:E2:35:25:B4 && notify-send -a "Bluetooth: " "Connected"
     bindsym $mod+Control+n exec  $term --title music -e ncmpcpp 
@@ -244,7 +244,8 @@ mode "script" {
     bindsym p exec  ~/.config/scripts/passmenu.sh; mode "default"
     bindsym t exec  ~/.config/scripts/timer.sh; mode "default"
     bindsym a exec  ~/.config/scripts/todo; mode "default"
-    bindsym b exec  ~/.config/scripts/bookman.sh; mode "default"
+    bindsym b exec  ~/.config/scripts/bookman.sh 0; mode "default"
+    bindsym n exec ~/.config/scripts/bookman.sh 1; mode "default"
     bindsym v exec ~/.config/scripts/mpv.sh; mode "default"
     bindsym q exec ~/.config/scripts/power.sh; mode "default"
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
@@ -300,6 +301,7 @@ bar {
     position bottom
     height 20
     mode dock
+    font pango:Terminess Nerd Font 16
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%X'; do sleep 1; done
@@ -321,6 +323,7 @@ exec wl-paste --watch cliphist store
 exec emacs --daemon
 # exec nwg-dock-hyprland -i 24 -r
 exec_always notify-send -a "Sway: " "config reloaded"
+exec_always autotiling -w 1 3 5 7 9
 
 
 

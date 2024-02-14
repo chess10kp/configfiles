@@ -7,7 +7,7 @@ time=$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$time
 
 new_name=$(echo "" | $dmenu_prompt "name")
-
+$new_name && exit 0 
 # from andreasl's explore with dmenu script
 
 selected_path="$HOME/projects/notes/images/"
