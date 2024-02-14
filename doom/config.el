@@ -111,3 +111,8 @@
 
 (setq org-log-done 'time)
 (set-default 'preview-scale-function 1.0)
+
+(after! eww
+  (set-popup-rule! "^\\*eww" :size 50 :select t :quit t :ttl t :side 'right :modeline nil))
+
+;; (define-key eww-mode-map (kbd "q") nil)

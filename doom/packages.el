@@ -59,3 +59,6 @@ org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸")
 
 (require 'evil-snipe)
 (evil-snipe-mode +1)
+
+(package! haskell-mode)
+(package! lsp-haskell)
