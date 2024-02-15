@@ -11,5 +11,6 @@ EOF
 selected=$(echo "$urls" | sed -s "s/\:.*//" | $rofi_prompt "Search: ")
 url=$(echo "$urls" | grep "$selected" | sed -s "s/.*:\(https\|file\)/\1/")
 search_term=$(printf "" | $dmenu_prompt "search term: " | sed -s "s/ /+/g")
+[[ $search_term && exit 0 ]] 
 
 $browser "$url$search_term"

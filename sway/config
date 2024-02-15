@@ -133,6 +133,7 @@ focus_follows_mouse no
     bindsym $mod+e workspace "e"
     bindsym $mod+c workspace "c"
     bindsym $mod+n workspace "n" 
+    bindsym $mod+m workspace "m" 
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
@@ -144,6 +145,7 @@ focus_follows_mouse no
     bindsym $mod+Shift+e move container to workspace "e"
     bindsym $mod+Shift+c move container to workspace "c"
     bindsym $mod+Shift+n move container to workspace "n" 
+    bindsym $mod+Shift+m move container to workspace "m" 
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
@@ -173,15 +175,16 @@ focus_follows_mouse no
     bindsym $mod+space focus mode_toggle
 
     bindsym $mod+Shift+A focus parent
+    bindsym $mod+p focus prev 
     bindsym $mod+Shift+X focus child
-    # Move focus to the parent container
-    # bindsym $mod+a focus parent
 
 
-    bindsym $mod+m exec emacsclient -c ~/projects/notes/todo.org
     bindsym XF86AudioMute exec ~/.config/scripts/vol.sh m
     bindsym XF86AudioLowerVolume exec ~/.config/scripts/vol.sh d
     bindsym XF86AudioRaiseVolume exec ~/.config/scripts/vol.sh i
+
+    bindsym XF86MonBrightnessDown exec brightnessctl set 05%-; ~/.config/scripts/showstuff brightness
+    bindsym XF86MonBrightnessUp exec brightnessctl set +05%; ~/.config/scripts/showstuff brightness
     # bindsym $mod+w exec firefox
 
 mode "script" {
@@ -199,6 +202,7 @@ mode "script" {
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
+    bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default' 
     bindsym c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -244,6 +248,9 @@ bindsym $mod+r mode "resize"
 
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp 4; mode "default"
+    bindsym e exec emacsclient -c ~/projects/notes/todo.org ; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+o mode "open"
 bindsym $mod+Shift+i scratchpad show
