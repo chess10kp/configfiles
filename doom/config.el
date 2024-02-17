@@ -113,6 +113,6 @@
 (set-default 'preview-scale-function 1.0)
 
 (after! eww
-  (set-popup-rule! "^\\*eww" :size 50 :select t :quit t :ttl t :side 'right :modeline nil))
+  (set-popup-rule! "^\\*eww" :size 100 :select t :quit nil :ttl t :side 'right :modeline nil))
 
 ;; (define-key eww-mode-map (kbd "q") nil)

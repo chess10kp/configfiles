@@ -50,11 +50,6 @@ return function()
 				height = 0.92,
 				preview_cutoff = 120,
 			},
-			-- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-			-- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-			-- qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-			-- file_sorter = require("telescope.sorters").get_fuzzy_file,
-			-- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		},
 		pickers = {
 			keymaps = {

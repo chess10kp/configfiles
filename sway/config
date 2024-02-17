@@ -96,6 +96,7 @@ focus_follows_mouse no
     bindsym $mod+Shift+r reload
     bindsym $mod+Control+c restart
 
+    bindsym $mod+Control+l exec swaylock -e -c 000000
     # Exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
@@ -185,6 +186,7 @@ focus_follows_mouse no
 
     bindsym XF86MonBrightnessDown exec brightnessctl set 05%-; ~/.config/scripts/showstuff brightness
     bindsym XF86MonBrightnessUp exec brightnessctl set +05%; ~/.config/scripts/showstuff brightness
+
     # bindsym $mod+w exec firefox
 
 mode "script" {
@@ -202,7 +204,7 @@ mode "script" {
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
-    bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default' 
+    bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default'
     bindsym c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -247,15 +249,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "open" {
-    bindsym m exec $term  -e --title Music ncmpcpp 4; mode "default"
+    bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym e exec emacsclient -c ~/projects/notes/todo.org ; mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+o mode "open"
 bindsym $mod+Shift+i scratchpad show
+
+for_window [title="Music"] move scratchpad
+for_window [class="steam"] move container to workspace 9
 #
 # Status Bar:
+
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
@@ -265,7 +271,7 @@ bar {
     font pango:Terminess Nerd Font 16
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%X'; do sleep 1; done
+    status_command while echo "BAT0:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online) $(date +'%X')"; do sleep 5; done
 
     colors {
         statusline #ffffff

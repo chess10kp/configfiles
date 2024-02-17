@@ -88,11 +88,11 @@ source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.𝛈)%f '
+PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.ξ »)%f '
 # RPROMPT='$GITSTATUS_PROMPT'
 
 
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
