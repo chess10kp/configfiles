@@ -85,7 +85,7 @@ return function()
 				case_mode = "smart_case",
 			},
 			frecency = {
-				show_scores = true,
+				show_scores = false,
 				show_unindexed = false,
 				ignore_patterns = { "*.git/*", "*/tmp/*", "node_modules/" },
 			},

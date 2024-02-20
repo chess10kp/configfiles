@@ -188,6 +188,7 @@ focus_follows_mouse no
     bindsym XF86MonBrightnessUp exec brightnessctl set +05%; ~/.config/scripts/showstuff brightness
 
     # bindsym $mod+w exec firefox
+    bindsym Print exec slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
 
 mode "script" {
     bindsym l exec  ~/.config/scripts/cliphist.sh; mode "default"
@@ -251,6 +252,8 @@ bindsym $mod+r mode "resize"
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym e exec emacsclient -c ~/projects/notes/todo.org ; mode "default"
+    bindsym f exec firefox; mode "default"
+    bindsym b exec brave; mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
