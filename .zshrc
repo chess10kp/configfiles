@@ -1,5 +1,4 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec sway
 fi
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -60,6 +59,8 @@ function yt
 }
 
 export PATH="$HOME/.config/emacs/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # poetry fails to open kdewallet
@@ -88,7 +89,7 @@ source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.ξ »)%f '
+PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.ξ>)%f '
 # RPROMPT='$GITSTATUS_PROMPT'
 
 

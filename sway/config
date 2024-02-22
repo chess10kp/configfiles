@@ -162,7 +162,7 @@ focus_follows_mouse no
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+Shift+s layout stacking
+    # bindsym $mod+Shift+s layout stacking
     bindsym $mod+Shift+w layout tabbed
     bindsym $mod+t layout toggle split
 

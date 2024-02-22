@@ -1,34 +1,15 @@
 local editor = {}
 
---editor["rainbowhxch/accelerated-jk.nvim"] = {
-	--lazy = true,
-	--event = "VeryLazy",
-	--config = require("editor.accelerated-jk"),
---}
 editor["m4xshen/autoclose.nvim"] = {
 	lazy = false,
 	event = "InsertEnter",
 	config = require("editor.autoclose"),
 }
---editor["max397574/better-escape.nvim"] = {
-	--lazy = false,
-	--event = { "CursorHold", "CursorHoldI" },
-	--config = require("editor.better-escape"),
---}
---editor["ojroques/nvim-bufdel"] = {
-	--lazy = true,
-	--event = "BufReadPost",
---}
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("editor.cleverf"),
 }
---editor["numToStr/Comment.nvim"] = {
-	--lazy = true,
-	--event = { "CursorHold", "CursorHoldI" },
-	--config = require("editor.comment"),
---}
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
@@ -43,7 +24,8 @@ editor["sindrets/diffview.nvim"] = {
 ----------------------------------------------------------------------
 
 editor["folke/trouble.nvim"] = { 
-lazy = true, 
+    lazy = false, 
+  cmd = {"Trouble", "TroubleToggle"}
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
