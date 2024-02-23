@@ -5,6 +5,7 @@ local omap = key.omap
 
 imap("jk", "<ESC>", "editor: escape")
 
+nmap( ";w" , ":w<CR>", "Save file")
 nmap( "<C-n>",":Lexplore!<CR><CR>" , "Toggle File tree") 
 nmap("<leader>ss", ":mks!<CR>", "editor: save vim session")
 nmap("<leader>lcd", ":lcd %:h | lua print('directory changed')<CR>", "editor: save vim session") 

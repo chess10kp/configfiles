@@ -259,6 +259,7 @@ mode "open" {
 }
 bindsym $mod+o mode "open"
 bindsym $mod+Shift+i scratchpad show
+bindsym $mod+Control+i move scratchpad
 
 for_window [title="Music"] move scratchpad
 for_window [class="steam"] move container to workspace 9
