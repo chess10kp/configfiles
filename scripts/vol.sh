@@ -29,7 +29,7 @@ function notify_vol
 
 function notify_mute
 {
-    mute=`pamixer $srce --get-mute | cat`
+    mute=`amixer get Master | grep -o "\[off\]" | head -1 | sed 's/\[//g' | sed 's/\]//g'
     if [ "$mute" == "true" ] ; then
         dunstify -a "muted" "$nsink" -i ${icodir}/muted-${dvce}.svg -r 91190 -t 800
     else

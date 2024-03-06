@@ -10,3 +10,4 @@ if [[ -z $sessions ]]; then
 fi
 
 selected=$(echo "$sessions" | $rofi)
+$term -e "tmux attach -t $selected"

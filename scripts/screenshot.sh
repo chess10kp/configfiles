@@ -4,7 +4,7 @@
 source "$HOME/.config/scripts/configvars.sh"
 
 time=$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
-slurp | grim -g - $(xdg-user-dir PICTURES)/Screenshots/$time
+slurp | grim -g - $HOME/Pictures/Screenshots/$time
 
 new_name=$(echo "" | $dmenu_prompt "name")
 $new_name && exit 0 
@@ -38,5 +38,5 @@ while :; do
 	fi
 done
 
-mv $(xdg-user-dir PICTURES)/Screenshots/$time "$path/$new_name.png"
-notify-send -t 4000 -i "$path/$new_name.png" -a "Screenshot $name"
+mv $HOME/Pictures/Screenshots/$time "$path/$new_name.png"
+notify-send -t 4000 -i "$path/$new_name.png" -a "Screenshot $name" "Screenshot saved"

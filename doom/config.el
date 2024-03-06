@@ -34,7 +34,7 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-gruvbox)
 
-(setq doom-font (font-spec :family "Terminess Nerd Font" :size 20))
+(setq doom-font (font-spec :family "Terminus" :size 20))
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -116,3 +116,9 @@
   (set-popup-rule! "^\\*eww" :size 100 :select t :quit nil :ttl t :side 'right :modeline nil))
 
 ;; (define-key eww-mode-map (kbd "q") nil)
+
+
+
+(setq
+org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
+ )

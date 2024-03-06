@@ -23,10 +23,7 @@ function notify_mute
 
 function notify_brightness 
 {
-  curr=$(brightnessctl g);
-  max=$(brightnessctl m);
-  brightness=$(( $curr*100/$max ));
-  notify-send "$brightness" -a "Brightness: " -h int:value:$brightness -t 800 -r 91190 
+  notify-send "$(light)" -a "Brightness: " -h int:value:$brightness -t 800 -r 91190 
 }
 
 case "$1" in

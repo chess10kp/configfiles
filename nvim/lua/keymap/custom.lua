@@ -19,6 +19,7 @@ nmap("<leader>w", ":write<CR>", "editor: save file")
 nmap("<leader>q", ":quit<CR>", "editor: quit")
 nmap("<leader>bd", ":bd<CR>", "editor: close buffer")
 nmap("<leader>no", ":noh<CR>", "editor: nothing")
+nmap("<leader>m", ":make<CR>", "editor: make")
 
 nmap("<leader>fm", ":lua vim.lsp.buf.format()<CR>", "lsp: format current file")
 

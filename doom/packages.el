@@ -49,9 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(setq
-org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸")
- )
 
 (unpin! org-roam)
 (package! org-roam-ui)
@@ -62,3 +59,5 @@ org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸")
 
 (package! haskell-mode)
 (package! lsp-haskell)
+
+(package! org-fancy-priorities :disable t)

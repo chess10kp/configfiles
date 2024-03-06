@@ -1,4 +1,5 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec sway
 fi
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -45,12 +46,8 @@ alias gcommit="git commit"
 alias gpush="git push"
 alias gadd="git add"
 alias gst="git status"
-alias ls="exa "
 alias cp="cp -v"
 alias mv="mv -i"
-alias notes="emacs -nw ~/projects/notes/todo.org"
-alias daily="touch ~/projects/notes/daily/\"$(date '+%d%m%y').org \"; nvim ~/projects/notes/daily/\"$(date '+%d%m%y').org\""
-alias timenow="date '+%d%m%y'"
 alias cdfz="find ./ -type d  | fzf | xargs cd" 
 
 function yt
@@ -77,6 +74,7 @@ function tmux-run
     tmux attach -t  $(tmux list-sessions | fzf | sed -e 's/:.*//'  )
 }
 
+# source ~/.config/zsh/fzf-tab/fzf-tab.plugin.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
@@ -89,11 +87,19 @@ source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-PROMPT='%F{blue}%B%2~%b %F{yellow}%(!.#.ξ>)%f '
 # RPROMPT='$GITSTATUS_PROMPT'
 
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b '
+
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f> '
 
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
 # eval "$(zoxide init zsh)"
+
+[ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env
