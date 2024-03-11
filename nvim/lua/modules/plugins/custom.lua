@@ -42,8 +42,5 @@ custom["dstein64/vim-startuptime"] = {
   lazy = true,
   cmd = "StartupTime",
 }
-custom['jbyuki/instant.nvim'] = {
-  lazy = false, 
-}
 
 return custom

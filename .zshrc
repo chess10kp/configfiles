@@ -100,6 +100,6 @@ PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f> '
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 [ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env

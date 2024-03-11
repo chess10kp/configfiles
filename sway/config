@@ -180,12 +180,12 @@ focus_follows_mouse no
     bindsym $mod+Shift+X focus child
 
 
-    bindsym XF86AudioMute exec ~/.config/scripts/amixvol.sh m
-    bindsym XF86AudioLowerVolume exec ~/.config/scripts/amixvol.sh d
-    bindsym XF86AudioRaiseVolume exec ~/.config/scripts/amixvol.sh i
+    bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && ~/.config/scripts/showstuff vol alsa
 
-    bindsym XF86MonBrightnessDown exec light -U 10%; ~/.config/scripts/showstuff brightness
-    bindsym XF86MonBrightnessUp exec light -A 10%; ~/.config/scripts/showstuff brightness
+    bindsym XF86MonBrightnessDown exec light -U 2% && sh ~/.config/scripts/showstuff brightness
+    bindsym XF86MonBrightnessUp exec light -A 2% && sh ~/.config/scripts/showstuff brightness
 
     # bindsym $mod+w exec firefox
     bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
@@ -203,6 +203,7 @@ mode "script" {
     bindsym v exec ~/.config/scripts/mpv.sh; mode "default"
     bindsym q exec ~/.config/scripts/power.sh; mode "default"
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
+    bindsym i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default'
@@ -250,7 +251,8 @@ bindsym $mod+r mode "resize"
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym w exec $term  -e --title Music ncmpcpp; mode "default"
-    bindsym e exec emacsclient -c ~/projects/notes/todo.org ; mode "default"
+    bindsym e exec emacs -c ~/projects/notes/todo.org ; mode "default"
+    bindsym n exec $term -e emacs -nw ~/projects/notes/todo.org ; mode "default"
     bindsym f exec firefox; mode "default"
     bindsym b exec brave; mode "default"
     bindsym Return mode "default"
@@ -265,6 +267,9 @@ bindsym $mod+Shift+f [app_id="firefox"] scratchpad show
 
 for_window [title="Music"] move scratchpad
 for_window [class="steam"] move container to workspace 9
+for_window [title="Imgmenu"] floating toggle
+for_window [title="Imgmenu"] resize set height 400px
+for_window [title="Imgmenu"] resize set width 1080 
 #
 # Status Bar:
 
@@ -292,7 +297,7 @@ exec  ~/.config/scripts/wallpaper.sh --set
 exec  ~/.config/scripts/lowbattery.sh
 exec tmux new -s init -d 
 exec wl-paste --watch cliphist store
-exec emacs --daemon
+# exec emacs --daemon
 # exec nwg-dock-hyprland -i 24 -r
 # exec swaylock -e -c 000000
 exec_always notify-send -a "Sway: " "config reloaded"

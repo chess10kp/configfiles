@@ -7,7 +7,6 @@ local map_callback = bind.map_callback
 local plug_map = {
 	-- Plugin: toggleterm
 	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
-	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["n|<A-n>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()

@@ -21,6 +21,7 @@ return function()
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
+				"node_modules/",
 				"Games/",
 				"Pictures/",
 				".npm/",
