@@ -251,7 +251,7 @@ bindsym $mod+r mode "resize"
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym w exec $term  -e --title Music ncmpcpp; mode "default"
-    bindsym e exec emacs -c ~/projects/notes/todo.org ; mode "default"
+    bindsym e exec emacs ~/projects/notes/todo.org ; mode "default"
     bindsym n exec $term -e emacs -nw ~/projects/notes/todo.org ; mode "default"
     bindsym f exec firefox; mode "default"
     bindsym b exec brave; mode "default"
@@ -281,7 +281,7 @@ bar {
     font pango:Terminus 16
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while echo " \| BAT:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online) \| $(free -h | grep Mem | awk '{print $3}') \| IND:$(TZ=Asia/Kolkata date +'%X') \|  $(date +'%X')"; do sleep 5; done
+    status_command while echo " \| BAT:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online) \| $(free -h | grep Mem | awk '{print $3}') \| IND:$(TZ=Asia/Kolkata date +'%X') \|  $(date +'%X')"; do sleep 10; done
 
     colors {
         statusline #ffffff

@@ -15,4 +15,4 @@ echo "hi"
 sel_opt=$(echo "$options"| $rofi)
 sel_target=$(echo "$targets" | $rofi)
 
-grimshot --notify-send "$sel_opt" "$sel_target"
+grimshot "$sel_opt" "$sel_target"
