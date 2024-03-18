@@ -2,13 +2,17 @@ local key = require("keymap.key")
 local nmap = key.nmap
 local imap = key.imap
 local omap = key.omap
+local vmap = key.vmap
 
 imap("jk", "<ESC>", "editor: escape")
 
 nmap( ";w" , ":w<CR>", "Save file")
 nmap( "<C-n>",":Lexplore!<CR><CR>" , "Toggle File tree") 
 nmap("<leader>ss", ":mks!<CR>", "editor: save vim session")
-nmap("<leader>lcd", ":lcd %:h | lua print('directory changed')<CR>", "editor: save vim session") 
+nmap("<leader>lcd", ":lcd %:h | lua print('Directory changed')<CR>", "editor: change current working directory") 
+nmap("<leader>lcp", ":lcd ../ <CR>", "editor: change current working directory") 
+
+nmap("<C-i>", "<C-6>", "editor: switch to other buffer")
 nmap("<M-j>", ":bnext<CR>", "editor: move to next buffer")
 nmap("<Tab>", ":bnext<CR>", "editor: move to next buffer")
 nmap("<M-k>", ":bprev<CR>", "editor: move to previous buffer")
@@ -20,8 +24,23 @@ nmap("<leader>q", ":quit<CR>", "editor: quit")
 nmap("<leader>bd", ":bd<CR>", "editor: close buffer")
 nmap("<leader>no", ":noh<CR>", "editor: nothing")
 nmap("<leader>m", ":make<CR>", "editor: make")
+nmap("<leader>ff", ':find ', "editor:find file")
 
-nmap("<leader>fm", ":lua vim.lsp.buf.format()<CR>", "lsp: format current file")
+nmap("<leader>fm", function ()
+  require('conform').format({
+    lsp_fallback = false, 
+    async = false,
+    timeout_ms = 1000, 
+  })
+end, "lsp: format current file")
+
+vmap("<leader>fm", function ()
+  require('conform').format({
+    lsp_fallback = false, 
+    async = false,
+    timeout_ms = 1000, 
+  })
+end, "lsp: format current file")
 
 nmap("<leader>cl", ":colorscheme ", "editor: choose colorscheme")
 

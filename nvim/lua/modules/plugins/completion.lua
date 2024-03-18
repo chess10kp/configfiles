@@ -23,6 +23,7 @@ completion["nvimdev/lspsaga.nvim"] = {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 completion["jose-elias-alvarez/null-ls.nvim"] = {
+  enabled = false,
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.null-ls"),
@@ -30,6 +31,16 @@ completion["jose-elias-alvarez/null-ls.nvim"] = {
 		"nvim-lua/plenary.nvim",
 		"jay-babu/mason-null-ls.nvim",
 	},
+}
+completion["stevearc/conform.nvim"] = {
+  lazy = true, 
+  event = {"BufReadPre", "BufNewFile" },
+  config = require("completion.conform")
+}
+completion["mfussenegger/nvim-lint"] = {
+  lazy = true, 
+  event = {"BufReadPre", "BufNewFile"}, 
+  config = require('completion.nvim-lint')
 }
 completion["L3MON4D3/LuaSnip"] = {
 	config = require("completion.luasnip"),

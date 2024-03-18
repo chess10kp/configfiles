@@ -2,22 +2,22 @@ local global = require("core.global")
 local o = vim.o
 local g = vim.g
 
+vim.cmd([[
+set path+=**
+]])
 -- o.backupdir = global.cache_dir .. "backup/",
 -- o.directory = global.cache_dir .. "swap/",
 -- o.pumblend = 10,
 -- o.spellfile = global.cache_dir .. "spell/en.uft-8.add",
 -- o.viewdir = global.cache_dir .. "view/",
--- o.winblend = 10,
+o.winblend = 20
 
 o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
 o.hlsearch = false
 o.autoindent = true
 o.laststatus = 0
 o.autoread = true
-o.showmode = false
-o.fcs = "eob: "
-o.ruler = false
-o.showcmd = false
+o.fcs = "eob: " -- get rid of the annoying ~ at the end of file
 o.autowrite = true
 o.backspace = "indent,eol,start"
 o.backup = false
@@ -37,7 +37,6 @@ o.diffopt = "filler,iwhite,internal,algorithm:patience"
 o.display = "lastline"
 o.encoding = "utf-8"
 o.equalalways = false
-o.errorbells = true
 o.expandtab = true
 o.fileformats = "unix,mac,dos"
 o.foldenable = true
@@ -91,7 +90,6 @@ o.synmaxcol = 2500
 o.tabstop = 2
 o.termguicolors = true
 o.timeout = true
--- You will feel delay when you input <Space> at lazygit interface if you set it a positive value like 300(ms)
 o.timeoutlen = 200
 o.ttimeout = true
 o.ttimeoutlen = 0
@@ -103,7 +101,7 @@ o.viewoptions = "folds,cursor,curdir,slash,unix"
 o.virtualedit = "block"
 o.visualbell = true
 o.whichwrap = "h,l,<,>,[,],~"
-o.wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/bower_modules/**"
+o.wildignore = ".git,**/node_modules/**,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/bower_modules/**"
 o.wildignorecase = true
 o.winminwidth = 10
 o.winwidth = 30
@@ -127,7 +125,6 @@ o.writebackup = false
 -- global opts
 g.vimtex_view_method = "zathura"
 g.vimtex_view_general_viewer = "zathura"
-g.vimtex_compiler_method = "latexmk"
 g.netrw_winsize =25
 g.netrw_liststyle = 3
 g.netrw_banner = 0

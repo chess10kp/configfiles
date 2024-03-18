@@ -1,5 +1,5 @@
 if not vim.g.vscode then
-    require("core")
+	require("core")
 elseif vim.g.vscode then
-    require("vscode")
+	require("vscode")
 end

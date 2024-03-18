@@ -91,14 +91,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Word in project"),
-	["n|<leader>fc"] = map_callback(function()
-			require("telescope.builtin").find_files({ cwd = "~/.config/nvim/" })
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("find: File in config"),
 	["n|<leader>fj"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
-	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("find: Help"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
@@ -109,10 +102,6 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: Buffer opened"),
-	["n|<C-x><C-f"] = map_cu("Telescope file_browser ")
-		:with_noremap()
-		:with_silent()
-		:with_desc("find: open file browser"),
 	["n|<leader>fi"] = map_cu("Telescope file_browser ")
 		:with_noremap()
 		:with_silent()

@@ -6,7 +6,7 @@ settings["use_ssh"] = false
 
 -- Set it to false if there are no need to format on save.
 ---@type boolean
-settings["format_on_save"] = false
+settings["format_on_save"] = true
 
 -- Set it to false if the notification after formatting is annoying.
 ---@type boolean
@@ -79,30 +79,25 @@ settings["server_formatting_block_list"] = {
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 ---@type string[]
 settings["lsp_deps"] = {
-	"bashls",
 	"clangd",
 	"html",
 	"jsonls",
 	"lua_ls",
-	"pylsp",
-  "pyright",
   "rust_analyzer",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.
 -- Check the below link for all supported sources.
 -- in `code_actions`, `completion`, `diagnostics`, `formatting`, `hover` folders:
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
 settings["null_ls_deps"] = {
 	"clang_format",
+  "cpplint", 
 	"prettier",
 	"rustfmt",
 	"shfmt",
 	"stylua",
-	"vint",
   "black",
-  "pep8",
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.

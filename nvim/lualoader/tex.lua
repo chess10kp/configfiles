@@ -46,18 +46,37 @@ return {
 \usepackage{amsmath}
 \usepackage{graphicx}
 
+
 \newcommand{\question}[2][]{\begin{flushleft}
-        \textbf{#1}: \textit{#2}
+        \textbf{#1}: \text{#2}
 
 \end{flushleft}}
 \newcommand{\sol}{\textbf{Solution}:}
-\newcommand{\maketitletwo}[2][]{\begin{center}
 
-\end{center}}
+\title{<>}
+\date{}
+\author{}
+
+
+\makeatletter
+\renewcommand{\@maketitle}{
+  \newpage
+  \null
+  \vskip 1em 
+  \begin{center}
+    \Large\@title
+  \end{center}
+  \par
+  \vskip 1.5em}
+\makeatother
+
+
 \begin{document}
+\maketitle
+<>
 \end{document}
   ]],
-			{},
+			{ i(1, "title"),  i(2, "content"),  },
 			{
 				delimiters = "<>",
 			}
@@ -129,9 +148,6 @@ return {
       "newques",
       fmt([[ 
     \question[<>]{<>}
-    \vspace{-.5cm}
-    \begin{align*}
-    \end{align*}
       ]],{
           i(1, "") , i(2, "question") 
         }, {delimiters = "<>"})
