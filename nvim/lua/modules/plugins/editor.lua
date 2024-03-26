@@ -22,7 +22,11 @@ editor["sindrets/diffview.nvim"] = {
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
-
+ editor[ 'numToStr/Comment.nvim' ] = {
+    config = function()
+        require('Comment').setup()
+    end
+}
 editor["folke/trouble.nvim"] = { 
     lazy = false, 
   cmd = {"Trouble", "TroubleToggle"}

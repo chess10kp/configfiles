@@ -5,17 +5,8 @@ local map_cmd = bind.map_cmd
 
 local core_map = {
 	-- Suckless
-	["n|<C-S-S>"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
-		:with_silent()
-		:with_noremap()
-		:with_desc("editn: Save file using sudo"),
-	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent():with_desc("edit: Toggle code fold"),
-	["n|<C-x><C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("edit: Save file"),
 	["n|Y"] = map_cmd("y$"):with_desc("edit: Yank text to EOL"),
 	["n|D"] = map_cmd("d$"):with_desc("edit: Delete text to EOL"),
-	["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("edit: Next search result"),
-	["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("edit: Prev search result"),
-	["n|J"] = map_cmd("mzJ`z"):with_noremap():with_desc("edit: Join next line"),
 	["n|<Esc>"] = map_cr("noh"):with_noremap():with_silent():with_desc("edit: Clear search highlight"),
 	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
 	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_desc("window: Focus right"),
@@ -25,12 +16,12 @@ local core_map = {
 	["t|<C-l>"] = map_cmd("<Cmd>wincmd l<CR>"):with_silent():with_noremap():with_desc("window: Focus right"),
 	["t|<C-j>"] = map_cmd("<Cmd>wincmd j<CR>"):with_silent():with_noremap():with_desc("window: Focus down"),
 	["t|<C-k>"] = map_cmd("<Cmd>wincmd k<CR>"):with_silent():with_noremap():with_desc("window: Focus up"),
-	["n|<leader>o"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
+	["n|<leader>os"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
 	-- Insert mode
 	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("editi: Move cursor to line start"),
 	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
 	--["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"), Insert digrams instead
-	["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
+  ["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
 	["i|<C-h>"] = map_cmd("<ESC><Left>i"):with_desc("Move cursor to the left"),
 
 	-- Command mode

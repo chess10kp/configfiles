@@ -13,19 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +20 lua/keymap/custom.lua
+badd +11 lua/keymap/custom.lua
 argglobal
 %argdel
 $argadd init.lua
 edit lua/keymap/custom.lua
 argglobal
-balt lua/keymap/editor.lua
-let s:l = 19 - ((18 * winheight(0) + 24) / 48)
+balt lua/core/command.lua
+let s:l = 11 - ((10 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 19
-normal! 016|
+keepjumps 11
+normal! 045|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -13,21 +13,6 @@ function autocmd.nvim_create_augroups(definitions)
 end
 
 
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
--- 	pattern = "NvimTree_*",
--- 	callback = function()
--- 		local layout = vim.api.nvim_call_function("winlayout", {})
--- 		if
--- 			layout[1] == "leaf"
--- 			and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree"
--- 			and layout[3] == nil
--- 		then
--- 			vim.api.nvim_command([[confirm quit]])
--- 		end
--- 	end,
--- })
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "Telescope*",
   callback = function ()
@@ -47,70 +32,6 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
   end
 })
 
---local mapping = require("keymap.completion")
---vim.api.nvim_create_autocmd("LspAttach", {
-	--group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	--callback = function(event)
-		--mapping.lsp(event.buf)
-	--end,
---})
-
--- AUTOCMDS
--- vim.api.nvim_create_autocmd("WinEnter", {
--- 	callback = function()
--- 		-- local bufnr = vim.fn.bufnr("%")
--- 		local bufname = vim.api.nvim_buf_get_name(0)
--- 			if bufname ~= "OUTLINE" then
--- 				vim.opt.relativenumber = true
--- 				vim.opt.number = true
--- 		end
--- 	end,
--- })
--- vim.api.nvim_create_autocmd("WinLeave, BufCreate", {
--- 	callback = function()
--- 		vim.opt.relativenumber = false
--- 		vim.opt.number = false
--- 	end,
--- })
-
--- auto close NvimTree
-vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
-	pattern = "NvimTree_*",
-	callback = function()
-		local layout = vim.api.nvim_call_function("winlayout", {})
-		if
-			layout[1] == "leaf"
-			and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree"
-			and layout[3] == nil
-		then
-			vim.api.nvim_command([[confirm quit]])
-		end
-	end,
-})
-
--- auto close some filetype with <q>
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = {
-		"qf",
-		"help",
-		"man",
-		"notify",
-		"nofile",
-		"lspinfo",
-		"terminal",
-		"prompt",
-		"toggleterm",
-		"copilot",
-		"startuptime",
-		"tsplayground",
-		"PlenaryTestPopup",
-	},
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-		vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<CMD>close<CR>", { silent = true })
-	end,
-})
 
 function autocmd.load_autocmds()
 	local definitions = {
@@ -138,11 +59,6 @@ function autocmd.load_autocmds()
 				"*",
 				[[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]],
 			},
-			-- Auto toggle fcitx5
-			-- {"InsertLeave", "* :silent", "!fcitx5-remote -c"},
-			-- {"BufCreate", "*", ":silent !fcitx5-remote -c"},
-			-- {"BufEnter", "*", ":silent !fcitx5-remote -c "},
-			-- {"BufLeave", "*", ":silent !fcitx5-remote -c "}
 		},
 		wins = {
 			-- Highlight current line only on focused window
@@ -168,10 +84,9 @@ function autocmd.load_autocmds()
 			{ "VimResized", "*", [[tabdo wincmd =]] },
 		},
 		ft = {
-			{ "FileType", "alpha", "set showtabline=0" },
 			{ "FileType", "markdown", "set wrap" },
 			{ "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
-			{ "FileType", "dap-repl", "lua require('dap.ext.autocompl').attach()" },
+			{ "FileType", "tex", "set wrap" },
 			{
 				"FileType",
 				"*",

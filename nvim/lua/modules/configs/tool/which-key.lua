@@ -9,10 +9,10 @@ return function()
 			presets = {
 				operators = false,
 				motions = false,
-				text_objects = false,
-				windows = false,
+				text_objects = true,
+				windows = true,
 				nav = false,
-				z = true,
+				z = false,
 				g = true,
 			},
 		},
@@ -24,7 +24,7 @@ return function()
 		},
 
 		window = {
-			border = "none",
+			border = "single",
 			position = "bottom",
 			margin = { 1, 0, 1, 0 },
 			padding = { 1, 1, 1, 1 },

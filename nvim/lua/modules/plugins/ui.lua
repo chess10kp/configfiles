@@ -3,16 +3,20 @@ local ui = {}
 --ui["olimorris/onedarkpro.nvim"] = {
 	--lazy = true,
 --}
---ui["folke/tokyonight.nvim"] = {
-	--lazy = true,
-	--name = "tokyonight",
-	--config = require("ui.tokyonight"),
---}
+ui["folke/tokyonight.nvim"] = {
+	lazy = true,
+	name = "tokyonight",
+	config = require("ui.tokyonight"),
+}
 --ui["Shatur/neovim-ayu"] = {
 	--lazy = true,
 	--name = "ayu",
 	--config = require("ui.ayu"),
 --}
+ui["shaunsingh/solarized.nvim"] = {
+  lazy = false, 
+  name = "solarized", 
+}
 ui["ellisonleao/gruvbox.nvim"] = {
 	lazy = true,
 	name = "gruvbox",

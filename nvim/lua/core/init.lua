@@ -26,13 +26,10 @@ local disable_distribution_plugins = function()
 	vim.g.did_install_syntax_menu = 1
 
 	-- Uncomment this if you define your own filetypes in `after/ftplugin`
-	-- vim.g.did_load_filetypes = 1
+	vim.g.did_load_filetypes = 1
 
 	-- Do not load native syntax completion
 	vim.g.loaded_syntax_completion = 1
-
-	-- Do not load spell files
-	vim.g.loaded_spellfile_plugin = 1
 
 	-- Whether to load netrw by default
 	-- vim.g.loaded_netrw = 1
@@ -70,20 +67,6 @@ end
 
 local leader_map = function()
 	vim.g.mapleader = ";"
-end
-
-local neovide_config = function()
-	vim.api.nvim_set_option_value("guifont", "Iosevka Nerd Font:h15", {})
-	vim.g.neovide_refresh_rate = 120
-	vim.g.neovide_cursor_vfx_mode = "railgun"
-	vim.g.neovide_no_idle = true
-	vim.g.neovide_cursor_animation_length = 0.03
-	vim.g.neovide_cursor_trail_length = 0.05
-	vim.g.neovide_cursor_antialiasing = true
-	vim.g.neovide_cursor_vfx_opacity = 200.0
-	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
-	vim.g.neovide_cursor_vfx_particle_speed = 20.0
-	vim.g.neovide_cursor_vfx_particle_density = 5.0
 end
 
 local clipboard_config = function()

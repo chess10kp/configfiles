@@ -28,7 +28,6 @@ custom["kawre/leetcode.nvim"] = {
 		"nvim-telescope/telescope.nvim",
 		"nvim-lua/plenary.nvim", -- required by telescope
 		"MunifTanjim/nui.nvim",
-
 		-- optional
 		"nvim-treesitter/nvim-treesitter",
 		"rcarriga/nvim-notify",
@@ -38,6 +37,16 @@ custom["kawre/leetcode.nvim"] = {
 		lang = "python",
 	},
 }
+custom["folke/flash.nvim"] = {
+  event = "VeryLazy", 
+  lazy = true, 
+  keys = {
+  {"s", mode = {"n" , "x", "o"}, function() require("flash").jump() end, desc="Flash" },
+  {"S", mode = {"n" , "x", "o"}, function() require("flash").treesitter() end, desc="Flash" },
+  }
+}
+
+
 custom["dstein64/vim-startuptime"] = {
   lazy = true,
   cmd = "StartupTime",

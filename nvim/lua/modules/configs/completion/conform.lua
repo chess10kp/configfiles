@@ -1,5 +1,5 @@
 return function()
-  local format_on_save_set = require('core.settings').format_on_save
+	local format_on_save_set = require("core.settings").format_on_save
 	local conform = require("conform")
 	conform.setup({
 		formatters_by_ft = {
@@ -11,17 +11,18 @@ return function()
 			html = { "prettier" },
 			markdown = { "prettier" },
 			graphql = { "prettier" },
-      python = {"isort", "black"},
-      lua = { "stylua"},
+			python = { "isort", "black" },
+			lua = { "stylua" },
+			cpp = { "clang_format" },
 		},
-    function ()
-      if format_on_save_set then
-        format_on_save = {
-        timeout_ms = 1000, 
-        lsp_fallback = false,
-        async = true
-    }
-      end
-    end
+		function()
+			if format_on_save_set then
+				format_on_save = {
+					timeout_ms = 1000,
+					lsp_fallback = false,
+					async = true,
+				}
+			end
+		end,
 	})
 end

@@ -32,12 +32,12 @@ tool["akinsho/toggleterm.nvim"] = {
 	},
 	config = require("tool.toggleterm"),
 }
---tool["folke/which-key.nvim"] = {
-  --enabled = false,
-	--lazy = true,
-	--event = { "CursorHold", "CursorHoldI" },
-	--config = require("tool.which-key"),
---}
+tool["folke/which-key.nvim"] = {
+  enabled = false,
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("tool.which-key"),
+}
 tool["gelguy/wilder.nvim"] = {
   enabled = false,
 	lazy = true,
@@ -77,35 +77,25 @@ tool["nvim-telescope/telescope.nvim"] = {
 ----------------------------------------------------------------------
 --                           DAP Plugins                            --
 ----------------------------------------------------------------------
---tool["mfussenegger/nvim-dap"] = {
-	--lazy = true,
---}
---tool["mfussenegger/nvim-dap-python"] = {
-	--lazy = true,
-	--ft = "python",
-	--dependencies = {
-		--"mfussenegger/nvim-dap",
-		--"mfussenegger/nvim-dap-ui",
-	--},
-	--config = function(_, opts)
-		--local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-		--require("dap-python").setup(path)
-	--end,
---}
---tool["mfussenegger/nvim-dap-ui"] = {
-	--lazy = true,
-	--dependencies = {
-		--"mfussenegger/nvim-dap",
-	--},
-	--config = require("tool.dap"),
---}
---tool["theHamsta/nvim-dap-virtual-text"] = {
-	--lazy = true,
-	--dependencies = {
-		--"mfussenegger/nvim-dap",
-		--"mfussenegger/nvim-dap-ui",
-	--},
-  --config = require("tool.dap.virtualtext")
---}
---
+tool["mfussenegger/nvim-dap"] = {
+	lazy = true,
+  config = require("tool.dap")
+}
+tool["mfussenegger/nvim-dap-ui"] = {
+	lazy = true,
+  cmd = {"DapToggleBreakpoint", "DapContinue"},
+	dependencies = {
+		"mfussenegger/nvim-dap",
+	},
+	config = require("tool.dap"),
+}
+tool["theHamsta/nvim-dap-virtual-text"] = {
+	lazy = true,
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"mfussenegger/nvim-dap-ui",
+	},
+  config = require("tool.dap.virtualtext")
+}
+
 return tool

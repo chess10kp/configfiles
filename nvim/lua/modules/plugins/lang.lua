@@ -23,7 +23,7 @@ lang["Saecki/crates.nvim"] = {
 }
 lang["iamcco/markdown-preview.nvim"] = {
   lazy = true,
-  enabled = false,
+  enabled = true,
   ft = "markdown",
   build = ":call mkdp#util#install()",
 }

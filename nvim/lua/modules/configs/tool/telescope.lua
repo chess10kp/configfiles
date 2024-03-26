@@ -13,8 +13,6 @@ return function()
 				"--smart-case",
 			},
 			initial_mode = "insert",
-			prompt_prefix = " " .. icons.ui.Telescope .. " ",
-			selection_caret = icons.ui.ChevronRight,
 			scroll_strategy = "limit",
 			results_title = false,
 			border = true,

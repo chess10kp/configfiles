@@ -12,8 +12,9 @@ set path+=**
 -- o.viewdir = global.cache_dir .. "view/",
 o.winblend = 20
 
+o.more = false
 o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
-o.hlsearch = false
+o.hlsearch = true
 o.autoindent = true
 o.laststatus = 0
 o.autoread = true
