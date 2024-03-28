@@ -1,10 +1,10 @@
 local editor = {}
 
-editor["m4xshen/autoclose.nvim"] = {
-	lazy = false,
-	event = "InsertEnter",
-	config = require("editor.autoclose"),
-}
+-- editor["m4xshen/autoclose.nvim"] = {
+-- 	lazy = false,
+-- 	event = "InsertEnter",
+-- 	config = require("editor.autoclose"),
+-- }
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },

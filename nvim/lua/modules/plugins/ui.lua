@@ -8,11 +8,11 @@ ui["folke/tokyonight.nvim"] = {
 	name = "tokyonight",
 	config = require("ui.tokyonight"),
 }
---ui["Shatur/neovim-ayu"] = {
-	--lazy = true,
-	--name = "ayu",
-	--config = require("ui.ayu"),
---}
+ui["Shatur/neovim-ayu"] = {
+	lazy = true,
+	name = "ayu",
+	config = require("ui.ayu"),
+}
 ui["shaunsingh/solarized.nvim"] = {
   lazy = false, 
   name = "solarized", 
@@ -49,7 +49,7 @@ ui["rcarriga/nvim-notify"] = {
 }
 ui["karb94/neoscroll.nvim"] = {
 	lazy = false,
-	enabled = true,
+	enabled = false,
 	config = require("ui.neoscroll"),
 }
 return ui

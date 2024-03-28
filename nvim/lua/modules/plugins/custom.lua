@@ -38,6 +38,7 @@ custom["kawre/leetcode.nvim"] = {
 	},
 }
 custom["folke/flash.nvim"] = {
+  enabled = false,
   event = "VeryLazy", 
   lazy = true, 
   keys = {
