@@ -80,6 +80,6 @@ return function()
 		dapui.open()
 	end
 	dap.listeners.before.event_terminated.dapui_config = function()
-		dapui.close()
+    vim.notify("Stopped debug session", 2)
 	end
 end
