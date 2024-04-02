@@ -16,10 +16,22 @@ compinit
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -v
-bindkey -s "^T" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M'
+bindkey -s "^T" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
 bindkey '^R' history-incremental-search-backward
-bindkey -s "^X" 'cd ~/projects; cd ~/projects/$(find ./ -type d | rg -v ".git" | fzf)^M' 
-bindkey -s "^Y" 'nvim $(find ./  -type f -maxdepth 3 | rg -v ".git" | fzf)^M' 
+bindkey -s "^X" 'cdfzf^M'  >/dev/null 2>&1
+bindkey -s "^Y" 'nvimfzf^M' >/dev/null 2>&1
+
+function cdfzf {
+  cd ~/projects
+  dir=$(find ./  -name node_modules -prune -o -name "*.git" -prune -o -name venv -prune -o  -type d   | fzf)
+  [[ -n $dir ]] && cd $dir
+}
+
+function nvimfzf 
+{
+  [[ $(pwd) == $(eval echo ~) ]] && return
+  nvim $(find ./ -name node_modules -prune -o -name venv -prune -o  -type f -maxdepth 3 | fzf)
+}
 
 function mkcir
 {

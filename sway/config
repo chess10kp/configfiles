@@ -193,18 +193,33 @@ focus_follows_mouse no
 
 mode "script" {
     bindsym l exec  ~/.config/scripts/cliphist.sh; mode "default"
-    bindsym 1 exec  ~/.config/scripts/dim.sh 100; mode "default"
-    bindsym 0 exec  ~/.config/scripts/dim.sh 0; mode "default"
-    bindsym Print exec  ~/.config/scripts/screenshot.sh; mode "default"
+    bindsym $mod+Print exec  ~/.config/scripts/screenshot.sh; mode "default"
+    bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
+    bindsym $mod+t exec  ~/.config/scripts/timer.sh; mode "default"
+    bindsym $mod+a exec  ~/.config/scripts/todo; mode "default"
+    bindsym $mod+b exec  ~/.config/scripts/bookman.sh 0; mode "default"
+    bindsym $mod+n exec ~/.config/scripts/bookman.sh 1; mode "default"
+    bindsym $mod+v exec ~/.config/scripts/mpv.sh; mode "default"
+    bindsym $mod+q exec ~/.config/scripts/power.sh; mode "default"
+    bindsym $mod+w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
+    bindsym $mod+i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
+    bindsym $mod+e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
+    bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
+    bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default'
+    bindsym $mod+y mode "yank"
+    bindsym c mode "config"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+s mode "script"
+
+
+mode "yank" {
+    bindsym l exec  ~/.config/scripts/cliphist.sh; mode "default"
     bindsym p exec  ~/.config/scripts/passmenu.sh; mode "default"
-    bindsym t exec  ~/.config/scripts/timer.sh; mode "default"
-    bindsym a exec  ~/.config/scripts/todo; mode "default"
-    bindsym b exec  ~/.config/scripts/bookman.sh 0; mode "default"
-    bindsym n exec ~/.config/scripts/bookman.sh 1; mode "default"
-    bindsym v exec ~/.config/scripts/mpv.sh; mode "default"
+    bindsym b exec  ~/.config/scripts/bookman.sh --yank; mode "default"
     bindsym q exec ~/.config/scripts/power.sh; mode "default"
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
-    bindsym i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default'
@@ -212,8 +227,6 @@ mode "script" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+s mode "script"
-
 
 mode "config" {
     bindsym z exec cd ~/.config && $term -e $editor .zshrc; mode "default"
@@ -236,13 +249,6 @@ mode "resize" {
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -251,14 +257,13 @@ bindsym $mod+r mode "resize"
 
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
-    bindsym w exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym e exec emacs ~/projects/notes/todo.org ; mode "default"
     bindsym n exec $term -e emacs -nw ~/projects/notes/todo.org ; mode "default"
     bindsym f exec firefox; mode "default"
-    bindsym b exec brave; mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+o mode "open"
 bindsym $mod+Shift+s scratchpad show
 bindsym $mod+Control+i move scratchpad
