@@ -21,8 +21,7 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 		find ./ -type f | $rofi_prompt "Exec: " | sh
 		exit
 		;;
-
-	-p | prev)
+	-p | --prev)
 		hist=$(tail -n 5 ~/.zsh_history)
 		hist+=$(printf "\npkill waybar && waybar\npkill foot && foot --server")
 		cmd=$(echo "$hist" | $rofi_prompt "command> ")
@@ -33,7 +32,11 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 		echo "$cmd" | zsh &
 		exit
 		;;
-
+  -y | --yank) 
+    hist=$(tail -n 5 ~/.zsh_history
+		$(echo "$hist" | $rofi_prompt "command> ") | $copy_command
+    exit
+    ;;
 	esac
 	shift
 done

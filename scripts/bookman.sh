@@ -4,11 +4,25 @@ source ~/.config/scripts/configvars.sh
 
 file="$HOME/.bookmarks"
 touch "$file"
-height=$(wc -l "$file" | awk '{print $1}')
 prompt="Bookmarks"
 #sed 's/.*http/.*/' $file
 bookmarks=$(cat "$file")
-bookmarks+=$(printf "\nadd\nremove\nnew_task\nstart_task\nsearch\n")
+bookmarks+=$(printf "\nadd\nremove\nsearch\n")
+
+-- either copy the bookmark, or open in a new window
+while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
+  -V | --version )
+  echo "Bookman 1.0"
+  exit
+  ;;
+  -y | --yank ) 
+  mode="yank"
+  ;;
+  -o | --open )
+  mode="open"
+  ;;
+esac; shift; done
+if [[ "$1" == '--' ]]; then shift; fi
 
 cmd=$(printf '%s\n' "$bookmarks" | $rofi_prompt "bookmarks ")
 while [ -n "$cmd" ]; do
@@ -25,24 +39,19 @@ while [ -n "$cmd" ]; do
 		fi
 		notify-send "bookmark ${link} removed"
 
-  elif [[ $cmd == "new_task" ]]; then
-    tasks=$(grep -v "^http.*" "$file" | sed -s 's/\(.*\)http.*/\1/')
-    taskname=$(echo $tasks | $rofi_prompt "task name")
-    [[ -z $taskname ]] && exit 0 
-    echo "$taskname/$($paste_command)" >> "$file"
-
-  elif [[ $cmd == "start_task" ]]; then 
-    select_task=$(grep -v "^http.*" "bookmarks" | $rofi_prompt "task name")
-    [[ -z $select_task ]] && exit 0 
-    tasks=$(grep -v "^http.*" "bookmarks" | sed -s 's/.*http/http/')
-    $browser $tasks
-
   elif [[ $cmd == "search" ]]; then
     ./searchweb.sh
+    exit 0
 
 	elif grep -q "^$cmd\$" "$file"; then
+    if [[ $mode == "open" ]]; then
+      echo "$mode"
       $browser $(echo "$cmd" | sed 's/.*http/http/') &
       exit 0
+    elif [[ $mode == "yank" ]]; then 
+      echo "$cmd" | sed 's/.*http/http/' | $copy_command
+      exit
+    fi
 	fi
 
 	bookmarks=$(cat $file)

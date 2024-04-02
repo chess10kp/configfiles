@@ -9,8 +9,10 @@ IFS='' read -r -d '' urls <<"EOF"
 EOF
 
 selected=$(echo "$urls" | sed -s "s/\:.*//" | $rofi_prompt "Search: ")
+[[ $selected || exit ]]
 url=$(echo "$urls" | grep "$selected" | sed -s "s/.*:\(https\|file\)/\1/")
+[[ $url || exit ]]
 search_term=$(printf "" | $dmenu_prompt "search term: " | sed -s "s/ /+/g")
-[[ $search_term && exit 0 ]] 
+[[ $search_term || exit ]]
 
 $browser "$url$search_term"

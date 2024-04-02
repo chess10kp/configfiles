@@ -26,5 +26,6 @@ walset="swaybg -i"
 #walset="swww img   --transition-step 200"
 pdf_reader="zathura"
 paste_command="wl-paste"
+copy_command="wl-copy"
 notes_editor="emacs -nw"
 fi
