@@ -14,6 +14,7 @@ return function()
 			python = { "isort", "black" },
 			lua = { "stylua" },
 			cpp = { "clang_format" },
+      rust = {"rustfmt"},
 		},
 		function()
 			if format_on_save_set then
