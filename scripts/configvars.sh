@@ -13,12 +13,12 @@ if [[ $XDG_SESSION_TYPE == "x11" ]]; then
     term="xfce4-terminal"
 else
 rofi="tofi --horizontal=false --height 40% --width=60% --anchor=center \
-    --padding-left=30 --padding-right=30 "
+    --padding-left=30 --padding-right=30 --history=true"
 rofiwide="tofi --horizontal=false --height 50% \
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
 rofi_prompt="$rofi --prompt"
-dmenu="tofi --height=2%"
-dmenu_prompt="tofi --height=5% --prompt "
+dmenu="tofi --height=2% --history=true"
+dmenu_prompt="tofi --height=5% --prompt --history=true"
 editor="nvim"
 term="foot"
 browser="firefox"

@@ -21,11 +21,11 @@ set $editor nvim
 # on the original workspace that the command was run on.
 set $menu tofi-drun | xargs swaymsg exec --
 ### Output configuration
-default_border pixel 1
+default_border pixel 2
 focus_follows_mouse no
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-# output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/wp/gentoo_colorful.jpg fill
 #
 # Example configuration:
 #
@@ -132,7 +132,6 @@ focus_follows_mouse no
     bindsym $mod+3 workspace number 3
     bindsym $mod+w workspace "w"
     bindsym $mod+e workspace "e"
-    bindsym $mod+c workspace "c"
     bindsym $mod+b workspace "b" 
     bindsym $mod+m workspace "m" 
     bindsym $mod+8 workspace number 8
@@ -197,21 +196,35 @@ mode "script" {
     bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
     bindsym $mod+t exec  ~/.config/scripts/timer.sh; mode "default"
     bindsym $mod+a exec  ~/.config/scripts/todo; mode "default"
-    bindsym $mod+b exec  ~/.config/scripts/bookman.sh 0; mode "default"
-    bindsym $mod+n exec ~/.config/scripts/bookman.sh 1; mode "default"
+    bindsym $mod+n exec  ~/.config/scripts/bookman.sh -nw --open; mode "default"
+    bindsym $mod+b exec  ~/.config/scripts/bookman.sh --open; mode "default"
     bindsym $mod+v exec ~/.config/scripts/mpv.sh; mode "default"
     bindsym $mod+q exec ~/.config/scripts/power.sh; mode "default"
     bindsym $mod+w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym $mod+i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
-    bindsym $mod+e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default'
     bindsym $mod+y mode "yank"
-    bindsym c mode "config"
+    bindsym $mod+c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+s mode "script"
+
+bindsym $mod+c mode "settings"
+
+mode "settings" {
+  bindsym $mod+i gaps inner all minus 10
+  bindsym i gaps inner all plus 10
+
+  bindsym $mod+o gaps outer all minus 10
+  bindsym o gaps outer all plus 10
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts
 
 
 mode "yank" {
@@ -223,7 +236,7 @@ mode "yank" {
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default'
-    bindsym c mode "config"
+    #bindsym c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -277,8 +290,16 @@ for_window [class="steam"] move container to workspace 9
 for_window [title="Imgmenu"] floating toggle
 for_window [title="Imgmenu"] resize set height 400px
 for_window [title="Imgmenu"] resize set width 1080 
-#
-# Status Bar:
+
+# class                 border  backgr. text    indicator child_border
+# client.focused          #585b70 #585b70 #285577 #285577   
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# #
+# client.background       #ffffff
+
 
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -289,7 +310,6 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while echo " \| BAT:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online) \| $(free -h | grep Mem | awk '{print $3}') \| IND:$(TZ=Asia/Kolkata date +'%X') \|  $(date +'%X')"; do sleep 10; done
-
     colors {
         statusline #ffffff
         background #0e1419

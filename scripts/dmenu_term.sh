@@ -18,7 +18,7 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
       exit
     fi
 		cd $2
-		find ./ -type f | $rofi_prompt "Exec: " | sh
+		find ./ -type f | $rofi_prompt "M-x: " | sh
 		exit
 		;;
 	-p | --prev)
@@ -33,7 +33,7 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 		exit
 		;;
   -y | --yank) 
-    hist=$(tail -n 5 ~/.zsh_history
+    hist=$(tail -n 5 ~/.zsh_history)
 		$(echo "$hist" | $rofi_prompt "command> ") | $copy_command
     exit
     ;;

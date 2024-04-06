@@ -14,4 +14,4 @@ if [ "$file" == "" ]; then
 fi
 
 echo "$term"
-$term -e $notes_editor $file
+"$term" -e "$notes_editor" "$file"

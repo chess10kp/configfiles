@@ -47,6 +47,7 @@
 	#     Background color
 	#
 	# *-background-padding
+
 	#     Background padding in pixels (comma-delimited, CSS-style list).
 	#     See "DIRECTIONAL VALUES" under `man 5 tofi` for more info.
 	#
@@ -54,7 +55,7 @@
 	#     Radius of background box corners in pixels
 
 	# Prompt text theme
-background-color = #0e1419/
+background-color = #0e1419
 text-color = #ebdbb2
 
 prompt-background = #eebab100
@@ -87,7 +88,7 @@ height = 3%
 	outline-color = #585b70
 
 	# Width of the border in pixels.
-	border-width = 1
+	border-width = 0
 
 	# Border color
 	border-color = #fbf1c7
@@ -120,7 +121,7 @@ height = 3%
 	#
 	# Supported values: top-left, top, top-right, right, bottom-right,
 	# bottom, bottom-left, left, center.
-	anchor = center
+	anchor = bottom
 
 	# Set the size of the exclusive zone.
 	#

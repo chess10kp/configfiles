@@ -7,8 +7,9 @@ touch "$file"
 prompt="Bookmarks"
 #sed 's/.*http/.*/' $file
 bookmarks=$(cat "$file")
-bookmarks+=$(printf "\nadd\nremove\nsearch\n")
+bookmarks+=$(printf "\nadd\nremove\nsearch\nreplace\n")
 
+newWindow=false
 -- either copy the bookmark, or open in a new window
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
   -V | --version )
@@ -21,10 +22,13 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
   -o | --open )
   mode="open"
   ;;
+  -nw | --new-window) 
+  newWindow=true
+  ;;
 esac; shift; done
 if [[ "$1" == '--' ]]; then shift; fi
 
-cmd=$(printf '%s\n' "$bookmarks" | $rofi_prompt "bookmarks ")
+cmd=$(printf '%s\n' "$bookmarks" | $rofi)
 while [ -n "$cmd" ]; do
 	if [[ $cmd == 'add' ]]; then
         link+=" "$($paste_command)
@@ -39,23 +43,37 @@ while [ -n "$cmd" ]; do
 		fi
 		notify-send "bookmark ${link} removed"
 
+  elif [[ $cmd == "replace" ]]; then
+    cmd=$($rofi <"$file")
+    if grep -q "^$cmd\$" "$file"; then
+      grep -v "^$cmd\$" "$file" >"$file.$$"
+      mv "$file.$$" "$file"
+      link+=" "$($paste_command)
+      echo $link >>"$file"
+      notify-send "bookmark ${link} replaced"
+    fi
+
   elif [[ $cmd == "search" ]]; then
     ./searchweb.sh
     exit 0
 
 	elif grep -q "^$cmd\$" "$file"; then
     if [[ $mode == "open" ]]; then
-      echo "$mode"
-      $browser $(echo "$cmd" | sed 's/.*http/http/') &
+      if [[ $newWindow == true ]]; then
+        $browser --new-window $(echo "$cmd" | sed 's/.*http/http/') &
+      else
+        echo "hi"
+        $browser $(echo "$cmd" | sed 's/.*http/http/') &
+      fi
       exit 0
     elif [[ $mode == "yank" ]]; then 
-      echo "$cmd" | sed 's/.*http/http/' | $copy_command
+     echo "$cmd" | sed 's/.*http/http/' | $copy_command
       exit
     fi
 	fi
 
 	bookmarks=$(cat $file)
-	bookmarks+=$(printf "\nadd\nremove\n")
+	bookmarks+=$(printf "\nadd\nremove\nreplace\n")
 	cmd=$(printf '%s\n' "$bookmarks" | $rofi)
 done
 exit 0

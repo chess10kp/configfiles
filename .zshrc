@@ -2,6 +2,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec sway
 fi
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+
   #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
 
@@ -18,7 +19,7 @@ bindkey '^[[B' history-substring-search-down
 bindkey -v
 bindkey -s "^T" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
 bindkey '^R' history-incremental-search-backward
-bindkey -s "^X" 'cdfzf^M'  >/dev/null 2>&1
+bindkey -s "^F" 'cdfzf^M'  
 bindkey -s "^Y" 'nvimfzf^M' >/dev/null 2>&1
 
 function cdfzf {
@@ -39,27 +40,19 @@ function mkcir
 }
 
 alias e="exit"
+alias gst="git status"
 alias c="clear"
 alias sdi="paru -S"
 alias sdr="sudo pacman -R"
 alias sdu="sudo pacman -Syu"
-alias ..="cd .."
-alias ...="cd ../../"
-alias pm="pacman"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
-alias initnvim="nvim ~/.config/nvim/init.lua" alias inithypr="nvim ~/.config/hypr/hyprland.conf" alias zshrc="nvim ~/.config/.zshrc"
 alias ta="tmux attach"
 alias td="tmux detach"
 alias mkdir="mkdir -p"
-alias gcommit="git commit"
-alias gpush="git push"
-alias gadd="git add"
-alias gst="git status"
 alias cp="cp -v"
 alias mv="mv -i"
-alias cdfz="find ./ -type d  | fzf | xargs cd" 
 
 function yt
 {
@@ -71,7 +64,6 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
-export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring # poetry fails to open kdewallet
 export EDITOR="nvim"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
