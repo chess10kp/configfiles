@@ -18,7 +18,7 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
       exit
     fi
 		cd $2
-		find ./ -type f | $rofi_prompt "M-x: " | sh
+		find ./ -type f | sed -e "s/\.\///" | $rofi_prompt "M-x: " | xargs -I{} sh ./{}
 		exit
 		;;
 	-p | --prev)

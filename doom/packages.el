@@ -52,8 +52,9 @@
 
 (unpin! org-roam)
 (package! org-roam-ui)
+(package! calfw)
 (require 'calfw)
-
+(package! evil-snipe)
 (require 'evil-snipe)
 (evil-snipe-mode +1)
 

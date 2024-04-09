@@ -1,4 +1,30 @@
-#!/bin/sh
+source ~/.config/scripts/configvars.sh
 
-notify-send -t 1000 video $(wl-paste)
-mpv $(wl-paste) --force-window=immediate 360p
+music_dir="$HOME/Music"
+
+songs=$(ls $music_dir)
+songs+=$(printf "\n::pause::\n::play::\n::next::\n::repeat::\n::clear::")
+
+selected="$(echo "$songs" | $rofi )"
+
+case "$selected" in
+  ::pause::) 
+    mpc pause
+  ;;
+  ::play::) 
+    mpc play
+  ;;
+  ::next::) 
+    mpc next 
+  ;; 
+  ::repeat::) 
+    mpc repeat on 
+    ;;
+  ::clear::) 
+    mpc clear 
+    ;;
+  *) 
+  mpc add "$selected"
+  mpc play
+  ;;
+esac
