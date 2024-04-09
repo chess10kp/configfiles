@@ -15,6 +15,7 @@ return function()
 			lua = { "stylua" },
 			cpp = { "clang_format" },
       rust = {"rustfmt"},
+      haskell = {"fourmolu"},
 		},
 		function()
 			if format_on_save_set then

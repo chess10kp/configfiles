@@ -3,6 +3,7 @@ local nmap = key.nmap
 local imap = key.imap
 local omap = key.omap
 local vmap = key.vmap
+local cmap = key.cmap
 
 imap("jk", "<ESC>", "editor: escape")
 
@@ -18,6 +19,7 @@ nmap("<leader>w", "<Cmd>write<CR>", "editor: save file")
 nmap("<leader>q", "<Cmd>quit<CR>", "editor: quit")
 nmap("<leader>bd", "<Cmd>bd<CR>", "editor: close buffer")
 nmap("<leader>no", ":echo 'noh'<CR>:noh<CR>", "editor: nothing")
+cmap("jk" , "<ESC>", "editor: escape in command mode")
 nmap("<leader>ff", 
   function ()
     vim.api.nvim_feedkeys(":find ", "n", true)

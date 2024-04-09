@@ -31,7 +31,7 @@ local plug_map = {
 
 	-- Plugin: trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
-	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
+	["n|<leader>tr"] = map_cmd("<Cmd>lua vim.diagnostic.setqflist()<CR><Cmd>copen<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show lsp references"),

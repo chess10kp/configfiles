@@ -45,17 +45,35 @@ return {
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{enumitem}
+
+\newcounter{set}
+\setcounter{set}{2}
+\newcounter{problem}[set]
 
 
 \newcommand{\question}[2][]{\begin{flushleft}
         \textbf{#1}: \text{#2}
+
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{#1}: \text{#2}
+\end{flushleft}}
+
+\newcommand{\problem}{\refstepcounter{problem}{\vspace{2\baselineskip}\noindent\bfseries \arabic{set}.\arabic{problem}} }
+\newcommand{\pheading}[1][]{\refstepcounter{set}{\vspace{2\baselineskip}\noindent\large\bfseries 
+Problem~\arabic{set}
+\textbf{#1} 
+} 
+}
+
 
 \end{flushleft}}
 \newcommand{\sol}{\textbf{Solution}:}
 
 \title{<>}
 \date{}
-\author{}
+\author{<>}
 
 
 \makeatletter
@@ -76,7 +94,7 @@ return {
 <>
 \end{document}
   ]],
-			{ i(1, "title"),  i(2, "content"),  },
+			{ i(1, "title"), i(2, "author"),  i(3, "content"),  },
 			{
 				delimiters = "<>",
 			}

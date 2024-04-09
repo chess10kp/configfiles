@@ -18,9 +18,9 @@ local core_map = {
 	["t|<C-k>"] = map_cmd("<Cmd>wincmd k<CR>"):with_silent():with_noremap():with_desc("window: Focus up"),
 	["n|<leader>os"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
 	-- Insert mode
-	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("editi: Move cursor to line start"),
-	["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
-	--["i|<C-k>"] = map_cmd("<Up>"):with_desc("Move cursor up"), Insert digrams instead
+	["i|<C-a>"] = map_cmd("<C-o>^"):with_noremap():with_desc("editi: Move cursor to line start"),
+	["i|<C-e>"] = map_cmd("<C-o>A"):with_noremap():with_desc("editi: Move cursor to line end"),
+  ["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
   ["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
 	["i|<C-h>"] = map_cmd("<ESC><Left>i"):with_desc("Move cursor to the left"),
 

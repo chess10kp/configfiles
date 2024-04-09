@@ -22,14 +22,15 @@ editor["sindrets/diffview.nvim"] = {
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
- editor[ 'numToStr/Comment.nvim' ] = {
-    config = function()
-        require('Comment').setup()
-    end
+editor["numToStr/Comment.nvim"] = {
+	config = function()
+		require("Comment").setup()
+	end,
 }
-editor["folke/trouble.nvim"] = { 
-    lazy = false, 
-  cmd = {"Trouble", "TroubleToggle"}
+editor["folke/trouble.nvim"] = {
+	enabled = false,
+	lazy = false,
+	cmd = { "Trouble", "TroubleToggle" },
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
@@ -41,29 +42,26 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.treesitter"),
 	dependencies = {
-		{ "andymass/vim-matchup" ,
-      enabled = false, 
-      ft = {"python", "html"},
-    },
+		{ "andymass/vim-matchup", enabled = false, ft = { "python", "html" } },
 		{
 			"nvim-treesitter/nvim-treesitter-context",
 			config = require("editor.ts-context"),
 		},
 		{
 			"windwp/nvim-ts-autotag",
-      lazy = true, 
-      ft = {"typescript, javascript", "html"},
+			lazy = true,
+			ft = { "typescript, javascript", "html" },
 			config = require("editor.autotag"),
 		},
 		{
 			"abecodes/tabout.nvim",
-      lazy = true,
+			lazy = true,
 			config = require("editor.tabout"),
 		},
-    {
-        "Nvchad/nvim-colorizer.lua" , 
-        lazy = true, 
-      }
+		{
+			"Nvchad/nvim-colorizer.lua",
+			lazy = true,
+		},
 	},
 }
 

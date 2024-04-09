@@ -15,7 +15,7 @@ return function()
 			initial_mode = "insert",
 			scroll_strategy = "limit",
 			results_title = false,
-			border = true,
+			border = false,
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -38,7 +38,7 @@ return function()
 			color_devicons = true,
 			layout_config = {
 				horizontal = {
-					prompt_position = "top",
+					prompt_position = "bottom",
 					preview_width = 0.55,
 					results_width = 0.8,
 				},
@@ -59,16 +59,14 @@ return function()
 				theme = "dropdown",
 				layout_strategy = "horizontal",
         anchor = "bottom",
-				border = true,
+				border = false,
 				layout_config = {
 					preview_width = 0,
-					prompt_position = "top",
 				},
 			},
 			buffers = {
 				theme = "dropdown",
-				layout_strategy = "horizontal",
-				border = true,
+				border = false,
 				layout_config = {
 					preview_width = 0,
 					prompt_position = "top",
@@ -107,17 +105,19 @@ return function()
 			-- 	},
 			-- },
 			file_browser = {
-				theme = "dropdown",
-				layout_strategy = "horizontal",
-				border = true,
+				theme = "ivy",
+        prompt_path = true,
+				layout_strategy = "vertical",
+				border = false,
 				layout_config = {
 					preview_width = 0,
-					prompt_position = "top",
+					-- prompt_position = "bottom",
 				},
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {
-						["<Tab>"] = telescope_actions.select_default,
+						-- ["<Tab>"] = telescope_actions.select_default,
+						["/"] = telescope_actions.select_default,
 					},
 					["n"] = {
 						["<BS>"] = function() end,
@@ -135,6 +135,7 @@ return function()
 	-- require("telescope").load_extension("zoxide")
 	-- require("telescope").load_extension("project")
 	-- require("telescope").load_extension("session-lens")
-	-- require("telescope").load_extension("file_browser")
+	require("telescope").load_extension("file_browser")
+
 	-- require("telescope").load_extension("persisted")
 end
