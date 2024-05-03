@@ -1,0 +1,2 @@
+sed -i -e "s/xkb_options.*/xkb_options caps:ctrl_modifier/" ~/.config/sway/config
+swaymsg reload

@@ -48,6 +48,7 @@ alias sdu="sudo pacman -Syu"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
+alias :e="vim"
 alias ta="tmux attach"
 alias td="tmux detach"
 alias mkdir="mkdir -p"
@@ -64,12 +65,15 @@ export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin/flutter/bin/"
 export EDITOR="nvim"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/Android/Sdk/cmdline-tools/latest/bin:$PATH"
 export GOPATH="$HOME/projects/go/:$GOPATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
+export CHROME_EXECUTABLE=/usr/bin/chromium-browser
 
 function tmux-run
 {
@@ -86,17 +90,17 @@ source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # RPROMPT='$GITSTATUS_PROMPT'
 
-autoload -Uz vcs_info
-precmd() { vcs_info }
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats '%b '
+# zstyle ':vcs_info:git:*' formats '%b '
 
-setopt PROMPT_SUBST
-PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f> '
-
+# setopt PROMPT_SUBST
+# PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f> '
+PROMPT='%F{blue}%~%f %F{red}%f'
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 [ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env
