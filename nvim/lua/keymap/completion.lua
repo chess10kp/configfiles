@@ -1,7 +1,6 @@
 local key = require("keymap.key")
 local nmap = key.nmap
 
-nmap("<A-f>", "<Cmd>FormatToggle<CR>", "formatter: Toggle format on save")
 nmap("<leader>li", ":LspInfo<CR>", "lsp: info")
 nmap("<leader>lr", ":LspRestart<CR>", "lsp: restart")
 nmap("go", ":Lspsaga outline<CR>", "lsp: restart")

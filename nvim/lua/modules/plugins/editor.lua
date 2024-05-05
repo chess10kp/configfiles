@@ -6,6 +6,7 @@ local editor = {}
 -- 	config = require("editor.autoclose"),
 -- }
 editor["rhysd/clever-f.vim"] = {
+  enabled = false,
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("editor.cleverf"),

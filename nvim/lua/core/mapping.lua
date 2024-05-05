@@ -26,7 +26,6 @@ local core_map = {
 
 	-- Command mode
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editc: Left"),
-	["c|<C-f>"] = map_cmd("<Right>"):with_noremap():with_desc("editc: Right"),
 	["c|<C-a>"] = map_cmd("<Home>"):with_noremap():with_desc("editc: Home"),
 	["c|<C-e>"] = map_cmd("<End>"):with_noremap():with_desc("editc: End"),
 	["n|<A-[>"] = map_cr("vertical resize -5"):with_silent():with_desc("window: Resize -5 vertically"),

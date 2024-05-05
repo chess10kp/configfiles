@@ -8,7 +8,7 @@ tool["mbbill/undotree"] = {
 	lazy = false,
 }
 tool["takac/vim-hardtime"] = {
-	lazy = false,
+	lazy = true,
 }
 tool["simrat39/symbols-outline.nvim"] = {
 	lazy = true,
@@ -31,19 +31,6 @@ tool["akinsho/toggleterm.nvim"] = {
 		"ToggleTermSendVisualSelection",
 	},
 	config = require("tool.toggleterm"),
-}
-tool["folke/which-key.nvim"] = {
-  enabled = false,
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("tool.which-key"),
-}
-tool["gelguy/wilder.nvim"] = {
-  enabled = false,
-	lazy = true,
-	event = "CmdlineEnter",
-	config = require("tool.wilder"),
-	dependencies = { "romgrk/fzy-lua-native" },
 }
 
 ----------------------------------------------------------------------

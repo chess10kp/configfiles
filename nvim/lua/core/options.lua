@@ -13,7 +13,7 @@ set path+=**
 o.winblend = 20
 
 o.more = false
-o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
+-- o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
 o.hlsearch = true
 o.autoindent = true
 o.laststatus = 0
@@ -133,7 +133,7 @@ g.netrw_browse_split = 4
 g.netrw_altv = 1
 
 --Plugin: hard time
-vim.g.hardtime_default_on = 0
+vim.g.hardtime_default_on = 1
 vim.g.hardtime_ignore_quickfix = 1
 vim.g.hardtime_allow_different_key = 1
 

@@ -22,6 +22,7 @@ custom["folke/neodev.nvim"] = {
 	config = require("lang.neodev"),
 }
 custom["kawre/leetcode.nvim"] = {
+  enabled = false,
 	lazy = false,
 	build = ":TSUpdate html",
 	dependencies = {
@@ -37,6 +38,13 @@ custom["kawre/leetcode.nvim"] = {
 		lang = "python",
 	},
 }
+
+custom["ggandor/leap.nvim"] = {
+  lazy = false, 
+  name = "leap",
+  config = require('custom.leap')
+}
+
 custom["folke/flash.nvim"] = {
   enabled = false,
   event = "VeryLazy", 

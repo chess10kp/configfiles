@@ -12,26 +12,33 @@ function autocmd.nvim_create_augroups(definitions)
 	end
 end
 
-
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "Telescope*",
-  callback = function ()
-    require('cmp').setup.buffer { enabled = false }
-  end
+	pattern = "Telescope*",
+	callback = function()
+		require("cmp").setup.buffer({ enabled = false })
+	end,
 })
-
 
 vim.api.nvim_create_autocmd("RecordingEnter", {
-  callback = function()
-    vim.opt.cmdheight = 1
-  end
+	callback = function()
+		vim.opt.cmdheight = 1
+	end,
 })
 vim.api.nvim_create_autocmd("RecordingLeave", {
-  callback = function()
-  vim.opt.cmdheight = 0
-  end
+	callback = function()
+		vim.opt.cmdheight = 0
+	end,
 })
 
+vim.api.nvim_create_autocmd("ExitPre", {
+	callback = function()
+		local file = vim.loop.fs_stat("Session.vim")
+		if file and file.type == "file" then
+			-- Session.vim exists
+			vim.cmd("mksession!")
+		end
+	end,
+})
 
 function autocmd.load_autocmds()
 	local definitions = {
@@ -81,22 +88,6 @@ function autocmd.load_autocmds()
 			-- Check if file changed when its window is focus, more eager than 'autoread'
 			{ "FocusGained", "* checktime" },
 			-- Equalize window dimensions when resizing vim window
-			{ "VimResized", "*", [[tabdo wincmd =]] },
-		},
-		ft = {
-			{ "FileType", "markdown", "set wrap" },
-			{ "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
-			{ "FileType", "tex", "set wrap" },
-			{
-				"FileType",
-				"*",
-				[[setlocal formatoptions-=cro]],
-			},
-			{
-				"FileType",
-				"c,cpp",
-				"nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>",
-			},
 		},
 		yank = {
 			{

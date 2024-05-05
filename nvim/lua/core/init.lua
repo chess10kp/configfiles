@@ -66,7 +66,7 @@ local disable_distribution_plugins = function()
 end
 
 local leader_map = function()
-	vim.g.mapleader = ";"
+	vim.g.mapleader = " "
 end
 
 local clipboard_config = function()

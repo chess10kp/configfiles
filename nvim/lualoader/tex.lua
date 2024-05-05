@@ -54,10 +54,6 @@ return {
 
 \newcommand{\question}[2][]{\begin{flushleft}
         \textbf{#1}: \text{#2}
-
-
-\newcommand{\question}[2][]{\begin{flushleft}
-        \textbf{#1}: \text{#2}
 \end{flushleft}}
 
 \newcommand{\problem}{\refstepcounter{problem}{\vspace{2\baselineskip}\noindent\bfseries \arabic{set}.\arabic{problem}} }
@@ -67,8 +63,6 @@ Problem~\arabic{set}
 } 
 }
 
-
-\end{flushleft}}
 \newcommand{\sol}{\textbf{Solution}:}
 
 \title{<>}
@@ -91,7 +85,9 @@ Problem~\arabic{set}
 
 \begin{document}
 \maketitle
-<>
+
+\setcounter{set}{0}
+\pheading{<>}
 \end{document}
   ]],
 			{ i(1, "title"), i(2, "author"),  i(3, "content"),  },

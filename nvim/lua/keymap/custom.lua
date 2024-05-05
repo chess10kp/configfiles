@@ -7,11 +7,12 @@ local cmap = key.cmap
 
 imap("jk", "<ESC>", "editor: escape")
 
-nmap(";w", ":w<CR>", "Save file")
+-- nmap(";w", ":w<CR>", "Save file")
 nmap("<C-n>", ":Lexplore!<CR><CR>", "Toggle File tree")
 nmap("<leader>ss", "<Cmd>echo 'saved session'<CR><Cmd>mks!<CR>", "editor: save vim session")
 nmap("<leader>lcd", "<Cmd>lcd %:h<CR><Cmd>pwd<CR>", "editor: change current working directory")
-nmap("<leader>lcc", "<Cmd>lcd ../ <CR><Cmd>pwd<CR>", "editor: change current working directory to parent")
+
+nmap("<leader>fa", "<cmd>WorkspaceSearch<CR>", "editor: workspace search")
 
 nmap("<M-j>", ":bnext<CR>", "editor: move to next buffer")
 nmap("<M-k>", ":bprev<CR>", "editor: move to previous buffer")
@@ -35,6 +36,13 @@ nmap("<leader>cl",
 nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
 nmap("<leader>cc" , function ()
   vim.api.nvim_feedkeys(":make -l ", "n", true)
+end)
+
+nmap("<leader>tt", function ()
+  vim.cmd([[
+  cclose
+  Todos
+  ]])
 end)
 
 nmap("<leader>fm", function()

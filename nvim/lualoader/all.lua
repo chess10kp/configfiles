@@ -12,34 +12,4 @@ local i = ls.i --> insert node
 local fmt = require("luasnip.extras.fmt").fmt
 -- local rep = require("luasnip.extras").rep
 
-return {}, {
-	s(
-		"pot",
-		fmt(
-			[[
-      jagpotat this epic <>
-      ]],
-			{
-				i(1, "thing i can insert text into"),
-			},
-			-- more snips here
-			{
-				delimiters = "<>",
-			}
-		)
-	),
-	s(
-		"prrrt",
-		fmt(
-			[[
-      prrrrt  is the sound of fart
-      ]],
-			{
-			},
-			-- more snips here
-			{
-				delimiters = "<>",
-			}
-		)
-	),
-}
+return {}, { }

@@ -1,6 +1,6 @@
 return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
-  local telescope_actions = require("telescope.actions")
+	local telescope_actions = require("telescope.actions")
 
 	require("telescope").setup({
 		defaults = {
@@ -15,7 +15,7 @@ return function()
 			initial_mode = "insert",
 			scroll_strategy = "limit",
 			results_title = false,
-			border = false,
+			border = true,
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -56,27 +56,23 @@ return function()
 				exclude = {},
 			},
 			find_files = {
-				theme = "dropdown",
-				layout_strategy = "horizontal",
-        anchor = "bottom",
-				border = false,
 				layout_config = {
 					preview_width = 0,
+					height = 0.5,
+					width = 0.5,
 				},
 			},
 			buffers = {
-				theme = "dropdown",
-				border = false,
 				layout_config = {
 					preview_width = 0,
-					prompt_position = "top",
+					height = 0.5,
+					width = 0.5,
 				},
 			},
-			-- buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
 		extensions = {
 			fzf = {
-				fuzzy = false,
+				fuzzy = true,
 				override_generic_sorter = true,
 				override_file_sorter = true,
 				case_mode = "smart_case",
@@ -104,14 +100,22 @@ return function()
 			-- 		},
 			-- 	},
 			-- },
-			file_browser = {
-				theme = "ivy",
-        prompt_path = true,
+			buffers = {
+				theme = "dropdown",
 				layout_strategy = "vertical",
-				border = false,
+				layout_config = {
+					preview_width = 0,
+				},
+			},
+			file_browser = {
+				cwd_to_path = true,
+				prompt_path = true,
+				border = true,
 				layout_config = {
 					preview_width = 0,
 					-- prompt_position = "bottom",
+					height = 0.5,
+					width = 0.7,
 				},
 				hijack_netrw = true,
 				mappings = {

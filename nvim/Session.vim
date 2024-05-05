@@ -13,11 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +25 lua/keymap/custom.lua
+badd +5 init.lua
 argglobal
 %argdel
 $argadd init.lua
-edit lua/keymap/custom.lua
+edit init.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -34,29 +34,29 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 23 + 24) / 49)
-exe '2resize ' . ((&lines * 23 + 24) / 49)
+exe '1resize ' . ((&lines * 22 + 23) / 47)
+exe '2resize ' . ((&lines * 22 + 23) / 47)
 argglobal
-balt init.lua
-let s:l = 25 - ((10 * winheight(0) + 11) / 22)
+let s:l = 2 - ((1 * winheight(0) + 10) / 21)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 25
-normal! 017|
+keepjumps 2
+normal! 0
 wincmd w
 argglobal
 enew | setl bt=help
-help nvim_feedkeys()@en
-let s:l = 823 - ((16 * winheight(0) + 11) / 23)
+help v_ap@en
+balt init.lua
+let s:l = 683 - ((0 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 823
-normal! 032|
+keepjumps 683
+normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 23 + 24) / 49)
-exe '2resize ' . ((&lines * 23 + 24) / 49)
+exe '1resize ' . ((&lines * 22 + 23) / 47)
+exe '2resize ' . ((&lines * 22 + 23) / 47)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

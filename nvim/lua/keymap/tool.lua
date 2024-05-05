@@ -23,31 +23,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle float"),
-	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle float"),
 	["t|<A-d>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
-
-	-- Plugin: trouble
-	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
-	["n|<leader>tr"] = map_cmd("<Cmd>lua vim.diagnostic.setqflist()<CR><Cmd>copen<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Show lsp references"),
-	["n|<leader>td"] = map_cr("TroubleToggle document_diagnostics")
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Show document diagnostics"),
-	["n|<leader>tw"] = map_cr("TroubleToggle workspace_diagnostics")
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Show workspace diagnostics"),
-	["n|<leader>tq"] = map_cr("TroubleToggle quickfix")
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Show quickfix list"),
-	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
 	["n|<leader>fk"] = map_callback(function()
@@ -57,6 +33,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("tool: show keymaps"),
 	["n|<leader>fr"] = map_cu("Telescope lsp_references"),
+	["n|<leader>fd"] = map_cu("Telescope lsp_document_symbols"),
 	["n|<leader>fl"] = map_cu("Telescope lsp_dynamic_workspace_symbols "),
   ["n|<leader>fs"] = map_callback(function ()
     require("telescope.builtin").grep_string({search = vim.fn.input("find string: ")})
@@ -68,12 +45,15 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Word in project"),
 	["n|<leader>fj"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
-	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("find: Help"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: file in git project"),
+  ["n|<leader>ft"] = map_cu("Telescope current_buffer_tags")
+    :with_noremap()
+    :with_silent()
+    :with_desc("find: tags"),
 	["n|<leader>fb"] = map_cu("Telescope buffers")
 		:with_noremap()
 		:with_silent()
@@ -82,6 +62,44 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: open file browser"),
+	-- Plugin: telescope
+	["n|<CR>fk"] = map_callback(function()
+			require("telescope.builtin").keymaps()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: show keymaps"),
+	["n|<CR>fr"] = map_cu("Telescope lsp_references"),
+	["n|<CR>fd"] = map_cu("Telescope lsp_document_symbols"),
+	["n|<CR>fl"] = map_cu("Telescope lsp_dynamic_workspace_symbols "),
+  ["n|<CR>fs"] = map_callback(function ()
+    require("telescope.builtin").grep_string({search = vim.fn.input("find string: ")})
+  end),
+	["n|<CR>fw"] = map_callback(function()
+			require("telescope").extensions.live_grep_args.live_grep_args()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: Word in project"),
+	["n|<CR>fj"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<CR>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent():with_desc("find: Help"),
+	["n|<CR>fg"] = map_cu("Telescope git_files")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: file in git project"),
+  ["n|<CR>ft"] = map_cu("Telescope current_buffer_tags")
+    :with_noremap()
+    :with_silent()
+    :with_desc("find: tags"),
+	["n|<CR>fb"] = map_cu("Telescope buffers")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: Buffer opened"),
+	["n|<CR>fi"] = map_cu("Telescope file_browser ")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: open file browser"),
+
 
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()
