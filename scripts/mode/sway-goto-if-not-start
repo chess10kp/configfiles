@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+usage=$(cat << EOF 
+Usage: sway-goto-if-not-start [WORKSPACE] [NAME] [COMMAND]
+Description:
+Goto workspace if the applcation is already running in that workspace, otherwise launch the applcation
+Arguments:
+WORKSPACE             The name of the workspace to goto 
+NAME            The program to check for 
+COMMAD            The commmand to run to launch the program
+EOF
+)
+
+if [[ -z $3 ]]; then
+   echo "$usage"  
+   exit
+fi
+
+swaymsg "workspace $1" 
+is_emacs_running=$(swaymsg -t get_tree | jq --arg workspace "$1"  '.nodes[]|select(.name !="__i3").nodes[]|select(.name==$workspace).nodes[].name' | grep -i "$2")
+
+if [[ -z $is_emacs_running ]]; then
+  $3
+fi

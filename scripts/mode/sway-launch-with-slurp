@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+
+usage=$(cat << EOF 
+Usage: sway-launch-with-slurp [APPLICATION] [FLAG] [SEP]
+Description:
+Launch applications with slurp
+Arguments:
+APPLICATION             The name of the workspace to goto 
+FLAG                    The flag to pass to the application which makes it spawn with a specific width and height 
+SEP                     The separator between height and width
+EOF
+)
+
+
+
+[[ -z "$1" ]] && echo "$usage" && exit 
+
+output=$(slurp)
+
+pos=$(echo $output | sed -e "s/ .*//g" )
+x=$(echo $pos | awk -F , '{print $1}')
+y=$(echo $pos | awk -F , '{print $2}')
+
+size=$(echo $output | awk '{print $2}' )
+
+height=$(echo $size | awk -F x '{print $2}')
+width=$(echo $size | awk -F x '{print $1}')
+
+# run program
+$1 -w "${width}x${height}" & 
+
+# induce a wait to make sure that the application gets assigned an app id (can be variable depending on device)
+sleep 0.03
+
+pid=$!
+
+# use the id to get the container id of the window
+id=$(swaymsg -t get_tree | jq --arg pid "$pid" '.nodes[1].nodes[].nodes[] | .. | select(type == "object") | select(.pid|tostring==$pid) | .id  ' )
+echo "$id"
+
+# Tell sway to focus said window
+[[ -z "$id" ]] && notify-send "Sway" "Spawning Terminal failed"
+swaymsg [con_id="$id"] floating enable
+
+swaymsg [con_id="$id"] move absolute position $x $y
