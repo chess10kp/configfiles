@@ -11,14 +11,14 @@ function notify_vol
     dunstify "0"   -t 800 -r 91190 
     return
   fi
-  notify-send "$volume" -a "Volume: " -h int:value:$volume -t 800 -r 91190 
+  notify-send "$volume" "Volume: " -h int:value:$volume -t 800 -r 91190 
   echo "$volume"
 }
 
 function notify_mute
 {
     volume=$(pamixer --get-volume)
-    notify-send "$volume" -a "Muted " -h int:value:$volume -t 800 -r 91190 
+    notify-send "Muted" "$volume" -a "Muted " -h int:value:$volume -t 800 -r 91190 
 }
 
 function notify_brightness 
@@ -41,9 +41,9 @@ case "$1" in
       volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
       mute=`amixer get Master | grep -o "\[off\]" | head -1 `
       if [ -n "$mute"  ] ; then
-        notify-send "$volume" -a "Muted " -h int:value:$volume -t 800 -r 91190 
+        notify-send "$volume"  "Muted " -h int:value:$volume -t 800 -r 91190 
       else 
-        notify-send "$volume" -a "Volume " -h int:value:$volume -t 800 -r 91190 
+        notify-send "$volume" -h int:value:$volume -t 800 -r 91190 
       fi
     ;;
   esac

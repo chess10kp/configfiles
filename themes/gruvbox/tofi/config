@@ -7,7 +7,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Terminus"
+	font = "/usr/share/fonts/spleen/spleen-12x24.otf"
   
 
 
@@ -85,10 +85,10 @@ height = 3%
 	outline-width = 0
 
 	# Border outline color
-	outline-color = #585b70
+	outline-color = #fbf1c7
 
 	# Width of the border in pixels.
-	border-width = 0
+	border-width = 1
 
 	# Border color
 	border-color = #fbf1c7

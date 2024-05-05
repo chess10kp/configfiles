@@ -17,8 +17,8 @@ rofi="tofi --horizontal=false --height 40% --width=60% --anchor=center \
 rofiwide="tofi --horizontal=false --height 50% \
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
 rofi_prompt="$rofi --prompt"
-dmenu="tofi --height=3% --history=true --anchor=center"
-dmenu_prompt="tofi --height=5% --prompt "
+dmenu="tofi --height=3% --anchor=center"
+dmenu_prompt="tofi --height=3% --prompt "
 editor="nvim"
 term="foot"
 browser="firefox"

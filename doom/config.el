@@ -29,9 +29,6 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-gruvbox)
 
 (setq doom-font (font-spec :family "Iosevka" :size 20))
@@ -39,10 +36,17 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+
+
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/projects/notes/")
+(setq org-directory "~/projects/notes/org/")
 (setq org-agenda-files (quote ("~/projects/notes/todo.org")))
+(setq org-agenda-files
+      (append '("~/projects/notes/todo.org")
+              (directory-files-recursively "~/projects/notes/org/" "\\.org$")
+              ))
 (setq org-roam-directory "~/projects/notes")
 
 (setq display-line-numbers-type 'relative)
@@ -55,6 +59,7 @@
 ;;     (setq x y))
 ;;
 ;; The exceptions to this rule:
+
 ;;
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
@@ -78,6 +83,7 @@
 ;; etc).
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+
 ;; they are implemented.
 
 (setq default-tab-width 8)
@@ -109,16 +115,72 @@
 (after! org
   (setq org-time-stamp-custom-formats '( "%H:%M>")))
 
+;; Preview the time on completion
 (setq org-log-done 'time)
 (set-default 'preview-scale-function 1.0)
 
-(after! eww
-  (set-popup-rule! "^\\*eww" :size 100 :select t :quit nil :ttl t :side 'right :modeline nil))
-
-;; (define-key eww-mode-map (kbd "q") nil)
-
-
+(define-key global-map (kbd "C-x a a") 'org-agenda)
 
 (setq
 org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
  )
+(setq tex-fontify-script t)
+
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/projects/notes/todo.org" "Todos")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "journal" entry (file+datetree "~/projects/notes/journal.org")
+            "* %U %i ")
+        ("r" "refile" entry (file+datetree "~/projects/notes/refile.org")
+            "* %U %i ")
+         ))
+
+
+(require 'ido)
+(ido-mode t)
+
+(setq vertico-count 10)
+
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+
+
+(with-eval-after-load 'org (global-org-modern-mode))
+
+(setq org-agenda-custom-commands
+      '(("v" "upgraded view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done)))
+                ((org-agenda-overriding-header "#A"))
+                )
+        (agenda "")
+        (alltodo "")
+         )))
+      )
+
+;; customize doom-gruvbox
+(custom-set-faces! '(default  :background "#0e1419"))
+(custom-set-faces! '(mode-line :background "#0e1419"))
+(custom-set-faces! '(fringe :background "#0e1419"))
+
+(use-package! org
+  :config
+  (setq org-todo-keywords '((sequence "TODO(t)" "INFO(f)" "PROGRESS(i)" "PROJ(p)" "LOOP(r)" "WAIT(w)" "EVENT(e)" "HOLD(h)" "EMAIL(m)"  "IDEA(i)" "|""DONE(d)" "KILL(k)")))
+  )
+
+
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))

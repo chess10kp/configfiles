@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+source ~/.config/scripts/configvars.sh
+
+task=$(echo "" | $dmenu_prompt "Task: ")
+[[ -z $task ]] && notify-send "Task aborted" && exit 
+notify-send "Task" "$task"
+ echo "$task $(date +'%H%M')" > /tmp/tasks

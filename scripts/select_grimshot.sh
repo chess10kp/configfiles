@@ -8,7 +8,7 @@ fi
 
 source ~/.config/scripts/configvars.sh
 
-options=$(printf "save\ncopy\ncopy_area\nsave_area")
+options=$(printf "copy_area\nsave\ncopy\nsave_area")
 targets=$(printf "active\nscreen\narea\nwindow\noutput")
 
 sel_opt=$(echo "$options"| $rofi)

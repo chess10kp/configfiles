@@ -31,9 +31,9 @@ function notify_mute
 {
     mute=`amixer get Master | grep -o "\[off\]" | head -1 | sed 's/\[//g' | sed 's/\]//g'
     if [ "$mute" == "true" ] ; then
-        dunstify -a "muted" "$nsink" -i ${icodir}/muted-${dvce}.svg -r 91190 -t 800
+        dunstify "muted" "$nsink" -i ${icodir}/muted-${dvce}.svg -r 91190 -t 800
     else
-        dunstify -a "unmuted" "$nsink" -i ${icodir}/unmuted-${dvce}.svg -r 91190 -t 800
+        dunstify "unmuted" "$nsink" -i ${icodir}/unmuted-${dvce}.svg -r 91190 -t 800
     fi
 }
 

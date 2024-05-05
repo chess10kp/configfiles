@@ -22,10 +22,10 @@
 
        :completion
        company           ; the ultimate code completion backend
-       helm              ; the *other* search engine for love and life
+       ;helm              ; the *other* search engine for love and life
        ;ido               ; the other *other* search engine...
        ;ivy               ; a search engine for love and life
-       ;vertico           ; the search engine of the future
+       vertico           ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -36,12 +36,12 @@
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
-       ligatures         ; ligatures and symbols to make your code pretty again
+       ;;ligatures         ; ligatures and symbols to make your code pretty again
        ;;minimap           ; show a map of the code on the side
        ;; modeline          ; snazzy, Atom-inspired modeline, plus API
        ;;nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
-       ophints           ; highlight the region an operation acts on
+       ;;ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
 
 
@@ -50,7 +50,7 @@
       ;;zen               ; distraction-free coding or writing
 
        :editor
-       (evil +everywhere); come to the dark side, we have cookies
+       ;;(evil +everywhere); come to the dark side, we have cookies
        ;; file-templates    ; auto-snippets for empty files
        ;;fold              ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
@@ -68,14 +68,14 @@
        ;;dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
-       undo              ; persistent, smarter undo for your inevitable mistakes
+       ;;undo              ; persistent, smarter undo for your inevitable mistakes
        ;;vc                ; version-control and Emacs, sitting in a tree
 
        :term
         eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
-        vterm             ; the best terminal emulation in Emacs
+        ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
@@ -89,7 +89,7 @@
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
-       editorconfig      ; let someone else argue about tabs vs spaces
+       ;; editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
@@ -104,7 +104,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       tree-sitter       ; syntax and parsing, sitting in a tree...
+       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -136,7 +136,7 @@
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       (haskell)    ; a language that's lazier than I am
+       ;;(haskell)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        ;;json              ; At least it ain't XML

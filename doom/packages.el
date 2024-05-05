@@ -52,13 +52,18 @@
 
 (unpin! org-roam)
 (package! org-roam-ui)
-(package! calfw)
-(require 'calfw)
 (package! evil-snipe)
-(require 'evil-snipe)
-(evil-snipe-mode +1)
+;(require 'evil-snipe)
+;; (evil-snipe-mode +1)
 
 (package! haskell-mode)
 (package! lsp-haskell)
 
-(package! org-fancy-priorities :disable t)
+(package! org-fancy-priorities )
+(package! org-modern)
+; (package! amx)
+
+(unpin! org-roam)
+(package! org-roam-ui)
+
+
