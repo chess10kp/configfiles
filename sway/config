@@ -197,6 +197,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
     bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
 
+
+    bindsym $mod+Shift+u exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+    bindsym $mod+Shift+d exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
+
     bindsym XF86MonBrightnessDown exec light -U 2% && sh ~/.config/scripts/showstuff brightness
     bindsym XF86MonBrightnessUp exec light -A 2% && sh ~/.config/scripts/showstuff brightness
 
