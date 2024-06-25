@@ -16,7 +16,8 @@ EOF
 
 [[ -z "$1" ]] && echo "$usage" && exit 
 
-output=$(slurp)
+output=$(slurp -b \#0e141955)
+[[ $output == "selection cancelled" ]] && notify-send "Sway" "terminal cancelled" exit 
 
 pos=$(echo $output | sed -e "s/ .*//g" )
 x=$(echo $pos | awk -F , '{print $1}')
@@ -29,9 +30,9 @@ width=$(echo $size | awk -F x '{print $1}')
 
 # run program
 $1 -w "${width}x${height}" & 
+sleep 0.025
 
 # induce a wait to make sure that the application gets assigned an app id (can be variable depending on device)
-sleep 0.03
 
 pid=$!
 

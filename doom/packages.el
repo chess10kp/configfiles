@@ -51,8 +51,8 @@
 
 
 (unpin! org-roam)
-(package! org-roam-ui)
-(package! evil-snipe)
+;; (package! org-roam-ui)
+;; (package! evil-snipe)
 ;(require 'evil-snipe)
 ;; (evil-snipe-mode +1)
 
@@ -67,3 +67,9 @@
 (package! org-roam-ui)
 
 
+;;(package! org-alert
+  ;;:ensure t
+  ;;:custom (alert-default-style 'notifications)
+  ;;:config (setq org-alert-interval 500
+                ;;org-alert-notification-title "Agenda:")
+;;(org-alert-enable))

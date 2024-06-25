@@ -1,10 +1,24 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec sway
+  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+  export QT_AUTO_SCREEN_SCALE_FACTOR=1
+  export QT_QPA_PLATFORMTHEME=qt5ct
+  export QT_QPA_PLATFORM="wayland;xcb"
+  export _JAVA_AWT_WM_NONREPARENTING=1
+  export NO_AT_BRIDGE=1
+  export GTK_USE_PORTAL=0
+  export CLUTTER_BACKEND=wayland
+  export SDL_VIDEODRIVER="wayland,x11"
+  export SDL_AUDIODRIVE=pipewire
+  export WLR_RENDERER=vulkan
+  #export MESA_LOADER_DRIVER_OVERRIDE=zink
+  export VDPAU_DRIVER=radeonsi
+  export XDG_SESSION_TYPE=wayland
+  export XKB_DEFAULT_LAYOUT=gb
+  export XKB_DEFAULT_VARIANT=pc104
+  export XDG_SESSION_DESKTOP=sway
+  export XDG_CURRENT_DESKTOP=sway 
+  dbus-run-session sway
 fi
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-
-  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -54,6 +68,7 @@ alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias cp="cp -v"
 alias mv="mv -i"
+alias ls="ls --color"
 
 function yt
 {
@@ -71,6 +86,7 @@ export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/Android/Sdk/cmdline-tools/latest/bin:$PATH"
+export ANDROID_HOME="$HOME/Android/Sdk/"
 export GOPATH="$HOME/projects/go/:$GOPATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export CHROME_EXECUTABLE=/usr/bin/chromium-browser

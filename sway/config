@@ -51,10 +51,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #
 # Example configuration:
 #
- exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -f -c 000000'
+ # exec swayidle -w \
+ #          timeout 300 'swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 ' \
+ #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+ #          before-sleep 'swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 '
 #
 # Thes will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -114,7 +114,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym XF86AudioPlay exec mpc toggle
 
     # bindsym $mod+Control+l exec swaylock -e -l -i ~/Pictures/wp/lockscreen.png
-    bindsym $mod+Control+l exec swaylock -e -c 0e1419 --inside-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 
+    bindsym $mod+Control+l exec swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 
     # Exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
@@ -148,8 +148,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3 
-    bindsym $mod+e workspace "e"
-    bindsym $mod+b workspace "b" 
+    bindsym $mod+e workspace "emacs"
+    bindsym $mod+b workspace "browse" 
     bindsym $mod+m workspace "m" 
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
@@ -158,15 +158,14 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3 
-    bindsym $mod+Shift+e move container to workspace "e"
-    bindsym $mod+Shift+b move container to workspace "b" 
+    bindsym $mod+Shift+e move container to workspace "emacs"
+    bindsym $mod+Shift+b move container to workspace "browse" 
     bindsym $mod+Shift+m move container to workspace "m" 
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-    bindsym $mod+i workspace back_and_forth  
 #
 # Layout stuff:
 #
@@ -188,12 +187,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
 
     bindsym $mod+a focus parent
     bindsym $mod+w focus child
-    bindsym $mod+p focus prev 
-    bindsym $mod+n focus next
+    bindsym $mod+n workspace back_and_forth
 
 
     bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
@@ -203,16 +200,18 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym XF86MonBrightnessDown exec light -U 2% && sh ~/.config/scripts/showstuff brightness
     bindsym XF86MonBrightnessUp exec light -A 2% && sh ~/.config/scripts/showstuff brightness
 
-    bindsym $mod+Shift+p workspace "fun"; exec ~/.config/scripts/mode/sway-goto-if-not-start fun firefox "firefox --private-window" 
+    bindsym $mod+Shift+p workspace "opengl"; exec ~/.config/scripts/mode/sway-goto-if-not-start opengl firefox "firefox --private-window" 
     bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
     bindsym Shift+Print exec grimshot copy area
 
 mode "script" {
-    bindsym f exec  ~/.config/scripts/cliphist.sh; mode "default"
-    bindsym r exec ~/.config/scripts/mode/sway-refile-to-workspace; mode "default"
-    bindsym t exec ~/.config/scripts/set_task
-    bindsym c exec ~/.config/scripts/mode/sway-launch-with-slurp foot: mode "default"
-    bindsym $mod+Print exec  ~/.config/scripts/screenshot.sh; mode "default"
+    bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
+    bindsym t mode "default";  exec ~/.config/scripts/set_task;
+    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot;
+    bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
+    bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
+    bindsym h exec bluetoothctl connect B-1:38:e2:35:25:B4; mode "default"
+    bindsym $mod+Print mode "default"; exec  ~/.config/scripts/screenshot.sh
     bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
     bindsym $mod+t exec  ~/.config/scripts/timer.sh; mode "default"
     bindsym $mod+a exec  ~/.config/scripts/todo; mode "default"
@@ -222,23 +221,19 @@ mode "script" {
     bindsym $mod+q exec ~/.config/scripts/power.sh; mode "default"
     bindsym $mod+w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym $mod+i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
-    bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
-    bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
-    bindsym h exec bluetoothctl connect B-1:38:e2:35:25:B4; mode "default"
     bindsym $mod+y mode "yank"
     bindsym $mod+c mode "config"
-      
-    bindsym v exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
-    bindsym e exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
+    bindsym v mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
+    bindsym e mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+s mode "script"
 
 
-bindsym $mod+c mode "settings"
+bindsym $mod+c mode "layout"
 
-mode "settings" {
+mode "layout" {
   bindsym $mod+i gaps inner all minus 10
   bindsym i gaps inner all plus 10
 
@@ -256,14 +251,13 @@ bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode/
 
 
 mode "yank" {
-    bindsym l exec  ~/.config/scripts/cliphist.sh; mode "default"
     bindsym p exec  ~/.config/scripts/passmenu.sh; mode "default"
+    bindsym c exec ~/.config/scripts/cliphist.sh 2> /tmp/log; mode "default"
     bindsym b exec  ~/.config/scripts/bookman.sh --yank; mode "default"
     bindsym q exec ~/.config/scripts/power.sh; mode "default"
     bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
-    bindsym h exec bluetoothctl connect B0:38:e2:35:25:B4; mode "default"
     #bindsym c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -299,10 +293,11 @@ bindsym $mod+r mode "resize"
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     # bindsym e exec  ~/.local/bin/checkemacs -c ; mode "default"
-    bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start e emacs ~/.local/bin/checkemacs; mode "default"
+    bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs ; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
     bindsym c exec code; mode "default"
-    bindsym f exec firefox; mode "default"
+    bindsym w exec firefox; mode "default"
+    bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox" ;mode default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -312,6 +307,7 @@ bindsym $mod+o mode "open"
 bindsym $mod+Shift+s scratchpad show
 bindsym $mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
 bindsym $mod+Shift+f [app_id="firefox"] scratchpad show
+bindsym $mod+i [app_id="foot"] scratchpad show
 bindsym $mod+Shift+i [app_id="foot"] scratchpad show
 
 
@@ -321,17 +317,17 @@ for_window [class="steam"] move container to workspace 9
 for_window [title="Imgmenu"] floating toggle
 for_window [title="Imgmenu"] resize set height 400px
 for_window [title="Imgmenu"] resize set width 1080 
-
+for_window [class="Dunst"] border pixel 1
 
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
     height 20
-    font pango:Terminus 16
+    font pango:Gohu GohuFont
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while echo "CUR: $(cat /tmp/tasks)   BAT:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online)  $(free -h | grep Mem | awk '{print $3}')  $(date +'%X')"; do sleep 10; done
+    status_command while echo "CUR : $(cat /tmp/tasks)  BAT:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online)   $(free -h | grep Mem | awk '{print $3}')   $(date +'%X')" ; do sleep 1; done
     colors {
         statusline #ebdbb2
         background #0e1419
@@ -341,16 +337,26 @@ bar {
 
 
 exec foot --server
+exec ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
 exec mpd
 exec dunst
+exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.config/scripts/checkemacs
 exec  ~/.config/scripts/wallpaper.sh --set
 exec  ~/.config/scripts/lowbattery.sh
 exec tmux new -s init -d 
 exec wl-paste --watch cliphist store
-exec emacs --daemon
-# exec nwg-dock-hyprland -i 24 -r
+#  exec nwg-dock-hyprland -i 24 -r
 # exec swaylock -e -c 000000
 exec_always notify-send "Sway " "config reloaded"
+
+# GENTOO specific
+exec gentoo-pipewire-launcher restart
+exec /usr/libexec/xdg-desktop-portal-gtk -r
+exec /usr/libexec/xdg-desktop-portal-wlr -r
+exec /usr/libexec/flatpak-portal --no-idle-exit -r
+exec "sh -c 'sleep 5;exec /usr/libexec/xdg-desktop-portal -r'"
+exec xhost +SI:localuser:$(id -un)
+exec xhost +SI:localuser:root
 
 
 

@@ -9,7 +9,7 @@ selected="$(echo "$songs" | $rofi )"
 
 case "$selected" in
   "")
-    notify-send -a "Music" " " "Aborted selection"
+    notify-send "Music" "Aborted selection"
     exit 
     ;; 
   ::pause::) 
@@ -29,6 +29,7 @@ case "$selected" in
     ;;
   *) 
   mpc add "$selected"
+  notify-send "Music" "Playing $selected"
   mpc play
   ;;
 esac

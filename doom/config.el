@@ -95,25 +95,27 @@
       doom-localleader-key ";")
 
 ;; copy-paste support
-
 ;; org-roam graph view server
-(use-package! websocket
-    :after org-roam)
-(use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-        :hook (after-init . org-roam-ui-mode)
-        :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+ ;;(use-package! websocket
+     ;;:after org-roam)
+ ;;(use-package! org-roam-ui
+     ;;:after org-roam ;; or :after org
+ ;;;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+ ;;;;         a hookable mode anymore, you're advised to pick something yourself
+ ;;;;         if you don't care about startup time, use
+         ;;:hook (after-init . org-roam-ui-mode)
+         ;;:config
+     ;;(setq org-roam-ui-sync-theme t
+           ;;org-roam-ui-follow t
+           ;;org-roam-ui-update-on-save t
+           ;;org-roam-ui-open-on-start nil))
 
 ;; Customize timestamp format
 (after! org
   (setq org-time-stamp-custom-formats '( "%H:%M>")))
+
+(after! company-mode
+  (setq company-idle-delay 0.01))
 
 ;; Preview the time on completion
 (setq org-log-done 'time)
@@ -139,13 +141,12 @@ org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
 
 (require 'ido)
 (ido-mode t)
+; (evil-mode t)
 
 (setq vertico-count 10)
 
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
-
-
 (with-eval-after-load 'org (global-org-modern-mode))
 
 (setq org-agenda-custom-commands
@@ -162,11 +163,12 @@ org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
 ;; customize doom-gruvbox
 (custom-set-faces! '(default  :background "#0e1419"))
 (custom-set-faces! '(mode-line :background "#0e1419"))
+(custom-set-faces! '(org-block :background "#0e1419"))
 (custom-set-faces! '(fringe :background "#0e1419"))
 
 (use-package! org
   :config
-  (setq org-todo-keywords '((sequence "TODO(t)" "INFO(f)" "PROGRESS(i)" "PROJ(p)" "LOOP(r)" "WAIT(w)" "EVENT(e)" "HOLD(h)" "EMAIL(m)"  "IDEA(i)" "|""DONE(d)" "KILL(k)")))
+  (setq org-todo-keywords '((sequence "TODO(t)" "STEP(s)" "INFO(f)" "PROGRESS(i)" "PROJ(p)" "LOOP(r)" "WAIT(w)" "EVENT(e)" "HOLD(h)" "EMAIL(m)"  "IDEA(i)" "|""DONE(d)" "KILL(k)" "[X](X)")))
   )
 
 
