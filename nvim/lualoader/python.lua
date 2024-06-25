@@ -15,6 +15,20 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 return {
 	s(
+		"debug",
+		fmt(
+			[[ 
+        # DEBUG: 
+        <>
+        # DEBUG: 
+        ]],
+			{
+				i(1, "debug statements"),
+			},
+			{ delimiters = "<>" }
+		)
+	),
+	s(
 		"if",
 		fmt(
 			[[
@@ -44,7 +58,23 @@ return {
 				i(1, "statement"),
 				i(2, "pass"),
 				i(3, "statement"),
-				i("4", "pass"),
+				i(4, "pass"),
+			},
+			{
+				delimiters = "<>",
+			}
+		)
+	),
+	s(
+		"whle",
+		fmt(
+			[[
+    while <> : 
+        <>
+    ]],
+			{
+				i(1, "cond"),
+				i(2, "expr"),
 			},
 			{
 				delimiters = "<>",

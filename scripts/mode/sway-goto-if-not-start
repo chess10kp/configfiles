@@ -18,6 +18,7 @@ fi
 
 swaymsg "workspace $1" 
 is_emacs_running=$(swaymsg -t get_tree | jq --arg workspace "$1"  '.nodes[]|select(.name !="__i3").nodes[]|select(.name==$workspace).nodes[].name' | grep -i "$2")
+echo "$is_emacs_running"
 
 if [[ -z $is_emacs_running ]]; then
   $3

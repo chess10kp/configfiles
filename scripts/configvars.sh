@@ -12,8 +12,7 @@ if [[ $XDG_SESSION_TYPE == "x11" ]]; then
     notes_editor="emacs -nw"
     term="xfce4-terminal"
 else
-rofi="tofi --horizontal=false --height 40% --width=60% --anchor=center \
-    --padding-left=30 --padding-right=30 --history=true"
+rofi="tofi --horizontal=false --height 40% --width=60% --anchor=center --padding-left=30 --padding-right=30 "
 rofiwide="tofi --horizontal=false --height 50% \
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
 rofi_prompt="$rofi --prompt"

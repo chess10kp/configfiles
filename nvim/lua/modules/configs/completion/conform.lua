@@ -14,6 +14,7 @@ return function()
 				python = { "isort", "black" },
 				lua = { "stylua" },
 				cpp = { "clang_format" },
+				c = { "clang_format" },
 				rust = { "rustfmt" },
 				haskell = { "fourmolu" },
 			},

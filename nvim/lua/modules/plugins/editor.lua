@@ -6,7 +6,7 @@ local editor = {}
 -- 	config = require("editor.autoclose"),
 -- }
 editor["rhysd/clever-f.vim"] = {
-  enabled = false,
+	enabled = false,
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("editor.cleverf"),
@@ -33,6 +33,11 @@ editor["folke/trouble.nvim"] = {
 	lazy = false,
 	cmd = { "Trouble", "TroubleToggle" },
 }
+editor["norcalli/nvim-colorizer.lua"] = {
+	lazy = false,
+	config = function () require("colorizer").setup() end ,
+}
+
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
 	build = function()
@@ -58,10 +63,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"abecodes/tabout.nvim",
 			lazy = true,
 			config = require("editor.tabout"),
-		},
-		{
-			"Nvchad/nvim-colorizer.lua",
-			lazy = true,
 		},
 	},
 }

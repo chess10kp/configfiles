@@ -54,7 +54,10 @@ completion["hrsh7th/nvim-cmp"] = {
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
-			dependencies = { "rafamadriz/friendly-snippets" },
+			dependencies = { 
+        ft = {"javascript", "typescript", "typescriptreact", "javascriptreact"},
+        "rafamadriz/friendly-snippets" 
+      },
 		},
 		{ "onsails/lspkind.nvim" },
 		{ "lukas-reineke/cmp-under-comparator" },

@@ -1,5 +1,4 @@
 return function()
-	local icons = { ui = require("modules.utils.icons").get("ui", true) }
 	local telescope_actions = require("telescope.actions")
 
 	require("telescope").setup({

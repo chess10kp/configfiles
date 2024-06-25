@@ -19,7 +19,6 @@ return vim.schedule_wrap(function()
 			"javascript",
 			"typescript",
 			"json",
-			"latex",
 			"lua",
 			"make",
 			"markdown",

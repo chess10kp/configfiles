@@ -33,7 +33,7 @@ return function()
 				linehl = "GitSignsChangeLn",
 			},
 		},
-		on_attach = mapping.gitsigns,
+		-- on_attach = mapping.gitsigns,
 		watch_gitdir = { interval = 1000, follow_files = true },
 		current_line_blame = true,
 		current_line_blame_opts = { delay = 1000, virtual_text_pos = "eol" },

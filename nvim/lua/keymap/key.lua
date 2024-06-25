@@ -7,6 +7,17 @@ function key.nmap(key, action, desc)
 	vim.keymap.set("n", key, action, opts)
 end
 
+
+function key.xmap(key, action, desc)
+	opts.desc = desc
+	vim.keymap.set("x", key, action, opts)
+end
+
+function key.tmap(key, action, desc)
+	opts.desc = desc
+	vim.keymap.set("t", key, action, opts)
+end
+
 function key.imap(key, action, desc)
 	opts.desc = desc
 	vim.keymap.set("i", key, action, opts)

@@ -22,8 +22,9 @@ custom["folke/neodev.nvim"] = {
 	config = require("lang.neodev"),
 }
 custom["kawre/leetcode.nvim"] = {
-  enabled = false,
-	lazy = false,
+	enabled = true,
+	lazy = "leetcode.nvim" ~= vim.fn.argv()[1],
+	opts = { arg = "leetcode.nvim"},
 	build = ":TSUpdate html",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
@@ -34,31 +35,53 @@ custom["kawre/leetcode.nvim"] = {
 		"rcarriga/nvim-notify",
 		"nvim-tree/nvim-web-devicons",
 	},
-	opts = {
-		lang = "python",
-	},
 }
 
 custom["ggandor/leap.nvim"] = {
-  lazy = false, 
-  name = "leap",
-  config = require('custom.leap')
+	enabled = false,
+	lazy = false,
+	name = "leap",
+	config = require("custom.leap"),
 }
 
 custom["folke/flash.nvim"] = {
-  enabled = false,
-  event = "VeryLazy", 
-  lazy = true, 
-  keys = {
-  {"s", mode = {"n" , "x", "o"}, function() require("flash").jump() end, desc="Flash" },
-  {"S", mode = {"n" , "x", "o"}, function() require("flash").treesitter() end, desc="Flash" },
-  }
+	enabled = true,
+	event = "VeryLazy",
+	lazy = true,
+	--@type Flash.Config
+	opts = {
+		modes = {
+			char = {
+				enabled = false,
+				keys = {},
+			},
+		},
+		jump = {
+			autojump = true,
+		},
+	},
+	keys = {
+		{
+			"s",
+			mode = { "n", "x", "o" },
+			function()
+				require("flash").jump()
+			end,
+			desc = "Flash",
+		},
+		{
+			"S",
+			mode = { "n", "x", "o" },
+			function()
+				require("flash").treesitter()
+			end,
+			desc = "Flash",
+		},
+	},
 }
 
-
-custom["dstein64/vim-startuptime"] = {
-  lazy = true,
-  cmd = "StartupTime",
+custom["choltz/ido.nvim"] = {
+	lazy = false,
 }
 
 return custom

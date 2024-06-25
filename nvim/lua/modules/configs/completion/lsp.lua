@@ -199,6 +199,31 @@ return function()
 	local function mason_lsp_handler(lsp_name)
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
+			if lsp_name == "jedi_language_server" then
+				-- disable this since pylsp provides jedi_completion
+				local jedi_capabilities = capabilities
+				jedi_capabilities.textDocument.completion.completionItem.snippetSupport = false
+				nvim_lsp["jedi_language_server"].setup({
+          init_options = {
+            completion = {
+              disable_snippets = true, 
+            },
+            diagnostics = {
+              enable = false,
+            },
+            hover = {
+              enable = true, 
+            }
+          },
+					settings = {
+						jedi = {
+              autoImportModules = { "numpy", "pandas", "curses" }, 
+						},
+					},
+					capabilities = jedi_capabilities,
+				})
+				return
+			end
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)
 			return

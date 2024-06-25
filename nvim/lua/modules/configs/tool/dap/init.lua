@@ -51,6 +51,39 @@ return function()
 		},
 	}
 
+	-- cpp configuration
+	local dap = require("dap")
+	dap.adapters.gdb = {
+		type = "executable",
+		command = "gdb",
+		args = { "-i", "dap" },
+	}
+
+	local dap = require("dap")
+	dap.configurations.c = {
+		{
+			name = "Launch",
+			type = "gdb",
+			request = "launch",
+			program = function()
+        if vim.g.dap_executable == nil then
+          local executable =  vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          if vim.fn.executable(executable) == 1 then 
+            vim.notify("debug: executable path set")
+            vim.g.dap_executable = executable
+          else 
+            vim.notify("debug: given path does not match an executable")
+            return nil
+          end
+        end
+        return vim.g.dap_executable
+			end,
+			cwd = "${workspaceFolder}",
+			stopAtBeginningOfMainSubprogram = false,
+		},
+	}
+  dap.configurations.cpp = dap.configurations.c 
+
 	-- haskell configuration
 	dap.adapters.haskell = {
 		type = "executable",
@@ -75,11 +108,12 @@ return function()
 		},
 	}
 
-	dapui.setup({})
-	dap.listeners.before.attach.dapui_config = function()
-		dapui.open()
-	end
-	dap.listeners.before.event_terminated.dapui_config = function()
-    vim.notify("Stopped debug session", 2)
-	end
+	-- dapui.setup({})
+	-- dap.listeners.before.attach.dapui_config = function()
+	-- 	dapui.open({})
+	-- end
+	-- dap.listeners.before.event_terminated.dapui_config = function()
+	-- 	vim.notify("Stopped debug session", 2)
+ --    dapui.close({})
+	-- end
 end

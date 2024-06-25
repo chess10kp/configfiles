@@ -44,7 +44,7 @@ return function()
 				scrollbar = false,
 			},
 			documentation = {
-        max_height = 4,
+				max_height = 4,
 				border = border("CmpDocBorder"),
 				winhighlight = "Normal:CmpDoc",
 			},
@@ -110,7 +110,7 @@ return function()
 			disallow_partial_matching = true,
 		},
 		performance = {
-      confirm_resolve_timeout = 100,
+			confirm_resolve_timeout = 100,
 			fetching_timeout = 100,
 			async_budget = 1,
 			max_view_entries = 30,
@@ -140,11 +140,17 @@ return function()
 				require("luasnip").lsp_expand(args.body)
 			end,
 		},
-		-- You should specify your *installed* sources.
 		sources = {
-      { name = "path" },
-      { name = "luasnip" },
-			{ name = "nvim_lsp", max_item_count = 350 },
+			{ name = "path" },
+			{ name = "luasnip" },
+			{
+				name = "nvim_lsp",
+				max_item_count = 100,
+				entry_filter = function(entry, ctx)
+					local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()]  ~= 'snippet'
+          return kind
+				end,
+			},
 			{ name = "nvim_lua" },
 			{ name = "treesitter" },
 			{ name = "spell" },

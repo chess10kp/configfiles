@@ -123,6 +123,16 @@ function Lazy:load_lazy()
 		lazy_settings.concurrency = 20
 	end
 
+  local custom_plugins = { 
+    dir =  "/home/sigma/.config/nvim/lua/backForth",
+    name = "backForth",
+    config = function ()
+      require("backForth").setup()
+    end
+  }
+
+  table.insert(self.modules , custom_plugins )
+
 	vim.opt.rtp:prepend(lazy_path)
 	require("lazy").setup(self.modules, lazy_settings)
 end

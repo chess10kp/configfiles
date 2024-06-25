@@ -14,7 +14,7 @@ o.winblend = 20
 
 o.more = false
 -- o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
-o.hlsearch = true
+o.hlsearch = false
 o.autoindent = true
 o.laststatus = 0
 o.autoread = true
@@ -65,8 +65,8 @@ o.previewheight = 12
 o.pumheight = 15
 o.redrawtime = 1500
 o.relativenumber = true
-o.ruler = true
--- o.scrolloff = 2
+o.ruler = false
+o.scrolloff = 10
 -- o.scroll = 15
 o.sessionoptions = "curdir,help,tabpages,winsize"
 o.shada = "!,'300,<50,@100,s10,h"
@@ -97,36 +97,37 @@ o.ttimeoutlen = 0
 o.undodir = global.cache_dir .. "undo/"
 o.undofile = true
 -- Please do NOT set `updatetime` to above 500, otherwise most plugins may not work correctl
-o.updatetime = 200
+o.updatetime = 100
 o.viewoptions = "folds,cursor,curdir,slash,unix"
 o.virtualedit = "block"
 o.visualbell = true
 o.whichwrap = "h,l,<,>,[,],~"
-o.wildignore = ".git,**/node_modules/**,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/bower_modules/**"
+o.wildignore =
+	".git,**/node_modules/**,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/bower_modules/**"
 o.wildignorecase = true
 o.winminwidth = 10
 o.winwidth = 30
 o.wrap = false
 o.wrapscan = true
 o.writebackup = false
-	local function isempty(s)
-		return s == nil or s == ""
-	end
+local function isempty(s)
+	return s == nil or s == ""
+end
 
-	-- custom python provider
-	local conda_prefix = os.getenv("CONDA_PREFIX")
-	if not isempty(conda_prefix) then
-		vim.g.python_host_prog = conda_prefix .. "/bin/python"
-		vim.g.python3_host_prog = conda_prefix .. "/bin/python"
-	else
-		vim.g.python_host_prog = "python"
-		vim.g.python3_host_prog = "python3"
-	end
+-- custom python provider
+local conda_prefix = os.getenv("CONDA_PREFIX")
+if not isempty(conda_prefix) then
+	vim.g.python_host_prog = conda_prefix .. "/bin/python"
+	vim.g.python3_host_prog = conda_prefix .. "/bin/python"
+else
+	vim.g.python_host_prog = "python"
+	vim.g.python3_host_prog = "python3"
+end
 
 -- global opts
 g.vimtex_view_method = "zathura"
 g.vimtex_view_general_viewer = "zathura"
-g.netrw_winsize =25
+g.netrw_winsize = 25
 g.netrw_liststyle = 3
 g.netrw_banner = 0
 g.netrw_browse_split = 4

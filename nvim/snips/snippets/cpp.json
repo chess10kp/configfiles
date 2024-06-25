@@ -43,5 +43,12 @@
         "#endif // $1"
     ],
     "description": "header file definitions"
-  }
+  },
+  "log" : { 
+  "prefix" : "cou",
+    "body" : [
+      "std::cout << $1 << std::endl;"
+    ],
+    "description" : "print to the console with line break"
+}
 }

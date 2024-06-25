@@ -1,61 +1,49 @@
-local bind = require("keymap.bind")
-local map_cr = bind.map_cr
-local map_cu = bind.map_cu
-local map_cmd = bind.map_cmd
+local key = require("keymap.key")
+local nmap = key.nmap
+local imap = key.imap
+local cmap = key.cmap
+local tmap = key.tmap
+local vmap = key.vmap
 
-local core_map = {
-	-- Suckless
-	["n|Y"] = map_cmd("y$"):with_desc("edit: Yank text to EOL"),
-	["n|D"] = map_cmd("d$"):with_desc("edit: Delete text to EOL"),
-	["n|<Esc>"] = map_cr("noh"):with_noremap():with_silent():with_desc("edit: Clear search highlight"),
-	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
-	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_desc("window: Focus right"),
-	["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap():with_desc("window: Focus down"),
-	["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap():with_desc("window: Focus up"),
-	["t|<C-h>"] = map_cmd("<Cmd>wincmd h<CR>"):with_silent():with_noremap():with_desc("window: Focus left"),
-	["t|<C-l>"] = map_cmd("<Cmd>wincmd l<CR>"):with_silent():with_noremap():with_desc("window: Focus right"),
-	["t|<C-j>"] = map_cmd("<Cmd>wincmd j<CR>"):with_silent():with_noremap():with_desc("window: Focus down"),
-	["t|<C-k>"] = map_cmd("<Cmd>wincmd k<CR>"):with_silent():with_noremap():with_desc("window: Focus up"),
-	["n|<leader>os"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("editn: Toggle spell check"),
+nmap("Y","y$","edit: Yank text to EOL")
+nmap("D","d$","edit: Delete text to EOL")
+nmap("<Esc>","<Cmd>noh<CR>","edit: Clear search highlight")
+nmap("<C-h>","<C-w>h","window: Focus left")
+nmap("<C-l>","<C-w>l","window: Focus right")
+nmap("<C-j>","<C-w>j","window: Focus down")
+nmap("<C-k>","<C-w>k","window: Focus up")
+tmap("<C-h>","<Cmd>wincmd h<CR>","window: Focus left")
+tmap("<C-l>","<Cmd>wincmd l<CR>","window: Focus right")
+tmap("<C-j>","<Cmd>wincmd j<CR>","window: Focus down")
+tmap("<C-k>","<Cmd>wincmd k<CR>","window: Focus up")
+nmap("<leader>os","setlocal spell! spelllang=en_us","editn: Toggle spell check")
 	-- Insert mode
-	["i|<C-a>"] = map_cmd("<C-o>^"):with_noremap():with_desc("editi: Move cursor to line start"),
-	["i|<C-e>"] = map_cmd("<C-o>A"):with_noremap():with_desc("editi: Move cursor to line end"),
-  ["i|<C-j>"] = map_cmd("<Down>"):with_desc("Move cursor down"),
-  ["i|<C-l>"] = map_cmd("<Right>"):with_desc("Move cursor to the right"),
-	["i|<C-h>"] = map_cmd("<ESC><Left>i"):with_desc("Move cursor to the left"),
+imap("<C-a>","<C-o>^","editi: Move cursor to line start")
+imap("<C-e>","<C-o>A","editi: Move cursor to line end")
+imap("<C-j>","<Down>","Move cursor down")
+imap("<C-l>","<Right>","Move cursor to the right")
+imap("<C-h>","<ESC><Left>i","Move cursor to the left")
 
 	-- Command mode
-	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("editc: Left"),
-	["c|<C-a>"] = map_cmd("<Home>"):with_noremap():with_desc("editc: Home"),
-	["c|<C-e>"] = map_cmd("<End>"):with_noremap():with_desc("editc: End"),
-	["n|<A-[>"] = map_cr("vertical resize -5"):with_silent():with_desc("window: Resize -5 vertically"),
-	["n|<A-]>"] = map_cr("vertical resize +5"):with_silent():with_desc("window: Resize +5 vertically"),
-	["n|<A-;>"] = map_cr("resize -2"):with_silent():with_desc("window: Resize -2 horizontally"),
-	["n|<A-'>"] = map_cr("resize +2"):with_silent():with_desc("window: Resize +2 horizontally"),
-	["n|<C-q>"] = map_cr("wq"):with_desc("edit: Save file and quit"),
-	["n|<A-S-q>"] = map_cr("q!"):with_desc("edit: Force quit"),
-	["n|tn"] = map_cr("tabnew"):with_noremap():with_silent():with_desc("tab: Create a new tab"),
-	["n|tk"] = map_cr("tabnext"):with_noremap():with_silent():with_desc("tab: Move to next tab"),
-	["n|tj"] = map_cr("tabprevious"):with_noremap():with_silent():with_desc("tab: Move to previous tab"),
-	["n|to"] = map_cr("tabonly"):with_noremap():with_silent():with_desc("tab: Only keep current tab"),
+nmap("<A-[>",function () vim.cmd("vertical resize -5") end ,"window: Resize -5 vertically")
+nmap("<A-]>",function () vim.cmd("vertical resize +5") end ,"window: Resize +5 vertically")
+nmap("<A-;>",function () vim.cmd("resize -2") end ,"window: Resize -2 horizontally")
+nmap("<A-'>",function () vim.cmd("resize +2") end ,"window: Resize +2 horizontally")
+nmap("<C-q>",function () vim.cmd("wq") end ,"edit: Save file and quit")
+nmap("tn", function () vim.cmd("tabnew") end ,"tab: Create a new tab")
+nmap("tk",function () vim.cmd("tabnext") end ,"tab: Move to next tab")
+nmap("tj",function () vim.cmd("tabprevious") end ,"tab: Move to previous tab")
+nmap("to",function () vim.cmd("tabonly") end ,"tab: Only keep current tab")
 
-	-- Insert mode
-	["i|<C-u>"] = map_cmd("<C-G>u<C-U>"):with_noremap():with_desc("edit: Delete previous block"),
-	["i|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("edit: Move cursor to left"),
-	["i|<C-x><C-s>"] = map_cmd("<Esc>:w<CR>"):with_desc("edit: Save file"),
-	["i|<C-q>"] = map_cmd("<Esc>:wq<CR>"):with_desc("edit: Save file and quit"),
+imap("<C-u>","<C-G>u<C-U>","edit: Delete previous block")
+imap("<C-b>","<Left>","edit: Move cursor to left")
+imap("<C-x><C-s>","<Esc>:w<CR>","edit: Save file")
+imap("<C-q>","<Esc>:wq<CR>","edit: Save file and quit")
 
-	-- Command mode
-	["c|<C-h>"] = map_cmd("<BS>"):with_noremap():with_desc("edit: Backspace"),
-	["c|<C-t>"] = map_cmd([[<C-R>=expand("%:p:h") . "/" <CR>]])
-		:with_noremap()
-		:with_desc("edit: Complete path of current file"),
+cmap("<C-h>", "<BS>", "command: Backspace")
+cmap("<C-t>" ,[[<C-R>=expand("%:p:h") . "/" <CR>]], "edit: Complete path of current file")
 
-	-- Visual mode
-	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_desc("edit: Move this line down"),
-	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("edit: Move this line up"),
-	["v|<"] = map_cmd("<gv"):with_desc("edit: Decrease indent"),
-	["v|>"] = map_cmd(">gv"):with_desc("edit: Increase indent"),
-}
-
-bind.nvim_load_mapping(core_map)
+vmap("J",":m '>+1<CR>gv=gv","edit: Move this line down")
+vmap("K",":m '<-2<CR>gv=gv","edit: Move this line up")
+vmap("<","<gv","edit: Decrease indent")
+vmap(">",">gv","edit: Increase indent")
