@@ -13,7 +13,7 @@ local function get_cmd(cmd, bufnr)
 	return vim.api.nvim_buf_get_var(bufnr, "runner_cmd")
 end
 
--- 
+--
 -- @param bufnr Int
 --
 local function set_cmd(bufnr)
@@ -26,23 +26,28 @@ local function set_cmd(bufnr)
 	return vim.api.nvim_buf_get_var(bufnr, "runner_cmd")
 end
 
-
--- 
--- @param cmd String command to run in terminal 
+--
+-- @param cmd String command to run in terminal
 --
 local function run_in_terminal(cmd)
-    local rows  = vim.api.nvim_get_option("lines")
-    local split_rows = rows * 0.3
-    vim.cmd( split_rows .. "split")
+	local rows = vim.api.nvim_get_option("lines")
+	local split_rows = rows * 0.3
+	vim.cmd(split_rows .. "split")
 	local buf = vim.api.nvim_create_buf(false, true)
-    local win = vim.api.nvim_get_current_win()
-    vim.api.nvim_win_set_buf(win, buf)
-    vim.fn.termopen(cmd)
+	local win = vim.api.nvim_get_current_win()
+	vim.api.nvim_win_set_buf(win, buf)
+	vim.fn.termopen(cmd)
 
 	vim.api.nvim_win_set_option(win, "number", false)
 	vim.api.nvim_win_set_option(win, "relativenumber", false)
 
-    vim.api.nvim_buf_set_keymap(buf, "n",  "q", ":bwipeout!<CR>", { noremap = true, silent = true})
+	vim.api.nvim_buf_set_keymap(buf, "n", "q", ":bwipeout!<CR>", { noremap = true, silent = true })
+  vim.api.nvim_create_autocmd("BufLeave", {
+    pattern = "<buffer>",
+    callback = function()
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end,
+  })
 
 	-- local width = vim.api.nvim_get_option("columns")
 	-- local height = vim.api.nvim_get_option("lines")
@@ -56,7 +61,6 @@ local function run_in_terminal(cmd)
 	-- 	col = math.ceil((width - win_width) / 2),
 	-- }
 end
-
 
 -- @param file String name of ft
 -- @param cmd String default command
@@ -74,7 +78,7 @@ local function make_maps(ft, c)
 				if cmd == nil then
 					return
 				end
-                run_in_terminal(cmd)
+				run_in_terminal(cmd)
 			end, { buffer = true })
 		end,
 	})
@@ -91,7 +95,7 @@ M.setup = function(opts)
 		lua = { "lua" },
 		py = { "python", "-u" },
 		js = { "node" },
-    rs = { "cargo"},
+		rs = { "cargo" },
 		ts = { "node" },
 		cpp = { "make" },
 		c = { "make" },
@@ -105,7 +109,6 @@ M.setup = function(opts)
 	for file, cmd in pairs(filetypes) do
 		make_maps(file, table.concat(cmd, " "))
 	end
-
 end
 
 return M
