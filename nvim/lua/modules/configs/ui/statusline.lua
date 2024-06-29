@@ -1,10 +1,7 @@
 vim.o.statusline = table.concat({
-    -- '%1* %n %*',          -- Buffer number
-    -- '%5* %{&ff} %*',      -- File format
-    '%3* %y %*',          -- File type
-    '%4* %<%F %*',        -- Full path
-    '%2* %m %*',          -- Modified flag
-    '%1* %= %5l %*',      -- Current line
+    '%4* %<%t %*',        -- Full path
+    '%2*  %*',          -- Modified flag
+    '%1* %=  %*',      -- Current line
 }, '')
 
 vim.cmd([[
@@ -75,6 +72,6 @@ function! BufferLine() abort
  return s
 endfunction
 
-set tabline=%!BufferLine()
+set statusline=%!BufferLine()
 ]]) 
 

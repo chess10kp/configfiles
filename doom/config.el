@@ -128,6 +128,7 @@ org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
  )
 (setq tex-fontify-script t)
 
+(setq org-highlight-latex-and-related nil)
 
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/projects/notes/todo.org" "Todos")

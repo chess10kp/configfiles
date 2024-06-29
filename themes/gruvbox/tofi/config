@@ -76,10 +76,10 @@ prompt-padding = 1
 placeholder-text = ""
 num-results = 0
 result-spacing = 15
-horizontal = false
+horizontal = true
 min-input-width = 0
 width = 20%
-height = 23%
+height = 3%
 
 	# Width of the border outlines in pixels.
 	outline-width = 0

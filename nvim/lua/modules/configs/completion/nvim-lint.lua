@@ -4,7 +4,6 @@ return function()
 	lint.linters_by_ft = {
 		python = { "ruff" },
     lua = { "luacheck" },
-    cpp = {"cpplint"},
 	}
 
   vim.api.nvim_create_user_command("LintStop", function ()

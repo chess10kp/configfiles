@@ -123,15 +123,25 @@ function Lazy:load_lazy()
 		lazy_settings.concurrency = 20
 	end
 
-  local custom_plugins = { 
-    dir =  "/home/sigma/.config/nvim/lua/backForth",
-    name = "backForth",
-    config = function ()
-      require("backForth").setup()
-    end
-  }
-
-  table.insert(self.modules , custom_plugins )
+	local custom_plugins = {
+		{
+			dir = "/home/sigma/.config/nvim/lua/backForth",
+			name = "backForth",
+			config = function()
+				require("backForth").setup()
+			end,
+		},
+		{
+			dir = "/home/sigma/.config/nvim/lua/runner",
+			name = "runner",
+			config = function()
+				require("runner").setup()
+			end,
+		},
+	}
+	for _, plugin in ipairs(custom_plugins) do
+		table.insert(self.modules, plugin)
+	end
 
 	vim.opt.rtp:prepend(lazy_path)
 	require("lazy").setup(self.modules, lazy_settings)

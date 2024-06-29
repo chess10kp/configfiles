@@ -91,6 +91,7 @@ M.setup = function(opts)
 		lua = { "lua" },
 		py = { "python", "-u" },
 		js = { "node" },
+    rs = { "cargo"},
 		ts = { "node" },
 		cpp = { "make" },
 		c = { "make" },

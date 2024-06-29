@@ -119,63 +119,63 @@ return function()
 		},
 	})
 
-	-- Additional plugins for pylsp
-	mason_registry:on(
-		"package:install:success",
-		vim.schedule_wrap(function(pkg)
-			if pkg.name ~= "python-lsp-server" then
-				return
-			end
-
-			local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
-			local python = is_windows and venv .. "/Scripts/python.exe" or venv .. "/bin/python"
-			local black = is_windows and venv .. "/Scripts/black.exe" or venv .. "/bin/black"
-			local ruff = is_windows and venv .. "/Scripts/ruff.exe" or venv .. "/bin/ruff"
-
-			require("plenary.job")
-				:new({
-					command = python,
-					args = {
-						"-m",
-						"pip",
-						"install",
-						"-U",
-						"--disable-pip-version-check",
-						"python-lsp-black",
-						"python-lsp-ruff",
-						"pylsp-rope",
-					},
-					cwd = venv,
-					env = { VIRTUAL_ENV = venv },
-					on_exit = function()
-						if vim.fn.executable(black) == 1 and vim.fn.executable(ruff) == 1 then
-							vim.notify(
-								"Finished installing pylsp plugins",
-								vim.log.levels.INFO,
-								{ title = "[lsp] Install Status" }
-							)
-						else
-							vim.notify(
-								"Failed to install pylsp plugins. [Executable not found]",
-								vim.log.levels.ERROR,
-								{ title = "[lsp] Install Failure" }
-							)
-						end
-					end,
-					on_start = function()
-						vim.notify(
-							"Now installing pylsp plugins...",
-							vim.log.levels.INFO,
-							{ title = "[lsp] Install Status", timeout = 6000 }
-						)
-					end,
-					on_stderr = function(_, msg_stream)
-						vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
-					end,
-				})
-				:start()
-		end)
-	)
+	-- -- Additional plugins for pylsp
+	-- mason_registry:on(
+	-- 	"package:install:success",
+	-- 	vim.schedule_wrap(function(pkg)
+	-- 		if pkg.name ~= "python-lsp-server" then
+	-- 			return
+	-- 		end
+	--
+	-- 		local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
+	-- 		local python = is_windows and venv .. "/Scripts/python.exe" or venv .. "/bin/python"
+	-- 		local black = is_windows and venv .. "/Scripts/black.exe" or venv .. "/bin/black"
+	-- 		local ruff = is_windows and venv .. "/Scripts/ruff.exe" or venv .. "/bin/ruff"
+	--
+	-- 		require("plenary.job")
+	-- 			:new({
+	-- 				command = python,
+	-- 				args = {
+	-- 					"-m",
+	-- 					"pip",
+	-- 					"install",
+	-- 					"-U",
+	-- 					"--disable-pip-version-check",
+	-- 					"python-lsp-black",
+	-- 					"python-lsp-ruff",
+	-- 					"pylsp-rope",
+	-- 				},
+	-- 				cwd = venv,
+	-- 				env = { VIRTUAL_ENV = venv },
+	-- 				on_exit = function()
+	-- 					if vim.fn.executable(black) == 1 and vim.fn.executable(ruff) == 1 then
+	-- 						vim.notify(
+	-- 							"Finished installing pylsp plugins",
+	-- 							vim.log.levels.INFO,
+	-- 							{ title = "[lsp] Install Status" }
+	-- 						)
+	-- 					else
+	-- 						vim.notify(
+	-- 							"Failed to install pylsp plugins. [Executable not found]",
+	-- 							vim.log.levels.ERROR,
+	-- 							{ title = "[lsp] Install Failure" }
+	-- 						)
+	-- 					end
+	-- 				end,
+	-- 				on_start = function()
+	-- 					vim.notify(
+	-- 						"Now installing pylsp plugins...",
+	-- 						vim.log.levels.INFO,
+	-- 						{ title = "[lsp] Install Status", timeout = 6000 }
+	-- 					)
+	-- 				end,
+	-- 				on_stderr = function(_, msg_stream)
+	-- 					vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
+	-- 				end,
+	-- 			})
+	-- 			:start()
+	-- 	end)
+	-- )
 
 	mason_lspconfig.setup({
 		ensure_installed = require("core.settings").lsp_deps,
@@ -204,25 +204,26 @@ return function()
 				local jedi_capabilities = capabilities
 				jedi_capabilities.textDocument.completion.completionItem.snippetSupport = false
 				nvim_lsp["jedi_language_server"].setup({
-          init_options = {
-            completion = {
-              disable_snippets = true, 
-            },
-            diagnostics = {
-              enable = false,
-            },
-            hover = {
-              enable = true, 
-            }
-          },
+					init_options = {
+						completion = {
+							disable_snippets = true,
+						},
+						diagnostics = {
+							enable = false,
+						},
+						hover = {
+							enable = true,
+						},
+					},
 					settings = {
 						jedi = {
-              autoImportModules = { "numpy", "pandas", "curses" }, 
+							autoImportModules = { "numpy", "pandas", "curses" },
 						},
 					},
 					capabilities = jedi_capabilities,
 				})
 				return
+      elseif lsp_name == "python-lsp-server" or lsp_name == "pylsp" then return
 			end
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)

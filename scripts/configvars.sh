@@ -15,6 +15,7 @@ else
 rofi="tofi --horizontal=false --height 40% --width=60% --anchor=center --padding-left=30 --padding-right=30 "
 rofiwide="tofi --horizontal=false --height 50% \
     --anchor=center --width 60% --padding-left=30 --padding-right=30"
+rofi_launch="tofi-drun"
 rofi_prompt="$rofi --prompt"
 dmenu="tofi --height=3% --anchor=center"
 dmenu_prompt="tofi --height=3% --prompt "

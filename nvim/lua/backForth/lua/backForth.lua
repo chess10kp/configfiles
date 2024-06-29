@@ -24,7 +24,6 @@ end
 M.setup = function()
 	vim.g.back = true
 	vim.g.forth = false
-	print("keymaps ")
 
 	vim.api.nvim_set_keymap("n", "<C-m>", "<Cmd>lua require('backForth').back_and_forth()<CR>", {})
   vim.api.nvim_set_keymap("n", "<leader>s", "<Cmd>lua require('backForth').save_position()<CR>", {})

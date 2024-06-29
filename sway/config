@@ -6,8 +6,9 @@
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for alt.
 set $mod Mod4
+set $alt Mod1 
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -251,7 +252,16 @@ mode "layout" {
   bindsym Return mode "default"
 }
 
-bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode/
+bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
+
+
+# alt mod (no conflicting emacs binds)
+bindsym $alt+Shift+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
+bindsym $alt+Shift+q kill
+bindsym $alt+Shift+$left focus left
+bindsym $alt+Shift+$down focus down
+bindsym $alt+Shift+$up focus up
+bindsym $alt+Shift+$right focus right
 
 
 mode "yank" {
@@ -297,7 +307,7 @@ bindsym $mod+r mode "resize"
 mode "open" {
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     # bindsym e exec  ~/.local/bin/checkemacs -c ; mode "default"
-    bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs ; mode "default"
+    bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs ~/projects/notes/todo.org ; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
     bindsym c exec code; mode "default"
     bindsym w exec firefox; mode "default"

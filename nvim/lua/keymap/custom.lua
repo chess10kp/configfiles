@@ -35,9 +35,6 @@ nmap("<leader>cl",
   "editor: choose colorscheme")
 
 nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
-nmap("<leader>cc" , function ()
-  vim.api.nvim_feedkeys(":make ", "n", true)
-end)
 
 nmap("<M-/>" , function ()
   vim.o.hlsearch = true 
