@@ -37,13 +37,6 @@ custom["kawre/leetcode.nvim"] = {
 	},
 }
 
-custom["ggandor/leap.nvim"] = {
-	enabled = false,
-	lazy = false,
-	name = "leap",
-	config = require("custom.leap"),
-}
-
 custom["folke/flash.nvim"] = {
 	enabled = true,
 	event = "VeryLazy",

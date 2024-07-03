@@ -65,8 +65,12 @@ tool["nvim-telescope/telescope.nvim"] = {
 --                           DAP Plugins                            --
 ----------------------------------------------------------------------
 tool["mfussenegger/nvim-dap"] = {
-	lazy = false,
-  config = require("tool.dap")
+	lazy = true,
+  config = require("tool.dap"),
+  dependencies = {
+    { 'mfussenegger/nvim-dap-python', lazy = true, ft = "python"},
+    'theHamsta/nvim-dap-virtual-text',
+  }
 }
 tool["mfussenegger/nvim-dap-ui"] = {
 	lazy = true,
@@ -75,14 +79,6 @@ tool["mfussenegger/nvim-dap-ui"] = {
 		"mfussenegger/nvim-dap",
 	},
 	config = require("tool.dap"),
-}
-tool["theHamsta/nvim-dap-virtual-text"] = {
-	lazy = true,
-	dependencies = {
-		"mfussenegger/nvim-dap",
-		"mfussenegger/nvim-dap-ui",
-	},
-  config = require("tool.dap.virtualtext")
 }
 
 return tool

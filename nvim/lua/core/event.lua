@@ -13,6 +13,13 @@ function autocmd.nvim_create_augroups(definitions)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf", 
+	callback = function() 
+	vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<cmd>.cc<CR>", {}) 
+	end
+	}) 
+
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = "Telescope*",
 	callback = function()
 		require("cmp").setup.buffer({ enabled = false })

@@ -22,6 +22,7 @@ require("gruvbox").setup({
       SignColumn = {bg = "#0e1419"},
       TabLineFill = {bg = "#0e1419"},
       TabLineSel = {bg = "#0e1419"},
+      NormalFloat = {bg = "#0e1419"},
   },
   dim_inactive = false,
   transparent_mode = false,

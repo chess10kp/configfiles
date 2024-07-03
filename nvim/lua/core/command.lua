@@ -14,11 +14,3 @@ vim.api.nvim_create_user_command("Todos", function()
 	vim.o.grepprg = grepopts
 end, {})
 
-vim.api.nvim_create_user_command("WorkspaceSearch", function()
-	local search = vim.fn.input({ prompt = "Workspace Search: ", cancelreturn = "" })
-	if search == "" then
-		return
-	end
-	vim.cmd("silent grep " .. search)
-	vim.cmd("copen")
-end, { nargs = "*" })

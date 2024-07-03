@@ -1,10 +1,5 @@
 local ui = {}
 
-ui["folke/tokyonight.nvim"] = {
-	lazy = true,
-	name = "tokyonight",
-	config = require("ui.tokyonight"),
-}
 ui["Shatur/neovim-ayu"] = {
 	lazy = true,
 	name = "ayu",
@@ -22,10 +17,7 @@ lazy = true,
 event = { "CursorHold", "CursorHoldI" },
 config = require("ui.gitsigns"),
 }
-ui["rcarriga/nvim-notify"] = {
-	enabled = false,
-	lazy = false,
-	event = "VeryLazy",
-	config = require("ui.notify"),
+ui["j-hui/fidget.nvim"] = {
+  config = require("ui.fidget")
 }
 return ui

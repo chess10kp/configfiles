@@ -25,7 +25,13 @@ nmap("<leader>fh", function () require("telescope.builtin").help_tags() end,  "f
 nmap("<leader>fg", function () require("telescope.builtin").git_files() end,  "find: git_files") 
 nmap("<leader>ft", function () require("telescope.builtin").tags({ only_sort_tags = true }) end,  "find: tags") 
 nmap("<leader>fb", function () require("telescope.builtin").buffers() end,  "find: buffers") 
-nmap("<leader>fi", "<Cmd>Telescope file_browser<CR>",  "find: file_browser") 
+nmap("<leader>fi", function() 
+  vim.cmd("echo ''")
+  local status = vim.o.laststatus
+  vim.o.laststatus = 0
+  vim.cmd( "Telescope file_browser path=./ cwd=/" ) 
+  vim.o.laststatus = status 
+end,  "find: file_browser") 
 
 nmap("<F6>", function () require("dap").continue() end,  "debug: Run/Continue") 
 nmap("<leader>dc", function () require("dap").continue() end,  "debug: Run/Continue") 

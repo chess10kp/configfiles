@@ -14,7 +14,7 @@ return function()
 			initial_mode = "insert",
 			scroll_strategy = "limit",
 			results_title = false,
-			border = true,
+			border = false,
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -37,7 +37,7 @@ return function()
 			color_devicons = true,
 			layout_config = {
 				horizontal = {
-					prompt_position = "bottom",
+					prompt_position = "top",
 					preview_width = 0.55,
 					results_width = 0.8,
 				},
@@ -51,21 +51,28 @@ return function()
 		},
 		pickers = {
 			keymaps = {
-				theme = "dropdown",
+				theme = "ivy",
 				exclude = {},
-			},
-			find_files = {
 				layout_config = {
 					preview_width = 0,
-					height = 0.5,
-					width = 0.5,
+					height = 0.3,
+					width = 1,
+				},
+			},
+			find_files = {
+				theme = "ivy",
+				layout_config = {
+					preview_width = 0,
+					height = 0.3,
+					width = 1,
 				},
 			},
 			buffers = {
+				theme = "ivy",
 				layout_config = {
 					preview_width = 0,
-					height = 0.5,
-					width = 0.5,
+					height = 0.3,
+					width = 1,
 				},
 			},
 		},
@@ -83,6 +90,10 @@ return function()
 			},
 			live_grep_args = {
 				auto_quoting = true, -- enable/disable auto-quoting
+				theme = "ivy",
+				layout_config = {
+					height = 0.4,
+				},
 				-- define mappings, e.g.
 			},
 			-- undo = {
@@ -100,21 +111,25 @@ return function()
 			-- 	},
 			-- },
 			buffers = {
-				theme = "dropdown",
 				layout_strategy = "vertical",
 				layout_config = {
 					preview_width = 0,
 				},
 			},
 			file_browser = {
-				cwd_to_path = true,
+				theme = "ivy",
+				cwd_to_path = false,
+				respect_gitignore = false,
+				dir_icon = "",
+				create_from_prompt = false,
 				prompt_path = true,
-				border = true,
+				hide_parent_dir = true,
+				border = false,
 				layout_config = {
 					preview_width = 0,
 					-- prompt_position = "bottom",
-					height = 0.5,
-					width = 0.7,
+					height = 0.3,
+					width = 1,
 				},
 				hijack_netrw = true,
 				mappings = {
@@ -133,12 +148,9 @@ return function()
 	-- require("telescope").load_extension("frecency")
 	require("telescope").load_extension("fzf")
 	-- require("telescope").load_extension("live_grep_args")
-	-- require("telescope").load_extension("notify")
 	-- require("telescope").load_extension("undo")
 	-- require("telescope").load_extension("zoxide")
 	-- require("telescope").load_extension("project")
 	-- require("telescope").load_extension("session-lens")
 	require("telescope").load_extension("file_browser")
-
-	-- require("telescope").load_extension("persisted")
 end
