@@ -13,19 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +0 lua/modules/configs/completion/nvim-lint.lua
+badd +52 lua/modules/plugins/lang.lua
 argglobal
 %argdel
 $argadd init.lua
-edit lua/modules/configs/completion/nvim-lint.lua
+edit lua/modules/plugins/lang.lua
 argglobal
 balt init.lua
-let s:l = 7 - ((6 * winheight(0) + 22) / 44)
+let s:l = 52 - ((24 * winheight(0) + 21) / 42)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 7
-normal! 022|
+keepjumps 52
+normal! 034|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

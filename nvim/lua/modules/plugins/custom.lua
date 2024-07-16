@@ -21,10 +21,18 @@ custom["folke/neodev.nvim"] = {
 	ft = "lua",
 	config = require("lang.neodev"),
 }
+custom["folke/todo-comments.nvim"] = {
+	event = "InsertEnter",
+	lazy = true,
+	dependencies = { "nvim-lua/plenary.nvim" },
+	config = function()
+		require("todo-comments").setup()
+	end,
+}
 custom["kawre/leetcode.nvim"] = {
 	enabled = true,
 	lazy = "leetcode.nvim" ~= vim.fn.argv()[1],
-	opts = { arg = "leetcode.nvim"},
+	opts = { arg = "leetcode.nvim" },
 	build = ":TSUpdate html",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
@@ -71,10 +79,6 @@ custom["folke/flash.nvim"] = {
 			desc = "Flash",
 		},
 	},
-}
-
-custom["choltz/ido.nvim"] = {
-	lazy = false,
 }
 
 return custom

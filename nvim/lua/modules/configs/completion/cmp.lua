@@ -39,7 +39,7 @@ return function()
 
 		window = {
 			completion = {
-				border = "", --[[  border("PmenuBorder"), ]]
+				border = border("PmenuBorder"),
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
 			},
@@ -147,8 +147,8 @@ return function()
 				name = "nvim_lsp",
 				max_item_count = 100,
 				entry_filter = function(entry, ctx)
-					local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()]  ~= 'snippet'
-          return kind
+					local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "snippet"
+					return kind
 				end,
 			},
 			{ name = "nvim_lua" },

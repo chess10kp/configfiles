@@ -4,7 +4,8 @@ local M = {}
 -- @param bufnr Int
 local function get_cmd(cmd, bufnr)
 	if vim.b.runner_cmd == nil then
-		local run_cmd = vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", cancelreturn = "" })
+		local run_cmd =
+			vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
 		if run_cmd == "" then
 			return nil
 		end
@@ -18,7 +19,8 @@ end
 --
 local function set_cmd(bufnr)
 	local cmd = vim.b.runner_cmd
-	local run_cmd = vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", cancelreturn = "" })
+	local run_cmd =
+		vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
 	if run_cmd == "" then
 		return nil
 	end
@@ -42,12 +44,12 @@ local function run_in_terminal(cmd)
 	vim.api.nvim_win_set_option(win, "relativenumber", false)
 
 	vim.api.nvim_buf_set_keymap(buf, "n", "q", ":bwipeout!<CR>", { noremap = true, silent = true })
-  vim.api.nvim_create_autocmd("BufLeave", {
-    pattern = "<buffer>",
-    callback = function()
-      vim.api.nvim_buf_delete(buf, { force = true })
-    end,
-  })
+	vim.api.nvim_create_autocmd("BufLeave", {
+		pattern = "<buffer>",
+		callback = function()
+			vim.api.nvim_buf_delete(buf, { force = true })
+		end,
+	})
 
 	-- local width = vim.api.nvim_get_option("columns")
 	-- local height = vim.api.nvim_get_option("lines")
@@ -93,12 +95,12 @@ M.setup = function(opts)
 	vim.b.runner_cmd = nil
 	local filetypes = {
 		lua = { "lua" },
-		py = { "python", "-u" },
+		py = { "python", "-u ", vim.fn.expand("%:p") },
 		js = { "node" },
-		rs = { "cargo" },
+		rs = { "cargo run" },
 		ts = { "node" },
-		cpp = { "make" },
-		c = { "make" },
+		cpp = { "make -k" },
+		c = { "make -k" },
 		hs = { "ghc" },
 		go = { "go" },
 	}

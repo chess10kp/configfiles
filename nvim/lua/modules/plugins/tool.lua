@@ -42,22 +42,18 @@ tool["nvim-telescope/telescope.nvim"] = {
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
-		{ "debugloop/telescope-undo.nvim", 
-    enabled = false,
-    lazy = true, 
-    },
+		{ "debugloop/telescope-undo.nvim", enabled = false, lazy = true },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{
 			"nvim-telescope/telescope-frecency.nvim",
-      lazy = true, 
-      enabled = false,
+			lazy = true,
+			enabled = false,
 			dependencies = {
 				{ "kkharji/sqlite.lua" },
 			},
 		},
-		{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true,
-    },
-		{ "nvim-telescope/telescope-file-browser.nvim" , lazy = true, },
+		{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
+		{ "nvim-telescope/telescope-file-browser.nvim", lazy = true },
 	},
 }
 
@@ -66,17 +62,18 @@ tool["nvim-telescope/telescope.nvim"] = {
 ----------------------------------------------------------------------
 tool["mfussenegger/nvim-dap"] = {
 	lazy = true,
-  config = require("tool.dap"),
-  dependencies = {
-    { 'mfussenegger/nvim-dap-python', lazy = true, ft = "python"},
-    'theHamsta/nvim-dap-virtual-text',
-  }
+	config = require("tool.dap"),
+	dependencies = {
+		{ "mfussenegger/nvim-dap-python", lazy = true, ft = "python" },
+		"theHamsta/nvim-dap-virtual-text",
+	},
 }
 tool["mfussenegger/nvim-dap-ui"] = {
 	lazy = true,
-  cmd = {"DapToggleBreakpoint", "DapContinue"},
+	cmd = { "DapToggleBreakpoint", "DapContinue" },
 	dependencies = {
 		"mfussenegger/nvim-dap",
+		"theHamsta/nvim-dap-virtual-text",
 	},
 	config = require("tool.dap"),
 }

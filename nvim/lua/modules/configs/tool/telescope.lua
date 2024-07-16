@@ -15,6 +15,7 @@ return function()
 			scroll_strategy = "limit",
 			results_title = false,
 			border = false,
+			theme = "ivy",
 			file_ignore_patterns = {
 				"Music/",
 				"Postman/",
@@ -38,8 +39,7 @@ return function()
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
-					preview_width = 0.55,
-					results_width = 0.8,
+					mirror = false,
 				},
 				vertical = {
 					mirror = false,
@@ -66,6 +66,8 @@ return function()
 					height = 0.3,
 					width = 1,
 				},
+				border = false,
+				prompt_prefix = " Grep file: ",
 			},
 			buffers = {
 				theme = "ivy",
@@ -74,6 +76,8 @@ return function()
 					height = 0.3,
 					width = 1,
 				},
+				border = false,
+				prompt_prefix = "Buffer: ",
 			},
 		},
 		extensions = {
@@ -94,6 +98,7 @@ return function()
 				layout_config = {
 					height = 0.4,
 				},
+				border = false,
 				-- define mappings, e.g.
 			},
 			-- undo = {
@@ -124,13 +129,13 @@ return function()
 				create_from_prompt = false,
 				prompt_path = true,
 				hide_parent_dir = true,
-				border = false,
 				layout_config = {
 					preview_width = 0,
 					-- prompt_position = "bottom",
 					height = 0.3,
 					width = 1,
 				},
+				border = false,
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {

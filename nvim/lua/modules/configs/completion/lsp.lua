@@ -199,7 +199,22 @@ return function()
 	local function mason_lsp_handler(lsp_name)
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
-			if lsp_name == "jedi_language_server" then
+			if lsp_name == "basedpyright" then
+				return
+			end
+			if lsp_name == "ruff" then
+				nvim_lsp["ruff"].setup({
+					capabilities = capabilities,
+					init_options = {
+						settings = {
+							args = {
+								"--extend-select=W,COM,ICN",
+								"--ignore=E501,E722,COM812",
+							},
+						},
+					},
+				})
+			elseif lsp_name == "jedi_language_server" then
 				-- disable this since pylsp provides jedi_completion
 				local jedi_capabilities = capabilities
 				jedi_capabilities.textDocument.completion.completionItem.snippetSupport = false
@@ -223,7 +238,8 @@ return function()
 					capabilities = jedi_capabilities,
 				})
 				return
-      elseif lsp_name == "python-lsp-server" or lsp_name == "pylsp" then return
+			elseif lsp_name == "python-lsp-server" or lsp_name == "pylsp" then
+				return
 			end
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)

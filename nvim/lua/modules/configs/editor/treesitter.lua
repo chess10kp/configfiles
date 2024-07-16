@@ -5,9 +5,9 @@ return vim.schedule_wrap(function()
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
 	require("nvim-treesitter.configs").setup({
-    sync_install = false,
+		sync_install = false,
 		ensure_installed = {
-      "org",
+			"org",
 			"bash",
 			"cmake",
 			"c",
@@ -31,8 +31,8 @@ return vim.schedule_wrap(function()
 			"vue",
 			"yaml",
 		},
-    auto_install = true,
-    ignore_install = {},
+		auto_install = true,
+		ignore_install = {},
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)

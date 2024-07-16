@@ -15,11 +15,6 @@ editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
 }
--- editor["RRethy/vim-illuminate"] = { --illuminates corresponding brackers
--- 	lazy = true,
--- 	event = {"InsertEnter",  "CursorHold", "CursorHoldI" },
--- 	config = require("editor.vim-illuminate"),
--- }
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
@@ -35,7 +30,9 @@ editor["folke/trouble.nvim"] = {
 }
 editor["norcalli/nvim-colorizer.lua"] = {
 	lazy = false,
-	config = function () require("colorizer").setup() end ,
+	config = function()
+		require("colorizer").setup()
+	end,
 }
 
 editor["nvim-treesitter/nvim-treesitter"] = {
@@ -65,6 +62,14 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			config = require("editor.tabout"),
 		},
 	},
+}
+editor["lukas-reineke/indent-blankline.nvim"] = {
+	enabled = true,
+	event = "InsertEnter",
+	lazy = true,
+	config = function()
+		require("ibl").setup()
+	end,
 }
 
 return editor

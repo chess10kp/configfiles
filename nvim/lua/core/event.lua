@@ -13,11 +13,11 @@ function autocmd.nvim_create_augroups(definitions)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "qf", 
-	callback = function() 
-	vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<cmd>.cc<CR>", {}) 
-	end
-	}) 
+	pattern = "qf",
+	callback = function()
+		vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<cmd>.cc<CR>", {})
+	end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "Telescope*",
@@ -75,17 +75,6 @@ function autocmd.load_autocmds()
 			},
 		},
 		wins = {
-			-- Highlight current line only on focused window
-			{
-				"WinEnter,BufEnter,InsertLeave",
-				"*",
-				[[if ! &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal cursorline | endif]],
-			},
-			{
-				"WinLeave,BufLeave,InsertEnter",
-				"*",
-				[[if &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal nocursorline | endif]],
-			},
 			-- Attempt to write shada when leaving nvim
 			{
 				"VimLeave",
