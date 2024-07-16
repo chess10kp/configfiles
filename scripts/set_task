@@ -6,7 +6,10 @@ task=$(echo "" | $dmenu_prompt "Task: ")
 [[ -z $task ]] && notify-send "Task aborted" && exit 
 time=$(echo "" | $dmenu_prompt "Time: ")
 [[ -z $time ]] && notify-send "Task aborted" && exit 
-notify-send "Task" "$task in $time"
 d=$(date +'%H%M')
-new_time=$((10#$d + 10#$time))
+time=$(( 10#$time ))
+min=$(( $time % 100 )) 
+hr=$(( $time / 100 )) 
+notify-send "Task" "$task for $hr hr $min min"
+new_time=$(date -d "+$hr hour +$min min" +"%H%M")
  echo "$task $(date +'%H%M') $new_time" > /tmp/tasks

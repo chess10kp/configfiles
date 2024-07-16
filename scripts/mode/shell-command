@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+
+source ~/.config/scripts/configvars.sh
+
+
+command=$(echo "" | $dmenu_prompt "Shell Command: ")
+swaymsg exec "$command"

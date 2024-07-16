@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+source ~/.config/scripts/configvars.sh
+
+$rofi_launch | xargs swaymsg exec --
+

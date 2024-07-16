@@ -24,6 +24,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000000
 zstyle :compinstall filename '/home/nitin/.zshrc'
+zstyle ':completion:*' fzf-search-display true
 
 autoload -Uz compinit
 compinit
@@ -31,7 +32,7 @@ compinit
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -v
-bindkey -s "^T" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
+bindkey -s "^P" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
 bindkey '^R' history-incremental-search-backward
 bindkey -s "^F" 'cdfzf^M'  
 bindkey -s "^Y" 'nvimfzf^M' >/dev/null 2>&1
@@ -54,11 +55,9 @@ function mkcir
 }
 
 alias e="exit"
-alias gst="git status"
+alias gss="git status"
+alias gsl="git status | vim -"
 alias c="clear"
-alias sdi="paru -S"
-alias sdr="sudo pacman -R"
-alias sdu="sudo pacman -Syu"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf | xargs nvim"
 alias :q="exit"
@@ -81,6 +80,9 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin/flutter/bin/"
+if [[ -d "$HOME/.cargo/bin" ]]; then
+ export PATH="$PATH:$HOME/.cargo/bin/cargo" 
+fi
 export EDITOR="nvim"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
@@ -100,6 +102,7 @@ function tmux-run
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
+source ~/.config/zsh/fzf-tab/fzf-tab.zsh
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -120,3 +123,4 @@ PROMPT='%F{blue}%~%f %F{red}%f'
 # eval "$(zoxide init zsh)"
 
 [ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env
+clear

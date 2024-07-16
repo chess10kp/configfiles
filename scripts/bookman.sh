@@ -28,7 +28,7 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
 esac; shift; done
 if [[ "$1" == '--' ]]; then shift; fi
 
-cmd=$(printf '%s\n' "$bookmarks" | $rofi)
+cmd=$(printf '%s\n' "$bookmarks" | $rofi_prompt "Bookmark: ")
 while [ -n "$cmd" ]; do
 	if [[ $cmd == 'add' ]]; then
         link+=" "$($paste_command)

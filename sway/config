@@ -20,7 +20,7 @@ set $editor nvim
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu tofi-drun | xargs swaymsg exec --
+set $menu "tofi-drun --prompt 'Run:' | xargs swaymsg exec --"
 ### Output configuration
 default_border pixel 1
 focus_follows_mouse no
@@ -60,6 +60,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # Thes will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+ exec swayidle -w \
+          timeout 300 'date ~/.emacs_todo_interval' \
 
 ### Input configuration
 #
@@ -76,6 +78,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
   input "type:touchpad" {
       tap enabled 
       natural_scroll disabled
+      dwt disabled
   }
 
   input "type:tablet tool" {
@@ -199,6 +202,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
 
 
+    bindsym $mod+Backspace exec dunstctl close
+
     bindsym $mod+Shift+u exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
     bindsym $mod+Shift+d exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
 
@@ -212,8 +217,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
     bindsym t mode "default";  exec ~/.config/scripts/set_task;
-    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot;
+    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
     bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
+    bindsym p exec ~/.config/scripts/power.sh; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     bindsym h exec bluetoothctl connect B-1:38:e2:35:25:B4; mode "default"
     bindsym $mod+Print mode "default"; exec  ~/.config/scripts/screenshot.sh
@@ -262,6 +268,14 @@ bindsym $alt+Shift+$left focus left
 bindsym $alt+Shift+$down focus down
 bindsym $alt+Shift+$up focus up
 bindsym $alt+Shift+$right focus right
+bindsym $alt+Shift+f fullscreen
+
+bindsym $mod+Control+1 output eDP-1 enable
+bindsym $mod+Control+2 output eDP-1 disable
+bindsym $mod+Control+3 output HDMI-A-1 enable
+bindsym $mod+Control+4 output HDMI-A-1 disable
+
+
 
 
 mode "yank" {
@@ -324,6 +338,7 @@ bindsym $mod+Shift+f [app_id="firefox"] scratchpad show
 bindsym $mod+i [app_id="foot"] scratchpad show
 bindsym $mod+Shift+i [app_id="foot"] scratchpad show
 
+bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 
 
 for_window [title="Music"] move scratchpad
@@ -332,16 +347,18 @@ for_window [title="Imgmenu"] floating toggle
 for_window [title="Imgmenu"] resize set height 400px
 for_window [title="Imgmenu"] resize set width 1080 
 for_window [class="Dunst"] border pixel 1
+for_window [title="float"] floating toggle
 
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-    height 20
-    font pango:Gohu GohuFont
+    position bottom
+    font pango:Iosevka 20px
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while echo "CUR : $(cat /tmp/tasks)  BAT:$(cat /sys/class/power_supply/BAT0/capacity) AC:$(cat /sys/class/power_supply/AC/online)   $(free -h | grep Mem | awk '{print $3}')   $(date +'%X')" ; do sleep 1; done
+    status_command ~/.config/sway/bar
+
+
     colors {
         statusline #ebdbb2
         background #0e1419
@@ -357,6 +374,7 @@ exec dunst
 exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.config/scripts/checkemacs
 exec  ~/.config/scripts/wallpaper.sh --set
 exec  ~/.config/scripts/lowbattery.sh
+exec  ~/.config/scripts/check_task
 exec tmux new -s init -d 
 exec wl-paste --watch cliphist store
 #  exec nwg-dock-hyprland -i 24 -r

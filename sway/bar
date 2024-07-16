@@ -1,0 +1,79 @@
+#!/usr/bin/env sh
+
+get_tasks() {
+  tasks=$(cat /tmp/tasks)
+  echo "{\"name\": \"tasks\", \"full_text\": \"CUR: $tasks\" }"
+}
+
+get_bat() {
+  bat=$(cat /sys/class/power_supply/BAT0/capacity)
+  if [[ bat -le 20  ]]; then
+    color="#cc241d"
+  else
+    color="#d79921"
+  fi
+  echo "{\"name\": \"battery\", \"full_text\": \"BAT: $bat\", \"color\": \"$color\" }"
+}
+
+get_charging() {
+  charging=$(cat /sys/class/power_supply/AC/online)
+  if [[ charging -eq 1 ]]; then
+    color="#d79921"
+  else
+    color="#282828"
+  fi
+  echo "{\"name\": \"charging\", \"full_text\": \"AC: $charging\", \"color\": \"$color\" }" 
+}
+
+get_mem() {
+  mem=$(free -h | grep Mem | awk '{print $3}')
+  echo "{\"name\": \"mem\", \"full_text\": \"MEM: $mem\" }"
+}
+
+get_date() {
+  date=$(date +'%X')
+  echo "{\"name\": \"date\", \"full_text\": \"$date\" }"
+}
+
+get_day() {
+  day=$(date +'%A')
+  echo "{\"name\": \"day\", \"full_text\": \"$day\" }"
+}
+ 
+#282828
+#cc241d
+#98971a
+#d79921
+#458588
+#b16286
+#689d6a
+#a89984
+
+get_status() {
+  echo -n "["
+  get_tasks
+  echo ","
+  get_bat
+  echo ","
+  get_charging 
+  echo ","
+  get_mem 
+  echo ","
+  get_day
+  echo ","
+  get_date 
+  echo ","
+  echo "]"
+} 
+
+echo "{ \"version\": 1 }"
+echo "["
+get_status
+echo ","
+sleep 1 
+
+while true; do 
+  get_status
+  echo ","
+  sleep 1 
+done 

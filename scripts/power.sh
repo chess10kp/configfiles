@@ -10,22 +10,35 @@ kill="kill"
 source ~/.config/scripts/configvars.sh
 
 run_rofi() {
-	echo -e "$shutdown\n$reboot\n$lock\n$suspend\n$logout" | $dmenu
+	echo -e "$shutdown\n$reboot\n$suspend\n$logout" | $dmenu_prompt "Power"
 }
 
 # Execute Command
 run_cmd() {
-		if [[ $1 == '--shutdown' ]]; then
-			systemctl poweroff
-		elif [[ $1 == '--reboot' ]]; then
-			systemctl reboot
-		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
-			systemctl suspend
-		elif [[ $1 == '--logout' ]]; then
-            kill -9 -1
-		fi
+  if [[ -z $(command -v systemctl) ]]; then
+    if [[ $1 == '--shutdown' ]]; then
+      doas shutdown now -h
+    elif [[ $1 == '--reboot' ]]; then
+      doas reboot
+    elif [[ $1 == '--suspend' ]]; then
+      mpc -q pause
+      loginctl suspend
+    elif [[ $1 == '--logout' ]]; then
+      kill -9 -1
+    fi
+  else
+    if [[ $1 == '--shutdown' ]]; then
+      systemctl poweroff
+    elif [[ $1 == '--reboot' ]]; then
+      systemctl reboot
+    elif [[ $1 == '--suspend' ]]; then
+      mpc -q pause
+      amixer set Master mute
+      systemctl suspend
+    elif [[ $1 == '--logout' ]]; then
+      kill -9 -1
+    fi
+  fi
 }
 
 chosen="$(run_rofi)"

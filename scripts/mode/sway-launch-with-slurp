@@ -16,7 +16,7 @@ EOF
 
 [[ -z "$1" ]] && echo "$usage" && exit 
 
-output=$(slurp -b \#0e141955)
+output=$(slurp -b \#0e141966)
 [[ $output == "selection cancelled" ]] && notify-send "Sway" "terminal cancelled" exit 
 
 pos=$(echo $output | sed -e "s/ .*//g" )

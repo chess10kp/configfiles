@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+bak=$IFS
+IFS=$' '
+while true
+do
+ tasks=$(cat /tmp/tasks)
+ [[ -z $tasks ]]  && notify-send -t 300000 --urgency=CRITICAL   "Tasks:" "No task created" && sleep 20 && continue  
+ read -ra arr <<< $(cat /tmp/tasks)
+ echo "${arr[-1]}"
+ d=$(date +'%H%M')
+ task_time="${arr[-1]}"
+ d=$((10#$d))
+ task_time=$((10#$task_time))
+ if [[ task_time -le $d ]]; then
+  notify-send "Task" "Completed" 
+  echo "" > /tmp/tasks
+ fi
+ sleep 60
+done
+exit
+IFS=$bak

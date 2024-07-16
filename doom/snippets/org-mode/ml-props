@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: ml-props
-# key: ml-org-properties
-# --
-
-PROPERTY: header-args: :python ~/projects/notes/ml/bin/python :session One :results output :exports both

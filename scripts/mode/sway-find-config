@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+source ~/.config/scripts/configvars.sh
+
+swayfile="$HOME/.config/sway/config"
+nvimfile="$HOME/.config/nvim/init.lua"
+tofifile="$HOME/.config/tofi/config"
+find_all="find-file"
+
+opts=($swayfile $nvimfile $tofifile $find_all)
+
+selection=$(printf '%s\n' ${opts[@]} | $rofi_prompt 'find-file ' )
+
+case "$selection" in
+  $find_all) echo 1
+    ~/.config/scripts/editconfig.sh ~/.config
+  ;;
+  *) swaymsg exec "$term -e $editor $selection"
+  ;;
+esac
+
