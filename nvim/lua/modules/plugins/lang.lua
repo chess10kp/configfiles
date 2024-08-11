@@ -60,10 +60,29 @@ lang["nvim-orgmode/orgmode"] = {
 	lazy = true,
 	ft = "org",
 	config = function()
-		require("orgmode").setup_ts_grammar()
 		require("orgmode").setup({
-			org_agenda_files = "~/projects/school//",
-			org_default_notes_file = "~/projects/school//",
+			org_agenda_files = "~/projects/notes/todo.org/",
+			org_default_notes_file = "~/projects/notes/notes.org",
+		})
+	end,
+}
+lang["chipsenkbeil/org-roam.nvim"] = {
+	lazy = true,
+	tag = "0.1.0",
+	dependencies = {
+		{
+			"nvim-orgmode/orgmode",
+			tag = "0.3.4",
+		},
+	},
+	config = function()
+		require("org-roam").setup({
+			directory = "~/projects/notes/",
+			-- optional
+			org_files = {
+				"~/projects/notes/todo.org",
+				"~/projects/notes/notes.org",
+			},
 		})
 	end,
 }
@@ -73,7 +92,7 @@ lang["akinsho/org-bullets.nvim"] = {
 	dependencies = { "nvim-orgmode/orgmode" },
 	config = function()
 		require("org-bullets").setup({
-			concealcursor = false, -- If false then when the cursor is on a line underlying characters are visible
+			concealcursor = true, -- If false then when the cursor is on a line underlying characters are visible
 			symbols = {
 				-- list symbol
 				list = "•",

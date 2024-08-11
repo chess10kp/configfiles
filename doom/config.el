@@ -39,7 +39,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
-;; If you use `org' and don't want your org files in the default location below,
+;; Ifyou use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 (setq org-directory "~/projects/notes/org/")
@@ -57,7 +57,7 @@
 (setq doom-leader-key ";"
       doom-localleader-key ";")
 
-(setq corfu-auto-delay 0.1)
+(setq corfu-auto-delay 0.2)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -88,7 +88,7 @@
 ;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
 ;; etc).
 ;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see hows
 ;; they are implemented.
 
 (after! org
@@ -102,11 +102,13 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/projects/notes/todo.org" "Todos")
          "* TODO %?\n  %i\n  %a")
-        ("j" "journal" entry (file+datetree "~/projects/note/org/journal.org")
-            "* %U %i " )
-        ("r" "refile" entry (file+datetree "~/projects/notes/refile.org")
-            "* %U %i ")
-         ))
+        ("r" "refile" entry (file+headline "~/projects/notes/refile.org" "Todos")
+                "* TODO %?\n  %i\n  %a TIL: ")
+        ("r" "refile" entry (file+headline "~/projects/notes/refile.org" "Todos")
+                "* TODO %?\n  %i refile: ")
+        ("l" "today I learnt" entry (file+headline "~/projects/notes/today-i-learnt.org" "Todos")
+                "* TODO %i TIL: %? ")
+      ))
 (setq
 org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
  )
@@ -126,24 +128,47 @@ org-superstar-headline-bullets-list '("◆" "•" "✸" "○")
 ;; (ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
 (ido-ubiquitous-mode 1)
-(crm-custom-mode 1)
 
-(smex-initialize)
+(setq split-width-threshold nil)
+(setq split-height-threshold 100)
 
-
-(map! :n "M-x" #'smex)
-;; This is your old M-x.
 (map!
  :leader
  :n "fb" #'ido-switch-buffer)
 
 (map!
  :leader
+ :n "cc" #'compile)
+
+(map!
+ :leader
  :n "fk" #'ido-kill-buffer)
 
+(map!
+ :leader
+ :n "nrf" #'org-roam-node-find)
+
+(map!
+ :leader
+ :n "nri" #'org-roam-node-insert)
+
+(map!
+ :leader
+ :n "nro" #'org-roam-node-open)
+
+(map!
+ :leader
+ :n "mt" #'org-todo)
+
+(keymap-global-set "C-c C-c C-v" #'clipboard-yank)
+(keymap-global-set "C-c C-c C-c" #'clipboard-kill-region)
+
+(setq haskell-interactive-popup-errors nil)
 
 ;; customize doom-gruvbox
 (custom-set-faces! '(default  :background "#0e1419"))
 (custom-set-faces! '(mode-line :background "#0e1419"))
 (custom-set-faces! '(org-block :background "#0e1419"))
 (custom-set-faces! '(fringe :background "#0e1419"))
+
+

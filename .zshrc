@@ -31,17 +31,13 @@ compinit
 # binds up and down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey -v
-bindkey -s "^P" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
+bindkey -s "^V" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
 bindkey '^R' history-incremental-search-backward
-bindkey -s "^F" 'cdfzf^M'  
-bindkey -s "^Y" 'nvimfzf^M' >/dev/null 2>&1
 
 function cdfzf {
   cd ~/projects
   dir=$(find ./  -name node_modules -prune -o -name "*.git" -prune -o -name venv -prune -o  -type d   | fzf)
-  [[ -n $dir ]] && cd $dir
-}
+  [[ -n $dir ]] && cd $dir }
 
 function nvimfzf 
 {
@@ -55,6 +51,7 @@ function mkcir
 }
 
 alias e="exit"
+alias ff="cdfzf"
 alias gss="git status"
 alias gsl="git status | vim -"
 alias c="clear"
@@ -68,6 +65,7 @@ alias mkdir="mkdir -p"
 alias cp="cp -v"
 alias mv="mv -i"
 alias ls="ls --color"
+alias mpic="mpv --loop=inf"
 
 function yt
 {
@@ -88,7 +86,8 @@ export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/Android/Sdk/cmdline-tools/latest/bin:$PATH"
-export ANDROID_HOME="$HOME/Android/Sdk/"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export GOPATH="$HOME/projects/go/:$GOPATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export CHROME_EXECUTABLE=/usr/bin/chromium-browser
@@ -100,14 +99,14 @@ function tmux-run
 
 # source ~/.config/zsh/fzf-tab/fzf-tab.plugin.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
+# source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+# source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 source ~/.config/zsh/fzf-tab/fzf-tab.zsh
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# RPROMPT='$GITSTATUS_PROMPT'
+RPROMPT='%F{green}%~%f'
 
 # autoload -Uz vcs_info
 # precmd() { vcs_info }
@@ -115,12 +114,17 @@ source ~/.config/zsh/fzf-tab/fzf-tab.zsh
 # zstyle ':vcs_info:git:*' formats '%b '
 
 # setopt PROMPT_SUBST
-# PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f> '
-PROMPT='%F{blue}%~%f %F{red}%f'
+PROMPT='%F{blue}%f %F{red}%f%F{green}λ %f'
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
 # eval "$(zoxide init zsh)"
 
+set show-mode-in-prompt on
+set emacs-mode-string "\1\e]133;A\e\\\2"
+# Uncomment and/or adjust if you're using the vi editing-mode.
+# set vi-cmd-mode-string "\1\e]133;A\e\\\2"
+# set vi-ins-mode-string "\1\e]133;A\e\\\2"
+
+
 [ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env
-clear

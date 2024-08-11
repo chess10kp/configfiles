@@ -37,16 +37,6 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("ExitPre", {
-	callback = function()
-		local file = vim.loop.fs_stat("Session.vim")
-		if file and file.type == "file" then
-			-- Session.vim exists
-			vim.cmd("mksession!")
-		end
-	end,
-})
-
 function autocmd.load_autocmds()
 	local definitions = {
 		lazy = {},

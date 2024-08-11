@@ -1,6 +1,20 @@
 local M = {}
 
 -- @param cmd String default cmd
+-- @param cmd String default cmd
+-- @param bufnr Int
+local function get_cmd(cmd, bufnr)
+	if vim.b.runner_cmd == nil then
+		local run_cmd =
+			vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
+		if run_cmd == "" then
+			return nil
+		end
+		vim.api.nvim_buf_set_var(bufnr, "runner_cmd", run_cmd)
+	end
+	return vim.api.nvim_buf_get_var(bufnr, "runner_cmd")
+end
+
 -- @param bufnr Int
 local function get_cmd(cmd, bufnr)
 	if vim.b.runner_cmd == nil then
@@ -19,8 +33,11 @@ end
 --
 local function set_cmd(bufnr)
 	local cmd = vim.b.runner_cmd
+	if cmd == nil then
+		cmd = ""
+	end
 	local run_cmd =
-		vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
+		vim.fn.input({ prompt = "Compile command: ", default = cmd, completion = "file", cancelreturn = "" })
 	if run_cmd == "" then
 		return nil
 	end
@@ -74,6 +91,11 @@ local function make_maps(ft, c)
 			local bufnr = ev.buf
 			vim.api.nvim_buf_create_user_command(bufnr, "RunnerRun", function()
 				set_cmd(bufnr)
+				local cmd = get_cmd(c, bufnr)
+				if cmd == nil then
+					return
+				end
+				run_in_terminal(cmd)
 			end, {})
 			vim.keymap.set("n", "<leader>cc", function()
 				local cmd = get_cmd(c, bufnr)

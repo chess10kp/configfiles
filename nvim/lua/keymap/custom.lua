@@ -23,13 +23,26 @@ nmap("<leader>tg", ":!ctags -R *<CR>", "lsp: generate tags")
 nmap("<leader>ff", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":find **/**<Left>", true, false, true), "n", false)
 end, "editor:find file")
-nmap("<leader>rw", ":echo ':s/<C-r><C-a>/'<CR>:s/<C-r><C-w>//g<Left><Left>", "editor: replace word under cursor")
-vmap("<leader>rw", "<cmd>echo ':s/<C-r><C-a>/'<CR>:s/<C-r><C-w>//g<Left><Left>", "editor: replace word under cursor")
+nmap("<leader>rw",function( ) 
+  vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<Esc>:s/<C-r><C-w>//g<Left><Left>", true, false, true), "n", false) 
+end , "editor: replace word under cursor")
+vmap("<leader>rw", function ()
+  vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<Esc>:'<,'>s/<C-r><C-w>//g<Left><Left>", true, false, true), "n", false)
+end, "editor: replace word under cursor")
 nmap("<leader>cl", function()
 	vim.api.nvim_feedkeys(":colorscheme ", "n", true)
 end, "editor: choose colorscheme")
 
 nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
+
+nmap("<C-i>", "<C-6>")
+
+vmap("H", "0")
+vmap("L", "$")
+
+nmap("<leader>cC", function()
+	vim.cmd("RunnerRun")
+end)
 
 cmap("<C-u>", function()
 	vim.api.nvim_feedkeys(".*", "n", true)

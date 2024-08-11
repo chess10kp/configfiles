@@ -12,4 +12,7 @@ min=$(( $time % 100 ))
 hr=$(( $time / 100 )) 
 notify-send "Task" "$task for $hr hr $min min"
 new_time=$(date -d "+$hr hour +$min min" +"%H%M")
+if [[ $new_time -le $d ]]; then
+  new_time=$(( 10#$d + 10#$time ))
+fi
  echo "$task $(date +'%H%M') $new_time" > /tmp/tasks

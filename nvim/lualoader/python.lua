@@ -28,22 +28,6 @@ return {
 			{ delimiters = "<>" }
 		)
 	),
-	s(
-		"if",
-		fmt(
-			[[
-    if <> : 
-        <>
-    ]],
-			{
-				i(1, "statement"),
-				i(2, "pass"),
-			},
-			{
-				delimiters = "<>",
-			}
-		)
-	),
 }, {
 	s(
 		"ifelse",

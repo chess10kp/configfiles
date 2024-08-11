@@ -17,9 +17,9 @@ run_rofi() {
 run_cmd() {
   if [[ -z $(command -v systemctl) ]]; then
     if [[ $1 == '--shutdown' ]]; then
-      doas shutdown now -h
+      doas /sbin/poweroff
     elif [[ $1 == '--reboot' ]]; then
-      doas reboot
+      doas /sbin/reboot
     elif [[ $1 == '--suspend' ]]; then
       mpc -q pause
       loginctl suspend
@@ -54,6 +54,8 @@ $lock)
 		betterlockscreen -l
 	elif [[ -x '/usr/bin/i3lock' ]]; then
 		i3lock
+  elif [[ -x 'usr/bin/swaylock' ]]; then 
+    swaylock
 	fi
 	;;
 $suspend)

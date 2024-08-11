@@ -63,6 +63,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 tool["mfussenegger/nvim-dap"] = {
 	lazy = true,
 	config = require("tool.dap"),
+	cmd = { "DapToggleBreakpoint" },
 	dependencies = {
 		{ "mfussenegger/nvim-dap-python", lazy = true, ft = "python" },
 		"theHamsta/nvim-dap-virtual-text",

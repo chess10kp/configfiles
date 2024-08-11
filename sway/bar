@@ -2,6 +2,15 @@
 
 get_tasks() {
   tasks=$(cat /tmp/tasks)
+  if [[ -z $tasks ]]; then
+    tasks="not set"  
+  else
+    completed_time=$((10#$(echo $tasks | awk '{print $3}')))
+    if [[ completed_time -gt 2359 ]]; then
+      completed_time=$((10#$completed_time-2400))
+      tasks="$(echo $tasks | awk '{print $1,$2}' ) $(printf "%04d" $completed_time)"
+    fi
+  fi
   echo "{\"name\": \"tasks\", \"full_text\": \"CUR: $tasks\" }"
 }
 

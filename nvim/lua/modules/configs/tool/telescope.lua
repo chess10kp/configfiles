@@ -50,7 +50,11 @@ return function()
 			},
 		},
 		pickers = {
+			prompt_title = "",
 			keymaps = {
+				prompt_title = "",
+				prompt_position = "bottom",
+				prompt_prefix = "Callable: ",
 				theme = "ivy",
 				exclude = {},
 				layout_config = {
@@ -58,6 +62,7 @@ return function()
 					height = 0.3,
 					width = 1,
 				},
+				border = false,
 			},
 			find_files = {
 				theme = "ivy",
@@ -67,17 +72,24 @@ return function()
 					width = 1,
 				},
 				border = false,
-				prompt_prefix = " Grep file: ",
+				prompt_prefix = "Find file: ",
 			},
 			buffers = {
 				theme = "ivy",
 				layout_config = {
 					preview_width = 0,
-					height = 0.3,
+					height = 0.1,
 					width = 1,
 				},
+				prompt_position = "bottom",
 				border = false,
 				prompt_prefix = "Buffer: ",
+				mappings = {
+					["i"] = {
+						-- ["<Tab>"] = telescope_actions.select_default,
+						["<Esc>"] = telescope_actions.close,
+					},
+				},
 			},
 		},
 		extensions = {

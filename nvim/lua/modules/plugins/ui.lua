@@ -12,12 +12,15 @@ ui["ellisonleao/gruvbox.nvim"] = {
 	config = require("ui.gruvbox"),
 }
 ui["lewis6991/gitsigns.nvim"] = {
-enabled = true,
-lazy = true,
-event = { "CursorHold", "CursorHoldI" },
-config = require("ui.gitsigns"),
+	enabled = true,
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("ui.gitsigns"),
 }
 ui["j-hui/fidget.nvim"] = {
-  config = require("ui.fidget")
+	config = require("ui.fidget"),
+}
+ui["neanias/everforest-nvim"] = {
+	lazy = true,
 }
 return ui

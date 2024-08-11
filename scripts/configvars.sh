@@ -12,13 +12,14 @@ if [[ $XDG_SESSION_TYPE == "x11" ]]; then
     notes_editor="emacs -nw"
     term="xfce4-terminal"
 else
-rofi="tofi --horizontal=false --height 20% --width=100% --anchor=bottom --padding-left=30 --padding-right=30 "
+rofi="tofi --horizontal=false --height 20% --width=100% --anchor=bottom --padding-left=30 --padding-right=30 --result-spacing=0"
 rofiwide="tofi --horizontal=false --height 50% \
-    --anchor=bottom --width 100% --padding-left=30 --padding-right=30"
+    --anchor=bottom --width 100% --padding-left=30 --padding-right=30 --result-spacing=0"
 rofi_launch="tofi-drun"
 rofi_prompt="$rofi --prompt"
-dmenu="tofi --anchor=bottom-left --horizontal=true --result-spacing=10 --height=32 --width=20% --anchor=top"
-dmenu_prompt="tofi --horizontal=true --anchor=bottom-left --result-spacing=10 --width=30% --height=32 --prompt "
+dmenu="tofi --horizontal=true --anchor=bottom-left --result-spacing=10 --width=30% --height=27"
+dmenu_prompt="$dmenu --prompt "
+dmenu_wide_prompt="$dmenu --width=100% --prompt"
 editor="nvim"
 term="footclient"
 browser="firefox"

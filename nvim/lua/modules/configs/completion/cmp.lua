@@ -39,7 +39,7 @@ return function()
 
 		window = {
 			completion = {
-				border = border("PmenuBorder"),
+				-- border = border("PmenuBorder"),
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
 			},
@@ -55,7 +55,7 @@ return function()
 				require("copilot_cmp.comparators").prioritize,
 				require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
-				compare.offset, -- Items closer to cursor will have lower priority
+				-- compare.offset, -- Items closer to cursor will have lower priority
 				compare.exact,
 				-- compare.scopes,
 				compare.lsp_scores,
@@ -113,7 +113,7 @@ return function()
 			confirm_resolve_timeout = 100,
 			fetching_timeout = 100,
 			async_budget = 1,
-			max_view_entries = 30,
+			max_view_entries = 5,
 			debounce = 100,
 			throttle = 0,
 		},
@@ -124,7 +124,7 @@ return function()
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-S-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-S-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-S-w>"] = cmp.mapping.close(),
+			["<C-e>"] = cmp.mapping.abort(),
 			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
@@ -145,7 +145,7 @@ return function()
 			{ name = "luasnip" },
 			{
 				name = "nvim_lsp",
-				max_item_count = 100,
+				max_item_count = 50,
 				entry_filter = function(entry, ctx)
 					local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "snippet"
 					return kind
@@ -155,11 +155,9 @@ return function()
 			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
-			{ name = "buffer", max_item_count = 3 },
+			{ name = "buffer", max_item_count = 1 },
 			{ name = "latex_symbols" },
 			{ name = "copilot" },
-			-- { name = "codeium" },
-			-- { name = "cmp_tabnine" },
 		},
 		experimental = {
 			ghost_text = {

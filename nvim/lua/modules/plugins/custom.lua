@@ -51,6 +51,11 @@ custom["folke/flash.nvim"] = {
 	lazy = true,
 	--@type Flash.Config
 	opts = {
+		label = {
+			uppercase = false,
+			exclude = "qpzx",
+			style = "inline",
+		},
 		modes = {
 			char = {
 				enabled = false,
@@ -58,6 +63,7 @@ custom["folke/flash.nvim"] = {
 			},
 		},
 		jump = {
+			jumplist = false,
 			autojump = true,
 		},
 	},

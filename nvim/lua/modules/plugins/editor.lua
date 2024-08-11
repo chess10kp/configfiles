@@ -64,7 +64,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	},
 }
 editor["lukas-reineke/indent-blankline.nvim"] = {
-	enabled = true,
+	enabled = false,
 	event = "InsertEnter",
 	lazy = true,
 	config = function()
