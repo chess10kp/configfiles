@@ -4,7 +4,7 @@ local M = {}
 -- @param cmd String default cmd
 -- @param bufnr Int
 local function get_cmd(cmd, bufnr)
-	if vim.b.runner_cmd == nil then
+	if vim.g.runner_cmd == nil then
 		local run_cmd =
 			vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
 		if run_cmd == "" then
@@ -17,7 +17,7 @@ end
 
 -- @param bufnr Int
 local function get_cmd(cmd, bufnr)
-	if vim.b.runner_cmd == nil then
+	if vim.g.runner_cmd == nil then
 		local run_cmd =
 			vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
 		if run_cmd == "" then
@@ -32,7 +32,7 @@ end
 -- @param bufnr Int
 --
 local function set_cmd(bufnr)
-	local cmd = vim.b.runner_cmd
+	local cmd = vim.g.runner_cmd
 	if cmd == nil then
 		cmd = ""
 	end
@@ -98,7 +98,7 @@ local function make_maps(ft, c)
 				run_in_terminal(cmd)
 			end, {})
 			vim.keymap.set("n", "<leader>cc", function()
-				local cmd = get_cmd(c, bufnr)
+				local cmd = set_cmd(bufnr)
 				if cmd == nil then
 					return
 				end
@@ -114,15 +114,15 @@ end
 -- @param opts.key String
 --
 M.setup = function(opts)
-	vim.b.runner_cmd = nil
+	vim.g.runner_cmd = nil
 	local filetypes = {
-		lua = { "lua" },
+		lua = { "lua", vim.fn.expand("%:p") },
 		py = { "python", "-u ", vim.fn.expand("%:p") },
-		js = { "node" },
+		js = { "npm run " },
 		rs = { "cargo run" },
 		ts = { "node" },
-		cpp = { "make -k" },
-		c = { "make -k" },
+		cpp = { "make " },
+		c = { "make " },
 		hs = { "ghc" },
 		go = { "go" },
 	}

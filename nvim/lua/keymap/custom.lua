@@ -11,6 +11,7 @@ imap("jk", "<ESC>", "editor: escape")
 nmap("<C-n>", ":silent Lexplore!<CR><CR>", "Toggle File tree")
 nmap("<leader>ss", "<Cmd>echo 'saved session'<CR><Cmd>mks!<CR>", "editor: save vim session")
 nmap("<leader>lcd", "<Cmd>lcd %:h<CR><Cmd>pwd<CR>", "editor: change current working directory")
+nmap("<leader>fs", "<Cmd>w<CR>", "editor: save file")
 
 nmap("<M-j>", ":bnext<CR>", "editor: move to next buffer")
 nmap("<M-k>", ":bprev<CR>", "editor: move to previous buffer")
@@ -23,19 +24,32 @@ nmap("<leader>tg", ":!ctags -R *<CR>", "lsp: generate tags")
 nmap("<leader>ff", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":find **/**<Left>", true, false, true), "n", false)
 end, "editor:find file")
-nmap("<leader>rw",function( ) 
-  vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<Esc>:s/<C-r><C-w>//g<Left><Left>", true, false, true), "n", false) 
-end , "editor: replace word under cursor")
-vmap("<leader>rw", function ()
-  vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<Esc>:'<,'>s/<C-r><C-w>//g<Left><Left>", true, false, true), "n", false)
+nmap("<leader>rw", function()
+	vim.api.nvim_feedkeys(
+		vim.api.nvim_replace_termcodes("<Esc>:s/<C-r><C-w>//g<Left><Left>", true, false, true),
+		"n",
+		false
+	)
 end, "editor: replace word under cursor")
+vmap("<leader>rw", function()
+	vim.api.nvim_feedkeys(
+		vim.api.nvim_replace_termcodes("<Esc>:'<,'>s/<C-r><C-w>//g<Left><Left>", true, false, true),
+		"n",
+		false
+	)
+end, "editor: replace word under cursor")
+nmap("<leader>do", "<cmd>DiffviewOpen<CR>", "editor: show diff")
+nmap("<leader>dc", "<cmd>DiffviewClose<CR>", "editor: close diff")
 nmap("<leader>cl", function()
 	vim.api.nvim_feedkeys(":colorscheme ", "n", true)
 end, "editor: choose colorscheme")
+nmap("<leader>ee", function()
+	vim.api.nvim_feedkeys(":e ~/", "n", true)
+end, "editor: open file")
 
 nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
 
-nmap("<C-i>", "<C-6>")
+nmap("<C-m>", "<C-6>")
 
 vmap("H", "0")
 vmap("L", "$")
@@ -110,7 +124,7 @@ nmap("di)", '"tdi)')
 nmap("da}", '"tda}')
 nmap("da}", '"tda}')
 
-nmap("lo", "<Cmd>SymbolsOutline<CR>")
+nmap("<leader>lo", "<Cmd>SymbolsOutline<CR>")
 
 local function createMarkMappings()
 	local marks = {
@@ -145,8 +159,8 @@ local function createMarkMappings()
 	for _, mark in ipairs(marks) do
 		vim.api.nvim_set_keymap(
 			"n",
-			string.format("m%s", mark),
-			string.format(":lua vim.cmd('echo \"mark set\"')<CR>m%s", mark),
+			string.format("'%s", mark),
+			string.format("~%s", mark),
 			{ noremap = true, silent = true }
 		)
 	end

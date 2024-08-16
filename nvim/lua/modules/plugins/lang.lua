@@ -66,6 +66,16 @@ lang["nvim-orgmode/orgmode"] = {
 		})
 	end,
 }
+lang["luckasRanarison/tailwind-tools.nvim"] = {
+	enabled = false,
+	name = "tailwind-tools",
+	build = ":UpdateRemotePlugins",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-telescope/telescope.nvim", -- optional
+	},
+	opts = {}, -- your configuration
+}
 lang["chipsenkbeil/org-roam.nvim"] = {
 	lazy = true,
 	tag = "0.1.0",

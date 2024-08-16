@@ -63,6 +63,13 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 	},
 }
+editor["rhysd/clever-f.vim"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = function()
+		require("editor.cleverf")
+	end,
+}
 editor["lukas-reineke/indent-blankline.nvim"] = {
 	enabled = false,
 	event = "InsertEnter",

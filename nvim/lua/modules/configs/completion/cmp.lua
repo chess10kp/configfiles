@@ -44,7 +44,7 @@ return function()
 				scrollbar = false,
 			},
 			documentation = {
-				max_height = 4,
+				max_height = 1000,
 				border = border("CmpDocBorder"),
 				winhighlight = "Normal:CmpDoc",
 			},
@@ -113,7 +113,7 @@ return function()
 			confirm_resolve_timeout = 100,
 			fetching_timeout = 100,
 			async_budget = 1,
-			max_view_entries = 5,
+			max_view_entries = 20,
 			debounce = 100,
 			throttle = 0,
 		},
@@ -128,8 +128,6 @@ return function()
 			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
-				elseif require("luasnip").jumpable(-1) then
-					vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
 				else
 					fallback()
 				end
@@ -143,6 +141,11 @@ return function()
 		sources = {
 			{ name = "path" },
 			{ name = "luasnip" },
+			{ name = "nvim_lua" },
+			{ name = "spell" },
+			{ name = "text" },
+			{ name = "tmux" },
+			{ name = "buffer", max_item_count = 1 },
 			{
 				name = "nvim_lsp",
 				max_item_count = 50,
@@ -151,11 +154,7 @@ return function()
 					return kind
 				end,
 			},
-			{ name = "nvim_lua" },
 			{ name = "treesitter" },
-			{ name = "spell" },
-			{ name = "tmux" },
-			{ name = "buffer", max_item_count = 1 },
 			{ name = "latex_symbols" },
 			{ name = "copilot" },
 		},

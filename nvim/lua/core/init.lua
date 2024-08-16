@@ -66,7 +66,7 @@ local disable_distribution_plugins = function()
 end
 
 local leader_map = function()
-	vim.g.mapleader = " "
+	vim.g.mapleader = ";"
 end
 
 local clipboard_config = function()
@@ -132,12 +132,12 @@ local load_core = function()
 
 	require("core.options")
 	require("core.mapping")
-  require("core.custom")
+	require("core.custom")
 	require("keymap")
 	require("core.event")
 	require("core.pack")
 
-  local settings = require('core.settings')
+	local settings = require("core.settings")
 	local colorscheme = settings.colorscheme
 	local background = settings.background
 	vim.api.nvim_command("set background=" .. background)

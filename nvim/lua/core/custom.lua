@@ -1,4 +1,5 @@
-vim.o.syntax = 'on'
+vim.o.syntax = "on"
 
-require('core.command')
-require('modules.configs.ui.statusline')
+vim.loader.enable()
+require("core.command")
+require("modules.configs.ui.statusline")

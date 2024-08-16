@@ -75,6 +75,9 @@ return function()
 						vim.notify("debug: given path does not match an executable")
 						return nil
 					end
+				else
+					local executable = vim.fn.input("Path to executable: ", vim.g.dap_executable, "file")
+					vim.g.dap_executable = executable
 				end
 				return vim.g.dap_executable
 			end,

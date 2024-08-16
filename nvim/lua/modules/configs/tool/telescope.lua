@@ -1,5 +1,34 @@
 return function()
 	local telescope_actions = require("telescope.actions")
+	local opts = {
+		theme = "ivy",
+		layout_config = {
+			preview_width = 0,
+			height = 0.1,
+			width = 1,
+		},
+		prompt_position = "bottom",
+		border = false,
+		mappings = {
+			["i"] = {
+				-- ["<Tab>"] = telescope_actions.select_default,
+				["<Esc>"] = telescope_actions.close,
+			},
+		},
+	}
+
+	-- @param opts table
+	-- @param new_opt table
+	local function add_opt(opts, new_opt)
+		local copy = {}
+		for i, x in pairs(opts) do
+			copy[i] = x
+		end
+		for i, x in pairs(new_opt) do
+			copy[i] = x
+		end
+		return copy
+	end
 
 	require("telescope").setup({
 		defaults = {
@@ -74,7 +103,7 @@ return function()
 				border = false,
 				prompt_prefix = "Find file: ",
 			},
-			buffers = {
+			document_symbols = {
 				theme = "ivy",
 				layout_config = {
 					preview_width = 0,
@@ -91,6 +120,11 @@ return function()
 					},
 				},
 			},
+			buffers = add_opt(opts, { prompt_prefix = "Buffers: " }),
+			help_tags = add_opt(
+				opts,
+				{ prompt_prefix = "Help: ", layout_config = { preview_width = 0.7, height = 0.3, width = 1 } }
+			),
 		},
 		extensions = {
 			fzf = {
@@ -99,11 +133,6 @@ return function()
 				override_file_sorter = true,
 				case_mode = "smart_case",
 			},
-			frecency = {
-				show_scores = false,
-				show_unindexed = false,
-				ignore_patterns = { "*.git/*", "*/tmp/*", "node_modules/" },
-			},
 			live_grep_args = {
 				auto_quoting = true, -- enable/disable auto-quoting
 				theme = "ivy",
@@ -111,26 +140,11 @@ return function()
 					height = 0.4,
 				},
 				border = false,
-				-- define mappings, e.g.
-			},
-			-- undo = {
-			-- 	side_by_side = true,
-			-- 	mappings = { -- this whole table is the default
-			-- 		i = {
-			-- 			-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-			-- 			-- you want to use the following actions. This means installing as a dependency of
-			-- 			-- telescope in it's `requirements` and loading this extension from there instead of
-			-- 			-- having the separate plugin definition as outlined above. See issue #6.
-			-- 			["<cr>"] = require("telescope-undo.actions").yank_additions,
-			-- 			["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-			-- 			["<C-cr>"] = require("telescope-undo.actions").restore,
-			-- 		},
-			-- 	},
-			-- },
-			buffers = {
-				layout_strategy = "vertical",
-				layout_config = {
-					preview_width = 0,
+				mappings = {
+					["i"] = {
+						-- ["<Tab>"] = telescope_actions.select_default,
+						["<Esc>"] = telescope_actions.close,
+					},
 				},
 			},
 			file_browser = {
@@ -162,12 +176,10 @@ return function()
 		},
 	})
 
-	-- require("telescope").load_extension("frecency")
 	require("telescope").load_extension("fzf")
 	-- require("telescope").load_extension("live_grep_args")
 	-- require("telescope").load_extension("undo")
 	-- require("telescope").load_extension("zoxide")
 	-- require("telescope").load_extension("project")
-	-- require("telescope").load_extension("session-lens")
 	require("telescope").load_extension("file_browser")
 end
