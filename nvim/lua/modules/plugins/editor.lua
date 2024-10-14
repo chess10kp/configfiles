@@ -79,4 +79,15 @@ editor["lukas-reineke/indent-blankline.nvim"] = {
 	end,
 }
 
+editor["ej-shafran/compile-mode.nvim"] = {
+	enabled = true,
+	lazy = false,
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	config = function()
+		vim.g.compile_mode = {}
+	end,
+}
+
 return editor

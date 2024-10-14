@@ -132,6 +132,7 @@ function Lazy:load_lazy()
 			end,
 		},
 		{
+			enabled = false,
 			dir = "/home/sigma/.config/nvim/lua/runner",
 			name = "runner",
 			config = function()

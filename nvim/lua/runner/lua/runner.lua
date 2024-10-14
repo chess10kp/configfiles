@@ -1,38 +1,24 @@
 local M = {}
 
--- @param cmd String default cmd
--- @param cmd String default cmd
--- @param bufnr Int
-local function get_cmd(cmd, bufnr)
-	if vim.g.runner_cmd == nil then
-		local run_cmd =
-			vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
-		if run_cmd == "" then
-			return nil
-		end
-		vim.api.nvim_buf_set_var(bufnr, "runner_cmd", run_cmd)
-	end
-	return vim.api.nvim_buf_get_var(bufnr, "runner_cmd")
-end
+M.cmd_var = "compile_cmd"
 
 -- @param bufnr Int
 local function get_cmd(cmd, bufnr)
-	if vim.g.runner_cmd == nil then
-		local run_cmd =
-			vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", completion = "file", cancelreturn = "" })
+	if vim.api.nvim_get_var(M.cmd_var) == nil then
+		local run_cmd = vim.fn.input({ prompt = "Compile command: ", default = cmd .. " ", cancelreturn = "" })
 		if run_cmd == "" then
 			return nil
 		end
-		vim.api.nvim_buf_set_var(bufnr, "runner_cmd", run_cmd)
+		vim.api.nvim_set_var(M.cmd_var, run_cmd)
 	end
-	return vim.api.nvim_buf_get_var(bufnr, "runner_cmd")
+	return vim.api.nvim_get_var(M.cmd_var)
 end
 
 --
 -- @param bufnr Int
 --
-local function set_cmd(bufnr)
-	local cmd = vim.g.runner_cmd
+local function set_cmd()
+	local cmd = vim.api.nvim_get_var(M.cmd_var)
 	if cmd == nil then
 		cmd = ""
 	end
@@ -41,8 +27,8 @@ local function set_cmd(bufnr)
 	if run_cmd == "" then
 		return nil
 	end
-	vim.api.nvim_buf_set_var(bufnr, "runner_cmd", run_cmd)
-	return vim.api.nvim_buf_get_var(bufnr, "runner_cmd")
+	vim.api.nvim_set_var(M.cmd_var, run_cmd)
+	return vim.api.nvim_get_var(M.cmd_var)
 end
 
 --
@@ -67,18 +53,6 @@ local function run_in_terminal(cmd)
 			vim.api.nvim_buf_delete(buf, { force = true })
 		end,
 	})
-
-	-- local width = vim.api.nvim_get_option("columns")
-	-- local height = vim.api.nvim_get_option("lines")
-	-- local win_width = 50
-	-- local win_height = 10
-	-- local win_opts = {
-	-- 	relative = "editor",
-	-- 	width = win_width,
-	-- 	height = win_height,
-	-- 	row = math.ceil((height - win_height) / 2),
-	-- 	col = math.ceil((width - win_width) / 2),
-	-- }
 end
 
 -- @param file String name of ft
@@ -88,22 +62,24 @@ local function make_maps(ft, c)
 		pattern = "*." .. ft,
 		group = "Runner",
 		callback = function(ev)
-			local bufnr = ev.buf
-			vim.api.nvim_buf_create_user_command(bufnr, "RunnerRun", function()
-				set_cmd(bufnr)
-				local cmd = get_cmd(c, bufnr)
+			vim.api.nvim_create_user_command("Compile", function()
+				local cmd = set_cmd()
 				if cmd == nil then
 					return
 				end
 				run_in_terminal(cmd)
 			end, {})
-			vim.keymap.set("n", "<leader>cc", function()
-				local cmd = set_cmd(bufnr)
+			vim.keymap.set("n", "<leader>cC", function()
+				local cmd = get_cmd()
 				if cmd == nil then
+					vim.cmd("Compile")
 					return
 				end
 				run_in_terminal(cmd)
-			end, { buffer = true })
+			end, {})
+			vim.keymap.set("n", "<leader>cc", function()
+				vim.cmd("Compile")
+			end)
 		end,
 	})
 end
@@ -114,7 +90,7 @@ end
 -- @param opts.key String
 --
 M.setup = function(opts)
-	vim.g.runner_cmd = nil
+	vim.api.nvim_set_var(M.cmd_var, nil)
 	local filetypes = {
 		lua = { "lua", vim.fn.expand("%:p") },
 		py = { "python", "-u ", vim.fn.expand("%:p") },

@@ -124,6 +124,9 @@ nmap("di)", '"tdi)')
 nmap("da}", '"tda}')
 nmap("da}", '"tda}')
 
+nmap("<leader>es", "gnn")
+nmap("<leader>es", "gnn")
+
 nmap("<leader>lo", "<Cmd>SymbolsOutline<CR>")
 
 local function createMarkMappings()
@@ -154,13 +157,39 @@ local function createMarkMappings()
 		"x",
 		"y",
 		"z",
+		"A",
+		"B",
+		"C",
+		"D",
+		"E",
+		"F",
+		"G",
+		"H",
+		"I",
+		"J",
+		"K",
+		"L",
+		"M",
+		"N",
+		"O",
+		"P",
+		"Q",
+		"R",
+		"S",
+		"T",
+		"U",
+		"V",
+		"W",
+		"X",
+		"Y",
+		"Z",
 	}
 
 	for _, mark in ipairs(marks) do
 		vim.api.nvim_set_keymap(
 			"n",
 			string.format("'%s", mark),
-			string.format("~%s", mark),
+			string.format("`%s", mark),
 			{ noremap = true, silent = true }
 		)
 	end

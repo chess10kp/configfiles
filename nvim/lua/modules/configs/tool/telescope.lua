@@ -93,33 +93,8 @@ return function()
 				},
 				border = false,
 			},
-			find_files = {
-				theme = "ivy",
-				layout_config = {
-					preview_width = 0,
-					height = 0.3,
-					width = 1,
-				},
-				border = false,
-				prompt_prefix = "Find file: ",
-			},
-			document_symbols = {
-				theme = "ivy",
-				layout_config = {
-					preview_width = 0,
-					height = 0.1,
-					width = 1,
-				},
-				prompt_position = "bottom",
-				border = false,
-				prompt_prefix = "Buffer: ",
-				mappings = {
-					["i"] = {
-						-- ["<Tab>"] = telescope_actions.select_default,
-						["<Esc>"] = telescope_actions.close,
-					},
-				},
-			},
+			find_files = add_opt(opts, { prompt_prefix = "Find: " }),
+			document_symbols = add_opt(opts, { prompt_prefix = "Symbol: " }),
 			buffers = add_opt(opts, { prompt_prefix = "Buffers: " }),
 			help_tags = add_opt(
 				opts,
