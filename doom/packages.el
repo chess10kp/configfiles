@@ -16,12 +16,39 @@
 ;;   :recipe (:host github :repo "username/repo"))
 
 (package! crm-custom)
+(package! gruber-darker-theme)
 
+(package! vscode-dark-plus-theme)
 (package! smex)
+(package! devdocs)
 
-(package! ido-completing-read+)
+(package! typit)
+
+(package! ido-completing-read+) ;; ubiquitous + other goodies for id
+
+(package! ws-butler :disable t)
+(package! evil-snipe :disable t)
+(package! evil-escape :disable t)
+(package! better-jumper :disable t)
 
 (package! org-roam)
+
+(when (package! lsp-bridge
+        :recipe (:host github
+                 :repo "manateelazycat/lsp-bridge"
+                 :branch "master"
+                 :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+                 ;; do not perform byte compilation or native compilation for lsp-bridge
+                 :build (:not compile)))
+  (package! markdown-mode)
+  (package! yasnippet))
+
+(package! org-download)
+
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+
+(package! rainbow-mode)
 
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
 ;; file, or is located in a subdirectory of the repo, you'll need to specify
