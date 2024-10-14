@@ -5,7 +5,7 @@ IFS=$' '
 while true
 do
  tasks=$(cat /tmp/tasks)
- [[ -z $tasks ]]  && notify-send -t 300000 --urgency=CRITICAL   "Tasks:" "No task created" && sleep 20 && continue  
+ [[ -z $tasks ]]  && notify-send -t 2000 --urgency=CRITICAL   "Tasks:" "No task created" && sleep 20 && continue  
  read -ra arr <<< $(cat /tmp/tasks)
  d=$(date +'%H%M')
  task_time="${arr[-1]}"

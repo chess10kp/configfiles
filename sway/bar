@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# the get_tasks function reads a file, then prints the current time, as well as time the task will be completed
+# how do you change this to output the remaining time to finish the task
 get_tasks() {
   tasks=$(cat /tmp/tasks)
   if [[ -z $tasks ]]; then
@@ -11,7 +13,30 @@ get_tasks() {
       tasks="$(echo $tasks | awk '{print $1,$2}' ) $(printf "%04d" $completed_time)"
     fi
   fi
+  if [[ $tasks == "not set" ]]; then
+    echo "{\"name\": \"tasks\", \"full_text\": \"\" }"
+    return
+  fi
   echo "{\"name\": \"tasks\", \"full_text\": \"CUR: $tasks\" }"
+  return
+}
+
+get_countdown() {
+  timer_start=$(cat /tmp/timer_start) 
+  if [[ -z $timer_start ]]; then
+    echo "{\"name\": \"tasks\", \"full_text\": \"\" }" 
+  else
+    current_time=$(date +'%s')
+    countdown=$((10#$current_time - 10#$timer_start ))
+    # format countdown to hhmmss
+    countdown=$(date -u -d @${countdown} +'%H:%M:%S')
+    echo "{\"name\": \"tasks\", \"full_text\": \"$countdown\" }"
+  fi
+}
+
+get_cryp() {
+  pc=$(curl -s https://api.coindesk.com/v1/bpi/currentprice/BTC.json | jq -r '.bpi.USD.rate' | sed "s/,//g" | sed "s/\.//g")
+  echo "{\"name\": \"btc\", \"full_text\": \"$pc\" }"
 }
 
 get_bat() {
@@ -21,7 +46,7 @@ get_bat() {
   else
     color="#d79921"
   fi
-  echo "{\"name\": \"battery\", \"full_text\": \"BAT: $bat\", \"color\": \"$color\" }"
+  echo "{\"name\": \"battery\", \"full_text\": \"$bat\", \"color\": \"$color\" }"
 }
 
 get_charging() {
@@ -31,16 +56,16 @@ get_charging() {
   else
     color="#282828"
   fi
-  echo "{\"name\": \"charging\", \"full_text\": \"AC: $charging\", \"color\": \"$color\" }" 
+  echo "{\"name\": \"charging\", \"full_text\": \"$charging\", \"color\": \"$color\" }" 
 }
 
 get_mem() {
-  mem=$(free -h | grep Mem | awk '{print $3}')
-  echo "{\"name\": \"mem\", \"full_text\": \"MEM: $mem\" }"
+  mem=$(free -h | grep Mem | awk '{print $3}' | sed "s/[a-Z]//g")
+  echo "{\"name\": \"mem\", \"full_text\": \"$mem\" }"
 }
 
 get_date() {
-  date=$(date +'%X')
+  date=$(date +'%H%M')
   echo "{\"name\": \"date\", \"full_text\": \"$date\" }"
 }
 
@@ -60,18 +85,19 @@ get_day() {
 
 get_status() {
   echo -n "["
-  get_tasks
+  get_countdown
+  echo ","
+  get_mem 
+  echo ","
+  get_date 
   echo ","
   get_bat
   echo ","
   get_charging 
-  echo ","
-  get_mem 
-  echo ","
-  get_day
-  echo ","
-  get_date 
-  echo ","
+  # get_day
+  # echo ","
+  # get_cryp
+  # echo ","
   echo "]"
 } 
 
@@ -79,7 +105,7 @@ echo "{ \"version\": 1 }"
 echo "["
 get_status
 echo ","
-sleep 1 
+sleep 1
 
 while true; do 
   get_status

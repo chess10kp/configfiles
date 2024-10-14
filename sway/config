@@ -100,7 +100,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $menu 
+    bindsym $mod+z exec "tofi-run --prompt 'Run:' | xargs swaymsg exec --"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -117,8 +118,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
     bindsym XF86AudioPlay exec mpc toggle
 
-    # bindsym $mod+Control+l exec swaylock -e -l -i ~/Pictures/wp/lockscreen.png
-    bindsym $mod+Control+l exec swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 
+    # bindsym $mod+Control+l exec swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 
+    bindsym $mod+Control+l exec swaylock -e -i ~/Pictures/wp/defaultwp.jpg --indicator-thickness 5 
     # Exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
@@ -222,10 +223,11 @@ mode "script" {
     bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
     bindsym p exec ~/.config/scripts/power.sh; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
-    bindsym h exec bluetoothctl connect B-1:38:e2:35:25:B4; mode "default"
+    bindsym h exec bluetoothctl connect B0:38:E2:35:25:B4; mode "default"
     bindsym $mod+Print mode "default"; exec  ~/.config/scripts/screenshot.sh
     bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
-    bindsym $mod+t exec  ~/.config/scripts/timer.sh; mode "default"
+    bindsym $mod+t mode "timer_map"
+    bindsym $mod+Shift+t exec  ~/.config/scripts/set_time 0; mode "default"
     bindsym $mod+a exec  ~/.config/scripts/todo; mode "default"
     bindsym $mod+n exec  ~/.config/scripts/bookman.sh -nw --open; mode "default"
     bindsym $mod+b exec  ~/.config/scripts/bookman.sh --open; mode "default"
@@ -241,6 +243,11 @@ mode "script" {
     bindsym Escape mode "default"
 }
 bindsym $mod+s mode "script"
+
+mode "timer_map" {
+  bindsym s exec ~/.config/scripts/set_time 1; mode "default"
+  bindsym t exec ~/.config/scripts/timer.sh; mode "default"
+}
 
 
 bindsym $mod+c mode "layout"
@@ -262,7 +269,6 @@ mode "layout" {
 bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
 
 
-# alt mod (no conflicting emacs binds)
 bindsym $alt+Shift+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
 bindsym $alt+Shift+q kill
 bindsym $alt+Shift+$left focus left
@@ -319,19 +325,37 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
 mode "open" {
+    # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs; mode "default"
+    bindsym e workspace "emacs"; mode "default"
+    bindsym Shift+e workspace "emacs"; exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" $term -e ~/.local/bin/checkemacs -nw ~/projects/notes/todo.org; mode "default"
+    bindsym d workspace "8"; exec ~/.config/scripts/mode/sway-goto-if-not-start "8" "firefox" "/usr/bin/firefox --new-window https://discord.com/app" ; mode "default"
+    bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox"; mode "default"
+    bindsym c workspace "chess"; exec ~/.config/scripts/mode/sway-goto-if-not-start "chess" "firefox" "/usr/bin/firefox --new-window https://chess.com/news"; mode "default"
+    bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "firefox" "firefox --new-window https://monkeytype.com"; mode "default"
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
-    # bindsym e exec  ~/.local/bin/checkemacs -c ; mode "default"
-    bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs ~/projects/notes/todo.org ; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
-    bindsym c exec code; mode "default"
+    bindsym $mod+c exec code; mode "default"
     bindsym w exec firefox; mode "default"
-    bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox" ;mode default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
 bindsym $mod+o mode "open"
+
+
+mode "focus" {
+     bindsym $mod+Shift+Return exec emacsclient --eval "(org-clock-out)" ;mode "default"
+    bindsym $mod+Shift+$left focus left
+    bindsym $mod+Shift+$down focus down
+    bindsym $mod+Shift+$up focus up
+    bindsym $mod+Shift+$right focus right
+    bindsym $mod+d exec $menu
+    bindsym $mod+m exec ~/.config/scripts/mpd.sh
+}
+
+bindsym $mod+Control+f mode "focus"
 
 bindsym $mod+Shift+s scratchpad show
 bindsym $mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
@@ -343,10 +367,14 @@ bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 
 
 for_window [title="Music"] move scratchpad
+for_window [title="Discord"] move workspace 8
+for_window [title="Monkeytype"] move workspace "typing"
+for_window [class="mpv"] move workspace 1
 
 for_window [app_id="showmethekey-gtk"] floating enable
 for_window [app_id="showmethekey-gtk"] sticky enable
 for_window [app_id="showmethekey-gtk"] move position 900px 1300px
+for_window [app_id="emacs"] move workspace "emacs" 
 
 for_window [class="steam"] move container to workspace 9
 for_window [title="Imgmenu"] floating toggle
@@ -360,15 +388,17 @@ for_window [title="float"] floating toggle
 bar {
     position bottom
     font pango:Terminus 20px
+    gaps  0 0 0 0
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command ~/.config/sway/bar
     tray_output * 
-
     colors {
         statusline #ebdbb2
-        background #0e1419
-        inactive_workspace #0e1419 #0e1419 #ebdbb2
+        background #0e1418
+        # inactive_workspace #0e1419 #0e1419 #ebdbb2
+        active_workspace #0e1419 #0e1419 #ebdbb2
+        focused_workspace #0e1419 #0e1419 #ebdbb2
     }
 }
 
@@ -377,14 +407,14 @@ exec foot --server
 exec ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
 exec mpd
 exec dunst
-exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.config/scripts/checkemacs
 exec  ~/.config/scripts/wallpaper.sh --set
 exec  ~/.config/scripts/lowbattery.sh
-exec  ~/.config/scripts/check_task
+# exec  ~/.config/scripts/check_task
 exec tmux new -s init -d 
 exec wl-paste --watch cliphist store
 #  exec nwg-dock-hyprland -i 24 -r
 # exec swaylock -e -c 000000
+# exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs
 exec_always notify-send "Sway " "config reloaded"
 
 # GENTOO specific

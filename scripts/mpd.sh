@@ -3,7 +3,7 @@ source ~/.config/scripts/configvars.sh
 music_dir="$HOME/Music"
 
 songs=$(ls $music_dir)
-songs+=$(printf "\n::pause::\n::play::\n::next::\n::repeat::\n::norepeat::\n::single::\n::nosingle::\n::clear::")
+songs+=$(printf "\n::pause::\n::play::\n::next::\n::rescan::\n::repeat::\n::norepeat::\n::single::\n::nosingle::\n::clear::")
 
 selected="$(echo "$songs" | $rofi_prompt 'Queue: '  )"
 
@@ -12,6 +12,9 @@ case "$selected" in
     notify-send "Music" "Aborted selection"
     exit 
     ;; 
+  ::rescan::)
+    mpc rescan
+  ;;
   ::pause::) 
     mpc pause
   ;;

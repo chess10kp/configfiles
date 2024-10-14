@@ -17,7 +17,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export XKB_DEFAULT_VARIANT=pc104
   export XDG_SESSION_DESKTOP=sway
   export XDG_CURRENT_DESKTOP=sway 
-  dbus-run-session sway
+  dbus-launch sway
 fi
 
 HISTFILE=~/.zsh_history
@@ -29,11 +29,6 @@ zstyle ':completion:*' fzf-search-display true
 autoload -Uz compinit
 compinit
 # binds up and down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -s "^V" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
-bindkey '^R' history-incremental-search-backward
-
 function cdfzf {
   cd ~/projects
   dir=$(find ./  -name node_modules -prune -o -name "*.git" -prune -o -name venv -prune -o  -type d   | fzf)
@@ -66,6 +61,7 @@ alias cp="cp -v"
 alias mv="mv -i"
 alias ls="ls --color"
 alias mpic="mpv --loop=inf"
+alias convas="cd ~/projects/repos/convas; ./src/convas.py"
 
 function yt
 {
@@ -78,6 +74,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin/flutter/bin/"
+
 if [[ -d "$HOME/.cargo/bin" ]]; then
  export PATH="$PATH:$HOME/.cargo/bin/cargo" 
 fi
@@ -120,11 +117,17 @@ PROMPT='%F{blue}%f %F{red}%f%F{green}λ %f'
 # source /usr/share/nvm/install-nvm-exec
 # eval "$(zoxide init zsh)"
 
-set show-mode-in-prompt on
-set emacs-mode-string "\1\e]133;A\e\\\2"
+# set emacs-mode-string "\1\e]133;A\e\\\2"
 # Uncomment and/or adjust if you're using the vi editing-mode.
 # set vi-cmd-mode-string "\1\e]133;A\e\\\2"
 # set vi-ins-mode-string "\1\e]133;A\e\\\2"
+
+setopt emacs
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -s "^V" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
+bindkey '^R' history-incremental-search-backward
+
 
 
 [ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env
