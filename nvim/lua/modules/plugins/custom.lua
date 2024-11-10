@@ -22,7 +22,7 @@ custom["folke/neodev.nvim"] = {
 	config = require("lang.neodev"),
 }
 custom["folke/todo-comments.nvim"] = {
-	event = "InsertEnter",
+	event = "BufEnter",
 	lazy = true,
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()

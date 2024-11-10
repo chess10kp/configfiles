@@ -10,6 +10,6 @@ nmap("<leader>ld", ":Lspsaga show_line_diagnostics<CR>", "lsp: show line diagnos
 nmap("gr", ":Lspsaga rename<CR>", "lsp: rename")
 nmap("gR", ":Lspsaga rename ++project<CR>", "lsp: rename in project")
 nmap("ga", ":Lspsaga code_action<CR>", "lsp: code action")
-nmap("gd", ":Lspsaga peek_definition<CR>", "lsp: peek definition")
-nmap("gD", ":Lspsaga goto_definition<CR>", "lsp: goto definition")
+nmap("gD", ":Lspsaga peek_definition<CR>", "lsp: peek definition")
+nmap("gd", ":Lspsaga goto_definition<CR>", "lsp: goto definition")
 nmap("K", ":Lspsaga hover_doc<CR>", "lsp: show doc")

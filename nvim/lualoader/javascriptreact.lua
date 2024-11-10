@@ -1,9 +1,7 @@
 local ls = require("luasnip")
-local s = ls.snippet
 
 local s = ls.s --> snippet
 local i = ls.i --> insert node
-local t = ls.t --> text node
 
 local fmt = require("luasnip.extras.fmt").fmt
 
@@ -45,21 +43,6 @@ return {}, {
 		fmt(
 			[[ 
   for (const <> in <>) {
-     <>
-  }]],
-			{
-				i(1, "value"),
-				i(2, "arr"),
-				i(3, ""),
-			},
-			{ delimiters = "<>" }
-		)
-	),
-	s(
-		"arfun",
-		fmt(
-			[[ 
-  const <> = (<>) =>> {
      <>
   }]],
 			{

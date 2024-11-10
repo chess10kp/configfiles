@@ -4,10 +4,10 @@ return function()
 		theme = "ivy",
 		layout_config = {
 			preview_width = 0,
-			height = 0.1,
+			height = 0.3,
 			width = 1,
+			prompt_position = "bottom",
 		},
-		prompt_position = "bottom",
 		border = false,
 		mappings = {
 			["i"] = {
@@ -94,7 +94,14 @@ return function()
 				border = false,
 			},
 			find_files = add_opt(opts, { prompt_prefix = "Find: " }),
-			document_symbols = add_opt(opts, { prompt_prefix = "Symbol: " }),
+			lsp_document_symbols = add_opt(opts, {
+				prompt_prefix = "Symbol: ",
+				layout_config = {
+					preview_width = 0,
+					height = 0.3,
+					width = 1,
+				},
+			}),
 			buffers = add_opt(opts, { prompt_prefix = "Buffers: " }),
 			help_tags = add_opt(
 				opts,
@@ -132,7 +139,7 @@ return function()
 				hide_parent_dir = true,
 				layout_config = {
 					preview_width = 0,
-					-- prompt_position = "bottom",
+					prompt_position = "bottom",
 					height = 0.3,
 					width = 1,
 				},

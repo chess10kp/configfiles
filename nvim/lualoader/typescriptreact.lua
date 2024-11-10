@@ -1,9 +1,7 @@
 local ls = require("luasnip")
-local s = ls.snippet
 
 local s = ls.s --> snippet
 local i = ls.i --> insert node
-local t = ls.t --> text node
 
 local fmt = require("luasnip.extras.fmt").fmt
 
@@ -56,21 +54,6 @@ return {}, {
 		)
 	),
 	s(
-		"arfun",
-		fmt(
-			[[ 
-  const <> = (<>) =>> {
-     <>
-  }]],
-			{
-				i(1, "value"),
-				i(2, "arr"),
-				i(3, ""),
-			},
-			{ delimiters = "<>" }
-		)
-	),
-	s(
 		"clg",
 		fmt(
 			[[
@@ -88,7 +71,7 @@ return {}, {
 		"divtag",
 		fmt(
 			[[
-      <div class="{}">{}<div>
+      <div className="{}">{}</div>
       ]],
 			{
 				i(1, "classname"),
@@ -118,7 +101,7 @@ return {}, {
 		"h1",
 		fmt(
 			[[
-      <h1 class="{}">{}<h1>
+      <h1 class="{}">{}</h1>
       ]],
 			{
 				i(1, "classname"),

@@ -6,11 +6,9 @@ ui["ellisonleao/gruvbox.nvim"] = {
 	event = { "BufReadPost" },
 	config = require("ui.gruvbox"),
 }
-ui["j-hui/fidget.nvim"] = {
-	config = require("ui.fidget"),
-}
 ui["karb94/neoscroll.nvim"] = {
 	lazy = true,
+	event = "BufReadPost",
 	config = function()
 		require("neoscroll").setup({})
 	end,
