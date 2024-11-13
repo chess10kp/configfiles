@@ -6,7 +6,7 @@ settings["use_ssh"] = false
 
 -- Set it to false if there are no need to format on save.
 ---@type boolean
-settings["format_on_save"] = true
+settings["format_on_save"] = false
 
 -- Set it to false if the notification after formatting is annoying.
 ---@type boolean
@@ -41,7 +41,7 @@ settings["load_big_files_faster"] = false
 -- Parameters will be automatically completed as you type.
 -- Example: { sky = "#04A5E5" }
 ---@type palette
-settings["palette_overwrite"] = {mantle = "#11111B"}
+settings["palette_overwrite"] = { mantle = "#11111B" }
 
 settings["colorscheme"] = "gruvbox"
 
@@ -83,7 +83,7 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-  "rust_analyzer",
+	"rust_analyzer",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.
@@ -92,12 +92,12 @@ settings["lsp_deps"] = {
 ---@type string[]
 settings["null_ls_deps"] = {
 	"clang_format",
-  "cpplint", 
+	"cpplint",
 	"prettier",
 	"rustfmt",
 	"shfmt",
 	"stylua",
-  "black",
+	"black",
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.

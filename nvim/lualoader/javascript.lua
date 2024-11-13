@@ -88,7 +88,7 @@ return {}, {
 		"divtag",
 		fmt(
 			[[
-      <div class="{}">{}<div>
+      <div className="{}">{}<div>
       ]],
 			{
 				i(1, "classname"),
@@ -103,7 +103,7 @@ return {}, {
 		"itag",
 		fmt(
 			[[
-      <i class="{}">{}<i>
+      <i className="{}">{}<i>
       ]],
 			{
 				i(1, ""),
@@ -118,7 +118,7 @@ return {}, {
 		"h1",
 		fmt(
 			[[
-      <h1 class="{}">{}<h1>
+      <h1 className="{}">{}<h1>
       ]],
 			{
 				i(1, "classname"),

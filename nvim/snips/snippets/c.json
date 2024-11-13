@@ -6,7 +6,16 @@
       "\t$0",
       "}"
     ],
-    "description": "Code snippet for 'fori' loop"
-  }
+    "description": "fori loop"
+  },
+  "whilei": {
+    "prefix": "whilei",
+    "body": [
+      "while (${1:i} ${2:<} ${4:length}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "whilei loop"
+  },
 }
   

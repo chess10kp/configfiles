@@ -10,7 +10,9 @@ ui["karb94/neoscroll.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 	config = function()
-		require("neoscroll").setup({})
+		require("neoscroll").setup({
+			hide_cursor = false,
+		})
 	end,
 }
 return ui
