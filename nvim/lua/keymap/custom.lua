@@ -22,12 +22,6 @@ nmap("<leader>no", ":echo 'noh'<CR>:noh<CR>", "editor: nothing")
 cmap("jk", "<ESC>", "editor: escape")
 nmap("<leader>tg", ":!ctags -R *<CR>", "lsp: generate tags")
 
-vim.api.nvim_set_keymap(
-	"i",
-	"<Tab>",
-	"v:lua.require'luasnip'.expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'",
-	{ expr = true, silent = true }
-)
 nmap("<leader>ff", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":find **/**<Left>", true, false, true), "n", false)
 end, "editor: find file")

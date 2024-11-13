@@ -95,8 +95,8 @@ get_status() {
   echo ","
   get_charging 
   # get_day
-  # echo ","
-  # get_cryp
+  echo ","
+  get_cryp
   # echo ","
   echo "]"
 } 

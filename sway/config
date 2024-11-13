@@ -247,6 +247,7 @@ bindsym $mod+s mode "script"
 mode "timer_map" {
   bindsym s exec ~/.config/scripts/set_time 1; mode "default"
   bindsym t exec ~/.config/scripts/timer.sh; mode "default"
+  bindsym Return mode "default" 
 }
 
 
@@ -330,10 +331,10 @@ mode "open" {
     # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs; mode "default"
     bindsym e workspace "emacs"; mode "default"
     bindsym Shift+e workspace "emacs"; exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" $term -e ~/.local/bin/checkemacs -nw ~/projects/notes/todo.org; mode "default"
-    bindsym d workspace "8"; exec ~/.config/scripts/mode/sway-goto-if-not-start "8" "firefox" "/usr/bin/firefox --new-window https://discord.com/app" ; mode "default"
+    bindsym d workspace "8"; exec ~/.config/scripts/mode/sway-goto-if-not-start "8" "Discord" "/usr/bin/chromium --app=\"https://discord.com/app\"" ; mode "default"
     bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox"; mode "default"
-    bindsym c workspace "chess"; exec ~/.config/scripts/mode/sway-goto-if-not-start "chess" "firefox" "/usr/bin/firefox --new-window https://chess.com/news"; mode "default"
-    bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "firefox" "firefox --new-window https://monkeytype.com"; mode "default"
+    bindsym c workspace "chess"; exec ~/.config/scripts/mode/sway-goto-if-not-start "chess" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
+    bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
     bindsym $mod+c exec code; mode "default"
@@ -374,7 +375,6 @@ for_window [class="mpv"] move workspace 1
 for_window [app_id="showmethekey-gtk"] floating enable
 for_window [app_id="showmethekey-gtk"] sticky enable
 for_window [app_id="showmethekey-gtk"] move position 900px 1300px
-for_window [app_id="emacs"] move workspace "emacs" 
 
 for_window [class="steam"] move container to workspace 9
 for_window [title="Imgmenu"] floating toggle
@@ -408,6 +408,7 @@ exec ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-
 exec mpd
 exec dunst
 exec  ~/.config/scripts/wallpaper.sh --set
+# output * bg ~/Pictures/wp/defaultwp.jpg fit #291749
 exec  ~/.config/scripts/lowbattery.sh
 # exec  ~/.config/scripts/check_task
 exec tmux new -s init -d 
@@ -418,7 +419,7 @@ exec wl-paste --watch cliphist store
 exec_always notify-send "Sway " "config reloaded"
 
 # GENTOO specific
-exec syncthing
+# exec syncthing
 exec gentoo-pipewire-launcher restart
 exec /usr/libexec/xdg-desktop-portal-gtk -r
 exec /usr/libexec/xdg-desktop-portal-wlr -r

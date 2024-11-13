@@ -8,7 +8,7 @@
 	#
 	# Otherwise, fonts are interpreted in Pango format.
 	font = "Terminus"
-  font-size=18
+  font-size=14
 
 	# Comma separated list of OpenType font feature settings to apply,
   #

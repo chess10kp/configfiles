@@ -9,6 +9,7 @@ alarm_time=$(printf "" | $dmenu_prompt "Set timer: " )
 case "$(echo $alarm_time | sed 's/[0-9]*//g')" in 
     h)
       notify-send -a "Timer" "set for $alarm_time"
+      ;;
     m)
         notify-send -a "Timer" "set for $alarm_time"
         ;;

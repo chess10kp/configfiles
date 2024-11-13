@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: latex-subscript
+# key: _
+# --
+_{$(1:)}$0
