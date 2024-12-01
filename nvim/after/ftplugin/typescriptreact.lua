@@ -1,0 +1,3 @@
+vim.cmd([[
+LspStop tsserver
+]])
