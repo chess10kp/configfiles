@@ -7,7 +7,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Terminus"
+	font = "Iosevka"
   font-size=14
 
 	# Comma separated list of OpenType font feature settings to apply,
@@ -77,14 +77,14 @@ prompt-text = " "
 prompt-padding = 0
 placeholder-text = ""
 num-results = 0
-result-spacing = 10
-horizontal = true
+result-spacing = 0
+horizontal = false
 min-input-width = 0
-width = 100%
-height = 27
+width = 30%
+height = 20%
 
 	# Width of the border outlines in pixels.
-	outline-width = 0
+	outline-width = 1
 
 	# Border outline color
 	outline-color = #fbf1c7
@@ -123,7 +123,7 @@ height = 27
 	#
 	# Supported values: top-left, top, top-right, right, bottom-right,
 	# bottom, bottom-left, left, center.
-	anchor = bottom
+	anchor = center
 
 	# Set the size of the exclusive zone.
 	#

@@ -28,6 +28,21 @@ return function()
 		end
 	end, { silent = true })
 
+	vim.keymap.set({ "i", "v" }, "<C-j>", function()
+		if require("luasnip").choice_active() == true then
+			require("luasnip").change_choice(1)
+		else
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, false, true), "n", true)
+		end
+	end, { silent = true })
+	vim.keymap.set({ "i", "s" }, "<C-k>", function()
+		if require("luasnip").choice_active() == true then
+			require("luasnip").change_choice(-1)
+		else
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, false, true), "n", true)
+		end
+	end, { silent = true })
+
 	ls.filetype_extend("typescriptreact", { "javascriptreact", "javascript", "typescript" })
 	ls.filetype_extend("typescript", { "javascriptreact", "javascript", "typescriptreact" })
 	ls.filetype_extend("javascriptreact", { "javascript", "typescript", "typescriptreact" })

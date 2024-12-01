@@ -88,5 +88,8 @@
     "diagnostics.globals": [
         "vim",
         "createBar"
+    ],
+    "diagnostics.disable": [
+        "unused-local"
     ]
 }

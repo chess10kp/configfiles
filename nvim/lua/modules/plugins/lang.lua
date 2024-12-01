@@ -21,12 +21,6 @@ lang["Saecki/crates.nvim"] = {
 	config = require("lang.crates"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
-lang["iamcco/markdown-preview.nvim"] = {
-	lazy = true,
-	enabled = true,
-	ft = "markdown",
-	build = ":call mkdp#util#install()",
-}
 lang["chrisbra/csv.vim"] = {
 	enabled = true,
 	lazy = true,
@@ -52,7 +46,7 @@ lang["nvim-java/nvim-java"] = {
 	dependencies = { "nvim-lspconfig" },
 	config = function()
 		require("java").setup()
-		require("lspconfig").jdtls.setup()
+		require("lspconfig").jdtls.setup({})
 	end,
 }
 lang["nvim-orgmode/orgmode"] = {
@@ -67,8 +61,10 @@ lang["nvim-orgmode/orgmode"] = {
 	end,
 }
 lang["luckasRanarison/tailwind-tools.nvim"] = {
-	enabled = false,
+	enabled = true,
+	lazy = true,
 	name = "tailwind-tools",
+	ft = { "typescriptreact", "javascriptreact" },
 	build = ":UpdateRemotePlugins",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",

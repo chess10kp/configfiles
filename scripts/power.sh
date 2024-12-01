@@ -10,7 +10,7 @@ kill="kill"
 source ~/.config/scripts/configvars.sh
 
 run_rofi() {
-	echo -e "$shutdown\n$reboot\n$suspend\n$logout" | $dmenu_prompt "Power"
+	echo -e "$shutdown\n$reboot\n$suspend\n$logout" | $dmenu_prompt "Power: "
 }
 
 # Execute Command

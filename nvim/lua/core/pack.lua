@@ -125,6 +125,7 @@ function Lazy:load_lazy()
 
 	local custom_plugins = {
 		{
+      enabled = false, 
 			dir = "/home/sigma/.config/nvim/lua/backForth",
 			name = "backForth",
 			config = function()

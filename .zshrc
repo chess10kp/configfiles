@@ -17,7 +17,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export XKB_DEFAULT_VARIANT=pc104
   export XDG_SESSION_DESKTOP=sway
   export XDG_CURRENT_DESKTOP=sway 
-  dbus-launch sway
+  dbus-launch wayfire
 fi
 
 HISTFILE=~/.zsh_history
@@ -63,6 +63,8 @@ alias ls="ls --color"
 alias mpic="mpv --loop=inf"
 alias convas="cd ~/projects/repos/convas; ./src/convas.py"
 
+# alias "du your_mom"="failed"
+
 function yt
 {
     command yt-dlp -f 'ba' -x --audio-format mp3 "$1" -o '%(title)s.mp3'
@@ -96,6 +98,7 @@ function tmux-run
 
 # source ~/.config/zsh/fzf-tab/fzf-tab.plugin.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 source ~/.config/zsh/fzf-tab/fzf-tab.zsh

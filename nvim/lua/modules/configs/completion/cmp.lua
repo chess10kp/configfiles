@@ -39,29 +39,29 @@ return function()
 
 		window = {
 			completion = {
-				-- border = border("PmenuBorder"),
+				border = border("PmenuBorder"),
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
 			},
 			documentation = {
-				max_height = 1000,
+				max_height = 800,
 				border = border("CmpDocBorder"),
 				winhighlight = "Normal:CmpDoc",
 			},
 		},
 		sorting = {
-			priority_weight = 2,
+			priority_weight = 3,
 			comparators = {
+        compare.exact,
+        compare.lsp_scores,
 				require("copilot_cmp.comparators").prioritize,
 				require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				-- compare.offset, -- Items closer to cursor will have lower priority
-				compare.exact,
 				-- compare.scopes,
-				compare.lsp_scores,
 				compare.sort_text,
 				compare.score,
-				require("cmp-under-comparator").under,
+				-- require("cmp-under-comparator").under,
 				compare.kind,
 				compare.length,
 				compare.order,

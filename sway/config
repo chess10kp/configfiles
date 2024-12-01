@@ -214,11 +214,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
     bindsym $mod+Shift+p workspace "opengl"; exec ~/.config/scripts/mode/sway-goto-if-not-start opengl firefox "firefox --private-window" 
     bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
+    bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
     bindsym Shift+Print exec ~/.local/bin/grimshot copy area
 
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
-    bindsym t mode "default";  exec ~/.config/scripts/set_task;
     # bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
     bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
     bindsym p exec ~/.config/scripts/power.sh; mode "default"
@@ -237,6 +237,7 @@ mode "script" {
     bindsym $mod+i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
     bindsym $mod+y mode "yank"
     bindsym $mod+c mode "config"
+    bindsym $mod+e exec ~/.config/scripts/emoji.sh; mode "default"
     bindsym v mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
     bindsym e mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
     bindsym Return mode "default"
@@ -270,14 +271,8 @@ mode "layout" {
 bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
 
 
-bindsym $alt+Shift+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
-bindsym $alt+Shift+q kill
-bindsym $alt+Shift+$left focus left
-bindsym $alt+Shift+$down focus down
-bindsym $alt+Shift+$up focus up
-bindsym $alt+Shift+$right focus right
-bindsym $alt+Shift+f fullscreen
-
+output eDP-1 mode 2240x1400  bg #0e1419 solid_color
+output HDMI-A-1 mode 2240x1400  bg #0e1419 solid_color
 bindsym $mod+Control+1 output eDP-1 enable
 bindsym $mod+Control+2 output eDP-1 disable
 bindsym $mod+Control+3 output HDMI-A-1 enable
@@ -291,7 +286,7 @@ mode "yank" {
     bindsym c exec ~/.config/scripts/cliphist.sh 2> /tmp/log; mode "default"
     bindsym b exec  ~/.config/scripts/bookman.sh --yank; mode "default"
     bindsym q exec ~/.config/scripts/power.sh; mode "default"
-    bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
+    # bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
     #bindsym c mode "config"
@@ -383,11 +378,13 @@ for_window [title="Imgmenu"] resize set width 1080
 for_window [class="Dunst"] border pixel 1
 for_window [title="float"] floating toggle
 
+
+
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    font pango:Terminus 20px
+    font pango:Iosevka 20px
     gaps  0 0 0 0
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -407,7 +404,7 @@ exec foot --server
 exec ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
 exec mpd
 exec dunst
-exec  ~/.config/scripts/wallpaper.sh --set
+# exec  ~/.config/scripts/wallpaper.sh --set
 # output * bg ~/Pictures/wp/defaultwp.jpg fit #291749
 exec  ~/.config/scripts/lowbattery.sh
 # exec  ~/.config/scripts/check_task

@@ -58,16 +58,15 @@ nmap("<C-m>", "<C-6>")
 vmap("H", "0")
 vmap("L", "$")
 
-nmap("<leader>cC", function()
-	vim.cmd("RunnerRun")
-end)
-
 cmap("<C-u>", function()
 	vim.api.nvim_feedkeys(".*", "n", true)
 end)
+nmap("<CR>", "")
 cmap("<C-o>", function()
 	vim.api.nvim_feedkeys("\\(.*\\)", "n", true)
 end)
+nmap("<C-i>", "<C-^>", "editor: other file")
+nmap("<M-w>", "<C-^>", "editor: other file")
 
 cmap("<M-b>", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Left>", true, false, true), "c", false)
@@ -77,8 +76,6 @@ cmap("<M-f>", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Right>", true, false, true), "c", false)
 end)
 
-nmap("<M-w>", "<C-^>")
-nmap("<C-p>", "<C-^>")
 
 nmap("<M-/>", function()
 	vim.o.hlsearch = true

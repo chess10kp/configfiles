@@ -24,6 +24,7 @@ return function()
 			Pmenu = { bg = "#0e1419" },
 			TabLineSel = { bg = "#0e1419" },
 			NormalFloat = { bg = "#0e1419" },
+      Delimiter = { fg = "#fabd2d"},
 		},
 		dim_inactive = false,
 		transparent_mode = false,

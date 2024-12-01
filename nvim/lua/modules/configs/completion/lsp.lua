@@ -2,11 +2,9 @@ return function()
 	require("lspconfig.ui.windows").default_options.border = "single"
 	local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
 	local diagnostics_level = require("core.settings").diagnostics_level
-	local is_windows = require("core.global").is_windows
 
 	local nvim_lsp = require("lspconfig")
 	local mason = require("mason")
-	local mason_registry = require("mason-registry")
 	local mason_lspconfig = require("mason-lspconfig")
 	require("lspconfig.ui.windows").default_options.border = "rounded"
 
@@ -65,7 +63,7 @@ return function()
 		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 		if not ok then
 			-- Default to use factory config for server(s) that doesn't include a spec
-			if lsp_name ~= "lua_ls" then
+			if lsp_name ~= "lua_ls" then -- handle in neodev.lua
 				nvim_lsp[lsp_name].setup(opts)
 			end
 			return
@@ -185,7 +183,7 @@ return function()
 		signs = true,
 		underline = true,
 		virtual_text = diagnostics_virtual_text and {
-			severity_limit = diagnostics_level,
+			-- severity_limit = diagnostics_level,
 		} or false,
 		-- set update_in_insert to false bacause it was enabled by lspsaga
 		update_in_insert = false,

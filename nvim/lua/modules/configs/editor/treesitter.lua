@@ -49,6 +49,7 @@ return vim.schedule_wrap(function()
 		indent = { enable = true },
 		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
+    rainbow = {enable = false}
 	})
 	require("nvim-treesitter.install").prefer_git = true
 	if use_ssh then

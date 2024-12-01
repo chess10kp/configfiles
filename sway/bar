@@ -83,6 +83,11 @@ get_day() {
 #689d6a
 #a89984
 
+get_weather () {
+  info=$(curl "wttr.in/detroit?format=1")
+  echo "{\"name\": \"weather\", \"full_text\": \"$info\"}"
+}
+
 get_status() {
   echo -n "["
   get_countdown
@@ -95,8 +100,8 @@ get_status() {
   echo ","
   get_charging 
   # get_day
-  echo ","
-  get_cryp
+  # echo ","
+  # get_cryp
   # echo ","
   echo "]"
 } 

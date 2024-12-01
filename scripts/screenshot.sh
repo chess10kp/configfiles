@@ -39,5 +39,5 @@ while :; do
 done
 
 mv $HOME/Pictures/Screenshots/$time "$path/$new_name.png"
-echo $new_name | wl-copy
+echo -n "[[file:./images/$new_name.png]]" | wl-copy # for org mode
 notify-send -t 4000 -i "$path/$new_name.png" -a "Screenshot $name" "Screenshot saved"

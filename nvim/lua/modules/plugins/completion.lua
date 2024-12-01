@@ -22,25 +22,15 @@ completion["nvimdev/lspsaga.nvim"] = {
 	config = require("completion.lspsaga"),
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
-completion["jose-elias-alvarez/null-ls.nvim"] = {
-  enabled = false,
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("completion.null-ls"),
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"jay-babu/mason-null-ls.nvim",
-	},
-}
 completion["stevearc/conform.nvim"] = {
-  lazy = true, 
-  event = {"BufReadPre", "BufNewFile" },
-  config = require("completion.conform")
+	lazy = true,
+	event = { "BufReadPre", "BufNewFile" },
+	config = require("completion.conform"),
 }
 completion["mfussenegger/nvim-lint"] = {
-  lazy = true, 
-  event = {"BufReadPre", "BufNewFile"}, 
-  config = require('completion.nvim-lint')
+	lazy = true,
+	event = { "BufReadPre", "BufNewFile" },
+	config = require("completion.nvim-lint"),
 }
 completion["L3MON4D3/LuaSnip"] = {
 	config = require("completion.luasnip"),
@@ -54,13 +44,11 @@ completion["hrsh7th/nvim-cmp"] = {
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
-			dependencies = { 
-        ft = {"javascript", "typescript", "typescriptreact", "javascriptreact"},
-        "rafamadriz/friendly-snippets" 
-      },
+			dependencies = {
+			},
 		},
 		{ "onsails/lspkind.nvim" },
-		{ "lukas-reineke/cmp-under-comparator" },
+		-- { "lukas-reineke/cmp-under-comparator" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "hrsh7th/cmp-nvim-lua" },
@@ -74,17 +62,17 @@ completion["hrsh7th/nvim-cmp"] = {
 			lazy = true,
 			ft = "latex",
 		},
-		{ "ray-x/cmp-treesitter" },
-		{ "tzachar/cmp-tabnine", enabled = false, build = "./install.sh", config = require("completion.tabnine") },
-		{
-			"jcdickinson/codeium.nvim",
-			enabled = false,
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-				"MunifTanjim/nui.nvim",
-			},
-			config = require("completion.codeium"),
-		},
+		-- { "ray-x/cmp-treesitter" },
+		-- { "tzachar/cmp-tabnine", enabled = false, build = "./install.sh", config = require("completion.tabnine") },
+		-- {
+		-- 	"jcdickinson/codeium.nvim",
+		-- 	enabled = false,
+		-- 	dependencies = {
+		-- 		"nvim-lua/plenary.nvim",
+		-- 		"MunifTanjim/nui.nvim",
+		-- 	},
+		-- 	config = require("completion.codeium"),
+		-- },
 	},
 }
 completion["zbirenbaum/copilot.lua"] = {
@@ -99,5 +87,17 @@ completion["zbirenbaum/copilot.lua"] = {
 			config = require("completion.copilot-cmp"),
 		},
 	},
+}
+completion["CopilotC-Nvim/CopilotChat.nvim"] = {
+	branch = "canary",
+	dependencies = {
+		{ "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
+		{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+	},
+	build = "make tiktoken", -- Only on MacOS or Linux
+	opts = {
+		-- See Configuration section for options
+	},
+	-- See Commands section for default commands if you want to lazy load on them
 }
 return completion

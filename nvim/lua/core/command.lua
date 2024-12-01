@@ -31,6 +31,6 @@ vim.api.nvim_create_user_command("Projectile", function()
 		vim.cmd("e " .. process_dir .. base_dir .. ".org")
     vim.cmd("")
 	else
-		vim.notify("No project file" .. process_dir .. base_dir .. ".org" .. "found")
+		vim.notify("No project file" .. process_dir .. base_dir .. ".org" .. " found")
 	end
 end, {})
