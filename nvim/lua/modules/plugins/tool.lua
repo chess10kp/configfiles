@@ -1,8 +1,13 @@
 local tool = {}
 
-tool["tpope/vim-fugitive"] = {
-	lazy = true,
-	cmd = { "Git", "G" },
+tool["NeogitOrg/neogit"] = {
+	enabled = true,
+	dependencies = {
+		"nvim-lua/plenary.nvim", -- required
+		"sindrets/diffview.nvim", -- optional - Diff integration
+		"nvim-telescope/telescope.nvim", -- optional
+	},
+	config = true,
 }
 tool["mbbill/undotree"] = {
 	lazy = false,

@@ -189,9 +189,6 @@ return function()
 		update_in_insert = false,
 	})
 
-	local opts = {
-		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	}
 	---A handler to setup all servers defined under `completion/servers/*.lua`
 	---@param lsp_name string
 	local function mason_lsp_handler(lsp_name)
@@ -238,6 +235,8 @@ return function()
 				return
 			elseif lsp_name == "python-lsp-server" or lsp_name == "pylsp" then
 				return
+      elseif lsp_name == "tsserver" then -- skip tsserver since typescript-tools  
+        return
 			end
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)

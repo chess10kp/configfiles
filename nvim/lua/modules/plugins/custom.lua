@@ -4,10 +4,6 @@ custom["lervag/vimtex"] = {
 	lazy = true,
 	ft = "tex",
 }
-custom["terryma/vim-multiple-cursors"] = {
-  lazy = true, 
-  event = "VeryLazy",
-}
 custom["kylechui/nvim-surround"] = {
 	event = "VeryLazy",
 	config = function()
