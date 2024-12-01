@@ -84,49 +84,4 @@ return {}, {
 			}
 		)
 	),
-	s(
-		"divtag",
-		fmt(
-			[[
-      <div className="{}">{}<div>
-      ]],
-			{
-				i(1, "classname"),
-				i(2, ""),
-			},
-			{
-				delimiters = "{}",
-			}
-		)
-	),
-	s(
-		"itag",
-		fmt(
-			[[
-      <i className="{}">{}<i>
-      ]],
-			{
-				i(1, ""),
-				i(2, ""),
-			},
-			{
-				delimiters = "{}",
-			}
-		)
-	),
-	s(
-		"h1",
-		fmt(
-			[[
-      <h1 className="{}">{}<h1>
-      ]],
-			{
-				i(1, "classname"),
-				i(2, ""),
-			},
-			{
-				delimiters = "{}",
-			}
-		)
-	),
 }

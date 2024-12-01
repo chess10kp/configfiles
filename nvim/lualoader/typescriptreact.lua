@@ -1,57 +1,97 @@
 local ls = require("luasnip")
 
-local s = ls.s --> snippet
-local t = ls.t --> text node
-local i = ls.i --> insert node
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
+local c = ls.choice_node
+local sn = ls.snippet_node
+local f = ls.function_node
 
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
-	s("t", {
+	s("uss", {
+		t("const ["),
+		i(1, ""),
+		t(", set"),
+		f(function(args)
+			return args[1][1]:gsub("^%l", string.upper)
+		end, { 1 }),
+		c(2, {
+			sn(nil, {
+				t("] = useState("),
+				i(1, ""),
+				t(")"),
+			}),
+      sn(nil, {
+        t("] = useState<"),
+        i(1, ""),
+        t(">("),
+        i(2, ""),
+        t(")"),
+      })
+		}),
+	}),
+	s("<", {
 		t("<"),
 		i(1, "tag"),
-		t(' className="'),
-		i(2, ""),
-		t('"'),
+		t(" "),
+		c(2, {
+			i(1, ""),
+			sn(nil, {
+				t('className="'),
+				i(1, ""),
+				t('"'),
+			}),
+		}),
 		t(">"),
-		i(2, "content"),
+		c(3, {
+			sn(nil, {
+				i(1, ""),
+			}),
+			sn(nil, {
+				t({ "", "\t<" }),
+				i(1, ""),
+				t({ "", "" }),
+			}),
+		}),
 		t("</"),
 		f(function(args) -- Function node to mirror the tag name
 			return args[1][1]
 		end, { 1 }),
 		t(">"),
 	}),
+	s("<s", {
+		t("<"),
+		i(1, ""),
+		t(" "),
+		i(2, ""),
+		t("/>"),
+	}),
 }, {
 	s(
-		"forl",
+		"tsrafc",
 		fmt(
-			[[ 
-  for (int <> = <>; <>; <>) {
-     <>
-  }]],
+			[[
+      type <>Props = {} 
+      const <> = ({<>} : {<>}) =>> {
+        return (
+          <>
+        )
+      }
+      ]],
 			{
-				i(1, "i"),
-				i(2, "0"),
-				i(3, "i < array.length"),
-				i(4, "i++"),
-				i(5, ""),
+				f(function(args)
+					return args[1][1]
+				end, { 1 }),
+				i(1, "el"),
+				i(2, "props"),
+				i(3, "{}"),
+				i(4, "<div></div>"),
 			},
-			{ delimiters = "<>" }
-		)
-	),
-	s(
-		"forinl",
-		fmt(
-			[[ 
-  for (const <> in <>) {
-     <>
-  }]],
 			{
-				i(1, "value"),
-				i(2, "arr"),
-				i(3, ""),
-			},
-			{ delimiters = "<>" }
+				delimiters = "<>",
+			}
 		)
 	),
 	s(
@@ -65,36 +105,6 @@ return {
 			},
 			{
 				delimiters = "<>",
-			}
-		)
-	),
-	s(
-		"h1",
-		fmt(
-			[[
-      <h1 className="{}">{}</h1>
-      ]],
-			{
-				i(1, "classname"),
-				i(2, ""),
-			},
-			{
-				delimiters = "{}",
-			}
-		)
-	),
-	s(
-		"h2",
-		fmt(
-			[[
-      <h2 className="{}">{}</h1>
-      ]],
-			{
-				i(1, "classname"),
-				i(2, ""),
-			},
-			{
-				delimiters = "{}",
 			}
 		)
 	),

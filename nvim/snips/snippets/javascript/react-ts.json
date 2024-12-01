@@ -82,8 +82,6 @@
     "key": "typescriptReactFunctionalComponent",
     "prefix": "tsrfc",
     "body": [
-      "import React from 'react'",
-      "",
       "type Props = {}",
       "",
       "export default function ${1:${TM_FILENAME_BASE}}({}: Props) {",
@@ -118,8 +116,6 @@
     "key": "typescriptReactArrowFunctionComponent",
     "prefix": "tsrafc",
     "body": [
-      "import React from 'react'",
-      "",
       "type Props = {}",
       "",
       "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
@@ -135,8 +131,6 @@
     "key": "typescriptReactClassPureComponent",
     "prefix": "tsrpc",
     "body": [
-      "import React, { PureComponent } from 'react'",
-      "",
       "type Props = {}",
       "",
       "export default class ${1:${TM_FILENAME_BASE}} extends PureComponent<Props> {",
@@ -154,8 +148,6 @@
     "key": "typescriptReactClassExportPureComponent",
     "prefix": "tsrpce",
     "body": [
-      "import React, { PureComponent } from 'react'",
-      "",
       "type Props = {}",
       "",
       "class ${1:${TM_FILENAME_BASE}} extends PureComponent<Props> {",
@@ -817,14 +809,6 @@
     "key": "useRef",
     "prefix": "useRefSnippet",
     "body": ["const ${1:first} = useRef(${2:second})"],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "useState": {
-    "key": "useState",
-    "prefix": "useStateSnippet",
-    "body": [
-      "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:second})"
-    ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
   "importAs": {
