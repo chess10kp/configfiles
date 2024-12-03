@@ -21,11 +21,11 @@ lang["Saecki/crates.nvim"] = {
 	config = require("lang.crates"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
-lang["chrisbra/csv.vim"] = {
-	enabled = true,
-	lazy = true,
-	ft = "csv",
-}
+-- lang["chrisbra/csv.vim"] = {
+-- 	enabled = true,
+-- 	lazy = true,
+-- 	ft = "csv",
+-- }
 lang["pmizio/typescript-tools.nvim"] = {
 	lazy = true,
 	ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
@@ -46,18 +46,19 @@ lang["nvim-java/nvim-java"] = {
 	dependencies = { "nvim-lspconfig" },
 	config = function()
 		require("java").setup()
-		require("lspconfig").jdtls.setup({})
-	end,
-}
-lang["nvim-orgmode/orgmode"] = {
-	dependencies = { "nvim-treesitter/nvim-treesitter", lazy = true },
-	lazy = true,
-	ft = "org",
-	config = function()
-		require("orgmode").setup({
-			org_agenda_files = "~/projects/notes/todo.org/",
-			org_default_notes_file = "~/projects/notes/notes.org",
-		})
+
+		local jdtcfg = {
+			settings = {
+				java = { signatureHelp = { enabled = true }, contentProvider = { preferred = "fernflower" } },
+			},
+			on_init = function(client)
+				if client.config.settings then
+					client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+				end
+			end,
+		}
+
+		require("lspconfig").jdtls.setup(jdtcfg)
 	end,
 }
 lang["luckasRanarison/tailwind-tools.nvim"] = {
@@ -71,47 +72,5 @@ lang["luckasRanarison/tailwind-tools.nvim"] = {
 		"nvim-telescope/telescope.nvim", -- optional
 	},
 	opts = {}, -- your configuration
-}
-lang["chipsenkbeil/org-roam.nvim"] = {
-	lazy = true,
-	tag = "0.1.0",
-	dependencies = {
-		{
-			"nvim-orgmode/orgmode",
-			tag = "0.3.4",
-		},
-	},
-	config = function()
-		require("org-roam").setup({
-			directory = "~/projects/notes/",
-			-- optional
-			org_files = {
-				"~/projects/notes/todo.org",
-				"~/projects/notes/notes.org",
-			},
-		})
-	end,
-}
-lang["akinsho/org-bullets.nvim"] = {
-	lazy = true,
-	ft = "org",
-	dependencies = { "nvim-orgmode/orgmode" },
-	config = function()
-		require("org-bullets").setup({
-			concealcursor = true, -- If false then when the cursor is on a line underlying characters are visible
-			symbols = {
-				-- list symbol
-				list = "•",
-				-- headlines can be a list
-				headlines = { "◉", "○", "✸", "✿" },
-				-- or a function that receives the defaults and returns a list
-				checkboxes = {
-					half = { "", "OrgTSCheckboxHalfChecked" },
-					done = { "✓", "OrgDone" },
-					todo = { "˟", "OrgTODO" },
-				},
-			},
-		})
-	end,
 }
 return lang
