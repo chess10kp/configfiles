@@ -4,8 +4,8 @@ return function()
 		underline = false,
 		bold = true,
 		italic = {
-			strings = true,
-			comments = true,
+			strings = false,
+			comments = false,
 			operators = false,
 			folds = true,
 		},

@@ -1,13 +1,9 @@
 return function()
 	require("nvim-ts-autotag").setup({
-		filetypes = {
-			"html",
-			"javascript",
-      "typescript",
-			"javascriptreact",
-			"typescriptreact",
-			"vue",
-			"xml",
+		opts = {
+			enable_close_on_slash = true,
+			enable_close = true,
+			enable_rename = true,
 		},
 	})
 end

@@ -19,6 +19,8 @@ return function()
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
+        java = { "google-java-format" },
+        xml = {"xmlformatter"},
 				css = { "prettier" },
 				html = { "prettier" },
 				markdown = { "prettier" },

@@ -55,9 +55,6 @@ nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
 
 nmap("<C-m>", "<C-6>")
 
-vmap("H", "0")
-vmap("L", "$")
-
 cmap("<C-u>", function()
 	vim.api.nvim_feedkeys(".*", "n", true)
 end)

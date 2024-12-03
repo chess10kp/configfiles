@@ -13,7 +13,7 @@ function M.make_snip(name, args)
 	return s(name, args)
 end
 
-function M.make_snip_from_string(trigger, string)
+function M.create_snippet(trigger, string, names)
 	local delimiters = "{}"
 	local args = {}
 	local idx = 1
@@ -23,7 +23,7 @@ function M.make_snip_from_string(trigger, string)
 		if not str then
 			break
 		end
-		table.insert(args, i(idx, ""))
+		table.insert(args, i(idx, names ~= nil and names[idx] or ""))
 		idx = idx + 1
 		start = e + 1
 	end

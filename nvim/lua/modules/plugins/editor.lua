@@ -23,11 +23,11 @@ editor["numToStr/Comment.nvim"] = {
 		require("Comment").setup()
 	end,
 }
-editor["folke/trouble.nvim"] = {
-	enabled = false,
-	lazy = false,
-	cmd = { "Trouble", "TroubleToggle" },
-}
+-- editor["folke/trouble.nvim"] = {
+-- 	enabled = false,
+-- 	lazy = false,
+-- 	cmd = { "Trouble", "TroubleToggle" },
+-- }
 editor["norcalli/nvim-colorizer.lua"] = {
 	lazy = false,
 	config = function()
@@ -45,15 +45,13 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.treesitter"),
 	dependencies = {
-		{ "andymass/vim-matchup", enabled = false, ft = { "python", "html" } },
 		{
 			"nvim-treesitter/nvim-treesitter-context",
 			config = require("editor.ts-context"),
 		},
 		{
 			"windwp/nvim-ts-autotag",
-			lazy = true,
-			ft = { "typescript, javascript", "html" },
+			lazy = false, -- not needed for this 
 			config = require("editor.autotag"),
 		},
 		{
@@ -68,25 +66,6 @@ editor["rhysd/clever-f.vim"] = {
 	event = "BufReadPost",
 	config = function()
 		require("editor.cleverf")
-	end,
-}
-editor["lukas-reineke/indent-blankline.nvim"] = {
-	enabled = false,
-	event = "InsertEnter",
-	lazy = true,
-	config = function()
-		require("ibl").setup()
-	end,
-}
-
-editor["ej-shafran/compile-mode.nvim"] = {
-	enabled = true,
-	lazy = false,
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	config = function()
-		vim.g.compile_mode = {}
 	end,
 }
 

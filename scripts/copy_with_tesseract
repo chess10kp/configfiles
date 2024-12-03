@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [[ $XDG_SESSION_TYPE == "x11" ]]; then
+  bins=(tesseract xclip )
+else
+  bins=(tesseract grim slurp wl-copy notify-send)
+fi
+
+for CMD in $bins
+do
+  if [[ -z $(command -v $CMD)  ]]; then
+    echo -e "Error: $CMD is not installed. Aborting."
+    exit -1
+  fi
+done
+
+grim -g "$(slurp)" -t ppm - | tesseract - - | wl-copy
+notify-send -a "Clipboard" "Text copied to clipboard."

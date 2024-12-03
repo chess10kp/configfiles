@@ -20,7 +20,6 @@ completion["nvimdev/lspsaga.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.lspsaga"),
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 completion["stevearc/conform.nvim"] = {
 	lazy = true,
@@ -47,23 +46,11 @@ completion["hrsh7th/nvim-cmp"] = {
 			dependencies = {
 			},
 		},
-		{ "onsails/lspkind.nvim" },
-		-- { "lukas-reineke/cmp-under-comparator" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-nvim-lua" },
-		-- { "andersevenrud/cmp-tmux" },
 		{ "hrsh7th/cmp-path" },
-		{ "f3fora/cmp-spell" },
 		{ "hrsh7th/cmp-buffer" },
-		{
-			"kdheepak/cmp-latex-symbols",
-			enabled = false,
-			lazy = true,
-			ft = "latex",
-		},
 		-- { "ray-x/cmp-treesitter" },
-		-- { "tzachar/cmp-tabnine", enabled = false, build = "./install.sh", config = require("completion.tabnine") },
 		-- {
 		-- 	"jcdickinson/codeium.nvim",
 		-- 	enabled = false,
@@ -79,7 +66,6 @@ completion["zbirenbaum/copilot.lua"] = {
 	enabled = true,
 	lazy = true,
 	cmd = "Copilot",
-	event = "InsertEnter",
 	config = require("completion.copilot"),
 	dependencies = {
 		{
@@ -89,6 +75,7 @@ completion["zbirenbaum/copilot.lua"] = {
 	},
 }
 completion["CopilotC-Nvim/CopilotChat.nvim"] = {
+  lazy = true,
 	branch = "canary",
 	dependencies = {
 		{ "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua

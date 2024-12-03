@@ -64,7 +64,7 @@ return function()
 			},
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
-			color_devicons = true,
+			color_devicons = false,
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
@@ -147,21 +147,20 @@ return function()
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {
-						-- ["<Tab>"] = telescope_actions.select_default,
-						["/"] = telescope_actions.select_default,
+						["<Tab>"] = telescope_actions.select_default,
 					},
 					["n"] = {
 						["<BS>"] = function() end,
+						["<Space>"] = function ()
+						  telescope_actions.toggle_selection()
+              telescope_actions.move_selection_next()
+						end,
 					},
 				},
 			},
 		},
 	})
 
-	require("telescope").load_extension("fzf")
 	-- require("telescope").load_extension("live_grep_args")
-	-- require("telescope").load_extension("undo")
-	-- require("telescope").load_extension("zoxide")
-	-- require("telescope").load_extension("project")
-	require("telescope").load_extension("file_browser")
+	-- require("telescope").load_extension("file_browser")
 end

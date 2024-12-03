@@ -1,0 +1,8 @@
+#!/bin/bash
+
+has_money=$(git pull ~/projects/repos/Summer2025-Internships | grep -c "Already up to date")
+
+# send a persistent message to emacs
+if [ $has_money -eq 0 ]; then
+    echo "You have new commits in the Summer2025-Internships repo"
+fi

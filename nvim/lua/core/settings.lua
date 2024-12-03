@@ -70,7 +70,7 @@ settings["formatter_block_list"] = {
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
 	lua_ls = false,
-	tsserver = true,
+	ts_ls = true,
 	clangd = true,
 }
 
@@ -98,6 +98,7 @@ settings["null_ls_deps"] = {
 	"shfmt",
 	"stylua",
 	"black",
+  "tsserver"
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.

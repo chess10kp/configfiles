@@ -80,27 +80,6 @@ function Lazy:load_lazy()
 			wrap = true, -- wrap the lines in the ui
 			-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
 			border = "single",
-			icons = {
-				cmd = icons.misc.Code,
-				config = icons.ui.Gear,
-				event = icons.kind.Event,
-				ft = icons.documents.Files,
-				init = icons.misc.ManUp,
-				import = icons.documents.Import,
-				keys = icons.ui.Keyboard,
-				loaded = icons.ui.Check,
-				not_loaded = icons.misc.Ghost,
-				plugin = icons.ui.Package,
-				runtime = icons.misc.Vim,
-				source = icons.kind.StaticMethod,
-				start = icons.ui.Play,
-				list = {
-					icons.ui_sep.BigCircle,
-					icons.ui_sep.BigUnfilledCircle,
-					icons.ui_sep.Square,
-					icons.ui_sep.ChevronRight,
-				},
-			},
 		},
 		performance = {
 			cache = {
@@ -124,22 +103,22 @@ function Lazy:load_lazy()
 	end
 
 	local custom_plugins = {
-		{
-      enabled = false, 
-			dir = "/home/sigma/.config/nvim/lua/backForth",
-			name = "backForth",
-			config = function()
-				require("backForth").setup()
-			end,
-		},
-		{
-			enabled = false,
-			dir = "/home/sigma/.config/nvim/lua/runner",
-			name = "runner",
-			config = function()
-				require("runner").setup()
-			end,
-		},
+		-- {
+  --     enabled = false, 
+		-- 	dir = "/home/sigma/.config/nvim/lua/backForth",
+		-- 	name = "backForth",
+		-- 	config = function()
+		-- 		require("backForth").setup()
+		-- 	end,
+		-- },
+		-- {
+		-- 	enabled = false,
+		-- 	dir = "/home/sigma/.config/nvim/lua/runner",
+		-- 	name = "runner",
+		-- 	config = function()
+		-- 		require("runner").setup()
+		-- 	end,
+		-- },
 	}
 	for _, plugin in ipairs(custom_plugins) do
 		table.insert(self.modules, plugin)
