@@ -1,11 +1,32 @@
 local lang = {}
 
-lang["fatih/vim-go"] = {
+-- lang["fatih/vim-go"] = {
+-- 	enabled = true,
+-- 	lazy = true,
+-- 	ft = "go",
+-- 	build = ":GoInstallBinaries",
+-- 	config = require("lang.vim-go"),
+-- }
+lang["ray-x/go.nvim"] = {
 	enabled = true,
 	lazy = true,
-	ft = "go",
-	build = ":GoInstallBinaries",
-	config = require("lang.vim-go"),
+	dependencies = {
+		"ray-x/guihua.lua",
+		"neovim/nvim-lspconfig",
+		"nvim-treesitter/nvim-treesitter",
+	},
+	config = function()
+		require("go").setup()
+	end,
+	event = { "CmdlineEnter" },
+	ft = { "go", "gomod" },
+	build = ':lua require("go.install").update_all_sync()',
+}
+lang["Vigemus/iron.nvim"] = {
+	enabled = true,
+	lazy = true,
+	ft = {"python", "haskell"},
+	config = require("lang.iron"),
 }
 lang["simrat39/rust-tools.nvim"] = {
 	lazy = true,

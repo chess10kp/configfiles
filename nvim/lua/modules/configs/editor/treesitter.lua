@@ -43,11 +43,11 @@ return vim.schedule_wrap(function()
 			end,
 			additional_vim_regex_highlighting = { "org" },
 		},
-		incremental_selection = { enable = true },
+		incremental_selection = { enable = true, keymaps = { node_incremental = "v", node_decremental = "V" } },
 		indent = { enable = true },
 		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
-    rainbow = {enable = false}
+		rainbow = { enable = false },
 	})
 	require("nvim-treesitter.install").prefer_git = true
 	if use_ssh then

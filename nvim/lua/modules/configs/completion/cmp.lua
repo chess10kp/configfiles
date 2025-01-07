@@ -57,8 +57,8 @@ return function()
 				require("copilot_cmp.comparators").prioritize,
 				require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
-				-- compare.offset, -- Items closer to cursor will have lower priority
-				-- compare.scopes,
+				compare.offset, -- Items closer to cursor will have lower priority
+				compare.scopes,
 				compare.sort_text,
 				compare.score,
 				-- require("cmp-under-comparator").under,
@@ -114,7 +114,7 @@ return function()
 			fetching_timeout = 100,
 			async_budget = 1,
 			max_view_entries = 20,
-			debounce = 100,
+			debounce = 50,
 			throttle = 0,
 		},
 		-- You can set mappings if you want

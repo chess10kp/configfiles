@@ -16,6 +16,7 @@ return function()
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "prettier" },
+        go = {"goimports"},
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },

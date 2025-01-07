@@ -72,19 +72,17 @@ return {
 	),
 	create_snippet("main", "public static void main(String[] args) {{\n  {}\n}}"),
 	create_snippet("while", "while ({}) {{\n\t{}\n}}"),
-	create_snippet("fore", "for ({} {} : {}) {{\n\t{}\n}}", {"type", "name", "val", ""}),
-	create_snippet("fori", "for (int {} = 0; {} < {}; ++{}) {{\n\t{}\n}}"),
 	create_snippet("class", "class {} {{\n\t{}\n}}"),
 	create_snippet("if", "if ({}) {{\n\t{}\n}}", {"cond", ""}),
 	s("for", {
 		c(1, {
 			node_creator("for ({} {} : {}) {\n\t{}\n}"),
-			node_creator("for (int {} = 0; {} < {}; ++{}) {{\n\t{}\n}}"),
+			node_creator("for (int {} = 0; {} < {}; ++{}) {\n\t{}\n}"),
 		}),
 	}),
 }, {
 	-- auto
-	create_snippet("prntln", "System.out.println({});"),
+	create_snippet("prnt", "System.out.println({});"),
 	s("inew", {
 		i(1, "type"),
 		t(" "),

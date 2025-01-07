@@ -2,12 +2,24 @@ local tool = {}
 
 tool["NeogitOrg/neogit"] = {
 	enabled = true,
+  lazy = true,
+  cmd = "Neogit",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
 		"nvim-telescope/telescope.nvim", -- optional
 	},
 	config = true,
+	keys = {
+		{
+			"<leader>g",
+			mode = { "n"},
+			function()
+        require("neogit").open()
+			end,
+			desc = "neogit",
+		},
+	},
 }
 tool["mbbill/undotree"] = {
 	lazy = false,

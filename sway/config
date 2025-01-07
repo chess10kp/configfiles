@@ -22,23 +22,17 @@ set $editor nvim
 # on the original workspace that the command was run on.
 set $menu "tofi-drun --prompt 'Run:' | xargs swaymsg exec --"
 ### Output configuration
-default_border pixel 1
+default_border pixel 0
 focus_follows_mouse no
 
 
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #ebdbb2
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# Property Name             Border  BG      Text    Indicator Child-border
+client.focused          #4c7899 #0e1419 #98971a #98971a   #ebdbb2
+client.focused_inactive #333333 #0e1419 #ffffff #484e50   #5f676a
+client.unfocused        #333333 #0e1419 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-# TokyoNight theme# Property Name             Border  BG      Text    Indicator Child-border
-# client.focused              #0a0b16 #2f343f #4477ff #4477ff   #4477ff
-# client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f   #2f343f
-# client.unfocused            #2f343f #2f343f #d8dee8 #2f343f   #2f343f
-# client.urgent               #2f343f #2f343f #d8dee8 #2f343f   #2f343f
-# client.placeholder          #2f343f #2f343f #d8dee8 #2f343f   #2f343f
-# client.background           #2f343f
-#
+
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg ~/Pictures/wp/defaultwp.jpg fill
 #
@@ -137,10 +131,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left 20
-    bindsym $mod+Shift+$down move down 20
-    bindsym $mod+Shift+$up move up 20
-    bindsym $mod+Shift+$right move right 20
+    bindsym $mod+Shift+$left move left 30
+    bindsym $mod+Shift+$down move down 30
+    bindsym $mod+Shift+$up move up 30
+    bindsym $mod+Shift+$right move right 30
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -219,7 +213,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
-    # bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
+    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; :window
     bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
     bindsym p exec ~/.config/scripts/power.sh; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
@@ -242,6 +236,7 @@ mode "script" {
     bindsym e mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym d exec ~/projects/repos/dashboard/main.py & disown; mode "default"
 }
 bindsym $mod+s mode "script"
 
@@ -289,7 +284,6 @@ mode "yank" {
     # bindsym w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
-    #bindsym c mode "config"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -307,15 +301,10 @@ mode "config" {
 
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 20px
     bindsym $down resize grow height 20px
     bindsym $up resize shrink height 20px
     bindsym $right resize grow width 20px
-    # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -326,7 +315,7 @@ mode "open" {
     # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs; mode "default"
     bindsym e workspace "emacs"; mode "default"
     bindsym Shift+e workspace "emacs"; exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" $term -e ~/.local/bin/checkemacs -nw ~/projects/notes/todo.org; mode "default"
-    bindsym d workspace "8"; exec ~/.config/scripts/mode/sway-goto-if-not-start "8" "Discord" "/usr/bin/chromium --app=\"https://discord.com/app\"" ; mode "default"
+    bindsym d workspace "8"; exec ~/.config/scripts/mode/sway-goto-if-not-start "8" "Discord" ~/.local/bin/startVesktop; mode "default"
     bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox"; mode "default"
     bindsym c workspace "chess"; exec ~/.config/scripts/mode/sway-goto-if-not-start "chess" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
@@ -340,19 +329,6 @@ mode "open" {
 
 bindsym $mod+o mode "open"
 
-
-mode "focus" {
-     bindsym $mod+Shift+Return exec emacsclient --eval "(org-clock-out)" ;mode "default"
-    bindsym $mod+Shift+$left focus left
-    bindsym $mod+Shift+$down focus down
-    bindsym $mod+Shift+$up focus up
-    bindsym $mod+Shift+$right focus right
-    bindsym $mod+d exec $menu
-    bindsym $mod+m exec ~/.config/scripts/mpd.sh
-}
-
-bindsym $mod+Control+f mode "focus"
-
 bindsym $mod+Shift+s scratchpad show
 bindsym $mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
 bindsym $mod+Shift+f [app_id="firefox"] scratchpad show
@@ -363,6 +339,7 @@ bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 
 
 for_window [title="Music"] move scratchpad
+for_window [title="Thunar"] floating enable
 for_window [title="Discord"] move workspace 8
 for_window [title="Monkeytype"] move workspace "typing"
 for_window [class="mpv"] move workspace 1
@@ -384,7 +361,7 @@ for_window [title="float"] floating toggle
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    font pango:Iosevka 20px
+    font pango:Iosevka Comfy 20px
     gaps  0 0 0 0
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -404,8 +381,8 @@ exec foot --server
 exec ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
 exec mpd
 exec dunst
-# exec  ~/.config/scripts/wallpaper.sh --set
-# output * bg ~/Pictures/wp/defaultwp.jpg fit #291749
+exec  ~/.config/scripts/wallpaper.sh --set
+output * bg ~/Pictures/wp/defaultwp.jpg fit #291749
 exec  ~/.config/scripts/lowbattery.sh
 # exec  ~/.config/scripts/check_task
 exec tmux new -s init -d 
@@ -424,7 +401,9 @@ exec /usr/libexec/flatpak-portal --no-idle-exit -r
 exec "sh -c 'sleep 5;exec /usr/libexec/xdg-desktop-portal -r'"
 exec xhost +SI:localuser:$(id -un)
 exec xhost +SI:localuser:root
-exec touch /tmp/tasks 
+exec touch /tmp/tasks
+
+exec ~/projects/repos/dashboard/main.py & disown
 
 
 include @sysconfdir@/sway/config.d/*

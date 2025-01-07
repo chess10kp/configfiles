@@ -22,6 +22,9 @@ nmap("<leader>no", ":echo 'noh'<CR>:noh<CR>", "editor: nothing")
 cmap("jk", "<ESC>", "editor: escape")
 nmap("<leader>tg", ":!ctags -R *<CR>", "lsp: generate tags")
 
+nmap("<M-g><M-n>", "<cmd>cn<CR>")
+nmap("<M-g><M-p>", "<cmd>cp<CR>")
+
 nmap("<leader>ff", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":find **/**<Left>", true, false, true), "n", false)
 end, "editor: find file")
@@ -62,7 +65,6 @@ nmap("<CR>", "")
 cmap("<C-o>", function()
 	vim.api.nvim_feedkeys("\\(.*\\)", "n", true)
 end)
-nmap("<C-i>", "<C-^>", "editor: other file")
 nmap("<M-w>", "<C-^>", "editor: other file")
 
 cmap("<M-b>", function()

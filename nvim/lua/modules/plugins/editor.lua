@@ -1,10 +1,5 @@
 local editor = {}
 
--- editor["m4xshen/autoclose.nvim"] = {
--- 	lazy = false,
--- 	event = "InsertEnter",
--- 	config = require("editor.autoclose"),
--- }
 editor["rhysd/clever-f.vim"] = {
 	enabled = false,
 	lazy = true,
@@ -23,16 +18,8 @@ editor["numToStr/Comment.nvim"] = {
 		require("Comment").setup()
 	end,
 }
--- editor["folke/trouble.nvim"] = {
--- 	enabled = false,
--- 	lazy = false,
--- 	cmd = { "Trouble", "TroubleToggle" },
--- }
 editor["norcalli/nvim-colorizer.lua"] = {
 	lazy = false,
-	config = function()
-		require("colorizer").setup()
-	end,
 }
 
 editor["nvim-treesitter/nvim-treesitter"] = {
@@ -51,7 +38,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 		{
 			"windwp/nvim-ts-autotag",
-			lazy = false, -- not needed for this 
+			lazy = false, -- not needed for this
 			config = require("editor.autotag"),
 		},
 		{
@@ -61,11 +48,19 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 	},
 }
-editor["rhysd/clever-f.vim"] = {
-	lazy = true,
-	event = "BufReadPost",
+editor["sedm0784/vim-resize-mode"] = {
+	enabled = true,
+}
+editor["luckasRanarison/nvim-devdocs"] = {
+	enabled = true,
+	lazy = false,
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
+		"nvim-treesitter/nvim-treesitter",
+	},
 	config = function()
-		require("editor.cleverf")
+		require("nvim-devdocs").setup()
 	end,
 }
 

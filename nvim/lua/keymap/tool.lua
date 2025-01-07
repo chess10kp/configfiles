@@ -9,7 +9,7 @@ nmap("<M-h>", "<Cmd>ToggleTerm direction=horizontal<CR>", "terminal: Toggle vsco
 tmap("<M-h>", "<Cmd>ToggleTerm direction=horizontal<CR>", "terminal: Toggle vscode-style terminal")
 imap("<M-h>", "<Cmd>ToggleTerm direction=horizontal<CR>", "terminal: Toggle vscode-style terminal")
 
-nmap("<M-g>", "<Cmd>ToggleTerm direction=float<CR>", "terminal: Toggle floating terminal")
+nmap("<M-g><M-i>", "<Cmd>ToggleTerm direction=float<CR>", "terminal: Toggle floating terminal")
 tmap("<M-g>", "<Cmd>ToggleTerm direction=float<CR>", "terminal: Toggle floating terminal")
 
 nmap("<leader>fk", function()

@@ -8,7 +8,7 @@ return function()
 			width = 1,
 			prompt_position = "bottom",
 		},
-		border = true,
+		border = false,
 		mappings = {
 			["i"] = {
 				-- ["<Tab>"] = telescope_actions.select_default,
@@ -43,7 +43,7 @@ return function()
 			initial_mode = "insert",
 			scroll_strategy = "limit",
 			results_title = false,
-			border = true,
+			border = false,
 			theme = "ivy",
 			file_ignore_patterns = {
 				"Music/",
@@ -91,7 +91,7 @@ return function()
 					height = 0.3,
 					width = 1,
 				},
-				border = true,
+				border = false,
 			},
 			find_files = add_opt(opts, { prompt_prefix = "Find: " }),
 			lsp_document_symbols = add_opt(opts, {
@@ -121,7 +121,7 @@ return function()
 				layout_config = {
 					height = 0.4,
 				},
-				border = true,
+				border = false,
 				mappings = {
 					["i"] = {
 						-- ["<Tab>"] = telescope_actions.select_default,
@@ -138,12 +138,11 @@ return function()
 				prompt_path = true,
 				hide_parent_dir = true,
 				layout_config = {
-					preview_width = 0,
 					prompt_position = "bottom",
 					height = 0.3,
 					width = 1,
 				},
-				border = true,
+				border = false,
 				hijack_netrw = true,
 				mappings = {
 					["i"] = {

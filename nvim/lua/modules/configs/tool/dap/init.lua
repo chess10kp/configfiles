@@ -1,5 +1,5 @@
 return function()
-	dapui = require("dapui")
+	local dapui = require("dapui")
 
 	-- python configuration
 	-- dap.adapters.python = function(cb, config)
@@ -115,6 +115,19 @@ return function()
 	dap_python.test_runner = "pytest"
 	dap_python.default_port = 38000
 
-	local dapui = require("dapui")
-	dapui.setup()
+	dapui.setup({
+		sidebar = {
+			elements = {
+        "scopes",
+        "scopes",
+				"watches",
+			},
+			positions = "right",
+		},
+    tray = {
+      elements = {
+        "repl"
+      }
+    }
+	})
 end

@@ -1,3 +1,13 @@
+if [[ "$TERM" == "dumb" ]]; then
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+    PS1='$ '
+    return
+fi
+
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
   export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -17,7 +27,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export XKB_DEFAULT_VARIANT=pc104
   export XDG_SESSION_DESKTOP=sway
   export XDG_CURRENT_DESKTOP=sway 
-  dbus-launch wayfire
+  dbus-launch sway
 fi
 
 HISTFILE=~/.zsh_history
@@ -62,6 +72,8 @@ alias mv="mv -i"
 alias ls="ls --color"
 alias mpic="mpv --loop=inf"
 alias convas="cd ~/projects/repos/convas; ./src/convas.py"
+alias sudo="doas"
+alias dosa="doas"
 
 # alias "du your_mom"="failed"
 
@@ -134,3 +146,11 @@ bindkey '^R' history-incremental-search-backward
 
 
 [ -f "/home/sigma/.ghcup/env" ] && source "/home/sigma/.ghcup/env" # ghcup-env
+
+# pnpm
+export PNPM_HOME="/home/sigma/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
