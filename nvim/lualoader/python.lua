@@ -57,8 +57,8 @@ return {
         <>
     ]],
 			{
-				i(1, "cond"),
-				i(2, "expr"),
+				i(1, "pass"),
+				i(2, "pass"),
 			},
 			{
 				delimiters = "<>",

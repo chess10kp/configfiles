@@ -1,9 +1,14 @@
 local tool = {}
 
+tool["nvim-telescope/telescope-fzf-native.nvim"] = {
+	enabled = true,
+	lazy = true,
+  build = 'make' ,
+}
 tool["NeogitOrg/neogit"] = {
 	enabled = true,
-  lazy = true,
-  cmd = "Neogit",
+	lazy = true,
+	cmd = "Neogit",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
@@ -13,9 +18,9 @@ tool["NeogitOrg/neogit"] = {
 	keys = {
 		{
 			"<leader>g",
-			mode = { "n"},
+			mode = { "n" },
 			function()
-        require("neogit").open()
+				require("neogit").open()
 			end,
 			desc = "neogit",
 		},
@@ -25,6 +30,7 @@ tool["mbbill/undotree"] = {
 	lazy = false,
 }
 tool["ibhagwan/smartyank.nvim"] = { -- highlight yanks and yank to clip
+  enabled = false,
 	lazy = true,
 	event = "BufReadPost",
 	config = require("tool.smartyank"),

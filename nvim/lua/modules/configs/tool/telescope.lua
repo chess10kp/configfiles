@@ -94,6 +94,7 @@ return function()
 				border = false,
 			},
 			find_files = add_opt(opts, { prompt_prefix = "Find: " }),
+			git_files = add_opt(opts, { prompt_prefix = "Git: " }),
 			lsp_document_symbols = add_opt(opts, {
 				prompt_prefix = "Symbol: ",
 				layout_config = {
@@ -150,9 +151,9 @@ return function()
 					},
 					["n"] = {
 						["<BS>"] = function() end,
-						["<Space>"] = function ()
-						  telescope_actions.toggle_selection()
-              telescope_actions.move_selection_next()
+						["<Space>"] = function()
+							telescope_actions.toggle_selection()
+							telescope_actions.move_selection_next()
 						end,
 					},
 				},
@@ -162,4 +163,5 @@ return function()
 
 	-- require("telescope").load_extension("live_grep_args")
 	-- require("telescope").load_extension("file_browser")
+	require("telescope").load_extension("fzf")
 end

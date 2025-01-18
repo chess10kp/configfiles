@@ -51,6 +51,40 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 editor["sedm0784/vim-resize-mode"] = {
 	enabled = true,
 }
+editor["X3eRo0/dired.nvim"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = function()
+		require("dired").setup({
+			keybinds = {
+				dired_enter = "<cr>",
+				dired_back = "-",
+				dired_up = "_",
+				dired_rename = "R",
+				dired_create = "d",
+				dired_delete = "D",
+				dired_delete_range = "D",
+				dired_copy = "C",
+				dired_copy_range = "C",
+				dired_copy_marked = "MC",
+				dired_move = "X",
+				dired_move_range = "X",
+				dired_move_marked = "MX",
+				dired_paste = "P",
+				dired_mark = "M",
+				dired_mark_range = "M",
+				dired_delete_marked = "MD",
+				dired_toggle_hidden = ".",
+				dired_toggle_sort_order = ",",
+				dired_toggle_icons = "*",
+				dired_toggle_colors = "c",
+				dired_toggle_hide_details = "(",
+				dired_quit = "q",
+			},
+		})
+		vim.keymap.set("n", "<leader>d", ":Dired<CR>", { noremap = true, silent = true })
+	end,
+}
 editor["luckasRanarison/nvim-devdocs"] = {
 	enabled = true,
 	lazy = false,

@@ -15,10 +15,13 @@ ui["karb94/neoscroll.nvim"] = {
 		})
 	end,
 }
-ui['projekt0n/github-nvim-theme'] = {
-  lazy = true ,
-  config = function ()
-    require("github-theme").setup()
-  end
+ui["miikanissi/modus-themes.nvim"] = {
+	lazy = false,
+}
+ui["nvim-lualine/lualine.nvim"] = {
+	lazy = false,
+	event = { "BufReadPost" },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = require("modules.configs.ui.lualine"),
 }
 return ui

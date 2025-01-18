@@ -73,9 +73,7 @@ vim.api.nvim_create_user_command("Projectile", function()
 			state.org = create_floating_window({ buf = state.floating.buf })
 			vim.cmd("e " .. process_dir .. base_dir .. ".org")
 			vim.bo[state.org.buf].filetype = "org"
-      print("new window opened")
 		else
-      print("old window opened")
 			vim.api.nvim_win_close(state.org.win, true )
       state.org.win = -1
       state.org.buf = -1
@@ -84,6 +82,8 @@ vim.api.nvim_create_user_command("Projectile", function()
 		vim.notify("No project file" .. process_dir .. base_dir .. ".org" .. " found")
 	end
 end, {})
+
+vim.api.nvim_set_keymap("n", "<leader>o", ":Projectile<CR>", { noremap = true, silent = true })
 
 local toggle_terminal = function()
 	if not vim.api.nvim_win_is_valid(state.floating.win) then

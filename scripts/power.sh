@@ -6,11 +6,12 @@ lock='lock'
 suspend='suspend'
 logout='logout'
 kill="kill"
+hibernate="hibernate"
 
 source ~/.config/scripts/configvars.sh
 
 run_rofi() {
-	echo -e "$shutdown\n$reboot\n$suspend\n$logout" | $dmenu_prompt "Power: "
+	echo -e "$shutdown\n$reboot\n$suspend\n$logout\n$hibernate" | $dmenu_prompt "Power: "
 }
 
 # Execute Command
@@ -37,6 +38,8 @@ run_cmd() {
       systemctl suspend
     elif [[ $1 == '--logout' ]]; then
       kill -9 -1
+    elif [[ $1 == '--logout' ]]; then
+	loginctl hibernate
     fi
   fi
 }

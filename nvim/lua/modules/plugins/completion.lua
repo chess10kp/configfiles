@@ -43,8 +43,7 @@ completion["hrsh7th/nvim-cmp"] = {
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
-			dependencies = {
-			},
+			dependencies = {},
 		},
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-nvim-lsp" },
@@ -74,8 +73,18 @@ completion["zbirenbaum/copilot.lua"] = {
 		},
 	},
 }
+completion["supermaven-inc/supermaven-nvim"] = {
+	enabled = true,
+	config = function()
+		require("supermaven-nvim").setup({
+			keymaps = {
+				accept_suggestion = "<M-]>",
+			},
+		})
+	end,
+}
 completion["CopilotC-Nvim/CopilotChat.nvim"] = {
-  lazy = true,
+	lazy = true,
 	branch = "canary",
 	dependencies = {
 		{ "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua

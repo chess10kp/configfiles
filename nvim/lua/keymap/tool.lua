@@ -52,7 +52,7 @@ end, "find: tags")
 nmap("<leader>fb", function()
 	require("telescope.builtin").buffers()
 end, "find: buffers")
-nmap("<leader>fi", function()
+nmap("<leader>ff", function()
 	vim.cmd("echo ''")
 	local status = vim.o.laststatus
 	vim.o.laststatus = 0

@@ -5,7 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
-#
+
 # Logo key. Use Mod1 for alt.
 set $mod Mod4
 set $alt Mod1 
@@ -222,7 +222,6 @@ mode "script" {
     bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
     bindsym $mod+t mode "timer_map"
     bindsym $mod+Shift+t exec  ~/.config/scripts/set_time 0; mode "default"
-    bindsym $mod+a exec  ~/.config/scripts/todo; mode "default"
     bindsym $mod+n exec  ~/.config/scripts/bookman.sh -nw --open; mode "default"
     bindsym $mod+b exec  ~/.config/scripts/bookman.sh --open; mode "default"
     bindsym $mod+v exec ~/.config/scripts/mpv.sh; mode "default"
@@ -230,7 +229,6 @@ mode "script" {
     bindsym $mod+w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
     bindsym $mod+i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
     bindsym $mod+y mode "yank"
-    bindsym $mod+c mode "config"
     bindsym $mod+e exec ~/.config/scripts/emoji.sh; mode "default"
     bindsym v mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
     bindsym e mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
@@ -288,17 +286,6 @@ mode "yank" {
     bindsym Escape mode "default"
 }
 
-mode "config" {
-    bindsym z exec cd ~/.config && $term -e $editor .zshrc; mode "default"
-    bindsym n exec cd ~/.config/nvim && $term -e $editor init.lua; mode "default"
-    bindsym f exec cd ~/.config/foot && $term -e $editor foot.ini; mode "default"
-    bindsym h exec cd ~/.config/ && $term -e $editor sway/config; mode "default"
-    bindsym e exec ~/.config/scripts/editconfig.sh ~/.config; mode "default"
-    bindsym s exec ~/.config/scripts/editconfig.sh ~/.config/scripts/; mode "default"
-    bindsym Escape mode "default" 
-    bindsym Return mode "default" 
-}
-
 
 mode "resize" {
     bindsym $left resize shrink width 20px
@@ -338,22 +325,41 @@ bindsym $mod+Shift+i [app_id="foot"] scratchpad show
 bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 
 
-for_window [title="Music"] move scratchpad
-for_window [title="Thunar"] floating enable
-for_window [title="Discord"] move workspace 8
-for_window [title="Monkeytype"] move workspace "typing"
-for_window [class="mpv"] move workspace 1
+for_window {
+	[title="Music"] move scratchpad
+	[title="Thunar"] floating enable
+	[app_id="zenity"] floating enable
+	[app_id="vpn"] floating enable, resize set 950 550, move position center
+	[app_id="floating"] floating enable
+	[app_id="ncmpcpp"] floating enable
+	[app_id="^scratchpad$"] floating enable, resize set 1250 750, move position center
+	[app_id="^scratchpad_input$"] floating enable, resize set 900 700, move position center
+	[app_id="mpv" title=".* - mvi$"] floating enable, resize set 950 550, move position center
+	[app_id="org.kde.kdeconnect.daemon"] floating enable
+	[app_id="^zoom$" title="Zoom Cloud Meetings"] floating enable, resize set 850 650, move position center
+	# PiP - See: https://github.com/swaywm/sway/issues/3095
+	[app_id="firefox" title="Picture-in-Picture"] floating enable
+	[app_id="zoom" title="Zoom Cloud Meetings"] floating enable
+	[title=".* is sharing your screen."] floating enable
+	[app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+	[app_id="Signal Beta" title="^Signal Desktop Preferences$"] floating enable
+	[app_id="Signal" title="^Signal Desktop Preferences$"] floating enable
+	[app_id="gimp-2.99" title="New Layer"] floating enable
+	[title="Discord"] move workspace 8
+	[title="Monkeytype"] move workspace "typing"
+	[class="mpv"] move workspace 1
 
-for_window [app_id="showmethekey-gtk"] floating enable
-for_window [app_id="showmethekey-gtk"] sticky enable
-for_window [app_id="showmethekey-gtk"] move position 900px 1300px
+	[app_id="showmethekey-gtk"] floating enable
+	[app_id="showmethekey-gtk"] sticky enable
+	[app_id="showmethekey-gtk"] move position 900px 1300px
 
-for_window [class="steam"] move container to workspace 9
-for_window [title="Imgmenu"] floating toggle
-for_window [title="Imgmenu"] resize set height 400px
-for_window [title="Imgmenu"] resize set width 1080 
-for_window [class="Dunst"] border pixel 1
-for_window [title="float"] floating toggle
+	[class="steam"] move container to workspace 9
+	[title="Imgmenu"] floating toggle
+	[title="Imgmenu"] resize set height 400px
+	[title="Imgmenu"] resize set width 1080 
+	[class="Dunst"] border pixel 1
+	[title="float"] floating toggle
+}
 
 
 
@@ -377,33 +383,34 @@ bar {
 }
 
 
-exec foot --server
-exec ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
-exec mpd
-exec dunst
-exec  ~/.config/scripts/wallpaper.sh --set
-output * bg ~/Pictures/wp/defaultwp.jpg fit #291749
-exec  ~/.config/scripts/lowbattery.sh
-# exec  ~/.config/scripts/check_task
-exec tmux new -s init -d 
-exec wl-paste --watch cliphist store
-#  exec nwg-dock-hyprland -i 24 -r
-# exec swaylock -e -c 000000
-# exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs
-exec_always notify-send "Sway " "config reloaded"
+output * bg ~/Pictures/wp/defaultwp.jpg fit #0e1419
 
-# GENTOO specific
-# exec syncthing
-exec gentoo-pipewire-launcher restart
-exec /usr/libexec/xdg-desktop-portal-gtk -r
-exec /usr/libexec/xdg-desktop-portal-wlr -r
-exec /usr/libexec/flatpak-portal --no-idle-exit -r
-exec "sh -c 'sleep 5;exec /usr/libexec/xdg-desktop-portal -r'"
-exec xhost +SI:localuser:$(id -un)
-exec xhost +SI:localuser:root
-exec touch /tmp/tasks
+exec {
+    foot --server
+    mpd
+    dunst
+    ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
+     ~/.config/scripts/wallpaper.sh --set
+     ~/.config/scripts/lowbattery.sh
+    tmux new -s init -d 
+    wl-paste --watch cliphist store
+
+    # enable screensharing 
+    gentoo-pipewire-launcher restart
+    /usr/libexec/xdg-desktop-portal-gtk -r
+    /usr/libexec/xdg-desktop-portal-wlr -r
+    xhost +SI:localuser:$(id -un)
+    xhost +SI:localuser:root
+
+    /usr/libexec/flatpak-portal --no-idle-exit -r
+    touch /tmp/tasks
+    gsettings set org.gtk.Settings.FileChooser window-size '(1200, 700)'
+    gsettings set org.gnome.desktop.interface font-name 'Iosevka Comfy'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+}
 
 exec ~/projects/repos/dashboard/main.py & disown
 
+exec_always notify-send "Sway " "config reloaded"
 
 include @sysconfdir@/sway/config.d/*

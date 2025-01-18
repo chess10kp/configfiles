@@ -21,6 +21,5 @@ function! BufferLine() abort
  return s
 endfunction
 
-set statusline=%!BufferLine()
-]]) 
-
+" set tabline=%!BufferLine()
+]])

@@ -54,9 +54,9 @@ return function()
 			comparators = {
         compare.exact,
         compare.lsp_scores,
-				require("copilot_cmp.comparators").prioritize,
-				require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
+        require("copilot_cmp.comparators").prioritize,
+        require("copilot_cmp.comparators").score,
 				compare.offset, -- Items closer to cursor will have lower priority
 				compare.scopes,
 				compare.sort_text,
@@ -140,23 +140,24 @@ return function()
 		},
 		sources = {
 			{ name = "path" },
-			{ name = "luasnip" },
+      {
+        name = "nvim_lsp",
+        max_item_count = 100,
+        entry_filter = function(entry, ctx)
+          local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "snippet"
+          return kind
+        end,
+      },
+      { name = "luasnip" },
 			{ name = "nvim_lua" },
-			{ name = "spell" },
-			{ name = "text" },
-			{ name = "tmux" },
 			{ name = "buffer", max_item_count = 1 },
-			{
-				name = "nvim_lsp",
-				max_item_count = 50,
-				entry_filter = function(entry, ctx)
-					local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "snippet"
-					return kind
-				end,
-			},
 			{ name = "treesitter" },
 			{ name = "latex_symbols" },
 			{ name = "copilot" },
+      { name = "supermaven"},
+      { name = "spell" },
+      { name = "text" },
+      { name = "tmux" },
 		},
 		experimental = {
 			ghost_text = {

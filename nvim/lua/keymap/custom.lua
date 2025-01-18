@@ -25,7 +25,7 @@ nmap("<leader>tg", ":!ctags -R *<CR>", "lsp: generate tags")
 nmap("<M-g><M-n>", "<cmd>cn<CR>")
 nmap("<M-g><M-p>", "<cmd>cp<CR>")
 
-nmap("<leader>ff", function()
+nmap("<leader>fi", function()
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":find **/**<Left>", true, false, true), "n", false)
 end, "editor: find file")
 nmap("<leader>lx", function()
