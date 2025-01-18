@@ -1,13 +1,3 @@
-if [[ "$TERM" == "dumb" ]]; then
-    unsetopt zle
-    unsetopt prompt_cr
-    unsetopt prompt_subst
-    unfunction precmd
-    unfunction preexec
-    PS1='$ '
-    return
-fi
-
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
   export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -44,10 +34,13 @@ function cdfzf {
   dir=$(find ./  -name node_modules -prune -o -name "*.git" -prune -o -name venv -prune -o  -type d   | fzf)
   [[ -n $dir ]] && cd $dir }
 
-function nvimfzf 
+function nfz 
 {
   [[ $(pwd) == $(eval echo ~) ]] && return
-  nvim $(find ./ -name node_modules -prune -o -name venv -prune -o  -type f -maxdepth 3 | fzf)
+  f=$(find ./ -name node_modules -prune -o -name venv -prune -o  -type f | fzf)
+  if [[ ! -z $f ]]; then
+      nvim $f
+  fi
 }
 
 function mkcir
