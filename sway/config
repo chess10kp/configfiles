@@ -206,7 +206,6 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym XF86MonBrightnessUp exec light -A 2% && sh ~/.config/scripts/showstuff brightness
 
 
-    bindsym $mod+Shift+p workspace "opengl"; exec ~/.config/scripts/mode/sway-goto-if-not-start opengl firefox "firefox --private-window" 
     bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
     bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
     bindsym Shift+Print exec ~/.local/bin/grimshot copy area
@@ -389,7 +388,6 @@ exec {
     foot --server
     mpd
     dunst
-    ~/.local/bin/static-web-server-v2.30.0-x86_64-unknown-linux-gnu/static-web-server -d ~/projects/web/startpage -p 9000
      ~/.config/scripts/wallpaper.sh --set
      ~/.config/scripts/lowbattery.sh
     tmux new -s init -d 
@@ -407,6 +405,9 @@ exec {
     gsettings set org.gtk.Settings.FileChooser window-size '(1200, 700)'
     gsettings set org.gnome.desktop.interface font-name 'Iosevka Comfy'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+    emacs --daemon
+
 }
 
 exec ~/projects/repos/dashboard/main.py & disown
