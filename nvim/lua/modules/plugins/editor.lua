@@ -36,15 +36,13 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"nvim-treesitter/nvim-treesitter-context",
 			config = require("editor.ts-context"),
 		},
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
 		{
 			"windwp/nvim-ts-autotag",
 			lazy = false, -- not needed for this
 			config = require("editor.autotag"),
-		},
-		{
-			"abecodes/tabout.nvim",
-			lazy = true,
-			config = require("editor.tabout"),
 		},
 	},
 }
