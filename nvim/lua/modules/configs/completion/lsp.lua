@@ -35,7 +35,7 @@ return function()
 	})
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+	-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 	local opts = {
 		on_attach = function()
@@ -257,6 +257,19 @@ return function()
 			)
 		end
 	end
+
+
+  -- https://github.com/neovim/neovim/issues/30985 rust analyzer bad
+  for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+      if err ~= nil and err.code == -32802 then
+        return
+      end
+      return default_diagnostic_handler(err, result, context, config)
+    end
+  end
+
 
 	mason_lspconfig.setup_handlers({ mason_lsp_handler })
 

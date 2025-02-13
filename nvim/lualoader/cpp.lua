@@ -33,7 +33,7 @@ return {
 	s("for", {
 		c(1, {
 			node_creator("for ({} {} : {}) {\n\t{}\n}"),
-			node_creator("for (int {} = 0; {} < {}; ++{}) {{\n\t{}\n}}"),
+			node_creator("for (int {} = 0; {} < {}; ++{}) {\n\t{}\n}"),
 		}),
 	}),
 }, {

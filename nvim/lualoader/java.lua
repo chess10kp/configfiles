@@ -16,6 +16,7 @@ local fmt = require("luasnip.extras.fmt").fmt -- luacheck:ignore
 
 return {
 	create_snippet("voidf", "void {} ({}) {{\n\t{}\n}}"),
+  create_snippet("pu", "public "),
 	create_snippet("intf", "int {} ({}) {{\n\t{}\n}}"),
 	create_snippet("charf", "char {} ({}) {{\n\t{}\n}}"),
 	create_snippet("Stringf", "String {} ({}) {{\n\t{}\n}}"),
@@ -32,6 +33,7 @@ return {
 		fmt(
 			[[
       private <> <>;
+
       public <> get<>() {
         return this.<>;
       }
@@ -71,8 +73,8 @@ return {
 		)
 	),
 	create_snippet("main", "public static void main(String[] args) {{\n  {}\n}}"),
-	create_snippet("while", "while ({}) {{\n\t{}\n}}"),
-	create_snippet("class", "class {} {{\n\t{}\n}}"),
+	create_snippet("whl", "while ({}) {{\n\t{}\n}}"),
+	create_snippet("cls", "class {} {{\n\t{}\n}}"),
 	create_snippet("if", "if ({}) {{\n\t{}\n}}", {"cond", ""}),
 	s("for", {
 		c(1, {

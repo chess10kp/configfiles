@@ -83,7 +83,7 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	"rust_analyzer",
+  "basedpyright",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.

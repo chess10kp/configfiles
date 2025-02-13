@@ -27,12 +27,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "Telescope*",
-	callback = function()
-		require("cmp").setup.buffer({ enabled = false })
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "Telescope*",
+-- 	callback = function()
+-- 		require("cmp").setup.buffer({ enabled = false })
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("RecordingEnter", {
 	callback = function()

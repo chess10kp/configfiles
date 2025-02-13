@@ -115,19 +115,5 @@ return function()
 	dap_python.test_runner = "pytest"
 	dap_python.default_port = 38000
 
-	dapui.setup({
-		sidebar = {
-			elements = {
-        "scopes",
-        "scopes",
-				"watches",
-			},
-			positions = "right",
-		},
-    tray = {
-      elements = {
-        "repl"
-      }
-    }
-	})
+	dapui.setup({})
 end

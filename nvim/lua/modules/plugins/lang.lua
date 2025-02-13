@@ -25,13 +25,18 @@ lang["ray-x/go.nvim"] = {
 lang["Vigemus/iron.nvim"] = {
 	enabled = true,
 	lazy = true,
-	ft = {"python", "haskell"},
+	ft = { "python", "haskell" },
 	config = require("lang.iron"),
+}
+lang["mrcjkb/rustaceanvim"] = {
+	enabled = true,
+	lazy = false,
+	version = "^5",
 }
 lang["simrat39/rust-tools.nvim"] = {
 	lazy = true,
 	ft = "rust",
-	enabled = true,
+	enabled = false,
 	config = require("lang.rust-tools"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }

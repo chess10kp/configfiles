@@ -142,7 +142,7 @@ return function()
 			{ name = "path" },
       {
         name = "nvim_lsp",
-        max_item_count = 100,
+        max_item_count = 30,
         entry_filter = function(entry, ctx)
           local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "snippet"
           return kind
