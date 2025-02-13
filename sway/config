@@ -296,6 +296,18 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+mode "focus" {
+     bindsym {
+	$mod+l focus right
+	$mod+h focus left
+	$mod+j focus down
+	$mod+k focus up
+	$mod+d exec $menu
+	$mod+Shift+Return mode "default"
+     }
+}
+
+bindsym $mod+Shift+Control+f mode "focus"
 
 mode "open" {
     # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs; mode "default"
@@ -305,6 +317,8 @@ mode "open" {
     bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox"; mode "default"
     bindsym c workspace "chess"; exec ~/.config/scripts/mode/sway-goto-if-not-start "chess" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
+    bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
+    bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
     bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
     bindsym $mod+c exec code; mode "default"
@@ -366,7 +380,7 @@ for_window {
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    font pango:Iosevka Comfy 20px
+    font pango:Iosevka Comfy 30px
     gaps  0 0 0 0
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -410,7 +424,9 @@ exec {
 
 }
 
-exec ~/projects/repos/dashboard/main.py & disown
+# exec ~/projects/repos/dashboard/main.py & disown 
+exec swaymsg "workspace emacs"
+exec emacsclient -c ~/projects/notes/todo.org
 
 exec_always notify-send "Sway " "config reloaded"
 

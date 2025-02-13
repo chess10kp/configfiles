@@ -133,7 +133,8 @@ PROMPT='%F{blue}%f %F{red}%f%F{green}λ %f'
 setopt emacs
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey -s "^V" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
+# bindkey -s "^V" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
+bindkey -s "^V" '~/.local/bin/tmux-sessionizer^M'
 bindkey '^R' history-incremental-search-backward
 
 
@@ -147,3 +148,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+eval "$(zoxide init zsh)"
