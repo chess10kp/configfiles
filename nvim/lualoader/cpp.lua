@@ -28,7 +28,7 @@ return {
 	create_snippet("while", "while ({}) {{\n\t{}\n}}"),
 	create_snippet("fore", "for ({} {} : {}) {{\n\t{}\n}}", {"type", "name", "val", ""}),
 	create_snippet("fori", "for (int {} = 0; {} < {}; ++{}) {{\n\t{}\n}}"),
-	create_snippet("class", "class {} {{\n\t{}\n}}"),
+	create_snippet("class", "class {} {{\n\t{}\n}};"),
 	create_snippet("if", "if ({}) {{\n\t{}\n}}", {"cond", ""}),
 	s("for", {
 		c(1, {

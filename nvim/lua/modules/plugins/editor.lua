@@ -6,7 +6,7 @@ editor["rhysd/clever-f.vim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("editor.cleverf"),
 }
-editor["tabout/tabout.nvim"] = {
+editor["abecodes/tabout.nvim"] = {
 	enabled = true,
 	config = require("editor.tabout"),
 }

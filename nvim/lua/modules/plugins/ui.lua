@@ -8,7 +8,7 @@ ui["ellisonleao/gruvbox.nvim"] = {
 }
 ui["karb94/neoscroll.nvim"] = {
 	lazy = true,
-	event = "InsertEnter",
+	event = "VimEnter",
 	config = function()
 		require("neoscroll").setup({
 			hide_cursor = false,
