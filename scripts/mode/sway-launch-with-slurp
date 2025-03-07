@@ -30,18 +30,22 @@ width=$(echo $size | awk -F x '{print $1}')
 
 # run program
 $1 -w "${width}x${height}" & 
-sleep 0.025
+sleep 0.05
 
 # induce a wait to make sure that the application gets assigned an app id (can be variable depending on device)
 
 pid=$!
 
 # use the id to get the container id of the window
+echo "$(swaymsg -t get_tree)"
 id=$(swaymsg -t get_tree | jq --arg pid "$pid" '.nodes[1].nodes[].nodes[] | .. | select(type == "object") | select(.pid|tostring==$pid) | .id  ' )
 echo "$id"
 
+echo "hi"
 # Tell sway to focus said window
 [[ -z "$id" ]] && notify-send "Sway" "Spawning Terminal failed"
 swaymsg [con_id="$id"] floating enable
+echo "whatsap"
 
 swaymsg [con_id="$id"] move absolute position $x $y
+echo "emacs"
