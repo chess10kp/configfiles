@@ -147,20 +147,20 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3 
-    bindsym $mod+e workspace "emacs"
-    bindsym $mod+b workspace "browse" 
+    bindsym $mod+e workspace "e"
+    bindsym $mod+b workspace "b" 
     bindsym $mod+m workspace "m" 
-    bindsym $mod+8 workspace number 8
+    bindsym $mod+8 workspace number "d"
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3 
-    bindsym $mod+Shift+e move container to workspace "emacs"
-    bindsym $mod+Shift+b move container to workspace "browse" 
+    bindsym $mod+Shift+e move container to workspace "e"
+    bindsym $mod+Shift+b move container to workspace "b" 
     bindsym $mod+Shift+m move container to workspace "m" 
-    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+8 move container to workspace number "d"
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
@@ -210,9 +210,13 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
     bindsym Shift+Print exec ~/.local/bin/grimshot copy area
 
+mode "mark" {
+}
+bindsym $mod+c mode "mark"
+
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
-    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; :window
+    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
     bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
     bindsym p exec ~/.config/scripts/power.sh; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
@@ -240,11 +244,10 @@ bindsym $mod+s mode "script"
 mode "timer_map" {
   bindsym s exec ~/.config/scripts/set_time 1; mode "default"
   bindsym t exec ~/.config/scripts/timer.sh; mode "default"
-  bindsym Return mode "default" 
 }
 
 
-bindsym $mod+c mode "layout"
+bindsym $mod+Shift+c mode "layout"
 
 mode "layout" {
   bindsym $mod+i gaps inner all minus 10
@@ -263,8 +266,8 @@ mode "layout" {
 bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
 
 
-output eDP-1 mode 2240x1400  bg #0e1419 solid_color
-output HDMI-A-1 mode 2240x1400  bg #0e1419 solid_color
+#output eDP-1 mode 2240x1400  bg #0e1419 solid_color
+#output HDMI-A-1 mode 2240x1400  bg #0e1419 solid_color
 bindsym $mod+Control+1 output eDP-1 enable
 bindsym $mod+Control+2 output eDP-1 disable
 bindsym $mod+Control+3 output HDMI-A-1 enable
@@ -303,19 +306,19 @@ mode "focus" {
 	$mod+j focus down
 	$mod+k focus up
 	$mod+d exec $menu
-	$mod+Shift+Return mode "default"
+	$mod+Shift+Return exec  ~/.config/scripts/set_time 0;  mode "default"
      }
 }
 
-bindsym $mod+Shift+Control+f mode "focus"
+bindsym $mod+Shift+Control+f exec ~/.config/scripts/set_time 1; mode "focus"
 
 mode "open" {
-    # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" ~/.local/bin/checkemacs; mode "default"
-    bindsym e workspace "emacs"; mode "default"
-    bindsym Shift+e workspace "emacs"; exec ~/.config/scripts/mode/sway-goto-if-not-start "emacs" "emacs" $term -e ~/.local/bin/checkemacs -nw ~/projects/notes/todo.org; mode "default"
-    bindsym d workspace "8"; exec ~/.config/scripts/mode/sway-goto-if-not-start "8" "Discord" ~/.local/bin/startVesktop; mode "default"
-    bindsym f workspace "browse"; exec ~/.config/scripts/mode/sway-goto-if-not-start "browse" "firefox" "/usr/bin/firefox"; mode "default"
-    bindsym c workspace "chess"; exec ~/.config/scripts/mode/sway-goto-if-not-start "chess" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
+    # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "e" ~/.local/bin/checkemacs; mode "default"
+    bindsym e workspace "e"; mode "default"
+    bindsym Shift+e workspace "e"; exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "emacs" ~/.local/bin/checkemacs -c ~/projects/notes/todo.org; mode "default"
+    bindsym d workspace "d"; exec ~/.config/scripts/mode/sway-goto-if-not-start "d" "Discord" ~/.local/bin/startVesktop; mode "default"
+    bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "firefox" "/usr/bin/firefox"; mode "default"
+    bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
     bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
     bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
@@ -343,7 +346,7 @@ for_window {
 	[title="Thunar"] floating enable
 	[app_id="zenity"] floating enable
 	[app_id="vpn"] floating enable, resize set 950 550, move position center
-	[app_id="floating"] floating enable
+	[title="floating"] floating enable
 	[app_id="ncmpcpp"] floating enable
 	[app_id="^scratchpad$"] floating enable, resize set 1250 750, move position center
 	[app_id="^scratchpad_input$"] floating enable, resize set 900 700, move position center
@@ -358,7 +361,7 @@ for_window {
 	[app_id="Signal Beta" title="^Signal Desktop Preferences$"] floating enable
 	[app_id="Signal" title="^Signal Desktop Preferences$"] floating enable
 	[app_id="gimp-2.99" title="New Layer"] floating enable
-	[title="Discord"] move workspace 8
+	[title="Discord"] move workspace "d"
 	[title="Monkeytype"] move workspace "typing"
 	[class="mpv"] move workspace 1
 
@@ -380,7 +383,7 @@ for_window {
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    font pango:Iosevka Comfy 30px
+    font pango:azuki_font 30px
     gaps  0 0 0 0
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -396,7 +399,7 @@ bar {
 }
 
 
-output * bg ~/Pictures/wp/defaultwp.jpg fit #0e1419
+# output * bg ~/Pictures/wp/defaultwp.jpg fit #0e1419
 
 exec {
     foot --server
@@ -425,7 +428,6 @@ exec {
 }
 
 # exec ~/projects/repos/dashboard/main.py & disown 
-exec swaymsg "workspace emacs"
 exec emacsclient -c ~/projects/notes/todo.org
 
 exec_always notify-send "Sway " "config reloaded"
