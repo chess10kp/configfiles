@@ -10,7 +10,81 @@ editor["abecodes/tabout.nvim"] = {
 	enabled = true,
 	config = require("editor.tabout"),
 }
+editor["jake-stewart/multicursor.nvim"] = {
+	enabled = true,
+	config = function()
+		local mc = require("multicursor-nvim")
+		mc.setup()
 
+		local set = vim.keymap.set
+
+		-- Add or skip cursor above/below the main cursor.
+		set({ "n", "x" }, "<up>", function()
+			mc.lineAddCursor(-1)
+		end)
+		set({ "n", "x" }, "<down>", function()
+			mc.lineAddCursor(1)
+		end)
+		set({ "n", "x" }, "<leader><up>", function()
+			mc.lineSkipCursor(-1)
+		end)
+		set({ "n", "x" }, "<leader><down>", function()
+			mc.lineSkipCursor(1)
+		end)
+
+		-- Add or skip adding a new cursor by matching word/selection
+		set({ "n", "x" }, "<leader>mm", function()
+			mc.matchAddCursor(1)
+		end)
+		set({ "n", "x" }, "<leader>ms", function()
+			mc.matchSkipCursor(1)
+		end)
+		set({ "n", "x" }, "<leader>mN", function()
+			mc.matchAddCursor(-1)
+		end)
+		set({ "n", "x" }, "<leader>mS", function()
+			mc.matchSkipCursor(-1)
+		end)
+
+		-- Add and remove cursors with control + left click.
+		set("n", "<c-leftmouse>", mc.handleMouse)
+		set("n", "<c-leftdrag>", mc.handleMouseDrag)
+		set("n", "<c-leftrelease>", mc.handleMouseRelease)
+
+		-- Disable and enable cursors.
+		set({ "n", "x" }, "<c-q>", mc.toggleCursor)
+
+		-- Mappings defined in a keymap layer only apply when there are
+		-- multiple cursors. This lets you have overlapping mappings.
+		mc.addKeymapLayer(function(layerSet)
+			-- Select a different cursor as the main one.
+			layerSet({ "n", "x" }, "<left>", mc.prevCursor)
+			layerSet({ "n", "x" }, "<right>", mc.nextCursor)
+
+			-- Delete the main cursor.
+			layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor)
+
+			-- Enable and clear cursors using escape.
+			layerSet("n", "<esc>", function()
+				if not mc.cursorsEnabled() then
+					mc.enableCursors()
+				else
+					mc.clearCursors()
+				end
+			end)
+		end)
+
+		-- Customize how cursors look.
+		local hl = vim.api.nvim_set_hl
+		hl(0, "MultiCursorCursor", { link = "Cursor" })
+		hl(0, "MultiCursorVisual", { link = "Visual" })
+		hl(0, "MultiCursorSign", { link = "SignColumn" })
+		hl(0, "MultiCursorMatchPreview", { link = "Search" })
+		hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
+		hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+		hl(0, "MultiCursorDisabledSign", { link = "SignColumn" })
+	end,
+}
 editor["ej-shafran/compile-mode.nvim"] = {
 	-- you can just use the latest version:
 	-- branch = "latest",
@@ -111,17 +185,65 @@ editor["X3eRo0/dired.nvim"] = {
 		vim.keymap.set("n", "<leader>d", ":Dired<CR>", { noremap = true, silent = true })
 	end,
 }
-editor["luckasRanarison/nvim-devdocs"] = {
-	enabled = true,
+editor["maskudo/devdocs.nvim"] = {
+
 	lazy = false,
 	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
-		"nvim-treesitter/nvim-treesitter",
+		"folke/snacks.nvim",
 	},
-	config = function()
-		require("nvim-devdocs").setup()
-	end,
+	cmd = { "DevDocs" },
+	keys = {
+		{
+			"<leader>ho",
+			mode = "n",
+			"<cmd>DevDocs get<cr>",
+			desc = "Get Devdocs",
+		},
+		{
+			"<leader>hi",
+			mode = "n",
+			"<cmd>DevDocs install<cr>",
+			desc = "Install Devdocs",
+		},
+		{
+			"<leader>hv",
+			mode = "n",
+			function()
+				local devdocs = require("devdocs")
+				local installedDocs = devdocs.GetInstalledDocs()
+				vim.ui.select(installedDocs, {}, function(selected)
+					if not selected then
+						return
+					end
+					local docDir = devdocs.GetDocDir(selected)
+					-- prettify the filename as you wish
+					Snacks.picker.files({ cwd = docDir })
+				end)
+			end,
+			desc = "Get Devdocs",
+		},
+		{
+			"<leader>hd",
+			mode = "n",
+			"<cmd>DevDocs delete<cr>",
+			desc = "Delete Devdoc",
+		},
+	},
+	opts = {
+		ensure_installed = {
+			"go",
+			"html",
+			-- "dom",
+			"http",
+			"css",
+			"javascript",
+			"rust",
+			-- some docs such as lua require version number along with the language name
+			-- check `DevDocs install` to view the actual names of the docs
+			"lua~5.1",
+			-- "openjdk~21"
+		},
+	},
 }
 
 return editor

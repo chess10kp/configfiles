@@ -38,19 +38,6 @@ return function()
 	-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 	local opts = {
-		on_attach = function()
-			require("lsp_signature").on_attach({
-				bind = true,
-				use_lspsaga = true,
-				floating_window = false,
-				fix_pos = true,
-				hint_enable = true,
-				hi_parameter = "Search",
-				handler_opts = {
-					border = "double",
-				},
-			})
-		end,
 		capabilities = capabilities,
 	}
 
@@ -180,8 +167,8 @@ return function()
 		signs = true,
 		underline = true,
 		virtual_text = diagnostics_virtual_text and {
-			-- severity_limit = diagnostics_level,
-		} or false,
+				-- severity_limit = diagnostics_level,
+			} or false,
 		-- set update_in_insert to false bacause it was enabled by lspsaga
 		update_in_insert = false,
 	})
@@ -232,8 +219,8 @@ return function()
 				return
 			elseif lsp_name == "python-lsp-server" or lsp_name == "pylsp" then
 				return
-      elseif lsp_name == "tsserver" then -- skip tsserver since typescript-tools  
-        return
+			elseif lsp_name == "tsserver" then -- skip tsserver since typescript-tools
+				return
 			end
 			-- Default to use factory config for server(s) that doesn't include a spec
 			nvim_lsp[lsp_name].setup(opts)
@@ -258,18 +245,16 @@ return function()
 		end
 	end
 
-
-  -- https://github.com/neovim/neovim/issues/30985 rust analyzer bad
-  for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
-    local default_diagnostic_handler = vim.lsp.handlers[method]
-    vim.lsp.handlers[method] = function(err, result, context, config)
-      if err ~= nil and err.code == -32802 then
-        return
-      end
-      return default_diagnostic_handler(err, result, context, config)
-    end
-  end
-
+	-- https://github.com/neovim/neovim/issues/30985 rust analyzer bad
+	for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
+		local default_diagnostic_handler = vim.lsp.handlers[method]
+		vim.lsp.handlers[method] = function(err, result, context, config)
+			if err ~= nil and err.code == -32802 then
+				return
+			end
+			return default_diagnostic_handler(err, result, context, config)
+		end
+	end
 
 	mason_lspconfig.setup_handlers({ mason_lsp_handler })
 

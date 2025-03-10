@@ -87,9 +87,11 @@ completion["saghen/blink.cmp"] = {
 				enabled = vim.g.ai_cmp,
 			},
 		},
-    cmdline = {},
+		cmdline = {
+      enabled = false,
+    },
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			default = {"copilot", "lsp", "path", "snippets", "buffer"  },
 			providers = {
 				copilot = {
 					name = "copilot",

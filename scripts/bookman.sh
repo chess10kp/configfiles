@@ -10,7 +10,6 @@ bookmarks=$(cat "$file")
 bookmarks+=$(printf "\nadd\nremove\nsearch\nreplace\n")
 
 newWindow=false
--- either copy the bookmark, or open in a new window
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
   -V | --version )
   echo "Bookman 1.0"
