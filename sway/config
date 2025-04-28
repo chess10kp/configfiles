@@ -6,6 +6,9 @@
 
 ### Variables
 
+set $emacs_clock_in emacsclient -eval "(org-clock-in-last)"
+set $emacs_clock_out emacsclient -eval "(org-clock-out)"
+
 # Logo key. Use Mod1 for alt.
 set $mod Mod4
 set $alt Mod1 
@@ -153,6 +156,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+8 workspace number "d"
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -210,10 +215,6 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
     bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
     bindsym Shift+Print exec ~/.local/bin/grimshot copy area
 
-mode "mark" {
-}
-bindsym $mod+c mode "mark"
-
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
     bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
@@ -238,6 +239,7 @@ mode "script" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym d exec ~/projects/repos/dashboard/main.py & disown; mode "default"
+    bindsym i exec ~/.config/scripts/pastable.sh; mode "default"
 }
 bindsym $mod+s mode "script"
 
@@ -274,6 +276,7 @@ bindsym $mod+Control+3 output HDMI-A-1 enable
 bindsym $mod+Control+4 output HDMI-A-1 disable
 
 
+bindsym $mod+Control+s sticky toggle
 
 
 mode "yank" {
@@ -306,18 +309,20 @@ mode "focus" {
 	$mod+j focus down
 	$mod+k focus up
 	$mod+d exec $menu
-	$mod+Shift+Return exec  ~/.config/scripts/set_time 0;  mode "default"
+	$mod+Shift+Return exec $emacs_clock_out; exec  ~/.config/scripts/set_time 0;  mode "default"
+	$mod+f fullscreen
      }
 }
 
-bindsym $mod+Shift+Control+f exec ~/.config/scripts/set_time 1; mode "focus"
+
+bindsym $mod+Shift+Control+f exec $emacs_clock_in; exec ~/.config/scripts/set_time 1; mode "focus"
 
 mode "open" {
     # bindsym e exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "e" ~/.local/bin/checkemacs; mode "default"
     bindsym e workspace "e"; mode "default"
     bindsym Shift+e workspace "e"; exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "emacs" ~/.local/bin/checkemacs -c ~/projects/notes/todo.org; mode "default"
     bindsym d workspace "d"; exec ~/.config/scripts/mode/sway-goto-if-not-start "d" "Discord" ~/.local/bin/startVesktop; mode "default"
-    bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "firefox" "/usr/bin/firefox"; mode "default"
+    bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "zen" "zen-bin"; mode "default"
     bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
     bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
@@ -388,6 +393,15 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command ~/.config/sway/bar
+
+    # Don't let mousewheel scrolling change workspaces
+    # Diable vertical scrolling
+    # bindsym button4 nop
+    # bindsym button5 nop
+    # Diable horizontal scrolling
+    # bindsym button6 nop
+    # bindsym button7 nop
+
     tray_output * 
     colors {
         statusline #ebdbb2
@@ -420,7 +434,7 @@ exec {
     /usr/libexec/flatpak-portal --no-idle-exit -r
     touch /tmp/tasks
     gsettings set org.gtk.Settings.FileChooser window-size '(1200, 700)'
-    gsettings set org.gnome.desktop.interface font-name 'Iosevka Comfy'
+    gsettings set org.gnome.desktop.interface font-name 'Iosevka'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
     emacs --daemon

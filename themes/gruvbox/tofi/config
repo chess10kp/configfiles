@@ -7,8 +7,8 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "azuki_font"
-	font-size=24
+	font = "Iosevka Comfy"
+	font-size=12
 
 	# Comma separated list of OpenType font feature settings to apply,
   #

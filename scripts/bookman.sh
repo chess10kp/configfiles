@@ -5,7 +5,6 @@ source ~/.config/scripts/configvars.sh
 file="$HOME/.bookmarks"
 touch "$file"
 prompt="Bookmarks"
-#sed 's/.*http/.*/' $file
 bookmarks=$(cat "$file")
 bookmarks+=$(printf "\nadd\nremove\nsearch\nreplace\n")
 
@@ -33,14 +32,14 @@ while [ -n "$cmd" ]; do
         link+=" "$($paste_command)
 		echo $link >>"$file"
 		notify-send "bookmark ${link} added"
+    exit
 
 	elif [[ $cmd == "remove" ]]; then
 		cmd=$($rofi <"$file")
-		if grep -q "^$cmd\$" "$file"; then
-			grep -v "^$cmd\$" "$file" >"$file.$$"
-			mv "$file.$$" "$file"
-		fi
+    cmd=$(echo "$cmd" | sed 's/\//\\\//g')
+    sed -i "/$cmd/d" "$file"
 		notify-send "bookmark ${link} removed"
+    exit
 
   elif [[ $cmd == "replace" ]]; then
     cmd=$($rofi <"$file")
@@ -52,16 +51,11 @@ while [ -n "$cmd" ]; do
       notify-send "bookmark ${link} replaced"
     fi
 
-  elif [[ $cmd == "search" ]]; then
-    ./searchweb.sh
-    exit 0
-
 	elif grep -q "^$cmd\$" "$file"; then
     if [[ $mode == "open" ]]; then
       if [[ $newWindow == true ]]; then
         $browser --new-window $(echo "$cmd" | sed 's/.*http/http/') &
       else
-        echo "hi"
         $browser $(echo "$cmd" | sed 's/.*http/http/') &
       fi
       exit 0

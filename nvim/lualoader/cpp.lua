@@ -24,7 +24,6 @@ return {
   create_snippet("char[] ", "char[] {} = {};"),
   create_snippet("bool ", "bool {} = {};"),
   create_snippet("string ", "std::string {} = {};"),
-	create_snippet("main", "public static void main(String[] args) {{\n  {}\n}}"),
 	create_snippet("while", "while ({}) {{\n\t{}\n}}"),
 	create_snippet("fore", "for ({} {} : {}) {{\n\t{}\n}}", {"type", "name", "val", ""}),
 	create_snippet("fori", "for (int {} = 0; {} < {}; ++{}) {{\n\t{}\n}}"),
