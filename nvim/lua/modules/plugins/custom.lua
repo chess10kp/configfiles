@@ -4,6 +4,12 @@ custom["lervag/vimtex"] = {
 	lazy = true,
 	ft = "tex",
 }
+custom[ "ryoppippi/vim-bad-apple" ] = {
+  lazy = false,
+  dependencies = {
+'vim-denops/denops.vim'
+  }
+}
 custom["kylechui/nvim-surround"] = {
 	event = "VeryLazy",
 	config = function()

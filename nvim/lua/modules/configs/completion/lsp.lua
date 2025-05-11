@@ -32,6 +32,10 @@ return function()
 				cancel_installation = "<C-c>",
 			},
 		},
+    registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+    },
 	})
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()

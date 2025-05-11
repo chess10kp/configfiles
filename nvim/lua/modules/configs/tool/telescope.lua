@@ -8,7 +8,6 @@ return function()
 			width = 1,
 			prompt_position = "bottom",
 		},
-		border = false,
 		mappings = {
 			["i"] = {
 				-- ["<Tab>"] = telescope_actions.select_default,
