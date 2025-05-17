@@ -90,130 +90,131 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
+# Start a terminal
+bindsym $mod+Return exec $term
 
-    # Kill focused window
-    bindsym $mod+q kill
+# Kill focused window
+bindsym $mod+q kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu 
-    bindsym $mod+z exec "tofi-run --prompt 'Run:' | xargs swaymsg exec --"
+# Start your launcher
+bindsym $mod+d exec $menu 
+bindsym $mod+z exec "tofi-run --prompt 'Run:' | xargs swaymsg exec --"
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+r reload
-    bindsym $mod+Control+c restart
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+bindsym $mod+Control+c restart
 
 
 
-    bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPlay exec mpc toggle
 
-    # bindsym $mod+Control+l exec swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 
-    bindsym $mod+Control+l exec swaylock -e -i ~/Pictures/wp/defaultwp.jpg --indicator-thickness 5 
-    # Exit sway (logs you out of your Wayland session)
-    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# bindsym $mod+Control+l exec swaylock -e -c 0e1419 --line-color 0e1419 --inside-color 0e1419 --ring-color ebdbb2 --ring-ver-color 0e1419 --indicator-thickness 5 --key-hl-color 0e1419 
+bindsym $mod+Control+l exec swaylock -e -i ~/Pictures/wp/defaultwp.jpg --indicator-thickness 5 
+
+# Exit sway (logs you out of your Wayland session)
+# bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left 30
-    bindsym $mod+Shift+$down move down 30
-    bindsym $mod+Shift+$up move up 30
-    bindsym $mod+Shift+$right move right 30
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left 30
+bindsym $mod+Shift+$down move down 30
+bindsym $mod+Shift+$up move up 30
+bindsym $mod+Shift+$right move right 30
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3 
-    bindsym $mod+e workspace "e"
-    bindsym $mod+b workspace "b" 
-    bindsym $mod+m workspace "m" 
-    bindsym $mod+8 workspace number "d"
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3 
+bindsym $mod+e workspace "e"
+bindsym $mod+b workspace "b" 
+bindsym $mod+m workspace "m" 
+bindsym $mod+8 workspace number "d"
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3 
-    bindsym $mod+Shift+e move container to workspace "e"
-    bindsym $mod+Shift+b move container to workspace "b" 
-    bindsym $mod+Shift+m move container to workspace "m" 
-    bindsym $mod+Shift+8 move container to workspace number "d"
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3 
+bindsym $mod+Shift+e move container to workspace "e"
+bindsym $mod+Shift+b move container to workspace "b" 
+bindsym $mod+Shift+m move container to workspace "m" 
+bindsym $mod+Shift+8 move container to workspace number "d"
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+g splith
-    bindsym $mod+v splitv
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+g splith
+bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-    # bindsym $mod+Shift+s layout stacking
-    bindsym $mod+Shift+w layout tabbed
-    bindsym $mod+t layout toggle split
+# Switch the current container between different layout styles
+# bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+t layout toggle split
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
+# Swap focus between the tiling area and the floating area
 
-    bindsym $mod+a focus parent
-    bindsym $mod+w focus child
-    bindsym $mod+n workspace back_and_forth
-
-
-    bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
-    bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
-    bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
+bindsym $mod+a focus parent
+bindsym $mod+w focus child
+bindsym $mod+n workspace back_and_forth
 
 
-    bindsym $mod+Backspace exec dunstctl close
-
-    bindsym $mod+Shift+u exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
-    bindsym $mod+Shift+d exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
-
-    bindsym XF86MonBrightnessDown exec light -U 2% && sh ~/.config/scripts/showstuff brightness
-    bindsym XF86MonBrightnessUp exec light -A 2% && sh ~/.config/scripts/showstuff brightness
+bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
 
 
-    bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
-    bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
-    bindsym Shift+Print exec ~/.local/bin/grimshot copy area
+bindsym $mod+Backspace exec dunstctl close
+
+bindsym $mod+Shift+u exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+bindsym $mod+Shift+d exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
+
+bindsym XF86MonBrightnessDown exec light -U 2% && sh ~/.config/scripts/showstuff brightness
+bindsym XF86MonBrightnessUp exec light -A 2% && sh ~/.config/scripts/showstuff brightness
+
+
+bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
+bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
+bindsym Shift+Print exec ~/.local/bin/grimshot copy area
 
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
@@ -309,9 +310,13 @@ mode "focus" {
 	$mod+j focus down
 	$mod+k focus up
 	$mod+d exec $menu
-	$mod+Shift+Return exec $emacs_clock_out; exec  ~/.config/scripts/set_time 0;  mode "default"
+	$mod+Shift+Return exec  ~/.config/scripts/set_time 0 && exec $emacs_clock_out
 	$mod+f fullscreen
      }
+
+    bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+    bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
 }
 
 
@@ -396,11 +401,11 @@ bar {
 
     # Don't let mousewheel scrolling change workspaces
     # Diable vertical scrolling
-    # bindsym button4 nop
-    # bindsym button5 nop
+    bindsym button4 nop
+    bindsym button5 nop
     # Diable horizontal scrolling
-    # bindsym button6 nop
-    # bindsym button7 nop
+    bindsym button6 nop
+    bindsym button7 nop
 
     tray_output * 
     colors {

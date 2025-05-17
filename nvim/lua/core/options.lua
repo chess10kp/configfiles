@@ -13,13 +13,13 @@ set path+=**
 o.winblend = 0
 
 o.more = false
-o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
+-- o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
 o.hlsearch = false
 o.autoindent = true
 o.laststatus = 3
 o.showtabline = 0
 o.autoread = true
-o.fcs = "eob: " -- get rid of the annoying ~ at the end of file
+-- o.fcs = "eob: " -- get rid of the annoying ~ at the end of file
 o.autowrite = true
 o.backspace = "indent,eol,start"
 o.backup = false
@@ -165,3 +165,5 @@ if global.is_windows then
 	-- Download the DLLs form https://www.sqlite.org/download.html
 	g.sqlite_clib_path = global.home .. "/Documents/sqlite-dll-win64-x64-3400100/sqlite3.dll"
 end
+
+o.digraph = true

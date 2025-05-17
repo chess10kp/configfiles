@@ -73,7 +73,7 @@ lang["seblyng/roslyn.nvim"] = {
 	end,
 }
 lang["GustavEikaas/easy-dotnet.nvim"] = {
-	enabled = true,
+	enabled = false,
 	ft = "cs",
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	lazy = true,
