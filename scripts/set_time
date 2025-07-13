@@ -2,7 +2,21 @@
 
 
 if [[ $1 == "-h"  || $1 == "--help" ]]; then
-    echo "Usage: timer.sh [0|1] [cmd?]"
+    echo "Usage: timer.sh [0|1] [cmd with args?]"
+    echo "0: Stop timer"
+    echo "1: Set timer for 1 starting from the current time"
+    echo "Timer outputs the current time to /tmp/timer_start, keeping track of the time elapsed."
+    echo "Timer is allowed to turn off if it has same or higher time than in /tmp/timer_end."
+    echo "When $cmd is specified when $1 is 0, it will be executed if the time is successfully stopped, otherwise, it does nothing."
+    echo "When $cmd is specified when $1 is 1, nothing happens"
+    exit 0
+fi
+
+current_time_file=/tmp/timer_start
+min_duration_file=/tmp/timer_end
+
+if [[ $# == 0 ]]; then
+    echo "Usage: timer.sh [0|1] [cmd with args]?"
     echo "0: Stop timer"
     echo "1: Set timer for 1 starting from the current time"
     echo "Timer outputs the current time to /tmp/timer_start, keeping track of the time elapsed."
@@ -13,22 +27,21 @@ if [[ $1 == "-h"  || $1 == "--help" ]]; then
 fi
 
 if [[ $1 == "0" ]]; then
-    if [[ -f /tmp/timer_end ]]; then
-	timer_start=$(cat /tmp/timer_start) 
+    if [[ -f $min_duration_file ]]; then
+	timer_start=$(cat $current_time_file) 
 	current_time=$(date +'%s')
 	countup=$((10#$current_time - 10#$timer_start ))
 	target_time=$(cat /tmp/timer_end)
 	d=$((10#$countup - 10#$target_time ))
 	if [[ $d -ge 0 ]]; then
-	    notify-send "$countup"
-	    echo "$d seconds"
-	    notify-send "Timer finished"
-	    echo "" > /tmp/timer_start
 	    notify-send "Timer quit"
-	    if [[ -n $2 ]]; then
-		$2
-		exit 0
+	    echo "" > /tmp/timer_start
+	    if [[ $# -gt 1 ]]; then
+		shift
+		$@
+		notify-send "$@"
 	    fi
+	    exit 0
 	else
 	    to_mintes=$(echo "$d" | awk '{print int($1/-60)}')
 	    output=$(echo "Time remaining: $to_mintes minutes")

@@ -7,11 +7,11 @@ editor["rhysd/clever-f.vim"] = {
 	config = require("editor.cleverf"),
 }
 editor["abecodes/tabout.nvim"] = {
-	enabled = true,
+	enabled = false,
 	config = require("editor.tabout"),
 }
 editor["jake-stewart/multicursor.nvim"] = {
-	enabled = true,
+	enabled = false,
 	config = function()
 		local mc = require("multicursor-nvim")
 		mc.setup()
@@ -122,6 +122,9 @@ editor["numToStr/Comment.nvim"] = {
 }
 editor["norcalli/nvim-colorizer.lua"] = {
 	lazy = false,
+  config = function ()
+    vim.cmd("ColorizerToggle")
+  end
 }
 
 editor["nvim-treesitter/nvim-treesitter"] = {
@@ -148,43 +151,43 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 	},
 }
--- editor["X3eRo0/dired.nvim"] = {
---   enabled = false,
--- 	lazy = true,
--- 	event = "BufReadPost",
--- 	config = function()
--- 		require("dired").setup({
--- 			keybinds = {
--- 				dired_enter = "<cr>",
--- 				dired_back = "-",
--- 				dired_up = "_",
--- 				dired_rename = "R",
--- 				dired_create = "d",
--- 				dired_delete = "D",
--- 				dired_delete_range = "D",
--- 				dired_copy = "C",
--- 				dired_copy_range = "C",
--- 				dired_copy_marked = "MC",
--- 				dired_move = "X",
--- 				dired_move_range = "X",
--- 				dired_move_marked = "MX",
--- 				dired_paste = "P",
--- 				dired_mark = "M",
--- 				dired_mark_range = "M",
--- 				dired_delete_marked = "MD",
--- 				dired_toggle_hidden = ".",
--- 				dired_toggle_sort_order = ",",
--- 				dired_toggle_icons = "*",
--- 				dired_toggle_colors = "c",
--- 				dired_toggle_hide_details = "(",
--- 				dired_quit = "q",
--- 			},
--- 		})
--- 		vim.keymap.set("n", "<leader>d", ":Dired<CR>", { noremap = true, silent = true })
--- 	end,
--- }
+editor["X3eRo0/dired.nvim"] = {
+  enabled = false,
+	lazy = true,
+	event = "BufReadPost",
+	config = function()
+		require("dired").setup({
+			keybinds = {
+				dired_enter = "<cr>",
+				dired_back = "-",
+				dired_up = "_",
+				dired_rename = "R",
+				dired_create = "d",
+				dired_delete = "D",
+				dired_delete_range = "D",
+				dired_copy = "C",
+				dired_copy_range = "C",
+				dired_copy_marked = "MC",
+				dired_move = "X",
+				dired_move_range = "X",
+				dired_move_marked = "MX",
+				dired_paste = "P",
+				dired_mark = "M",
+				dired_mark_range = "M",
+				dired_delete_marked = "MD",
+				dired_toggle_hidden = ".",
+				dired_toggle_sort_order = ",",
+				dired_toggle_icons = "*",
+				dired_toggle_colors = "c",
+				dired_toggle_hide_details = "(",
+				dired_quit = "q",
+			},
+		})
+		vim.keymap.set("n", "<leader>d", ":Dired<CR>", { noremap = true, silent = true })
+	end,
+}
 editor["maskudo/devdocs.nvim"] = {
-
+  enabled = false,
 	lazy = false,
 	dependencies = {
 		"folke/snacks.nvim",

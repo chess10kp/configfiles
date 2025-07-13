@@ -63,6 +63,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 ### Input configuration
 #
 # Example configuration:
+default_dim_inactive 0
 
   input "type:keyboard" {
       natural_scroll enabled
@@ -241,6 +242,8 @@ mode "script" {
     bindsym Escape mode "default"
     bindsym d exec ~/projects/repos/dashboard/main.py & disown; mode "default"
     bindsym i exec ~/.config/scripts/pastable.sh; mode "default"
+    bindsym Shift+n exec mpc next; mode "default"
+    bindsym Shift+p exec mpc prev; mode "default"
 }
 bindsym $mod+s mode "script"
 
@@ -310,7 +313,8 @@ mode "focus" {
 	$mod+j focus down
 	$mod+k focus up
 	$mod+d exec $menu
-	$mod+Shift+Return exec  ~/.config/scripts/set_time 0 && exec $emacs_clock_out
+	$mod+q kill
+	$mod+Shift+Return exec  ~/.config/scripts/set_time 0 swaymsg mode "default" && exec $emacs_clock_out
 	$mod+f fullscreen
      }
 
@@ -332,7 +336,7 @@ mode "open" {
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
     bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
     bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
-    bindsym m exec $term  -e --title Music ncmpcpp; mode "default"
+    bindsym g exec "chromium --new-window --app=\"https://gemini.google.com/app\""; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
     bindsym $mod+c exec code; mode "default"
     bindsym w exec firefox; mode "default"
@@ -352,10 +356,12 @@ bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 
 
 for_window {
-	[title="Music"] move scratchpad
+	[title="foot"] opacity 1
+	[title="foot"] saturation set 0.3 
 	[title="Thunar"] floating enable
 	[app_id="zenity"] floating enable
 	[app_id="vpn"] floating enable, resize set 950 550, move position center
+	[title="Open Folder"] floating enable, resize set 950 550, move position center
 	[title="floating"] floating enable
 	[app_id="ncmpcpp"] floating enable
 	[app_id="^scratchpad$"] floating enable, resize set 1250 750, move position center
@@ -368,12 +374,9 @@ for_window {
 	[app_id="zoom" title="Zoom Cloud Meetings"] floating enable
 	[title=".* is sharing your screen."] floating enable
 	[app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
-	[app_id="Signal Beta" title="^Signal Desktop Preferences$"] floating enable
-	[app_id="Signal" title="^Signal Desktop Preferences$"] floating enable
 	[app_id="gimp-2.99" title="New Layer"] floating enable
 	[title="Discord"] move workspace "d"
 	[title="Monkeytype"] move workspace "typing"
-	[class="mpv"] move workspace 1
 
 	[app_id="showmethekey-gtk"] floating enable
 	[app_id="showmethekey-gtk"] sticky enable
@@ -387,13 +390,11 @@ for_window {
 	[title="float"] floating toggle
 }
 
-
-
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
-    font pango:azuki_font 30px
+    font pango:Iosevka Comfy 20px
     gaps  0 0 0 0
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -407,7 +408,6 @@ bar {
     bindsym button6 nop
     bindsym button7 nop
 
-    tray_output * 
     colors {
         statusline #ebdbb2
         background #0e1418

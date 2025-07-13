@@ -7,7 +7,7 @@ return {
 			plugins = {
 				-- Lint
 				ruff = {
-					enabled = true,
+					enabled = false,
 					select = {
 						-- enable pycodestyle
 						"E",
@@ -17,7 +17,7 @@ return {
 					ignore = {
 						"E501",
 						-- ignore F401 (imported but unused)
-						-- "F401",
+						"F401",
 					},
 					extendSelect = { "I" },
 					severities = {
@@ -35,7 +35,7 @@ return {
 				rope = { enabled = true },
 
 				-- Formatting
-				black = { enabled = true },
+				black = { enabled = false },
 				pyls_isort = { enabled = false },
 				autopep8 = { enabled = false },
 				yapf = { enabled = false },

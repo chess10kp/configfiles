@@ -7,8 +7,8 @@ completion["neovim/nvim-lspconfig"] = {
 	-- example calling setup directly for each LSP
 	config = require("completion.lsp"),
 	dependencies = {
-		{ "williamboman/mason.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
+		{ "mason-org/mason.nvim" },
+		{ "mason-org/mason-lspconfig.nvim" },
 		{ "saghen/blink.cmp" },
 		{
 			"ray-x/lsp_signature.nvim",
@@ -77,6 +77,7 @@ completion["saghen/blink.cmp"] = {
 			menu = {
 				draw = {
 					treesitter = { "lsp" },
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", "source_name" } },
 				},
 			},
 			documentation = {
@@ -88,10 +89,10 @@ completion["saghen/blink.cmp"] = {
 			},
 		},
 		cmdline = {
-      enabled = false,
-    },
+			enabled = false,
+		},
 		sources = {
-			default = {"copilot", "lsp", "path", "snippets", "buffer"  },
+			default = { "copilot", "lsp", "path", "snippets", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",
