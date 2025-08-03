@@ -34,6 +34,41 @@ get_countdown() {
   fi
 }
 
+get_stock() {
+    command -v curl >/dev/null 2>&1 || { echo >&2 "Error: 'curl' is not installed. Aborting."; exit 1; }
+    command -v jq >/dev/null 2>&1 || { echo >&2 "Error: 'jq' is not installed. Aborting."; exit 1; }
+
+    TICKER="AMD"
+    source $HOME/.secrets
+    API_KEY=$POLYGONIO
+    API_URL="https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers/${TICKER}?apiKey=${API_KEY}"
+    TEMP_FILE="/tmp/amd_stock_price.tmp"
+    CURRENT_TIME=$(date +%s)
+
+    if [ -f "$TEMP_FILE" ]; then
+	read -r LAST_FETCH_TIME LAST_PRICE < "$TEMP_FILE"
+    else
+	LAST_FETCH_TIME=0
+	LAST_PRICE=""
+    fi
+
+    if (( CURRENT_TIME - LAST_FETCH_TIME >= 1800 )); then
+	RESPONSE=$(curl -s "${API_URL}")
+
+	if [ $? -eq 0 ]; then
+            PRICE=$(echo "${RESPONSE}" | jq -r '.ticker.lastTrade.p // "N/A"')
+            if [[ "$PRICE" != "N/A" ]]; then
+		echo "${PRICE}"
+		echo "$CURRENT_TIME $PRICE" > "$TEMP_FILE"
+            fi
+	fi
+    else
+	if [[ -n "$LAST_PRICE" ]]; then
+            echo "${LAST_PRICE}"
+	fi
+    fi
+}
+
 get_cryp() {
   pc=$(curl -s https://api.coindesk.com/v1/bpi/currentprice/BTC.json | jq -r '.bpi.USD.rate' | sed "s/,//g" | sed "s/\.//g")
   echo "{\"name\": \"btc\", \"full_text\": \"$pc\" }"
