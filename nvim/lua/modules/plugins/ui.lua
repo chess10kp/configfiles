@@ -7,9 +7,6 @@ ui["ellisonleao/gruvbox.nvim"] = {
 	config = require("ui.gruvbox"),
 }
 ui["nvim-lualine/lualine.nvim"] = {
-	lazy = false,
-	event = { "BufReadPost" },
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = require("modules.configs.ui.lualine"),
 }
 return ui

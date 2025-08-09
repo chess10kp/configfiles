@@ -16,12 +16,12 @@ return function()
 		conform.setup({
 			formatters_by_ft = {
 				javascript = { "prettier" },
-        go = {"goimports"},
+				go = { "goimports" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
-        java = { "google-java-format" },
-        xml = {"xmlformatter"},
+				java = { "google-java-format" },
+				xml = { "xmlformatter" },
 				css = { "prettier" },
 				html = { "prettier" },
 				markdown = { "prettier" },
@@ -49,4 +49,13 @@ return function()
 		vim.g.format_on_save_set = not vim.g.format_on_save_set
 		setup_formatting()
 	end, {})
+
+	local nmap = require("keymap.key").nmap
+	nmap("<leader>fm", function()
+		require("conform").format({
+			lsp_fallback = false,
+			async = false,
+			timeout_ms = 1000,
+		})
+	end, "lsp: format current file")
 end

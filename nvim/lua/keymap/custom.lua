@@ -4,11 +4,12 @@ local imap = key.imap
 local omap = key.omap
 local vmap = key.vmap
 local cmap = key.cmap
+local tmap = key.tmap
 
 imap("jk", "<ESC>", "editor: escape")
-
 nmap("<leader>ss", "<Cmd>echo 'saved session'<CR><Cmd>mks!<CR>", "editor: save vim session")
-nmap("<leader>lcd", "<Cmd>lcd %<Cmd>h<CR><Cmd>pwd<CR>", "editor: change current working directory")
+nmap("<leader>lcd", "<Cmd>lcd %:h<CR><Cmd>pwd<CR>", "editor: change current working directory")
+nmap("<leader>cd", "<Cmd>lcd ..<CR><Cmd>pwd<CR>", "editor: change go down working directory")
 nmap("<M-j>", "<Cmd>bnext<CR>", "editor: move to next buffer")
 nmap("<M-k>", "<Cmd>bprev<CR>", "editor: move to previous buffer")
 nmap("<leader>w", "<Cmd>write<CR>", "editor: save file")
@@ -19,6 +20,11 @@ nmap("<leader>ba", "<Cmd>bwipeout|enew<CR>", "editor: close all buffers")
 nmap("<leader>no", "<Cmd>echo 'noh'<CR>:noh<CR>", "editor: nothing")
 cmap("jk", "<ESC>", "editor: escape")
 nmap("<leader>tg", "<Cmd>silent !ctags -R *<CR>", "editor: generate tags")
+nmap("<M-h>", "<Cmd>Floaterminal<CR>", "editor: open terminal")
+tmap("<M-h>", "<Cmd>Floaterminal<CR>", "editor: open terminal")
+nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
+nmap("<CR>", "")
+nmap("<M-w>", "<C-^>", "editor: other file")
 
 nmap("<leader>rw", function()
 	vim.api.nvim_feedkeys(
@@ -38,11 +44,6 @@ nmap("<leader>ee", function()
 	vim.api.nvim_feedkeys(":e ~/", "n", true)
 end, "editor: open file")
 
-nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
-
-nmap("<CR>", "")
-nmap("<M-w>", "<C-^>", "editor: other file")
-
 nmap("/", function()
 	vim.o.hlsearch = false
 	vim.api.nvim_feedkeys("/", "n", true)
@@ -55,13 +56,6 @@ nmap("<leader>tt", function()
   ]])
 end)
 
-nmap("<leader>fm", function()
-	require("conform").format({
-		lsp_fallback = false,
-		async = false,
-		timeout_ms = 1000,
-	})
-end, "lsp: format current file")
 
 local function createMarkMappings()
 	local marks = {
@@ -118,7 +112,6 @@ local function createMarkMappings()
 		"Y",
 		"Z",
 	}
-
 	for _, mark in ipairs(marks) do
 		vim.api.nvim_set_keymap(
 			"n",

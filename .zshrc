@@ -65,6 +65,7 @@ alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias :q="exit"
 alias :e="vim"
 alias ta="tmux attach"
+alias tn="tmux new-session"
 alias td="tmux detach"
 alias mkdir="mkdir -p"
 alias cp="cp -v"
@@ -76,16 +77,6 @@ alias cd="z"
 alias docker_run_chroma="docker run -d --rm --name chromadb -p 8000:8000 -v ./chroma:/chroma/chroma -e IS_PERSISTENT=TRUE -e ANONYMIZED_TELEMETRY=TRUE chromadb/chroma:0.6.3"
 alias docker_run_sqlserver="docker run -e \"ACCEPT_EULA=Y\" -e \"MYSQL_SA_PASSWORD=IlovePissword2\" -p 1433:1433 --name sql1  --hostname sql1 -d mcr.microsoft.com/mssql/server:2017-latest"
 alias run_android_emulator="QT_QPA_PLATFORM=xcb ~/Android/Sdk/emulator/emulator -avd Pixel_8_API_UpsideDownCakePrivacySandbox"
-function nvim() {
-  # check if imn a tmux session, if it is run nvim 
-  if [[ -n "$TMUX" ]]; then
-    command nvim "$@"
-  else
-    tmux new-session -d -s "$(basename "$(pwd)")" "nvim $@"
-    tmux attach-session -t "$(basename "$(pwd)")"
-  fi
-}
-
 setopt emacs
 
 function cursor() {

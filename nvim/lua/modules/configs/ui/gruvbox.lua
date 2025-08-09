@@ -21,7 +21,7 @@ return function()
 			SignColumn = { bg = "#0e1419" },
 			Pmenu = { bg = "#0e1419" },
 			NormalFloat = { bg = "#0e1419" },
-      Delimiter = { fg = "#fabd2d"},
+			Delimiter = { fg = "#fabd2d" },
 		},
 		dim_inactive = false,
 		transparent_mode = false,
@@ -29,4 +29,11 @@ return function()
 			dark0 = "#0e1419",
 		},
 	})
+
+  vim.cmd([[
+  highlight StatusLine guibg=NONE ctermbg=NONE
+  highlight TabLine guibg=NONE ctermbg=NONE guifg=#888888 ctermfg=8
+  highlight TabLineSel guibg=NONE ctermbg=NONE guifg=#ffffff ctermfg=15
+  highlight TabLineFill guibg=NONE ctermbg=NONE 
+  ]])
 end

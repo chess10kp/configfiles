@@ -34,7 +34,7 @@ editor["norcalli/nvim-colorizer.lua"] = {
   end
 }
 editor["craigemery/vim-autotag"] = {
-  enabled = false, 
+  enabled = true, 
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,

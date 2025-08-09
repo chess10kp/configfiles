@@ -1,54 +1,40 @@
 #!/bin/bash
 
 source ~/.config/scripts/configvars.sh
-workspaces=$(swaymsg -t get_workspaces)
-current_workspace=$(echo $workspaces | jq '.[] | select(.focused==true) | .name' | sed -e "s/\"//g")
-current_output=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true) | .name')
 
-# workspace_1_available=$(current_workspace=$(echo $workspaces | jq '.[] | select(.name=="1") | .name'))
-# workspace_2_available=$(current_workspace=$(echo $workspaces | jq '.[] | select(.name=="2") | .name'))
-# workspace_3_available=$(current_workspace=$(echo $workspaces | jq '.[] | select(.name=="3") | .name'))
+current_workspace=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true) | .name')
+current_output=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true) | .name')
 
-refile_to_workspace=$(echo "<!>" | $dmenu_prompt "Refile to:")
-[[ -z $refile_to_workspace ]] && notify-send "Workspace" "Refile aborted" && exit 0 
+refile_with_workspace=$(echo "" | $rofi_prompt "Swap with workspace:")
 
-workspace_exists=$(echo "$workspaces" | jq '.[] | .name' | grep "$refile_to_workspace" | sed -e "s/\"//g" | sed -e "s/ //g" )
+[[ -z $refile_with_workspace ]] && notify-send "Workspace Swap" "Swap aborted" && exit 0
 
-while [  "$workspace_exists" = "$refile_to_workspace" && refile_to_workspace != "<!>"  ]; do
-  notify-send "Workspace taken"
-  refile_to_workspace=$(echo "" | $dmenu_prompt "Refile to:" | sed -e "s/ //g" )
-  [[ -z $refile_to_workspace ]] && notify-send "Workspace" "Refile aborted" && exit 0 
-  workspace_exists=$(echo "$workspaces" | jq '.[] | .name' | grep "$refile_to_workspace" | sed -e "s/\"//g" | sed -e "s/ //g" )
-  echo $workspace_exists
-done
-
-refile_from_workspace=$(echo $workspaces|jq '.[]|.name' | sed -e "s/\"//g" | $rofi_prompt "Refile from:")
-
-[[ -z $refile_from_workspace || $current_workspace == $refile_from_workspace ]] && notify-send "Workspace" "no task selected"  || \\ 
-[[ -z $(echo $workspaces | jq '.[] | .name' | grep "$refile_from_workspace" ) ]] && notify-send "Workspace" "Workspace doesn't exit" && exit 
-
-echo "Current workspace: $current_workspace"
-
-if [[ $refile_to_workspace != "<!>" ]]; then
-    echo "Refiling to: $refile_to_workspace"
-
-  windows_in_workspace=$(swaymsg -t get_tree | jq --arg current_workspace "$current_workspace" '.nodes[]|select(.name !="__i3").nodes[]|select(.name==$current_workspace)|.nodes|length' | sed -e "s/ //g" -e "s/\n//g" -e "s/\r//g" )
-  echo "$windows_in_workspace"
-  while [[ ! -z $windows_in_workspace && $windows_in_workspace != "0" ]]; do
-    swaymsg "move container to workspace $refile_to_workspace"
-    windows_in_workspace=$(swaymsg -t get_tree | jq --arg current_workspace "$current_workspace" '.nodes[]|select(.name !="__i3").nodes[]|select(.name==$current_workspace)|.nodes|length' | sed -e "s/ //g" -e "s/\n//g" -e "s/\r//g" )
-  done
+workspace_exists=$(swaymsg -t get_workspaces | jq -r '.[] | .name' | grep -q "^$refile_with_workspace$")
+if [[ $refile_with_workspace == $current_workspace ]]; then
+    notify-send "Workspace Swap" "Cannot swap a workspace with itself."
+    exit 1
+elif ! $workspace_exists; then
+    notify-send "Workspace Swap" "Workspace '$refile_with_workspace' does not exist."
+    exit 1
 fi
 
-[[ -z $refile_from_workspace || $current_workspace == $refile_from_workspace ]] && exit 0
+notify-send "Workspace Swap" "Swapping contents of '$current_workspace' and '$refile_with_workspace'..."
 
-echo "Refiling from: $refile_from_workspace"
-swaymsg "workspace $refile_from_workspace"
-windows_in_refile_workspace=$(swaymsg -t get_tree | jq --arg current_workspace "$refile_from_workspace" '.nodes[]|select(.name !="__i3").nodes[]|select(.name==$current_workspace)|.nodes|length')
-while [[ ! -z $windows_in_refile_workspace && $windows_in_refile_workspace != "0" ]]; do
-  swaymsg "move container to workspace $current_workspace"
-  windows_in_refile_workspace=$(swaymsg -t get_tree | jq --arg current_workspace "$refile_from_workspace" '.nodes[]|select(.name !="__i3").nodes[]|select(.name==$current_workspace)|.nodes|length')
-done
+swaymsg "workspace tmp_swap_workspace"
+
+swaymsg "[workspace=\"$current_workspace\"] move container to workspace tmp_swap_workspace"
+
+swaymsg "workspace $refile_with_workspace"
+
+swaymsg "[workspace=\"$refile_with_workspace\"] move container to workspace $current_workspace"
+
+swaymsg "workspace tmp_swap_workspace"
+
+swaymsg "[workspace=\"tmp_swap_workspace\"] move container to workspace $refile_with_workspace"
 
 swaymsg "workspace $current_workspace"
 
+swaymsg "workspace $refile_output"
+swaymsg "workspace $current_workspace"
+
+notify-send "Workspace Swap" "Contents of '$current_workspace' and '$refile_with_workspace' have been swapped."

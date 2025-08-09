@@ -114,3 +114,4 @@ return function()
 
     lualine.setup(config)
 end
+

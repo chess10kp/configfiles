@@ -62,7 +62,6 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3 
-bindsym $mod+e workspace "e"
 bindsym $mod+b workspace "b" 
 bindsym $mod+m workspace "m" 
 bindsym $mod+8 workspace number "d"
@@ -271,7 +270,6 @@ bindsym $mod+Shift+Control+f exec $emacs_clock_in; exec ~/.config/scripts/set_ti
 
 mode "open" {
     bindsym e workspace "e"; mode "default"
-    bindsym Shift+e workspace "e"; exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "emacs" ~/.local/bin/checkemacs -c ~/projects/notes/todo.org; mode "default"
     bindsym d workspace "d"; exec ~/.config/scripts/mode/sway-goto-if-not-start "d" "Discord" vesktop; mode "default"
     bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "Zen Browser" "zen-browser"; mode "default"
     bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"

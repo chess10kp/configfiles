@@ -7,37 +7,19 @@ return function()
 	})
 
 	require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lualoader" })
-	require("luasnip.loaders.from_vscode").lazy_load()
-	-- require("luasnip.loaders.from_snipmate").lazy_load()
 
 	local ls = require("luasnip")
 
-	vim.keymap.set({ "i", "s" }, "<Tab>", function()
-		if require("luasnip").expand_or_jumpable() then
-			require("luasnip").expand_or_jump()
-		else
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
-		end
-	end, { silent = true })
-
-	vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
-		if require("luasnip").jumpable(-1) == true then
-			require("luasnip").jump(-1)
-		else
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Tab>", true, false, true), "n", true)
-		end
-	end, { silent = true })
-
 	vim.keymap.set({ "i", "v" }, "<C-j>", function()
-		if require("luasnip").choice_active() == true then
-			require("luasnip").change_choice(1)
+		if require("luasnip").expand_or_jumpable() == true then
+			require("luasnip").expand_or_jump()
 		else
 			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, false, true), "n", true)
 		end
 	end, { silent = true })
 	vim.keymap.set({ "i", "s" }, "<C-k>", function()
-		if require("luasnip").choice_active() == true then
-			require("luasnip").change_choice(-1)
+		if require("luasnip").jumpable(-1) == true then
+			require("luasnip").jumpable(-1)
 		else
 			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, false, true), "n", true)
 		end
