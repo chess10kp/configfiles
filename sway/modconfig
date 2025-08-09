@@ -1,0 +1,367 @@
+set $emacs_clock_in emacsclient -eval "(org-clock-in-last)"
+set $emacs_clock_out emacsclient -eval "(org-clock-out)"
+set $mod Mod1
+set $alt Mod1 
+set $left h
+set $down j
+set $up k
+set $right l
+set $term kitty
+set $editor nvim
+set $menu "tofi-drun --prompt 'Run:' | xargs swaymsg exec --"
+default_border pixel 1
+focus_follows_mouse no
+  input "type:keyboard" {
+      natural_scroll enabled
+      middle_emulation enabled
+      xkb_layout us 
+      xkb_options caps:escape
+      repeat_delay 200
+      repeat_rate 30
+  }
+  input "type:touchpad" {
+      tap enabled 
+      natural_scroll disabled
+      dwt disabled
+  }
+  input "type:tablet tool" {
+    natural_scroll disabled
+    tap enabled
+  }
+
+client.focused          #0e1419 #0e1419 #ebdbb2 #98971a   #ebdbb2
+client.focused_inactive #0e1419 #0e1419 #ffffff #484e50   #5f676a
+client.unfocused        #0e1419 #0e1419 #0e1419 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+bindsym $mod+Return exec $term
+bindsym $mod+q kill
+bindsym $mod+d exec $menu 
+bindsym $mod+z exec "tofi-run --prompt 'Run:' | xargs swaymsg exec --"
+floating_modifier $mod normal
+bindsym $mod+Shift+r reload
+bindsym $mod+Control+c restart
+bindsym XF86AudioPlay exec mpc toggle
+bindsym $mod+Control+l exec swaylock -e -i ~/Pictures/wp/defaultwp.jpg --indicator-thickness 5 
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+$left move left 30
+bindsym $mod+Shift+$down move down 30
+bindsym $mod+Shift+$up move up 30
+bindsym $mod+Shift+$right move right 30
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3 
+bindsym $mod+e workspace "e"
+bindsym $mod+b workspace "b" 
+bindsym $mod+m workspace "m" 
+bindsym $mod+8 workspace number "d"
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3 
+bindsym $mod+Shift+e move container to workspace "e"
+bindsym $mod+Shift+b move container to workspace "b" 
+bindsym $mod+Shift+m move container to workspace "m" 
+bindsym $mod+Shift+8 move container to workspace number "d"
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+g splith
+bindsym $mod+v splitv
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+t layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+a focus parent
+bindsym $mod+w focus child
+bindsym $mod+n workspace back_and_forth
+bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
+bindsym $mod+Backspace exec swaync-client -C
+bindsym $mod+Shift+Backspace exec swaync-client -t -sw
+bindsym $mod+Shift+d exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+bindsym $mod+Shift+u exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- 
+bindsym XF86MonBrightnessUp exec exec brightnessctl set +5% 
+bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
+bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
+bindsym Shift+Print exec ~/.local/bin/grimshot copy area
+mode "script" {
+    bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
+    bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
+    bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
+    bindsym p exec ~/.config/scripts/power.sh; mode "default"
+    bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
+    bindsym h exec bluetoothctl connect B0:38:E2:35:25:B4; mode "default"
+    bindsym $mod+Print mode "default"; exec  ~/.config/scripts/screenshot.sh
+    bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
+    bindsym $mod+t mode "timer_map"
+    bindsym $mod+Shift+t exec  ~/.config/scripts/set_time 0; mode "default"
+    bindsym $mod+n exec  ~/.config/scripts/bookman.sh -nw --open; mode "default"
+    bindsym $mod+b exec  ~/.config/scripts/bookman.sh --open; mode "default"
+    bindsym $mod+v exec ~/.config/scripts/mpv.sh; mode "default"
+    bindsym $mod+q exec ~/.config/scripts/power.sh; mode "default"
+    bindsym $mod+w exec  ~/.config/scripts/wallpaper.sh --select; mode "default"
+    bindsym $mod+i exec  ~/.config/scripts/wallpaper.sh --file "$(~/projects/repos/imgmenu/venv/bin/python ~/projects/repos/imgmenu/main.py)"; mode "default"
+    bindsym $mod+y mode "yank"
+    bindsym $mod+e exec ~/.config/scripts/emoji.sh; mode "default"
+    bindsym v mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
+    bindsym e mode "default" ;exec sed -i ~/.config/sway/config -e "s/^\(\s*\)xkb_options caps:escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym d exec ~/projects/repos/dashboard/main.py & disown; mode "default"
+    bindsym i exec ~/.config/scripts/pastable.sh; mode "default"
+    bindsym Shift+n exec mpc next; mode "default"
+    bindsym Shift+p exec mpc prev; mode "default"
+}
+bindsym $mod+s mode "script"
+mode "timer_map" {
+  bindsym s exec ~/.config/scripts/set_time 1; mode "default"
+  bindsym t exec ~/.config/scripts/timer.sh; mode "default"
+}
+bindsym $mod+Shift+c mode "layout"
+mode "layout" {
+  bindsym $mod+i gaps inner all minus 10
+  bindsym i gaps inner all plus 10
+  bindsym $mod+o gaps outer all minus 9
+  bindsym o gaps outer all plus 10
+  bindsym b default_border pixel 0; exec notify-send "Settings" "Border: disabled" ;mode "default"
+  bindsym $mod+b default_border pixel 1; exec notify-send "Settings" "Border: enabled";  mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+x exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts/mode
+bindsym $mod+Control+1 output eDP-1 enable
+bindsym $mod+Control+2 output eDP-1 disable
+bindsym $mod+Control+3 output HDMI-A-1 enable
+bindsym $mod+Control+4 output HDMI-A-1 disable
+bindsym $mod+Control+s sticky toggle
+mode "yank" {
+    bindsym p exec  ~/.config/scripts/passmenu.sh; mode "default"
+    bindsym c exec ~/.config/scripts/cliphist.sh 2> /tmp/log; mode "default"
+    bindsym b exec  ~/.config/scripts/bookman.sh --yank; mode "default"
+    bindsym q exec ~/.config/scripts/power.sh; mode "default"
+    bindsym e exec ~/.config/scripts/dmenu_term.sh -p &; mode "default"
+    bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "resize" {
+    bindsym $left resize shrink width 20px
+    bindsym $down resize grow height 20px
+    bindsym $up resize shrink height 20px
+    bindsym $right resize grow width 20px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+mode "focus" {
+     bindsym {
+	$mod+l focus right
+	$mod+h focus left
+	$mod+j focus down
+	$mod+k focus up
+	$mod+d exec $menu
+	$mod+q kill
+	$mod+Shift+Return exec  ~/.config/scripts/set_time 0 && swaymsg mode "default" && exec $emacs_clock_out
+	$mod+f fullscreen
+	$mod+Shift+s [title="*kitty*"] scratchpad show
+	$mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
+	$mod+Shift+f [app_id="firefox"] scratchpad show
+	$mod+i scratchpad show
+	$mod+Shift+i [app_id="foot"] scratchpad show
+    }
+    bindsym XF86AudioMute exec amixer set Master toggle && ~/.config/scripts/showstuff vol alsa
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%- && ~/.config/scripts/showstuff vol alsa
+    bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ && ~/.config/scripts/showstuff vol alsa
+}
+bindsym $mod+u mode "mark"
+mode "mark" {
+    bindsym m mark m; mode "default"
+    bindsym 1 mark 1; mode "default"
+    bindsym 2 mark 2; mode "default"
+    bindsym 3 mark 3; mode "default"
+    bindsym 4 mark 4; mode "default"
+    bindsym 5 mark 5; mode "default"
+    bindsym 6 mark 6; mode "default"
+    bindsym 7 mark 7; mode "default"
+    bindsym 8 mark 8; mode "default"
+    bindsym 9 mark 9; mode "default"
+    bindsym a mark a; mode "default"
+    bindsym b mark b; mode "default"
+    bindsym c mark c; mode "default"
+    bindsym d mark d; mode "default"
+    bindsym e mark e; mode "default"
+    bindsym f mark f; mode "default"
+    bindsym g mark g; mode "default"
+    bindsym h mark h; mode "default"
+    bindsym i mark i; mode "default"
+    bindsym j mark j; mode "default"
+    bindsym k mark k; mode "default"
+    bindsym l mark l; mode "default"
+    bindsym n mark n; mode "default"
+    bindsym o mark o; mode "default"
+    bindsym p mark p; mode "default"
+    bindsym q mark q; mode "default"
+    bindsym r mark r; mode "default"
+    bindsym s mark s; mode "default"
+    bindsym t mark t; mode "default"
+    bindsym u mark u; mode "default"
+    bindsym v mark v; mode "default"
+    bindsym w mark w; mode "default"
+    bindsym x mark x; mode "default"
+    bindsym y mark y; mode "default"
+    bindsym z mark z; mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Slash mode "gotomark"
+mode "gotomark" {
+    bindsym m [con_mark=m] focus; mode "default"
+    bindsym 1 [con_mark=1] focus; mode "default"
+    bindsym 2 [con_mark=2] focus; mode "default"
+    bindsym 3 [con_mark=3] focus; mode "default"
+    bindsym 4 [con_mark=4] focus; mode "default"
+    bindsym 5 [con_mark=5] focus; mode "default"
+    bindsym 6 [con_mark=6] focus; mode "default"
+    bindsym 7 [con_mark=7] focus; mode "default"
+    bindsym 8 [con_mark=8] focus; mode "default"
+    bindsym 9 [con_mark=9] focus; mode "default"
+    bindsym a [con_mark=a] focus; mode "default"
+    bindsym b [con_mark=b] focus; mode "default"
+    bindsym c [con_mark=c] focus; mode "default"
+    bindsym d [con_mark=d] focus; mode "default"
+    bindsym e [con_mark=e] focus; mode "default"
+    bindsym f [con_mark=f] focus; mode "default"
+    bindsym g [con_mark=g] focus; mode "default"
+    bindsym h [con_mark=h] focus; mode "default"
+    bindsym i [con_mark=i] focus; mode "default"
+    bindsym j [con_mark=j] focus; mode "default"
+    bindsym k [con_mark=k] focus; mode "default"
+    bindsym l [con_mark=l] focus; mode "default"
+    bindsym n [con_mark=n] focus; mode "default"
+    bindsym o [con_mark=o] focus; mode "default"
+    bindsym p [con_mark=p] focus; mode "default"
+    bindsym q [con_mark=q] focus; mode "default"
+    bindsym r [con_mark=r] focus; mode "default"
+    bindsym s [con_mark=s] focus; mode "default"
+    bindsym t [con_mark=t] focus; mode "default"
+    bindsym u [con_mark=u] focus; mode "default"
+    bindsym v [con_mark=v] focus; mode "default"
+    bindsym w [con_mark=w] focus; mode "default"
+    bindsym x [con_mark=x] focus; mode "default"
+    bindsym y [con_mark=y] focus; mode "default"
+    bindsym z [con_mark=z] focus; mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym $mod+Shift+Control+f exec $emacs_clock_in; exec ~/.config/scripts/set_time 1; mode "focus"
+mode "open" {
+    bindsym e workspace "e"; mode "default"
+    bindsym Shift+e workspace "e"; exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "emacs" ~/.local/bin/checkemacs -c ~/projects/notes/todo.org; mode "default"
+    bindsym d workspace "d"; exec ~/.config/scripts/mode/sway-goto-if-not-start "d" "Discord" vesktop; mode "default"
+    bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "Zen Browser" "zen-browser"; mode "default"
+    bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
+    bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
+    bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
+    bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
+    bindsym l exec "chromium --new-window --app=\"https://claude.ai\""; mode "default"
+    bindsym k exec "chromium --new-window --app=\"https://grok.com\""; mode "default"
+    bindsym g exec "chromium --new-window --app=\"https://gemini.google.com/app\""; mode "default"
+    bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
+    bindsym $mod+c exec code; mode "default"
+    bindsym w exec firefox; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+o mode "open"
+bindsym $mod+Shift+s scratchpad show
+bindsym $mod+Control+i floating toggle; resize set height 1300px ; resize set width 2000px; move scratchpad; 
+bindsym $mod+Shift+f [app_id="zen"] scratchpad show
+bindsym $mod+i scratchpad show
+bindsym $mod+Shift+i [app_id="foot"] scratchpad show
+bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
+for_window {
+	[window_type="utility"] move workspace androidtoolbar
+	[title="foot"] opacity 1
+	[title="foot"] saturation set 0.3 
+	[title="Thunar"] floating enable
+	[app_id="zenity"] floating enable
+	[app_id="vpn"] floating enable, resize set 950 550, move position center
+	[title="Open Folder"] floating enable, resize set 950 550, move position center
+	[title="floating"] floating enable
+	[app_id="ncmpcpp"] floating enable
+	[app_id="^scratchpad$"] floating enable, resize set 1250 750, move position center
+	[app_id="^scratchpad_input$"] floating enable, resize set 900 700, move position center
+	[app_id="mpv" title=".* - mvi$"] floating enable, resize set 950 550, move position center
+	[app_id="org.kde.kdeconnect.daemon"] floating enable
+	[app_id="^zoom$" title="Zoom Cloud Meetings"] floating enable, resize set 850 650, move position center
+	[app_id="firefox" title="Picture-in-Picture"] floating enable
+	[app_id="zoom" title="Zoom Cloud Meetings"] floating enable
+	[title=".* is sharing your screen."] floating enable
+	[app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
+	[app_id="gimp-2.99" title="New Layer"] floating enable
+	[title="Discord"] move workspace "d"
+	[title="Monkeytype"] move workspace "typing"
+	[app_id="showmethekey-gtk"] floating enable
+	[app_id="showmethekey-gtk"] sticky enable
+	[app_id="showmethekey-gtk"] move position 900px 1300px
+	[class="steam"] move container to workspace 9
+	[title="Imgmenu"] floating toggle
+	[title="Imgmenu"] resize set height 400px
+	[title="Imgmenu"] resize set width 1080 
+	[class="Dunst"] border pixel 1
+	[class="waync"] border pixel 1
+	[title="float"] floating toggle
+}
+bar {
+    position bottom
+    font pango:Iosevka Comfy 20px
+    gaps  0 0 0 0
+    status_command ~/.config/sway/bar
+    bindsym button4 nop
+    bindsym button5 nop
+    bindsym button6 nop
+    bindsym button7 nop
+    colors {
+        statusline #ebdbb2
+        background #0e1418
+        # inactive_workspace #0e1419 #0e1419 #ebdbb2
+        active_workspace #0e1419 #0e1419 #ebdbb2
+        focused_workspace #0e1419 #0e1419 #ebdbb2
+    }
+}
+exec {
+    mpd
+    swaync
+     ~/.config/scripts/wallpaper.sh --set
+     ~/.config/scripts/lowbattery.sh
+    tmux new -s init -d 
+    wl-paste --watch cliphist store
+    xhost +SI:localuser:$(id -un)
+    xhost +SI:localuser:root
+    touch /tmp/tasks
+    gsettings set org.gtk.Settings.FileChooser window-size '(1200, 700)'
+    gsettings set org.gnome.desktop.interface font-name 'Iosevka'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    firefox
+    /usr/lib/xdg-desktop-portal-wlr  -l DEBUG
+    /usr/lib/xdg-desktop-portal --verbose -r \
+}
+exec emacsclient -c ~/projects/notes/todo.org
+exec_always notify-send "Sway " "config reloaded"
+include @sysconfdir@/sway/config.d/*
