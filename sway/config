@@ -9,7 +9,7 @@ set $right l
 set $term kitty
 set $editor nvim
 set $menu "tofi-drun --prompt 'Run:' | xargs swaymsg exec --"
-default_border pixel 1
+default_border pixel 0
 focus_follows_mouse no
   input "type:keyboard" {
       natural_scroll enabled
@@ -28,6 +28,12 @@ focus_follows_mouse no
     natural_scroll disabled
     tap enabled
   }
+
+client.focused          #0e1419 #0e1419 #ebdbb2 #98971a   #ebdbb2
+client.focused_inactive #0e1419 #0e1419 #ffffff #484e50   #5f676a
+client.unfocused        #0e1419 #0e1419 #0e1419 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+d exec $menu 
@@ -171,7 +177,7 @@ mode "focus" {
 	$mod+q kill
 	$mod+Shift+Return exec  ~/.config/scripts/set_time 0 && swaymsg mode "default" && exec $emacs_clock_out
 	$mod+f fullscreen
-	$mod+Shift+s [title="*gemini*"] scratchpad show
+	$mod+Shift+s [title="*kitty*"] scratchpad show
 	$mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
 	$mod+Shift+f [app_id="firefox"] scratchpad show
 	$mod+i scratchpad show
@@ -262,6 +268,7 @@ mode "gotomark" {
     bindsym Return mode "default"
 }
 bindsym $mod+Shift+Control+f exec $emacs_clock_in; exec ~/.config/scripts/set_time 1; mode "focus"
+
 mode "open" {
     bindsym e workspace "e"; mode "default"
     bindsym Shift+e workspace "e"; exec ~/.config/scripts/mode/sway-goto-if-not-start "e" "emacs" ~/.local/bin/checkemacs -c ~/projects/notes/todo.org; mode "default"
@@ -271,6 +278,8 @@ mode "open" {
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
     bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
     bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
+    bindsym l exec "chromium --new-window --app=\"https://claude.ai\""; mode "default"
+    bindsym k exec "chromium --new-window --app=\"https://grok.com\""; mode "default"
     bindsym g exec "chromium --new-window --app=\"https://gemini.google.com/app\""; mode "default"
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
     bindsym $mod+c exec code; mode "default"
@@ -282,13 +291,13 @@ bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+o mode "open"
 bindsym $mod+Shift+s scratchpad show
-bindsym $mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
-bindsym $mod+Shift+f [app_id="firefox"] scratchpad show
-bindsym $mod+i [app_id="foot"] scratchpad show
+bindsym $mod+Control+i floating toggle; resize set height 1300px ; resize set width 2000px; move scratchpad; 
+bindsym $mod+Shift+f [app_id="zen"] scratchpad show
+bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i [app_id="foot"] scratchpad show
 bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 for_window {
-	[window_type="utility"] move workspace 3 
+	[window_type="utility"] move workspace androidtoolbar
 	[title="foot"] opacity 1
 	[title="foot"] saturation set 0.3 
 	[title="Thunar"] floating enable
@@ -317,12 +326,13 @@ for_window {
 	[title="Imgmenu"] resize set height 400px
 	[title="Imgmenu"] resize set width 1080 
 	[class="Dunst"] border pixel 1
+	[class="waync"] border pixel 1
 	[title="float"] floating toggle
 }
 bar {
     position bottom
     font pango:Iosevka Comfy 20px
-    gaps  0 0 0 0
+    gaps  0
     status_command ~/.config/sway/bar
     bindsym button4 nop
     bindsym button5 nop
@@ -331,9 +341,10 @@ bar {
     colors {
         statusline #ebdbb2
         background #0e1418
-        # inactive_workspace #0e1419 #0e1419 #ebdbb2
+        inactive_workspace #0e1419 #0e1419 #ebdbb2
         active_workspace #0e1419 #0e1419 #ebdbb2
-        focused_workspace #0e1419 #0e1419 #ebdbb2
+        focused_workspace #ebdbb2 #0e1419 #ebdbb2
+	binding_mode #ebdbb2 #0e1419 #ebdbb2
     }
 }
 exec {

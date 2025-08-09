@@ -1,5 +1,4 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
   export QT_AUTO_SCREEN_SCALE_FACTOR=1
   export QT_QPA_PLATFORMTHEME=qt5ct
@@ -18,9 +17,10 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export XKB_DEFAULT_VARIANT=pc104
   export XDG_SESSION_DESKTOP=Hyprland
   export XDG_CURRENT_DESKTOP=Hyprland 
-  dbus-run-session Hyprland
+  dbus-run-session sway
 fi
 
+source ~/.secrets
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000000
@@ -60,6 +60,7 @@ alias gsl="git status | vim -"
 alias c="clear"
 alias fh="cat ~/.zsh_history | fzf | sh"
 alias fe="find . \( ! -regex '.*/\..*' \) -type f | fzf --reverse | xargs nvim"
+alias lazyvim="NVIM_APPNAME=lazyvim nvim"
 alias :q="exit"
 alias :e="vim"
 alias ta="tmux attach"
@@ -70,18 +71,30 @@ alias mv="mv -i"
 alias ls="ls --color"
 alias mpvc="mpv --loop=inf"
 alias convas="cd ~/projects/repos/convas; ./src/convas.py"
-alias sudo="doas"
-alias dosa="doas"
 alias cd="z"
 alias docker_run_chroma="docker run -d --rm --name chromadb -p 8000:8000 -v ./chroma:/chroma/chroma -e IS_PERSISTENT=TRUE -e ANONYMIZED_TELEMETRY=TRUE chromadb/chroma:0.6.3"
 alias docker_run_sqlserver="docker run -e \"ACCEPT_EULA=Y\" -e \"MYSQL_SA_PASSWORD=IlovePissword2\" -p 1433:1433 --name sql1  --hostname sql1 -d mcr.microsoft.com/mssql/server:2017-latest"
 alias run_android_emulator="QT_QPA_PLATFORM=xcb ~/Android/Sdk/emulator/emulator -avd Pixel_8_API_UpsideDownCakePrivacySandbox"
+function nvim() {
+  # check if imn a tmux session, if it is run nvim 
+  if [[ -n "$TMUX" ]]; then
+    command nvim "$@"
+  else
+    tmux new-session -d -s "$(basename "$(pwd)")" "nvim $@"
+    tmux attach-session -t "$(basename "$(pwd)")"
+  fi
+}
+
+setopt emacs
+
+function cursor() {
+    ~/.local/bin/Cursor-1.1.3-x86_64.AppImage "$@" >/dev/null 2>&1 & disown
+}
 
 # alias "du your_mom"="failed"
 
 function zf
 {
-
     filename=$(fd --type file -e pdf | fzf)
     zathura $filename & disown
 }
@@ -99,18 +112,18 @@ export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin/flutter/bin/"
 
-if [[ -d "$HOME/.cargo/bin" ]]; then
- export PATH="$PATH:$HOME/.cargo/bin/cargo" 
+if [[ -d "$HOME/.cargo/env" ]]; then
+ export PATH="$PATH:$HOME/.cargo/env" 
 fi
 export EDITOR="nvim"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/golib"
+export GOPATH="$HOME/projects/go/:$GOPATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/Android/Sdk/cmdline-tools/latest/bin:$PATH"
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export GOPATH="$HOME/projects/go/:$GOPATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export CHROME_EXECUTABLE=/usr/bin/chromium-browser
 
@@ -120,23 +133,24 @@ function tmux-run
 }
 
 # source ~/.config/zsh/fzf-tab/fzf-tab.plugin.zsh
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # source ~/.config/zsh/zsh-abbr/zsh-abbr.zsh
 source ~/.config/zsh/fzf-tab/fzf-tab.zsh
 
-RPROMPT='%F{green}%~%f'
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+RPROMPT='%~%f'
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # autoload -Uz vcs_info
 # precmd() { vcs_info }
 
 # zstyle ':vcs_info:git:*' formats '%b '
 
 # setopt PROMPT_SUBST
-PROMPT='%F{blue}%f %F{red}%f%F{green}λ %f'
+PROMPT='$ '
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
@@ -147,9 +161,8 @@ PROMPT='%F{blue}%f %F{red}%f%F{green}λ %f'
 # set vi-cmd-mode-string "\1\e]133;A\e\\\2"
 # set vi-ins-mode-string "\1\e]133;A\e\\\2"
 
-setopt emacs
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 # bindkey -s "^V" 'tmux attach -t  $(tmux list-sessions | fzf | sed -e "s/:.*//"  )^M' >/dev/null 2>&1
 bindkey -s "^V" '~/.local/bin/tmux-sessionizer^M'
 bindkey '^R' history-incremental-search-backward
@@ -173,3 +186,6 @@ eval "$(zoxide init zsh)"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
