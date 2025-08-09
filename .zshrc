@@ -53,6 +53,7 @@ function mkcir
 }
 
 alias fzf="fzf --reverse"
+alias ns="nvim -S"
 alias e="exit"
 alias ff="cdfzf"
 alias gss="git status"
