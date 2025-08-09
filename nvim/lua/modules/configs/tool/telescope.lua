@@ -4,7 +4,7 @@ return function()
 		theme = "ivy",
 		layout_config = {
 			preview_width = 0,
-			height = 0.3,
+			height = 0.4,
 			width = 1,
 			prompt_position = "bottom",
 		},

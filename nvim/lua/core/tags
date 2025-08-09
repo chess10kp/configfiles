@@ -1,1 +1,4 @@
 !_TAG_FILE_SORTED	1	//
+!_TAG_KIND_DESCRIPTION!Lua	f,function	/functions/
+!_TAG_PARSER_VERSION!Lua	0.0	/current.age/
+isempty	options.lua	/^local function isempty(s)$/;"	f

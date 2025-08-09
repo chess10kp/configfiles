@@ -18,11 +18,6 @@ custom["windwp/nvim-autopairs"] = {
 	opts = {},
 	config = require("editor.nvim-autopairs"),
 }
-custom["folke/neodev.nvim"] = {
-	lazy = true,
-	ft = "lua",
-	config = require("lang.neodev"),
-}
 custom["folke/todo-comments.nvim"] = {
 	event = "BufEnter",
 	lazy = true,
@@ -34,17 +29,24 @@ custom["folke/todo-comments.nvim"] = {
 custom["kawre/leetcode.nvim"] = {
 	enabled = true,
 	lazy = "leetcode.nvim" ~= vim.fn.argv()[1],
-	opts = { arg = "leetcode.nvim" },
+	opts = { arg = "leetcode.nvim", lang="python3" },
 	build = ":TSUpdate html",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
-		"nvim-lua/plenary.nvim", -- required by telescope
+		"nvim-lua/plenary.nvim", 
 		"MunifTanjim/nui.nvim",
 		-- optional
 		"nvim-treesitter/nvim-treesitter",
 		"rcarriga/nvim-notify",
-		-- "nvim-tree/nvim-web-devicons",
 	},
+  keys = {
+    { "<leader>ll", "<cmd>Leet list<cr>", desc = "Leet list" },
+    { "<leader>lc", "<cmd>Leet console<cr>", desc = "Leet console" },
+    { "<leader>ld", "<cmd>Leet desc<cr>", desc = "Leet desc" },
+    { "<leader>ls", "<cmd>Leet submit<cr>", desc = "Leet submit" },
+    { "<leader>lt", "<cmd>Leet test<cr>", desc = "Leet test" },
+    { "<leader>lg", "<cmd>Leet lang<cr>", desc = "Leet lang" },
+  },
 }
 
 custom["folke/flash.nvim"] = {

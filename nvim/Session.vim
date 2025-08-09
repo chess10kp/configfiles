@@ -13,19 +13,27 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +0 lua/keymap/custom.lua
+badd +10 ./lua/modules/plugins/ui.lua
+badd +14 lualoader/all.lua
 argglobal
 %argdel
-$argadd init.lua
-edit lua/keymap/custom.lua
+$argadd ./lua/modules/plugins/ui.lua
+edit ./lua/modules/plugins/ui.lua
 argglobal
-balt lua/modules/configs/editor/persisted.lua
-let s:l = 12 - ((10 * winheight(0) + 21) / 42)
+setlocal foldmethod=expr
+setlocal foldexpr=nvim_treesitter#foldexpr()
+setlocal foldmarker={{{,}}}
+setlocal foldignore=#
+setlocal foldlevel=99
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldenable
+let s:l = 10 - ((9 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 12
-normal! 031|
+keepjumps 10
+normal! 03|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

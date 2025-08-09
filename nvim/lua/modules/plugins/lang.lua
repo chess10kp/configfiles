@@ -1,12 +1,5 @@
 local lang = {}
 
--- lang["fatih/vim-go"] = {
--- 	enabled = true,
--- 	lazy = true,
--- 	ft = "go",
--- 	build = ":GoInstallBinaries",
--- 	config = require("lang.vim-go"),
--- }
 lang["seblyng/roslyn.nvim"] = {
 	ft = { "cs", "razor" },
 	---@module 'roslyn.config'
@@ -73,7 +66,7 @@ lang["seblyng/roslyn.nvim"] = {
 	end,
 }
 lang["GustavEikaas/easy-dotnet.nvim"] = {
-	enabled = false,
+	enabled = true,
 	ft = "cs",
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	lazy = true,
@@ -93,7 +86,6 @@ lang["GustavEikaas/easy-dotnet.nvim"] = {
 			end
 			return path
 		end
-
 		local dotnet = require("easy-dotnet")
 		-- Options are not required
 		dotnet.setup({
@@ -162,7 +154,6 @@ lang["GustavEikaas/easy-dotnet.nvim"] = {
 						return string.format("dotnet watch --project %s %s", path, args)
 					end,
 				}
-
 				local command = commands[action]() .. "\r"
 				vim.cmd("vsplit")
 				vim.cmd("term " .. command)
@@ -185,12 +176,10 @@ lang["GustavEikaas/easy-dotnet.nvim"] = {
 			picker = "telescope",
 			background_scanning = true,
 		})
-
 		-- Example command
 		vim.api.nvim_create_user_command("Secrets", function()
 			dotnet.secrets()
 		end, {})
-
 		-- Example keybinding
 		vim.keymap.set("n", "<C-p>", function()
 			dotnet.run_project()
@@ -255,6 +244,42 @@ lang["mrcjkb/haskell-tools.nvim"] = {
 	ft = { "haskell", "cabal", "lhaskell", "cabalproject" },
 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	config = require("lang.haskell-tools"),
+}
+
+lang["nvim-orgmode/orgmode"] = {
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+		"nvim-orgmode/telescope-orgmode.nvim",
+		"nvim-orgmode/org-bullets.nvim",
+		"Saghen/blink.cmp",
+	},
+	event = "VeryLazy",
+	config = function()
+		require("orgmode").setup({
+			org_agenda_files = "~/projects/notes/**/*",
+			org_default_notes_file = "~/projects/notes/org/refile.org",
+		})
+		require("org-bullets").setup()
+		require("blink.cmp").setup({
+			sources = {
+				per_filetype = {
+					org = { "orgmode" },
+				},
+				providers = {
+					orgmode = {
+						name = "Orgmode",
+						module = "orgmode.org.autocompletion.blink",
+						fallbacks = { "buffer" },
+					},
+				},
+			},
+		})
+		-- require("telescope").setup()
+		-- require("telescope").load_extension("orgmode")
+		-- vim.keymap.set("n", "<leader>r", require("telescope").extensions.orgmode.refile_heading)
+		-- vim.keymap.set("n", "<leader>foh", require("telescope").extensions.orgmode.search_headings)
+		-- vim.keymap.set("n", "<leader>foi", require("telescope").extensions.orgmode.insert_link)
+	end,
 }
 lang["nvim-java/nvim-java"] = {
 	lazy = true,

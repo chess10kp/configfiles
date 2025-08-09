@@ -1,10 +1,5 @@
 local tool = {}
 
-tool["nvim-telescope/telescope-fzf-native.nvim"] = {
-	enabled = true,
-	lazy = true,
-  build = 'make' ,
-}
 tool["NeogitOrg/neogit"] = {
 	enabled = true,
 	lazy = true,
@@ -12,7 +7,6 @@ tool["NeogitOrg/neogit"] = {
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
-		"nvim-telescope/telescope.nvim", -- optional
 	},
 	config = true,
 	keys = {
@@ -30,57 +24,34 @@ tool["mbbill/undotree"] = {
 	lazy = false,
 }
 tool["ibhagwan/smartyank.nvim"] = { -- highlight yanks and yank to clip
-  enabled = false,
+	enabled = false,
 	lazy = true,
 	event = "BufReadPost",
 	config = require("tool.smartyank"),
-}
-tool["akinsho/toggleterm.nvim"] = {
-	lazy = true,
-	cmd = {
-		"ToggleTerm",
-		"ToggleTermSetName",
-		"ToggleTermToggleAll",
-		"ToggleTermSendVisualLines",
-		"ToggleTermSendCurrentLine",
-		"ToggleTermSendVisualSelection",
-	},
-	config = require("tool.toggleterm"),
 }
 
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --
 ----------------------------------------------------------------------
 tool["nvim-telescope/telescope.nvim"] = {
+	enabled = false,
 	lazy = false,
 	config = require("tool.telescope"),
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
 		{ "nvim-telescope/telescope-file-browser.nvim", lazy = true },
+		{ "nvim-telescope/telescope-fzf-native.nvim" },
 	},
 }
-
-----------------------------------------------------------------------
---                           DAP Plugins                            --
-----------------------------------------------------------------------
-tool["mfussenegger/nvim-dap"] = {
-	lazy = true,
-	config = require("tool.dap"),
-	cmd = { "DapToggleBreakpoint" },
-	dependencies = {
-		{ "mfussenegger/nvim-dap-python", lazy = true, ft = "python" },
-		"theHamsta/nvim-dap-virtual-text",
-	},
+tool["ibhagwan/fzf-lua"] = {
+	-- optional for icon support
+	-- or if using mini.icons/mini.nvim
+	-- dependencies = { "echasnovski/mini.icons" },
+	opts = {},
+  config = function()
+    require("fzf-lua").register_ui_select()
+    require('fzf-lua').setup({"ivy"})
+  end
 }
-tool["mfussenegger/nvim-dap-ui"] = {
-	lazy = true,
-	cmd = { "DapToggleBreakpoint", "DapContinue" },
-	dependencies = {
-		"mfussenegger/nvim-dap",
-		"theHamsta/nvim-dap-virtual-text",
-	},
-	config = require("tool.dap"),
-}
-
 return tool

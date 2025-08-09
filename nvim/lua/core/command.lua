@@ -83,7 +83,7 @@ vim.api.nvim_create_user_command("Projectile", function()
 	end
 end, {})
 
-vim.api.nvim_set_keymap("n", "<leader>o", ":Projectile<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>op", ":Projectile<CR>", { noremap = true, silent = true })
 
 local toggle_terminal = function()
 	if not vim.api.nvim_win_is_valid(state.floating.win) then

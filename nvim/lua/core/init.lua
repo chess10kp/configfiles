@@ -132,7 +132,6 @@ local load_core = function()
 
 	require("core.options")
 	require("core.mapping")
-	require("core.custom")
 	require("keymap")
 	require("core.event")
 	require("core.pack")
@@ -142,6 +141,8 @@ local load_core = function()
 	local background = settings.background
 	vim.api.nvim_command("set background=" .. background)
 	vim.api.nvim_command("colorscheme " .. colorscheme)
+
+	require("core.custom")
 end
 
 load_core()

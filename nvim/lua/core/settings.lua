@@ -83,7 +83,7 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-  "basedpyright",
+	"basedpyright",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.
@@ -98,7 +98,7 @@ settings["null_ls_deps"] = {
 	"shfmt",
 	"stylua",
 	"black",
-  "tsserver"
+	"tsserver",
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.

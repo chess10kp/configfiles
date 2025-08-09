@@ -13,7 +13,7 @@ set path+=**
 o.winblend = 0
 
 o.more = false
--- o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
+o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
 o.hlsearch = false
 o.autoindent = true
 o.laststatus = 3
@@ -27,7 +27,7 @@ o.backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vi
 o.breakat = [[\ \;:,!?]]
 o.breakindentopt = "shift:2,min:20"
 o.clipboard = "unnamed"
-o.cmdheight = 1
+o.cmdheight = 0
 o.cmdwinheight = 1
 o.complete = ".,w,b,k"
 o.completeopt = "menuone,noselect"
@@ -92,7 +92,7 @@ o.synmaxcol = 2500
 o.tabstop = 2
 o.termguicolors = true
 o.timeout = true
-o.timeoutlen = 200
+o.timeoutlen = 300
 o.ttimeout = true
 o.undodir = global.cache_dir .. "undo/"
 o.undofile = true
@@ -166,4 +166,4 @@ if global.is_windows then
 	g.sqlite_clib_path = global.home .. "/Documents/sqlite-dll-win64-x64-3400100/sqlite3.dll"
 end
 
-o.digraph = true
+o.digraph = false
