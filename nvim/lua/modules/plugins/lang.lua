@@ -92,6 +92,7 @@ lang["GustavEikaas/easy-dotnet.nvim"] = {
 			--Optional function to return the path for the dotnet sdk (e.g C:/ProgramFiles/dotnet/sdk/8.0.0)
 			-- easy-dotnet will resolve the path automatically if this argument is omitted, for a performance improvement you can add a function that returns a hardcoded string
 			-- You should define this function to return a hardcoded path for a performance improvement 🚀
+      picker = "fzf",
 			get_sdk_path = get_sdk_path,
 			---@type TestRunnerOptions
 			test_runner = {
@@ -238,6 +239,11 @@ lang["pmizio/typescript-tools.nvim"] = {
 	opts = {},
 	config = require("lang.typescript-tools"),
 }
+lang["OlegGulevskyy/better-ts-errors.nvim"] = {
+	lazy = true,
+	ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
+	dependencies = { "MunifTanjim/nui.nvim" },
+}
 lang["mrcjkb/haskell-tools.nvim"] = {
 	enabled = true,
 	lazy = true,
@@ -313,5 +319,11 @@ lang["luckasRanarison/tailwind-tools.nvim"] = {
 		"nvim-telescope/telescope.nvim", -- optional
 	},
 	opts = {}, -- your configuration
+}
+lang["esmuellert/nvim-eslint"] = {
+  enabled = true,
+  lazy = true,
+  config = function() require("nvim-eslint").setup({}) end,
+	ft = { "typescriptreact", "javascriptreact" },
 }
 return lang

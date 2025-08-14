@@ -20,9 +20,7 @@ return function()
 	vim.keymap.set({ "i", "s" }, "<C-k>", function()
 		if require("luasnip").jumpable(-1) == true then
 			require("luasnip").jumpable(-1)
-		else
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, false, true), "n", true)
-		end
+    end
 	end, { silent = true })
 
 	ls.filetype_extend("typescriptreact", { "javascriptreact", "javascript", "typescript" })

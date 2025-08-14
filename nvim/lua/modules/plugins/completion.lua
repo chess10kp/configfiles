@@ -61,6 +61,9 @@ completion["saghen/blink.cmp"] = {
 			nerd_font_variant = "mono",
 		},
 		completion = {
+			ghost_text = {
+				enabled = vim.g.ai_cmp,
+			},
 			accept = {
 				-- experimental auto-brackets support
 				auto_brackets = {
@@ -77,12 +80,9 @@ completion["saghen/blink.cmp"] = {
 				auto_show = true,
 				auto_show_delay_ms = 200,
 			},
-			ghost_text = {
-				enabled = vim.g.ai_cmp,
-			},
 		},
 		cmdline = {
-			enabled = false,
+			enabled = true,
 		},
 		sources = {
 			default = { "copilot", "lsp", "path", "snippets", "buffer" },

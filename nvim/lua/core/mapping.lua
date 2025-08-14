@@ -16,13 +16,6 @@ tmap("<C-h>","<Cmd>wincmd h<CR>","window: Focus left")
 tmap("<C-l>","<Cmd>wincmd l<CR>","window: Focus right")
 tmap("<C-j>","<Cmd>wincmd j<CR>","window: Focus down")
 tmap("<C-k>","<Cmd>wincmd k<CR>","window: Focus up")
-nmap("<leader>os","setlocal spell! spelllang=en_us","editn: Toggle spell check")
-	-- Insert mode
-imap("<C-a>","<C-o>^","editi: Move cursor to line start")
-imap("<C-e>","<C-o>A","editi: Move cursor to line end")
-imap("<C-j>","<Down>","Move cursor down")
-imap("<C-l>","<Right>","Move cursor to the right")
-imap("<C-h>","<ESC><Left>i","Move cursor to the left")
 
 	-- Command mode
 nmap("<A-[>",function () vim.cmd("vertical resize -5") end ,"window: Resize -5 vertically")
@@ -35,13 +28,6 @@ nmap("tk",function () vim.cmd("tabnext") end ,"tab: Move to next tab")
 nmap("tj",function () vim.cmd("tabprevious") end ,"tab: Move to previous tab")
 nmap("to",function () vim.cmd("tabonly") end ,"tab: Only keep current tab")
 
-imap("<C-u>","<C-G>u<C-U>","edit: Delete previous block")
-imap("<C-b>","<Left>","edit: Move cursor to left")
-imap("<C-x><C-s>","<Esc>:w<CR>","edit: Save file")
-imap("<C-q>","<Esc>:wq<CR>","edit: Save file and quit")
-
-cmap("<C-h>", "<BS>", "command: Backspace")
-cmap("<C-t>" ,[[<C-R>=expand("%:p:h") . "/" <CR>]], "edit: Complete path of current file")
 
 vmap("J",":m '>+1<CR>gv=gv","edit: Move this line down")
 vmap("K",":m '<-2<CR>gv=gv","edit: Move this line up")

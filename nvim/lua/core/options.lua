@@ -14,7 +14,7 @@ o.winblend = 0
 
 o.more = false
 o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50" --makes everything block cursor
-o.hlsearch = false
+o.hlsearch = true
 o.autoindent = true
 o.autoread = true
 -- o.fcs = "eob: " -- get rid of the annoying ~ at the end of file

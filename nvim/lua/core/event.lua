@@ -49,22 +49,11 @@ function autocmd.load_autocmds()
 		lazy = {},
 		bufs = {
 			-- Reload vim config automatically
-			{
-				"BufWritePost",
-				[[$VIM_PATH/{*.vim,*.yaml,vimrc} nested source $MYVIMRC | redraw]],
-			},
-			-- Reload Vim script automatically if setlocal autoread
-			{
-				"BufWritePost,FileWritePost",
-				"*.vim",
-				[[nested if &l:autoread > 0 | source <afile> | echo 'source ' . bufname('%') | endif]],
-			},
 			{ "BufWritePre", "/tmp/*", "setlocal noundofile" },
 			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
 			{ "BufWritePre", "*.tmp", "setlocal noundofile" },
 			{ "BufWritePre", "*.bak", "setlocal noundofile" },
-			-- auto place to last edit
 			{
 				"BufReadPost",
 				"*",

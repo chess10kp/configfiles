@@ -9,14 +9,6 @@ local modules_dir = vim_path .. "/lua/modules"
 local settings = require("core.settings")
 local use_ssh = settings.use_ssh
 
-local icons = {
-	kind = require("modules.utils.icons").get("kind"),
-	documents = require("modules.utils.icons").get("documents"),
-	ui = require("modules.utils.icons").get("ui"),
-	ui_sep = require("modules.utils.icons").get("ui", true),
-	misc = require("modules.utils.icons").get("misc"),
-}
-
 local Lazy = {}
 
 function Lazy:load_plugins()
@@ -100,28 +92,6 @@ function Lazy:load_lazy()
 	}
 	if is_mac then
 		lazy_settings.concurrency = 20
-	end
-
-	local custom_plugins = {
-		-- {
-  --     enabled = false, 
-		-- 	dir = "/home/sigma/.config/nvim/lua/backForth",
-		-- 	name = "backForth",
-		-- 	config = function()
-		-- 		require("backForth").setup()
-		-- 	end,
-		-- },
-		-- {
-		-- 	enabled = false,
-		-- 	dir = "/home/sigma/.config/nvim/lua/runner",
-		-- 	name = "runner",
-		-- 	config = function()
-		-- 		require("runner").setup()
-		-- 	end,
-		-- },
-	}
-	for _, plugin in ipairs(custom_plugins) do
-		table.insert(self.modules, plugin)
 	end
 
 	vim.opt.rtp:prepend(lazy_path)
