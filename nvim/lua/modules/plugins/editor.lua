@@ -5,6 +5,7 @@ editor["ej-shafran/compile-mode.nvim"] = {
 	-- branch = "latest",
 	-- or the most up-to-date updates:
 	-- branch = "nightly",
+	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- if you want to enable coloring of ANSI escape codes in
@@ -29,12 +30,12 @@ editor["sindrets/diffview.nvim"] = {
 }
 editor["norcalli/nvim-colorizer.lua"] = {
 	lazy = false,
-  config = function ()
-    vim.cmd("ColorizerToggle")
-  end
+	config = function()
+		vim.cmd("ColorizerToggle")
+	end,
 }
 editor["craigemery/vim-autotag"] = {
-  enabled = true, 
+	enabled = true,
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,

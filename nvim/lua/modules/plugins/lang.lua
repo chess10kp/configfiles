@@ -1,6 +1,7 @@
 local lang = {}
 
 lang["seblyng/roslyn.nvim"] = {
+	enabled = false,
 	ft = { "cs", "razor" },
 	---@module 'roslyn.config'
 	---@type RoslynNvimConfig
@@ -66,7 +67,7 @@ lang["seblyng/roslyn.nvim"] = {
 	end,
 }
 lang["GustavEikaas/easy-dotnet.nvim"] = {
-	enabled = true,
+	enabled = false,
 	ft = "cs",
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	lazy = true,
@@ -92,7 +93,7 @@ lang["GustavEikaas/easy-dotnet.nvim"] = {
 			--Optional function to return the path for the dotnet sdk (e.g C:/ProgramFiles/dotnet/sdk/8.0.0)
 			-- easy-dotnet will resolve the path automatically if this argument is omitted, for a performance improvement you can add a function that returns a hardcoded string
 			-- You should define this function to return a hardcoded path for a performance improvement 🚀
-      picker = "fzf",
+			picker = "fzf",
 			get_sdk_path = get_sdk_path,
 			---@type TestRunnerOptions
 			test_runner = {
@@ -209,19 +210,19 @@ lang["Vigemus/iron.nvim"] = {
 	config = require("lang.iron"),
 }
 lang["mrcjkb/rustaceanvim"] = {
-	enabled = true,
+	enabled = false,
 	lazy = false,
 	version = "^5",
 }
 lang["simrat39/rust-tools.nvim"] = {
-	lazy = true,
+	lazy = false,
 	ft = "rust",
 	enabled = false,
 	config = require("lang.rust-tools"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
 lang["Saecki/crates.nvim"] = {
-	lazy = true,
+	lazy = false,
 	enabled = false,
 	event = "BufReadPost Cargo.toml",
 	config = require("lang.crates"),
@@ -321,9 +322,11 @@ lang["luckasRanarison/tailwind-tools.nvim"] = {
 	opts = {}, -- your configuration
 }
 lang["esmuellert/nvim-eslint"] = {
-  enabled = true,
-  lazy = true,
-  config = function() require("nvim-eslint").setup({}) end,
+	enabled = true,
+	lazy = true,
+	config = function()
+		require("nvim-eslint").setup({})
+	end,
 	ft = { "typescriptreact", "javascriptreact" },
 }
 return lang

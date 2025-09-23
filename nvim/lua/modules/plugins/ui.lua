@@ -9,4 +9,7 @@ ui["ellisonleao/gruvbox.nvim"] = {
 ui["nvim-lualine/lualine.nvim"] = {
 	config = require("modules.configs.ui.lualine"),
 }
+ui["disrupted/one.nvim"] ={
+	lazy = false,
+}
 return ui

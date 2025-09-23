@@ -70,6 +70,28 @@ def list_to_tree(arr):
 		)
 	),
 }, {
+
+	s(
+		"impml",
+		fmt(
+			[[
+      import numpy as np
+      import matplotlib.pyplot as plt
+     ]],
+			{},
+			{}
+		)
+	),
+	s(
+		"impto",
+		fmt(
+			[[
+      import torch
+     ]],
+			{},
+			{}
+		)
+	),
 	s(
 		"ifelse",
 		fmt(

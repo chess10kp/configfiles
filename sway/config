@@ -1,5 +1,6 @@
 set $emacs_clock_in emacsclient -eval "(org-clock-in-last)"
 set $emacs_clock_out emacsclient -eval "(org-clock-out)"
+
 set $mod Mod4
 set $alt Mod1 
 set $left h
@@ -9,7 +10,7 @@ set $right l
 set $term kitty
 set $editor nvim
 set $menu "tofi-drun --prompt 'Run:' | xargs swaymsg exec --"
-default_border pixel 0
+default_border pixel 1
 focus_follows_mouse no
   input "type:keyboard" {
       natural_scroll enabled
@@ -29,9 +30,9 @@ focus_follows_mouse no
     tap enabled
   }
 
-client.focused          #0e1419 #0e1419 #ebdbb2 #98971a   #ebdbb2
+client.focused          #0e1419 #0e1419 #98971a #98971a   #ebdbb2
 client.focused_inactive #0e1419 #0e1419 #ffffff #484e50   #5f676a
-client.unfocused        #0e1419 #0e1419 #0e1419 #292d2e   #222222
+client.unfocused        #0e1419 #0e1419 #ebdbb2 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 bindsym $mod+Return exec $term
@@ -103,7 +104,8 @@ mode "script" {
     bindsym m exec ~/.config/scripts/mpd.sh &; mode "default" 
     bindsym p exec ~/.config/scripts/power.sh; mode "default"
     bindsym s exec ~/.config/scripts/dmenu_term.sh -e ~/.config/scripts;  mode "default"
-    bindsym h exec bluetoothctl connect B0:38:E2:35:25:B4; mode "default"
+
+    bindsym h exec bluetoothctl connect 88:0E:85:39:E6:9C; mode "default"
     bindsym $mod+Print mode "default"; exec  ~/.config/scripts/screenshot.sh
     bindsym $mod+p exec  ~/.config/scripts/passmenu.sh; mode "default"
     bindsym $mod+t mode "timer_map"
@@ -169,6 +171,7 @@ bindsym $mod+r mode "resize"
 mode "focus" {
      bindsym {
 	$mod+l focus right
+	$mod+n workspace back_and_forth
 	$mod+h focus left
 	$mod+j focus down
 	$mod+k focus up
@@ -272,10 +275,13 @@ mode "open" {
     bindsym e workspace "e"; mode "default"
     bindsym d workspace "d"; exec ~/.config/scripts/mode/sway-goto-if-not-start "d" "Discord" vesktop; mode "default"
     bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "Zen Browser" "zen-browser"; mode "default"
-    bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/news\""; mode "default"
+    bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/play\""; mode "default"
+    bindsym m workspace "mail"; exec ~/.config/scripts/mode/sway-goto-if-not-start "mail" "inbox" "/usr/bin/chromium --app=\"https://gmail.com\""; mode "default"
+
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
     bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
     bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
+    bindsym p exec "chromium --new-window --app=\"https://perplexity.ai\""; mode "default"
     bindsym l exec "chromium --new-window --app=\"https://claude.ai\""; mode "default"
     bindsym k exec "chromium --new-window --app=\"https://grok.com\""; mode "default"
     bindsym g exec "chromium --new-window --app=\"https://gemini.google.com/app\""; mode "default"
@@ -294,10 +300,12 @@ bindsym $mod+Shift+f [app_id="zen"] scratchpad show
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i [app_id="foot"] scratchpad show
 bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
+
 for_window {
 	[window_type="utility"] move workspace androidtoolbar
 	[title="foot"] opacity 1
 	[title="foot"] saturation set 0.3 
+	[title="Inbox"] move workspace "mail"
 	[title="Thunar"] floating enable
 	[app_id="zenity"] floating enable
 	[app_id="vpn"] floating enable, resize set 950 550, move position center
@@ -329,7 +337,8 @@ for_window {
 }
 bar {
     position bottom
-    font pango:Iosevka Comfy 20px
+    font pango:Iosevka 18px
+    # mode hide
     gaps  0
     status_command ~/.config/sway/bar
     bindsym button4 nop
@@ -359,6 +368,7 @@ exec {
     gsettings set org.gnome.desktop.interface font-name 'Iosevka'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     emacs --daemon
+    cd ~/projects/repos/dashboard && uv run main.py
     /usr/lib/xdg-desktop-portal-wlr  -l DEBUG
     /usr/lib/xdg-desktop-portal --verbose -r \
 }

@@ -49,13 +49,14 @@ tool["ibhagwan/fzf-lua"] = {
 	config = function()
 		require("fzf-lua").register_ui_select()
 		require("fzf-lua").setup({
+			"ivy",
 			winopts = {
 				height = 0.85, -- window height
 				width = 0.80, -- window width
 				row = 0.35, -- window row position (0=top, 1=bottom)
 				col = 0.50, -- window col position (0=left, 1=right)
 				-- border argument passthrough to nvim_open_win()
-				border = "rounded",
+				border = "none",
 				-- Backdrop opacity, 0 is fully opaque, 100 is fully transparent (i.e. disabled)
 				backdrop = 100,
 				-- title         = "Title",
@@ -68,7 +69,7 @@ tool["ibhagwan/fzf-lua"] = {
 				-- set `fzf_colors=false` or `fzf_colors.hl=...` to override
 				treesitter = {
 					enabled = true,
-					fzf_colors = { ["hl"] = "-1:reverse", ["hl+"] = "-1:reverse" },
+					-- fzf_colors = { ["hl"] = "-1:reverse", ["hl+"] = "-1:reverse" },
 				},
 				preview = {
 					-- default     = 'bat',           -- override the default previewer?
@@ -78,7 +79,7 @@ tool["ibhagwan/fzf-lua"] = {
 					-- native fzf previewers (bat/cat/git/etc)
 					-- can also be set to `fun(winopts, metadata)`
 					wrap = false, -- preview line wrap (fzf's 'wrap|nowrap')
-					hidden = false, -- start preview hidden
+					hidden = fasle, -- start preview hidden
 					vertical = "down:45%", -- up|down:size
 					horizontal = "right:60%", -- right|left:size
 					layout = "flex", -- horizontal|vertical|flex
@@ -96,7 +97,7 @@ tool["ibhagwan/fzf-lua"] = {
 					winopts = { -- builtin previewer window options
 						number = true,
 						relativenumber = false,
-						cursorline = true,
+						cursorline = false,
 						cursorlineopt = "both",
 						cursorcolumn = false,
 						signcolumn = "no",
@@ -107,10 +108,15 @@ tool["ibhagwan/fzf-lua"] = {
 				},
 			},
 		})
-    require('fzf-lua').setup({'ivy'})
 		local nmap = require("keymap.key").nmap
 		nmap("<leader>ff", function()
 			require("fzf-lua").global()
+		end)
+		nmap("<leader>fl", function()
+			require("fzf-lua").lsp_workspace_symbols()
+		end)
+		nmap("<leader>fd", function()
+			require("fzf-lua").lsp_document_symbols()
 		end)
 		nmap("<M-d>", "<Cmd>FzfLua<CR>", "find: list options")
 		nmap("<M-f>", function()

@@ -12,11 +12,6 @@ completion["neovim/nvim-lspconfig"] = {
 		{ "saghen/blink.cmp" },
 	},
 }
-completion["nvimdev/lspsaga.nvim"] = {
-	lazy = true,
-	event = "LspAttach",
-	config = require("completion.lspsaga"),
-}
 completion["stevearc/conform.nvim"] = {
 	lazy = true,
 	event = { "BufReadPre", "BufNewFile" },

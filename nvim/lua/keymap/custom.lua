@@ -25,6 +25,7 @@ tmap("<M-h>", "<Cmd>Floaterminal<CR>", "editor: open terminal")
 nmap("<leader>so", "<Cmd>echo 'sourced'<CR><Cmd>so<CR>", "editor: source file")
 nmap("<CR>", "")
 nmap("<M-w>", "<C-^>", "editor: other file")
+nmap("<M-e>", "<Cmd>Explore<CR>", "editor: explore")
 
 nmap("<leader>rw", function()
 	vim.api.nvim_feedkeys(

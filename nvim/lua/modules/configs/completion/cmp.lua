@@ -125,13 +125,6 @@ return function()
 			["<C-S-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-S-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-e>"] = cmp.mapping.abort(),
-			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				else
-					fallback()
-				end
-			end, { "i", "s" }),
 		}),
 		snippet = {
 			expand = function(args)

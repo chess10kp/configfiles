@@ -122,10 +122,10 @@ end
 g.vimtex_view_method = "zathura"
 g.vimtex_view_general_viewer = "zathura"
 g.netrw_winsize = 25
-g.netrw_liststyle = 3
+g.netrw_liststyle = 0
 g.netrw_banner = 0
-g.netrw_browse_split = 4
-g.netrw_altv = 1
+g.netrw_browse_split = 0
+g.netrw_altv = 0
 
 --Plugin: hard time
 vim.g.hardtime_default_on = 1

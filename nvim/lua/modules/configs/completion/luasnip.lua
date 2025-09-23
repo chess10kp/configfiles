@@ -3,6 +3,7 @@ return function()
 		history = true,
 		update_events = "TextChanged,TextChangedI",
 		delete_check_events = "TextChanged,InsertLeave",
+		region_check_events = "TextChanged,InsertLeave",
 		enable_autosnippets = true,
 	})
 
