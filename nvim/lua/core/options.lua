@@ -19,13 +19,14 @@ o.autoindent = true
 o.autoread = true
 -- o.fcs = "eob: " -- get rid of the annoying ~ at the end of file
 o.autowrite = true
+o.laststatus = 3
 o.backspace = "indent,eol,start"
 o.backup = false
 o.backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim"
 o.breakat = [[\ \;:,!?]]
 o.breakindentopt = "shift:2,min:20"
 o.clipboard = "unnamed"
-o.cmdheight = 1
+o.cmdheight = 0
 o.cmdwinheight = 1
 o.complete = ".,w,b,k"
 o.completeopt = "menuone,noselect"
@@ -104,20 +105,6 @@ o.winwidth = 30
 o.wrap = false
 o.wrapscan = true
 o.writebackup = false
-local function isempty(s)
-	return s == nil or s == ""
-end
-
--- custom python provider
-local conda_prefix = os.getenv("CONDA_PREFIX")
-if not isempty(conda_prefix) then
-	vim.g.python_host_prog = conda_prefix .. "/bin/python"
-	vim.g.python3_host_prog = conda_prefix .. "/bin/python"
-else
-	vim.g.python_host_prog = "python"
-	vim.g.python3_host_prog = "python3"
-end
-
 -- global opts
 g.vimtex_view_method = "zathura"
 g.vimtex_view_general_viewer = "zathura"
@@ -134,30 +121,5 @@ vim.g.hardtime_allow_different_key = 1
 
 --Plugin: vimtex
 vim.cmd([[let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex']])
-
-local function isempty(s)
-	return s == nil or s == ""
-end
--- custom python provider
-local conda_prefix = os.getenv("CONDA_PREFIX")
-if not isempty(conda_prefix) then
-	g.python_host_prog = conda_prefix .. "/bin/python"
-	g.python3_host_prog = conda_prefix .. "/bin/python"
-elseif global.is_mac then
-	g.python_host_prog = "/usr/bin/python"
-	g.python3_host_prog = "/usr/local/bin/python3"
-	g.python3_host_prog = "/usr/bin/python3"
-	-- Fix sqlite3 missing-lib issue on Windows
-	if global.is_windows then
-		-- Download the DLLs form https://www.sqlite.org/download.html
-		vim.g.sqlite_clib_path = global.home .. "/Documents/sqlite-dll-win64-x64-3400200/sqlite3.dll"
-	end
-end
-
--- Fix sqlite3 missing-lib issue on Windows
-if global.is_windows then
-	-- Download the DLLs form https://www.sqlite.org/download.html
-	g.sqlite_clib_path = global.home .. "/Documents/sqlite-dll-win64-x64-3400100/sqlite3.dll"
-end
 
 o.digraph = false

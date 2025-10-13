@@ -33,17 +33,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- 		require("cmp").setup.buffer({ enabled = false })
 -- 	end,
 -- })
-vim.api.nvim_create_autocmd("RecordingEnter", {
-	callback = function()
-		vim.opt.cmdheight = 1
-	end,
-})
-vim.api.nvim_create_autocmd("RecordingLeave", {
-	callback = function()
-		vim.opt.cmdheight = 0
-	end,
-})
-
 function autocmd.load_autocmds()
 	local definitions = {
 		lazy = {},

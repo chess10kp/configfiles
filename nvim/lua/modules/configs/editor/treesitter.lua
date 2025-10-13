@@ -68,9 +68,6 @@ return vim.schedule_wrap(function()
 					["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
           ["ii"] = "@conditional.inner",
           ["ai"] = "@conditional.outer",
-          ["ial"] = "@assignment.lhs",
-          ["iar"] = "@assignment.rhs",
-          ["iao"] = "@assignment.outer",
 				},
 				-- You can choose the select mode (default is charwise 'v')
 				--

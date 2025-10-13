@@ -6,6 +6,7 @@ local vmap = key.vmap
 local cmap = key.cmap
 local tmap = key.tmap
 
+nmap("<leader>z", "<Cmd>Lazy<CR>", "editor: open lazy")
 imap("jk", "<ESC>", "editor: escape")
 nmap("<leader>ss", "<Cmd>echo 'saved session'<CR><Cmd>mks!<CR>", "editor: save vim session")
 nmap("<leader>lcd", "<Cmd>lcd %:h<CR><Cmd>pwd<CR>", "editor: change current working directory")

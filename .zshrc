@@ -52,6 +52,21 @@ function mkcir
   command mkdir $1 && cd $1
 }
 
+_yay_check_for_steam() {
+  if [[ "$1" == "-S" && "$2" == "steam"  ]]; then
+    echo "No more steam"
+  else
+    /usr/bin/yay "$@"
+  fi
+
+  if [[ "$1" == "-S" && "$2" == "flatpak"  ]]; then
+    echo "No more steam"
+  else
+    /usr/bin/yay "$@"
+  fi
+}
+
+alias yay="_yay_check_for_steam"
 alias fzf="fzf --reverse"
 alias ns="nvim -S"
 alias e="exit"
@@ -76,8 +91,9 @@ alias convas="cd ~/projects/repos/convas; ./src/convas.py"
 alias cd="z"
 alias docker_run_chroma="docker run -d --rm --name chromadb -p 8000:8000 -v ./chroma:/chroma/chroma -e IS_PERSISTENT=TRUE -e ANONYMIZED_TELEMETRY=TRUE chromadb/chroma:0.6.3"
 alias docker_run_sqlserver="docker run -e \"ACCEPT_EULA=Y\" -e \"MYSQL_SA_PASSWORD=IlovePissword2\" -p 1433:1433 --name sql1  --hostname sql1 -d mcr.microsoft.com/mssql/server:2017-latest"
-alias run_android_emulator="QT_QPA_PLATFORM=xcb ~/Android/Sdk/emulator/emulator -avd Pixel_8_API_UpsideDownCakePrivacySandbox"
+alias run_android_emulator="QT_QPA_PLATFORM=xcb ~/Android/Sdk/emulator/emulator -avd Small_Phone"
 setopt emacs
+alias ec="emacsclient -nw ."
 
 function cursor() {
     ~/.local/bin/Cursor-1.1.3-x86_64.AppImage "$@" >/dev/null 2>&1 & disown

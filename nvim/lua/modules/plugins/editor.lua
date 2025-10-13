@@ -1,29 +1,5 @@
 local editor = {}
 
-editor["ej-shafran/compile-mode.nvim"] = {
-	-- you can just use the latest version:
-	-- branch = "latest",
-	-- or the most up-to-date updates:
-	-- branch = "nightly",
-	lazy = false,
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		-- if you want to enable coloring of ANSI escape codes in
-		-- compilation output, add:
-		{ "m00qek/baleia.nvim", tag = "v1.3.0" },
-	},
-	config = function()
-		---@type CompileModeOpts
-		vim.g.compile_mode = {
-			-- to add ANSI escape code support, add:
-			baleia_setup = true,
-		}
-	end,
-	keys = {
-		{ "<leader>cC", "<cmd>Compile<cr>", desc = "compile" },
-		{ "<leader>cc", "<cmd>Recompile<cr>", desc = "recompile" },
-	},
-}
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
@@ -34,8 +10,18 @@ editor["norcalli/nvim-colorizer.lua"] = {
 		vim.cmd("ColorizerToggle")
 	end,
 }
-editor["craigemery/vim-autotag"] = {
-	enabled = true,
+editor["folke/which-key.nvim"] = {
+	lazy = true,
+	event = "VeryLazy",
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Local Keymaps (which-key)",
+		},
+	},
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,

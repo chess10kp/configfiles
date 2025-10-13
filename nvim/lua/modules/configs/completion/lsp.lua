@@ -1,12 +1,8 @@
 return function()
 	require("lspconfig.ui.windows").default_options.border = "single"
 	local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
-	local diagnostics_level = require("core.settings").diagnostics_level
-
-	local nvim_lsp = require("lspconfig")
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
-	require("lspconfig.ui.windows").default_options.border = "rounded"
 
 	local icons = {
 		ui = require("modules.utils.icons").get("ui", true),
@@ -44,31 +40,6 @@ return function()
 	local opts = {
 		capabilities = capabilities,
 	}
-
-	---A handler to setup all servers defined under `completion/servers/*.lua`
-	---@param lsp_name string
-	local function mason_handler(lsp_name)
-		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
-		if not ok then
-			-- Default to use factory config for server(s) that doesn't include a spec
-			nvim_lsp[lsp_name].setup(opts)
-			return
-		elseif type(custom_handler) == "function" then
-			custom_handler(opts)
-		elseif type(custom_handler) == "table" then
-			nvim_lsp[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
-		else
-			vim.notify(
-				string.format(
-					"Failed to setup [%s].\n\nServer definition under `completion/servers` must return\neither a fun(opts) or a table (got '%s' instead)",
-					lsp_name,
-					type(custom_handler)
-				),
-				vim.log.levels.ERROR,
-				{ title = "nvim-lspconfig" }
-			)
-		end
-	end
 
 	mason_lspconfig.setup({
 		automatic_enable = true,
@@ -123,64 +94,6 @@ return function()
 		-- set update_in_insert to false bacause it was enabled by lspsaga
 		update_in_insert = false,
 	})
-
-	---A handler to setup all servers defined under `completion/servers/*.lua`
-	---@param lsp_name string
-	local function mason_lsp_handler(lsp_name)
-		local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
-		if not ok then
-			if lsp_name == "basedpyright" then
-				return
-			end
-			if lsp_name == "jedi_language_server" then
-				-- disable this since pylsp provides jedi_completion
-				local jedi_capabilities = capabilities
-				jedi_capabilities.textDocument.completion.completionItem.snippetSupport = false
-				nvim_lsp["jedi_language_server"].setup({
-					init_options = {
-						completion = {
-							disable_snippets = true,
-						},
-						diagnostics = {
-							enable = false,
-						},
-						hover = {
-							enable = true,
-						},
-					},
-					settings = {
-						jedi = {
-							autoImportModules = { "numpy", "pandas", "curses" },
-						},
-					},
-					capabilities = jedi_capabilities,
-				})
-				return
-			elseif lsp_name == "tsserver" then -- skip tsserver since typescript-tools
-				return
-			end
-			-- Default to use factory config for server(s) that doesn't include a spec
-			nvim_lsp[lsp_name].setup(opts)
-			return
-		elseif type(custom_handler) == "function" then
-			--- Case where language server requires its own setup
-			--- Make sure to call require("lspconfig")[lsp_name].setup() in the function
-			--- See `clangd.lua` for example.
-			custom_handler(opts)
-		elseif type(custom_handler) == "table" then
-			nvim_lsp[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
-		else
-			vim.notify(
-				string.format(
-					"Failed to setup [%s].\n\nServer definition under `completion/servers` must return\neither a fun(opts) or a table (got '%s' instead)",
-					lsp_name,
-					type(custom_handler)
-				),
-				vim.log.levels.ERROR,
-				{ title = "nvim-lspconfig" }
-			)
-		end
-	end
 
 	-- https://github.com/neovim/neovim/issues/30985 rust analyzer bad
 	for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do

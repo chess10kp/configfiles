@@ -1,7 +1,7 @@
 local lang = {}
 
 lang["seblyng/roslyn.nvim"] = {
-	enabled = false,
+	enabled = true,
 	ft = { "cs", "razor" },
 	---@module 'roslyn.config'
 	---@type RoslynNvimConfig
@@ -67,7 +67,7 @@ lang["seblyng/roslyn.nvim"] = {
 	end,
 }
 lang["GustavEikaas/easy-dotnet.nvim"] = {
-	enabled = false,
+	enabled = true,
 	ft = "cs",
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 	lazy = true,
@@ -203,36 +203,6 @@ lang["ray-x/go.nvim"] = {
 	ft = { "go", "gomod" },
 	build = ':lua require("go.install").update_all_sync()',
 }
-lang["Vigemus/iron.nvim"] = {
-	enabled = true,
-	lazy = true,
-	ft = { "python", "haskell" },
-	config = require("lang.iron"),
-}
-lang["mrcjkb/rustaceanvim"] = {
-	enabled = false,
-	lazy = false,
-	version = "^5",
-}
-lang["simrat39/rust-tools.nvim"] = {
-	lazy = false,
-	ft = "rust",
-	enabled = false,
-	config = require("lang.rust-tools"),
-	dependencies = { "nvim-lua/plenary.nvim" },
-}
-lang["Saecki/crates.nvim"] = {
-	lazy = false,
-	enabled = false,
-	event = "BufReadPost Cargo.toml",
-	config = require("lang.crates"),
-	dependencies = { "nvim-lua/plenary.nvim" },
-}
--- lang["chrisbra/csv.vim"] = {
--- 	enabled = true,
--- 	lazy = true,
--- 	ft = "csv",
--- }
 lang["pmizio/typescript-tools.nvim"] = {
 	lazy = true,
 	ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
@@ -253,41 +223,6 @@ lang["mrcjkb/haskell-tools.nvim"] = {
 	config = require("lang.haskell-tools"),
 }
 
-lang["nvim-orgmode/orgmode"] = {
-	dependencies = {
-		"nvim-telescope/telescope.nvim",
-		"nvim-orgmode/telescope-orgmode.nvim",
-		"nvim-orgmode/org-bullets.nvim",
-		"Saghen/blink.cmp",
-	},
-	event = "VeryLazy",
-	config = function()
-		require("orgmode").setup({
-			org_agenda_files = "~/projects/notes/**/*",
-			org_default_notes_file = "~/projects/notes/org/refile.org",
-		})
-		require("org-bullets").setup()
-		require("blink.cmp").setup({
-			sources = {
-				per_filetype = {
-					org = { "orgmode" },
-				},
-				providers = {
-					orgmode = {
-						name = "Orgmode",
-						module = "orgmode.org.autocompletion.blink",
-						fallbacks = { "buffer" },
-					},
-				},
-			},
-		})
-		-- require("telescope").setup()
-		-- require("telescope").load_extension("orgmode")
-		-- vim.keymap.set("n", "<leader>r", require("telescope").extensions.orgmode.refile_heading)
-		-- vim.keymap.set("n", "<leader>foh", require("telescope").extensions.orgmode.search_headings)
-		-- vim.keymap.set("n", "<leader>foi", require("telescope").extensions.orgmode.insert_link)
-	end,
-}
 lang["nvim-java/nvim-java"] = {
 	lazy = true,
 	ft = "java",
@@ -306,7 +241,7 @@ lang["nvim-java/nvim-java"] = {
 			end,
 		}
 
-		require("lspconfig").jdtls.setup(jdtcfg)
+		vim.lsp.config.jdtls.setup(jdtcfg)
 	end,
 }
 lang["luckasRanarison/tailwind-tools.nvim"] = {

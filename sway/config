@@ -7,7 +7,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
+set $term kitty --single-instance
 set $editor nvim
 set $menu "tofi-drun --prompt 'Run:' | xargs swaymsg exec --"
 default_border pixel 1
@@ -367,11 +367,15 @@ exec {
     gsettings set org.gtk.Settings.FileChooser window-size '(1200, 700)'
     gsettings set org.gnome.desktop.interface font-name 'Iosevka'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme "Gruvbox-Dark-BL"
     emacs --daemon
     cd ~/projects/repos/dashboard && uv run main.py
     /usr/lib/xdg-desktop-portal-wlr  -l DEBUG
     /usr/lib/xdg-desktop-portal --verbose -r \
+    aw-qt
+    aw-watcher-window-wayland-git
 }
+
 exec emacsclient -c ~/projects/notes/todo.org
 exec_always notify-send "Sway " "config reloaded"
 include @sysconfdir@/sway/config.d/*

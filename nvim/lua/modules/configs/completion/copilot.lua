@@ -18,6 +18,5 @@ return function()
 				["big_file_disabled_ft"] = false,
 			},
 		})
-  vim.cmd("Copilot disable")
 	end, 100)
 end
