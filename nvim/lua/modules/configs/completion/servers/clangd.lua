@@ -11,7 +11,7 @@ end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/clangd.lua
 return function(options)
-	require("lspconfig").clangd.setup({
+	vim.lsp.config.clangd.setup({
 		on_attach = options.on_attach,
 		capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, options.capabilities  
     ),

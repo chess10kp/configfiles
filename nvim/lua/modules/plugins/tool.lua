@@ -44,7 +44,9 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-telescope/telescope-fzf-native.nvim" },
 	},
 }
+
 tool["ibhagwan/fzf-lua"] = {
+  enabled = false,
 	opts = {},
 	config = function()
 		require("fzf-lua").register_ui_select()

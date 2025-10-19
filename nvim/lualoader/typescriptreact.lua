@@ -48,7 +48,7 @@ return {
 				c(2, {
 					sn(nil, {
 						t('className="'),
-            i(1, ""),
+						i(1, ""),
 						t('"'),
 					}),
 					i(1, ""),
@@ -73,11 +73,11 @@ return {
 			}),
 			sn(nil, {
 				i(1, ""),
-        t(" "),
+				t(" "),
 				c(2, {
 					sn(nil, {
 						t('className="'),
-            i(1, ""),
+						i(1, ""),
 						t('"'),
 					}),
 					i(1, ""),
@@ -89,28 +89,71 @@ return {
 }, {
 	create_snippet("clg", "console.log({})"),
 	s(
-		"tsrafc",
+		"tsrafce",
 		fmt(
 			[[
+      import React from "react"
       type <>Props = {} 
-      const <> = ({<>} : {<>}) =>> {
+      const <> = ({<>} : <>Props) =>> {
         return (
           <>
         )
       }
+      export default <>
       ]],
 			{
 				f(function(args)
 					return args[1][1]
 				end, { 1 }),
-				i(1, "el"),
+				i(1, "name: string"),
 				i(2, "props"),
-				i(3, "{}"),
-				i(4, "<div></div>"),
+				f(function(args)
+					return args[1][1]
+				end, { 1 }),
+				i(100, ""),
+				f(function(args)
+					return args[1][1]
+				end, { 1 }),
 			},
 			{
 				delimiters = "<>",
 			}
 		)
 	),
+	s("uef", fmt([[
+	useEffect(() =>> {{
+		<>
+	}}, [<>])
+	]], {
+		i(1, "// effect logic"),
+		i(2, ""),
+	}, { delimiters = "<>" })),
+
+	-- ✅ useMemo
+	s("umm", fmt([[
+	const <> = useMemo(() =>> <> , [<>])
+	]], {
+		i(1, "memoizedValue"),
+		i(2, "computeExpensiveValue()"),
+		i(3, ""),
+	}, { delimiters = "<>" })),
+
+	-- ✅ useCallback
+	s("ucb", fmt([[
+	const <> = useCallback((<>) =>> {{
+		<>
+	}}, [<>])
+	]], {
+		i(1, "callback"),
+		i(2, "args"),
+		i(3, "// callback logic"),
+		i(4, ""),
+	}, { delimiters = "<>" })),
+
+	s("urf", fmt([[
+	const <> = useRef<<>>(<>)
+	]], {
+		i(1, "ref"),
+		i(2, "HTMLDivElement"),
+	}, { delimiters = "<>" })),
 }

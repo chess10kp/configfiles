@@ -1,5 +1,5 @@
 return function()
-	require("lspconfig.ui.windows").default_options.border = "single"
+	-- require("lspconfig.ui.windows").default_options.border = "single"
 	local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
