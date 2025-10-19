@@ -98,6 +98,7 @@ bindsym XF86MonBrightnessUp exec exec brightnessctl set +5%
 bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png'); mode "default"
 bindsym $mod+Print exec ~/.config/scripts/copy_with_tesseract
 bindsym Shift+Print exec ~/.local/bin/grimshot copy area
+bindsym $mod+Shift+Print exec ~/.local/bin/grimshot copy active
 mode "script" {
     bindsym r mode "default"; exec ~/.config/scripts/mode/sway-refile-to-workspace
     bindsym c mode "default"; exec ~/.config/scripts/mode/sway-launch-with-slurp foot; 
