@@ -39,5 +39,11 @@
             "-->"
         ],
         "description": "hack"
-    }
+    },
+  "link": {
+    "prefix": "link",
+    "body" : [
+      "[$1]($2)"
+    ]
+  }
 }

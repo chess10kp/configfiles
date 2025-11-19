@@ -6,9 +6,6 @@ ui["ellisonleao/gruvbox.nvim"] = {
   event = { "BufReadPost" },
   config = require("ui.gruvbox"),
 }
-ui["nvim-lualine/lualine.nvim"] = {
-  config = require("modules.configs.ui.lualine"),
-}
 ui["karb94/neoscroll.nvim"] = {
   lazy = true,
   event = { "BufReadPost" },

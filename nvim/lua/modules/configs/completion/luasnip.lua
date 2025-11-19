@@ -9,6 +9,10 @@ return function()
 
 	require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lualoader" })
 
+    require("luasnip.loaders.from_vscode").lazy_load({
+        paths = { "~/.config/nvim/snips" },
+    })
+
 	local ls = require("luasnip")
 
 	vim.keymap.set({ "i", "v" }, "<C-j>", function()

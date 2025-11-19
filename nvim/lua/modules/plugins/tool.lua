@@ -33,6 +33,101 @@ tool["ibhagwan/smartyank.nvim"] = { -- highlight yanks and yank to clip
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --
 ----------------------------------------------------------------------
+tool["nvim-mini/mini.extra"] = {
+  enabled = false,
+  opts = {},
+  version = '*' ,
+  config = function()
+    require('mini.extra').setup({})
+
+    local nmap = require("keymap.key").nmap
+    local extra = require("mini.extra")
+		nmap("<leader>fl", function()
+      extra.pickers.lsp({scope = "document_symbol"})
+		end)
+
+		nmap("<leader>fr", function()
+      extra.pickers.lsp({scope = "references"})
+		end)
+
+		nmap("<leader>fd", function()
+      extra.pickers.lsp({scope = "document_symbol"})
+		end)
+
+  end
+}
+tool["echasnovski/mini.pick"] = {
+	enabled = false,
+	opts = {},
+  dependencies = {
+    "nvim-mini/mini.extra",
+  },
+	config = function()
+		local pick = require("mini.pick")
+		pick.setup({
+      window = {
+        width = vim.o.columns
+      },
+			options = {
+				use_cache = true,
+				content_from_bottom = true,
+			},
+		})
+
+		local nmap = require("keymap.key").nmap
+
+		nmap("<leader>ff", function()
+			pick.builtin.files()
+		end)
+
+		nmap("<leader>fw", function()
+			pick.builtin.grep_live()
+		end)
+
+		nmap("<leader>fh", function()
+			pick.builtin.help()
+		end)
+
+		nmap("<leader>fb", function()
+			pick.builtin.buffers()
+		end)
+
+		nmap("<M-b>", function()
+			pick.builtin.buffers()
+		end)
+
+		nmap("<M-f>", function()
+			pick.builtin.files()
+		end)
+
+		nmap("<M-d>", "<Cmd>Pick resume<CR>", "find: list options")
+
+		-- zoxide integration
+		nmap("<leader>fz", function()
+			pick.start({
+				source = {
+					name = "Zoxide directories",
+					items = function()
+						local handle = io.popen("zoxide query -l")
+						if not handle then
+							return {}
+						end
+						local dirs = {}
+						for line in handle:lines() do
+							table.insert(dirs, line)
+						end
+						handle:close()
+						return dirs
+					end,
+					choose = function(item)
+						vim.cmd.cd(item)
+						vim.notify("cd " .. item)
+					end,
+				},
+			})
+		end)
+	end,
+}
 tool["nvim-telescope/telescope.nvim"] = {
 	enabled = false,
 	lazy = false,
@@ -46,7 +141,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 }
 
 tool["ibhagwan/fzf-lua"] = {
-  enabled = false,
+	enabled = true,
 	opts = {},
 	config = function()
 		require("fzf-lua").register_ui_select()

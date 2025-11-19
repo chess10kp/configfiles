@@ -1,7 +1,6 @@
 local key = require("keymap.key")
 local nmap = key.nmap
 local imap = key.imap
-local omap = key.omap
 local vmap = key.vmap
 local cmap = key.cmap
 local tmap = key.tmap
@@ -42,9 +41,10 @@ vmap("<leader>rw", function()
 		false
 	)
 end, "editor: replace word under cursor")
-nmap("<leader>ee", function()
-	vim.api.nvim_feedkeys(":e ~/", "n", true)
-end, "editor: open file")
+
+nmap("<leader>eb", function ()
+  vim.cmd("Explore")
+end, "editor: open netrw")
 
 nmap("/", function()
 	vim.o.hlsearch = false
@@ -58,70 +58,3 @@ nmap("<leader>tt", function()
   ]])
 end)
 
-
-local function createMarkMappings()
-	local marks = {
-		"a",
-		"b",
-		"c",
-		"d",
-		"e",
-		"f",
-		"g",
-		"h",
-		"i",
-		"j",
-		"k",
-		"l",
-		"m",
-		"n",
-		"o",
-		"p",
-		"q",
-		"r",
-		"s",
-		"t",
-		"u",
-		"v",
-		"w",
-		"x",
-		"y",
-		"z",
-		"A",
-		"B",
-		"C",
-		"D",
-		"E",
-		"F",
-		"G",
-		"H",
-		"I",
-		"J",
-		"K",
-		"L",
-		"M",
-		"N",
-		"O",
-		"P",
-		"Q",
-		"R",
-		"S",
-		"T",
-		"U",
-		"V",
-		"W",
-		"X",
-		"Y",
-		"Z",
-	}
-	for _, mark in ipairs(marks) do
-		vim.api.nvim_set_keymap(
-			"n",
-			string.format("'%s", mark),
-			string.format("`%s", mark),
-			{ noremap = true, silent = true }
-		)
-	end
-end
-
-createMarkMappings()

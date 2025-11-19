@@ -189,7 +189,7 @@ lang["GustavEikaas/easy-dotnet.nvim"] = {
 	end,
 }
 lang["ray-x/go.nvim"] = {
-	enabled = true,
+	enabled = false,
 	lazy = true,
 	dependencies = {
 		"ray-x/guihua.lua",
@@ -224,6 +224,7 @@ lang["mrcjkb/haskell-tools.nvim"] = {
 }
 
 lang["nvim-java/nvim-java"] = {
+  enabled = false,
 	lazy = true,
 	ft = "java",
 	dependencies = { "nvim-lspconfig" },
@@ -245,7 +246,7 @@ lang["nvim-java/nvim-java"] = {
 	end,
 }
 lang["luckasRanarison/tailwind-tools.nvim"] = {
-	enabled = true,
+	enabled = false,
 	lazy = true,
 	name = "tailwind-tools",
 	ft = { "typescriptreact", "javascriptreact" },

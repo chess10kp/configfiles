@@ -1,5 +1,24 @@
 local editor = {}
 
+editor["lukas-reineke/indent-blankline.nvim"] = {
+  enabled = false,
+	lazy = true,
+	event = "VeryLazy",
+  config = function()
+    require("ibl").setup()
+  end,
+	opts = {
+		show_current_context = true,
+		show_current_context_start = true,
+		show_end_of_line = true,
+		char = "┊",
+		context_char = "┆",
+		show_first_indent_level = true,
+		space_char_blankline = " ",
+		use_treesitter = true,
+		show_trailing_blankline_indent = false,
+	},
+}
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },

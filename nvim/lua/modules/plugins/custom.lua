@@ -18,14 +18,6 @@ custom["windwp/nvim-autopairs"] = {
 	opts = {},
 	config = require("editor.nvim-autopairs"),
 }
-custom["folke/todo-comments.nvim"] = {
-	event = "BufEnter",
-	lazy = true,
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
-		require("todo-comments").setup()
-	end,
-}
 custom["kawre/leetcode.nvim"] = {
 	enabled = true,
 	lazy = "leetcode.nvim" ~= vim.fn.argv()[1],

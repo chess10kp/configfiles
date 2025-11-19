@@ -182,7 +182,6 @@ mode "focus" {
 	$mod+f fullscreen
 	$mod+Shift+s [title="*kitty*"] scratchpad show
 	$mod+Control+i floating toggle; resize set height 1000px ; resize set width 1800px; move scratchpad; 
-	$mod+Shift+f [app_id="firefox"] scratchpad show
 	$mod+i scratchpad show
 	$mod+Shift+i [app_id="foot"] scratchpad show
     }
@@ -276,19 +275,24 @@ mode "open" {
     bindsym e workspace "e"; mode "default"
     bindsym d workspace "d"; exec ~/.config/scripts/mode/sway-goto-if-not-start "d" "Discord" vesktop; mode "default"
     bindsym f workspace "b"; exec ~/.config/scripts/mode/sway-goto-if-not-start "b" "Zen Browser" "zen-browser"; mode "default"
-    bindsym c workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/play\""; mode "default"
+    bindsym h workspace "c"; exec ~/.config/scripts/mode/sway-goto-if-not-start "c" "chess" "/usr/bin/chromium --app=\"https://chess.com/play\""; mode "default"
     bindsym m workspace "mail"; exec ~/.config/scripts/mode/sway-goto-if-not-start "mail" "inbox" "/usr/bin/chromium --app=\"https://gmail.com\""; mode "default"
-
     bindsym t workspace "typing"; exec ~/.config/scripts/mode/sway-goto-if-not-start "typing" "monkeytype" "chromium --app=\"https://monkeytype.com\""; mode "default"
+
     bindsym a exec "chromium --new-window --app=\"https://chatgpt.com\""; mode "default"
     bindsym s exec "chromium --new-window --app=\"https://chat.deepseek.com\""; mode "default"
     bindsym p exec "chromium --new-window --app=\"https://perplexity.ai\""; mode "default"
     bindsym l exec "chromium --new-window --app=\"https://claude.ai\""; mode "default"
     bindsym k exec "chromium --new-window --app=\"https://grok.com\""; mode "default"
     bindsym g exec "chromium --new-window --app=\"https://gemini.google.com/app\""; mode "default"
+    bindsym y exec "chromium --new-window --app=\"https://youtube.com\""; mode "default"
+
     bindsym n exec $term -e ~/.local/bin/checkemacs -nw ; mode "default"
-    bindsym $mod+c exec code; mode "default"
+    bindsym b exec thunar; mode "default"
+    bindsym c exec chromium ; mode "default"
+    bindsym $mod+c exec emacsclient -c ~/projects/notes/org/todo.org; mode "default"
     bindsym w exec firefox; mode "default"
+
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -296,17 +300,15 @@ bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+o mode "open"
 bindsym $mod+Shift+s scratchpad show
+bindsym $mod+Shift+f [app_id="chrome-gemini.google.com__app-Default"] scratchpad show
 bindsym $mod+Control+i floating toggle; resize set height 1300px ; resize set width 2000px; move scratchpad; 
-bindsym $mod+Shift+f [app_id="zen"] scratchpad show
-bindsym $mod+i scratchpad show
-bindsym $mod+Shift+i [app_id="foot"] scratchpad show
+bindsym $mod+i [app_id=".*chrom.*"] SCRATCHPAD SHOW
 bindsym $mod+Shift+q exec ~/.config/scripts/mode/shell-command
 
 for_window {
 	[window_type="utility"] move workspace androidtoolbar
 	[title="foot"] opacity 1
 	[title="foot"] saturation set 0.3 
-	[title="Inbox"] move workspace "mail"
 	[title="Thunar"] floating enable
 	[app_id="zenity"] floating enable
 	[app_id="vpn"] floating enable, resize set 950 550, move position center
@@ -380,3 +382,4 @@ exec {
 exec emacsclient -c ~/projects/notes/todo.org
 exec_always notify-send "Sway " "config reloaded"
 include @sysconfdir@/sway/config.d/*
+exec Xwayland :0 -rootless -ac

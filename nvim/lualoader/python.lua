@@ -15,20 +15,6 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 return {
 	s(
-		"debug",
-		fmt(
-			[[ 
-        # DEBUG: 
-        <>
-        # DEBUG: 
-        ]],
-			{
-				i(1, "debug statements"),
-			},
-			{ delimiters = "<>" }
-		)
-	),
-	s(
 		"leetcode",
 		fmt(
 			[[ 
@@ -72,63 +58,6 @@ def list_to_tree(arr):
 }, {
 
 	s(
-		"impml",
-		fmt(
-			[[
-      import numpy as np
-      import matplotlib.pyplot as plt
-     ]],
-			{},
-			{}
-		)
-	),
-	s(
-		"impto",
-		fmt(
-			[[
-      import torch
-     ]],
-			{},
-			{}
-		)
-	),
-	s(
-		"ifelse",
-		fmt(
-			[[
-      if <> : 
-          <>
-      elif <>:
-          <>
-     ]],
-			{
-				i(1, "statement"),
-				i(2, "pass"),
-				i(3, "statement"),
-				i(4, "pass"),
-			},
-			{
-				delimiters = "<>",
-			}
-		)
-	),
-	s(
-		"whle",
-		fmt(
-			[[
-    while <> : 
-        <>
-    ]],
-			{
-				i(1, "pass"),
-				i(2, "pass"),
-			},
-			{
-				delimiters = "<>",
-			}
-		)
-	),
-	s(
 		"prnt",
 		fmt(
 			[[
@@ -140,34 +69,6 @@ def list_to_tree(arr):
 			{
 				delimiters = "{}",
 			}
-		)
-	),
-	s(
-		"def ",
-		fmt(
-			[[
-        def <>(<>): 
-            <>
-        ]],
-			{
-				i(1, "function"),
-				i(2, ""),
-				i(3, "pass"),
-			},
-			{
-				delimiters = "<>",
-			}
-		)
-	),
-	s(
-		"ifc",
-		fmt(
-			[[
-    if <>:
-      <>
-    ]],
-			{ i(1, "cond"), i(2, "") },
-			{ delimiters = "<>" }
 		)
 	),
 }
