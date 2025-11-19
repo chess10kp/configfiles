@@ -8,7 +8,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
   export GTK_USE_PORTAL=0
   export CLUTTER_BACKEND=wayland
   export SDL_VIDEODRIVER="wayland,x11"
-  export SDL_AUDIODRIVE=pipewire
+  export SDL_AUDIODRIVER=pipewire
   export WLR_RENDERER=vulkan
   #export MESA_LOADER_DRIVER_OVERRIDE=zink
   export VDPAU_DRIVER=radeonsi
@@ -157,12 +157,12 @@ RPROMPT='%~%f'
 
 # zstyle ':vcs_info:git:*' formats '%b '
 
-# setopt PROMPT_SUBST
-PROMPT='$ '
+# REMOVED: setopt PROMPT_SUBST
+# REMOVED: PROMPT='$ '
 # [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 # source /usr/share/nvm/bash_completion
 # source /usr/share/nvm/install-nvm-exec
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 # set emacs-mode-string "\1\e]133;A\e\\\2"
 # Uncomment and/or adjust if you're using the vi editing-mode.
@@ -196,4 +196,23 @@ eval "$(zoxide init zsh)"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 zstyle ':completion:*' menu select
-fpath+=~/.zfunc
+autoload -Uz vcs_info
+
+    # Configure vcs_info to only show the branch name when in a Git repository
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:git:*' check-for-changes true
+    zstyle ':vcs_info:git:*' stagedstr '±'  # Symbol for staged changes
+    zstyle ':vcs_info:git:*' unstagedstr '!' # Symbol for unstaged changes
+    zstyle ':vcs_info:*' formats '(%b%u%c)' # Format: (branch name + unstaged + staged)
+    zstyle ':vcs_info:*' actionformats '(%b%u%c)'
+
+    # This function calls vcs_info and stores the result in a variable
+    precmd_vcs_info() { vcs_info }
+    precmd_functions+=( precmd_vcs_info )
+
+    # *** FIX: Enable variable substitution in the prompt ***
+    setopt PROMPT_SUBST
+
+    # Set the PROMPT, including the vcs_info variable ($vcs_info_msg_0_)
+    PROMPT='$vcs_info_msg_0_ %# '
+    fpath+=~/.zfunc
