@@ -39,7 +39,7 @@ run_cmd() {
     elif [[ $1 == '--logout' ]]; then
       kill -9 -1
     elif [[ $1 == '--logout' ]]; then
-	loginctl hibernate
+	systemctl hibernate
     fi
   fi
 }

@@ -56,6 +56,7 @@ o.linebreak = true
 o.list = true
 o.listchars = "tab:  ,nbsp:+,trail: ,extends: ,precedes: "
 o.magic = true
+vim.o.mopt = "history:10,wait:0"
 o.mousescroll = "ver:3,hor:6"
 o.mouse = "n"
 o.number = true

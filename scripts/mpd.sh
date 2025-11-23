@@ -11,8 +11,6 @@ fi
 # --- Function to manage the current queue (view and remove) ---
 manage_queue() {
     while true; do
-        # FIX: Use mpc format string: attempt Artist - Title, but fallback to %file% if metadata is missing.
-        # Format for Rofi: Visible Text ([Artist - Title] or Filepath) <TAB> Hidden Position
         queue_items=$(mpc playlist -f '[[%artist% - ]%title%]|%file%\t%position%')
 
         # Control commands for the queue menu
@@ -54,8 +52,9 @@ manage_queue() {
 }
 while true; do
     music_files=$(find "$music_dir" -type f \
-        \( -iname '*.mp3' -o -iname '*.flac' -o -iname '*.ogg' -o -iname '*.m4a' -o -iname '*.wav' \) \
+        \( -iname '*.mp3' -o -iname '*.flac' -o -iname '*.opus' -o -iname '*.ogg' -o -iname '*.m4a' -o -iname '*.wav' \) \
         -printf "%f\t%P\n")
+    echo $music_files
 
     songs=$(echo -e "$music_files\n::queue::\n::pause::\n::play::\n::next::\n::rescan::\n::repeat::\n::norepeat::\n::single::\n::nosingle::\n::clear::\n::quit::")
 
